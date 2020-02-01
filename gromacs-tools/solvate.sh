@@ -4,19 +4,24 @@
 
 # cmd parsing functions
 usage() { echo "Solvate of an biomolecule in a water box for an MD simulation
-Usage: solvate.sh -f <structure file>" 1>&2; exit 1; }
+Usage: solvate.sh -f <structure file (.gro, .pdb)> -w <solvent file (tip4p.gro, tip3p.gro, spc216.gro)> -d <mdp directory>" 1>&2; exit 1; }
 invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
-
+cleanup() { if ls -f em/\#* 1> /dev/null 2>&1 ; then rm em/\#* ; fi ; exit 1; }
 
 #------------
 # cmd parsing
 #------------
 
-while getopts ":s:h" opt; do
+while getopts ":f:w:d:h" opt; do
     case $opt in
         f) 
             structureFile=$OPTARG
+            ;;
+        d)
+            mdp_dir=$OPTARG
+            ;;
+        w)  waterFile=$OPTARG
             ;;
         h)
             usage
@@ -34,28 +39,33 @@ while getopts ":s:h" opt; do
 done
 
 # no cmd line arguments given
-if [ -z "$structureFile" ]; then
+if [ -z "$structureFile" ] || [ -z "$mdp_dir" ] || [ -z "$waterFile" ]; then
     usage
 fi
 
 # check if file is present
 if [ ! -e "$structureFile" ]; then
-    echo Error: the specified stucture file does not exist
+    echo Error: the specified structure file does not exist
     exit 1
 fi
 
+
 # GROMACS pipeline
-
 structureName=`echo $structureFile | cut -f1 -d"."`
-gmx pdb2gmx -f "$structureFile" -o "$structureName".gro -p "$structureName".top -i "$structureName"_posre.itp -merge all -ter yes || exit 1
-gmx editconf -f "$structureName".gro -o "$structureName"_box.gro -bt dodecahedron -d 1 || exit 1
-gmx solvate -cp "$structureName"_box.gro -o "$structureName"_solv.gro -p "$structureName".top || exit 1
-gmx grompp -f ions.mdp -c "$structureName"_solv.gro -p "$structureName".top -o "$structureName".tpr -po "$structureName".mdp || exit 1
-gmx genion -s "$structureName".tpr -o "$structureName"_withIons.gro -p "$structureName".top -nname Cl -pname K -neutral || exit 1
-gmx grompp -f em.mdp -c "$structureName"_withIons.gro -p "$structureName".top -o "$structureName"_min.tpr -po "$structureName"_min.mdp || exit 1
-gmx mdrun -s "$structureName"_min || exit 1
+mkdir em
 
-# clean up
-if ls -f \#* 1> /dev/null 2>&1 ; then
-    rm \#*
-fi
+gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p em/"$structureName".top -i em/"$structureName".itp -merge all -ter yes || { echo "-> Error: gmx pdb2gmx failed" ; cleanup; }
+
+gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d 1 || { echo "-> Error: gmx editconf failed" ; cleanup; }
+
+gmx solvate -cp em/"$structureName".gro -cs "$waterFile" -o em/"$structureName".gro -p em/"$structureName".top || { echo "Error: gmx solvate failed" ; cleanup; }
+
+gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp -maxwarn 2|| { echo "-> Error: grompp after solvation failed" ; cleanup; }
+
+gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p em/"$structureName".top -nname Cl -pname K -neutral || { echo "-> Error: gmx genion failed" ; cleanup; }
+
+gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp || { echo "-> Error: gmx grompp after genion failed" ; cleanup; }
+
+gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".ttr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup; }
+
+cleanup
