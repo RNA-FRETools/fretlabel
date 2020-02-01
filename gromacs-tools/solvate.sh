@@ -54,18 +54,18 @@ fi
 structureName=`echo $structureFile | cut -f1 -d"."`
 mkdir em
 
-gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p em/"$structureName".top -i em/"$structureName".itp -merge all -ter yes || { echo "-> Error: gmx pdb2gmx failed" ; cleanup; }
+gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p em/"$structureName".top -i em/"$structureName".itp -merge all -ter yes || { echo "-> Error: gmx pdb2gmx failed" ; cleanup "em"; }
 
-gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d 1 || { echo "-> Error: gmx editconf failed" ; cleanup; }
+gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d 1 || { echo "-> Error: gmx editconf failed" ; cleanup "em"; }
 
-gmx solvate -cp em/"$structureName".gro -cs "$waterFile" -o em/"$structureName".gro -p em/"$structureName".top || { echo "Error: gmx solvate failed" ; cleanup; }
+gmx solvate -cp em/"$structureName".gro -cs "$waterFile" -o em/"$structureName".gro -p em/"$structureName".top || { echo "Error: gmx solvate failed" ; cleanup "em"; }
 
-gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp -maxwarn 2|| { echo "-> Error: grompp after solvation failed" ; cleanup; }
+gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp -maxwarn 2|| { echo "-> Error: grompp after solvation failed" ; cleanup "em"; }
 
-gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p em/"$structureName".top -nname Cl -pname K -neutral || { echo "-> Error: gmx genion failed" ; cleanup; }
+gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p em/"$structureName".top -nname Cl -pname K -neutral || { echo "-> Error: gmx genion failed" ; cleanup "em"; }
 
-gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp || { echo "-> Error: gmx grompp after genion failed" ; cleanup; }
+gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p em/"$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp || { echo "-> Error: gmx grompp after genion failed" ; cleanup "em"; }
 
-gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".ttr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup; }
+gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".ttr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup "em"; }
 
 cleanup
