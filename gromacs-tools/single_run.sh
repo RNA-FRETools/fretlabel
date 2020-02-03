@@ -57,7 +57,7 @@ cleanup nvt
 
 # pressure equilibration
 mkdir npt
-gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/"$structureName".gro -r nvt/"$structureName".gro -t nvt/"$structureName".cpt -p "$structureName".top -o npt/"$structureName".tpr -po npt/"$structureName".mdp || { echo "Error: grompp for nvt failed" ; cleanup npt ; exit 1; }
+gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/"$structureName".gro -r nvt/"$structureName".gro -t nvt/"$structureName".cpt -p "$structureName".top -o npt/"$structureName".tpr -po npt/"$structureName".mdp || { echo "Error: grompp for npt failed" ; cleanup npt ; exit 1; }
 
 gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
 
@@ -66,8 +66,8 @@ cleanup npt
 
 # production run
 mkdir md0
-gmx grompp -f "$mdp_dir"/md0.mdp -c npt/"$structureName".gro -t npt/"$structureName".cpt -p "$structureName".top -o md0/"$structureName".tpr -po md0/"$structureName".mdp || { echo "Error: grompp for nvt failed" ; cleanup md0 ; exit 1; }
+gmx grompp -f "$mdp_dir"/md0.mdp -c npt/"$structureName".gro -t npt/"$structureName".cpt -p "$structureName".top -o md0/"$structureName".tpr -po md0/"$structureName".mdp || { echo "Error: grompp for md0 failed" ; cleanup md0 ; exit 1; }
 
-gmx mdrun -v -s md0/"$structureName".tpr -c md0/"$structureName".gro -x md0/"$structureName".xtc -cpo md0/"$structureName.cpt" -e md0/"$structureName".edr -g md0/"$structureName".log || { echo "-> Error: gmx mdrun for npt failed" ; cleanup md0 ; exit 1; }
+gmx mdrun -v -s md0/"$structureName".tpr -c md0/"$structureName".gro -x md0/"$structureName".xtc -cpo md0/"$structureName.cpt" -e md0/"$structureName".edr -g md0/"$structureName".log || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
 
 cleanup md0
