@@ -43,8 +43,6 @@ if [ -z "$structureFile" ] || [ -z "$mdp_dir" ]; then
 fi
 
 structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
-echo $structureName
-
 
 # temperature equilibration
 mkdir nvt
