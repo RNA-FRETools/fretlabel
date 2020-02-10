@@ -66,6 +66,6 @@ cleanup npt
 mkdir md0
 gmx grompp -f "$mdp_dir"/md0.mdp -c npt/"$structureName".gro -t npt/"$structureName".cpt -p "$structureName".top -o md0/"$structureName".tpr -po md0/"$structureName".mdp || { echo "Error: grompp for md0 failed" ; cleanup md0 ; exit 1; }
 
-gmx mdrun -v -s md0/"$structureName".tpr -c md0/"$structureName".gro -x md0/"$structureName".xtc -cpo md0/"$structureName.cpt" -e md0/"$structureName".edr -g md0/"$structureName".log || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
+gmx mdrun -v -s md0/"$structureName".tpr -c md0/"$structureName".gro -x md0/"$structureName".xtc -cpo md0/"$structureName".cpt -e md0/"$structureName".edr -g md0/"$structureName".log || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
 
 cleanup md0
