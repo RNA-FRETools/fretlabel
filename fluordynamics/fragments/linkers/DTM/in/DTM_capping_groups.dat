@@ -1,0 +1,13 @@
+// ACE cap fixed to the charge of AMBER99ff (format: CHARGE <partial_charge> <atom_ID> <atom_name>)
+CHARGE 0.5972 10 C16 
+CHARGE -0.3662 11 C17
+CHARGE -0.5679 13 O98 
+CHARGE 0.1123 32 H97
+CHARGE 0.1123 33 H96
+CHARGE 0.1123 34 H95
+
+// Group constraint for methylene cap (format: GROUP <number_atoms> <net_charge>)
+GROUP 3 -0.15400
+ATOM 1 C7
+ATOM 16 H01
+ATOM 17 H02
