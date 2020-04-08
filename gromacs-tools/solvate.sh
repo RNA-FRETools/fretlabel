@@ -69,7 +69,7 @@ gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p "$structureN
 
 gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p "$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp || { echo "-> Error: gmx grompp after genion failed" ; cleanup em; exit 1; }
 
-gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".ttr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup em; exit 1; }
+gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".trr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup em; exit 1; }
 
 cleanup ./
 cleanup em
