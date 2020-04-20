@@ -59,10 +59,10 @@ if [ -z "$timetoextend" ]; then
     gmx mdrun -v -s md0/"$inputName".tpr -cpi md0/"$inputName".cpt -x md0/"$inputName".xtc -e md0/"$inputName".edr -g md0/"$inputName".log -append -cpo md0/"$inputName".cpt -c md0/"$inputName".gro || { echo "-> Error: gmx mdrun for md0 restart failed" ; cleanup md0 ; exit 1; }
 else
     # extend finished run
-    if [ -o "$extInputFile" ]; then
+    if [ -z "$extInputFile" ]; then
         usage
     fi
-    gmx convert-tpr -s md0/"$inputName".tpr -extend 100000 -o md0/"$extInputFile" || { echo "-> Error: gmx convert-tpr for md0 extension failed" ; cleanup md0 ; exit 1; }
+    gmx convert-tpr -s md0/"$inputName".tpr -extend "$timetoextend" -o md0/"$extInputFile" || { echo "-> Error: gmx convert-tpr for md0 extension failed" ; cleanup md0 ; exit 1; }
     gmx mdrun -v -s md0/"$extInputFile" -cpi md0/"$inputName".cpt -x md0/"$inputName".xtc -e md0/"$inputName".edr -g md0/"$inputName".log -cpo md0/"$inputName".cpt -c md0/"$inputName".gro || { echo "-> Error: gmx mdrun for md0 extension failed" ; cleanup md0 ; exit 1; }
 
 fi 
