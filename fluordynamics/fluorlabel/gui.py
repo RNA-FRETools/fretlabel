@@ -34,6 +34,7 @@ class App(QtWidgets.QWidget):
         # activate / deactivate GUI elements
         self.push_addFragment.setEnabled(False)
         self.push_reloadPDB.setEnabled(False)
+        self.push_savePDB.setEnabled(False)
         self.spinBox_atomID.setEnabled(False)
 
 
@@ -54,7 +55,9 @@ class App(QtWidgets.QWidget):
         self.push_showText.clicked.connect(self.openPDBFile)
         self.comboBox_selectPosition.currentIndexChanged.connect(self.selectBase)
         self.comboBox_selectBase.currentIndexChanged.connect(self.selectDye)
+        self.comboBox_selectDye.currentIndexChanged.connect(self.valid_residues)
         self.push_demo.clicked.connect(self.runDemo)
+        self.push_savePDB.clicked.connect(self.savePDB)
 
     def addDye(self):
         """
@@ -66,40 +69,63 @@ class App(QtWidgets.QWidget):
             print('The selected dye fragment cannot be found')
         else:
             residue_names = self.get_residueNames(self.fragment['filename'])
+            
+            # change the residue number of the fragment
             cmd.alter(self.fragment['filename'], "resi={:d}".format(self.resi))
-            cmd.remove('hydrogens and {}'.format(self.fileName_pdb[:-4]))
             resin = 'resn {} and resi {:d}'.format(self.fragment['base'], self.resi)
+            chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
+            
+            # make selections of base and sugar backbone
             bases = '(name C*+N*+O*+H* and {} and not (name C*\'+O*\'+O*P*+H*\'*+P and {}))'.format(resin,resin)
             sugar_backbone = '(name C*\'+O*\'+O*P*+H*\'*+P and {})'.format(resin)
-            sele_frag = '{} and polymer.nucleic and {}'.format(self.fragment['filename'], sugar_backbone)
-            sele_pdb = '{} and resi {:d} and polymer.nucleic and {}'.format(self.fileName_pdb[:-4], self.resi, sugar_backbone)
-            cmd.align(sele_frag, sele_pdb)
-            chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
-            if self.fragment['alignment'] == 'base':
+            sele_frag_bases = '{} and polymer.nucleic and {}'.format(self.fragment['filename'], bases)
+            sele_pdb_bases = '{} and resi {:d} and polymer.nucleic and {}'.format(self.fileName_pdb[:-4], self.resi, bases)
+            sele_frag_sbb = '{} and polymer.nucleic and {}'.format(self.fragment['filename'], sugar_backbone)
+            sele_pdb_sbb = '{} and resi {:d} and polymer.nucleic and {}'.format(self.fileName_pdb[:-4], self.resi, sugar_backbone)
+
+            if self.fragment['position'] == 'internal':
+                # (1) align fragment on base of PDB, (2) remove base of PDB and (3) remove sugar-backbone of fragment
+                cmd.align(sele_frag_bases, sele_pdb_bases)
+                cmd.remove('{} and {} and {}'.format(self.fileName_pdb[:-4], resin, bases))
                 cmd.remove('{} and {}'.format(self.fragment['filename'], sugar_backbone))
-                cmd.remove('{} and {} and {}'.format(self.fileName_pdb[:-4], resin, bases)) 
-            if self.fragment['alignment'] == 'backbone':
-                cmd.remove('{} and {}'.format(self.fragment['filename'], bases))
-                cmd.remove('{} and {} and {}'.format(self.fileName_pdb[:-4], resin, sugar_backbone))
-            cmd.create('temp_name', '{} or {}'.format(self.fileName_pdb[:-4], self.fragment['filename']))
-            cmd.delete('{} or {}'.format(self.fileName_pdb[:-4], self.fragment['filename']))
+            else:
+                # (1) align fragment on PDB sugar-backbone, (2) extract base from fragment, 
+                # (3) realign base of fragment on base of PDB, (4) remove entire residue of PDB 
+                cmd.align(sele_frag_sbb, sele_pdb_sbb)
+                cmd.extract('temp_base', sele_frag_bases)
+                cmd.align('temp_base', sele_pdb_bases)
+                cmd.remove('{} and {}'.format(self.fileName_pdb[:-4], resin))
+                cmd.create(self.fragment['filename'], 'temp_base or {}'.format(self.fragment['filename']))
+                cmd.remove('temp_base')
+
+            # add fragment to PDB object
+            cmd.create(self.fileName_pdb[:-4], '{} or {}'.format(self.fileName_pdb[:-4], self.fragment['filename']))
+            cmd.delete(self.fragment['filename'])
+
+            # make bond between base and sugar
             if ('A' in self.fragment['base']) or ('G' in self.fragment['base']):
                 cmd.bond('{} and name N9'.format(resin), '{} and name C1\''.format(resin))
             else:
                 cmd.bond('{} and name N1'.format(resin), '{} and name C1\''.format(resin))
-            cmd.set_name('temp_name', self.fileName_pdb[:-4])
-            cmd.alter('{} and name OP1'.format(resin), 'name="O1P"')
-            cmd.alter('{} and name OP2'.format(resin), 'name="O2P"')
+
+            # make bond between between consecutive residues at 5'-end/3'end
             if self.fragment['position'] == "5'-end":
                 cmd.bond('{} and name O3\''.format(resin), 'resi {} and name P'.format(self.resi+1))
             elif self.fragment['position'] == "3'-end":
                 cmd.bond('resi {} and name O3\''.format(self.resi-1), '{} and name P'.format(resin))
-            cmd.show('sticks')
+
             self.add_H()
+
+            # rename chain. residues and atoms
+            cmd.alter('{} and name OP1'.format(resin), 'name="O1P"')
+            cmd.alter('{} and name OP2'.format(resin), 'name="O2P"')
             for resn in residue_names:
                 cmd.alter('resi {:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(chain))
-                if resn in ['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU', 'A', 'G', 'C', 'T']: 
-                    cmd.alter('resi {:d} and resn {}'.format(self.resi, resn), 'resn="{}"'.format(self.fragment))
+                if resn.strip() in ['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU', 'A', 'G', 'C', 'T', 'POS', 'MLE']:
+                    cmd.alter('resi {:d} and resn {}'.format(self.resi, resn), 'resn="{}"'.format(self.fragment['filename'][-3:]))
+            
+            # visualization settings
+            cmd.show('sticks')
             cmd.color('skyblue', 'resi {}'.format(self.resi))       
             cmd.zoom(self.fileName_pdb[:-4])
 
@@ -119,7 +145,7 @@ class App(QtWidgets.QWidget):
                 cmd.h_add('name {} and resi {:d} and polymer.nucleic'.format(c, self.resi))
                 cmd.alter('name H01 and resi {:d} and polymer.nucleic'.format(self.resi), 'name="{}"'.format(h))
             else:
-                cmd.alter('name H02 and resi {:d} and polymer.nucleic'.format(self.resi), 'name="{}"'.format(h))
+                cmd.alter('name H0* and resi {:d} and polymer.nucleic'.format(self.resi), 'name="{}"'.format(h))
         
         
     def loadPDBinPyMOL(self):
@@ -154,11 +180,15 @@ class App(QtWidgets.QWidget):
                 self.pdbText = f.read()
                 self.push_showText.setEnabled(True)
             self.loadPDBinPyMOL()
-            self.push_reloadPDB.setEnabled(True)              
+            self.push_reloadPDB.setEnabled(True) 
+            self.push_savePDB.setEnabled(True)             
             self.lineEdit_pdbFile.setText(self.fileName_pdb)
             
 
     def selectBase(self):
+        """
+        Update the base dropdown menu
+        """
         self.comboBox_selectBase.clear()
         currPos = self.comboBox_selectPosition.currentText()
         for frag in self.dye_lib:
@@ -169,6 +199,9 @@ class App(QtWidgets.QWidget):
                 
 
     def selectDye(self):
+        """
+        Update the dye dropdown menu
+        """
         self.comboBox_selectDye.clear()
         currBase = self.comboBox_selectBase.currentText()
         for frag in self.dye_lib:
@@ -182,15 +215,13 @@ class App(QtWidgets.QWidget):
         """
         Make list of residues where the selected fragment can be attached to
         """
+        currPos = self.comboBox_selectPosition.currentText()
+        currBase = self.comboBox_selectBase.currentText()
+        currDye = self.comboBox_selectDye.currentText()
+        for frag in self.dye_lib:
+            if (frag['position']==currPos) and (frag['base']==currBase) and (frag['dye']==currDye):
+                self.fragment = frag
         if self.fileNamePath_pdb:
-            currPos = self.comboBox_selectPosition.currentText()
-            currBase = self.comboBox_selectBase.currentText()
-            currDye = self.comboBox_selectDye.currentText()
-            for frag in self.dye_lib:
-                if (frag['position']==currPos) and (frag['base']==currBase) and (frag['dye']==currDye):
-                    self.fragment = frag
-            #self.fragment = [frag for frag in self.dye_lib if (frag['position']==currPos) and (frag['base']==currBase) and (frag['dye']==currDye)][0]
-            #self.fragment = self.comboBox_selectFragment.currentText()
             if self.fragment['position'] == "5'-end":
                 allowed_resis = '1'
             elif self.fragment['position'] == "3'-end":
@@ -220,7 +251,7 @@ class App(QtWidgets.QWidget):
             else:
                 self.spinBox_atomID.setEnabled(False)
                 self.push_addFragment.setEnabled(False)
-                self.lineEdit_pdbAtom.setText('no {} at {}'.format(currBase, currPos))
+                self.lineEdit_pdbAtom.setText('no {} at {}'.format(self.fragment['base'], self.fragment['position']))
             self.update_atom()
 
 
@@ -306,8 +337,20 @@ class App(QtWidgets.QWidget):
 
 
     def runDemo(self):
+        """
+        Display a demo file
+        """
         filename = os.path.join(os.path.dirname(__file__), 'demo/p19.pdb')
         self.readPDB(fileNamePath_pdb=filename)
+
+    def savePDB(self):
+        """
+        Save the PDB in PDB or CIF format
+        """
+        filename, filetype = QtWidgets.QFileDialog.getSaveFileName(self, "Save PDB", "", "PDB File (*.pdb);;CIF File (*.cif)")
+        cmd.set('pdb_use_ter_records', 0)
+        cmd.sort(self.fileName_pdb[:-4])
+        cmd.save(filename, self.fileName_pdb[:-4], -1, filetype[0:3].lower())
 
 
 

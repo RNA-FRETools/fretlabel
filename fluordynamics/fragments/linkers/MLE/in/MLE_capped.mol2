@@ -1,6 +1,6 @@
 # created with PyMOL 2.3.3
 @<TRIPOS>MOLECULE
-DTM_capped
+MLE_capped
 35 34 1                 
 SMALL
 USER_CHARGES
@@ -76,4 +76,4 @@ USER_CHARGES
 33 10 14 1
 34 14 18 1
 @<TRIPOS>SUBSTRUCTURE
-1	DTM1	1	GROUP	1 ****	DTM
+1	MLE1	1	GROUP	1 ****	MLE

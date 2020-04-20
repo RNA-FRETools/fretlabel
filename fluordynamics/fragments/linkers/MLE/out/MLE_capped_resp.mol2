@@ -1,5 +1,5 @@
 @<TRIPOS>MOLECULE
-DTM
+MLE
    35    34     1     0     0
 SMALL
 rc
@@ -77,4 +77,4 @@ rc
     33    10    14 1   
     34    14    18 1   
 @<TRIPOS>SUBSTRUCTURE
-     1 DTM         1 TEMP              0 ****  ****    0 ROOT
+     1 MLE         1 TEMP              0 ****  ****    0 ROOT
