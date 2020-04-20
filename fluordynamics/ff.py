@@ -65,7 +65,6 @@ def couple_dye2baselinker(dye, baselinker, align_dye_atoms, align_baselinker_ato
     remove_baselinker_atoms : list
                       list of atom names of the base-linker to be removed (i.e. capping group)
     """
-    cmd_gui = jupyter.connect2pymol()
     try:
         cmd_gui = jupyter.connect2pymol()
     except NameError:
@@ -107,6 +106,95 @@ def write_mol2(pandasMol2, filename=None, overwrite=False):
         with open(filename, 'w') as f:
             mol2filestr = '{}\n{}\n{}'.format(pandasMol2.mol2_text[0:atom_end], pandasMol2.df.to_string(header=False, index=False), pandasMol2.mol2_text[bond_start:])
             f.write(mol2filestr)
+
+def write_rtp(filename, molecule):
+    """
+    Write a residue topology parameter (rtp) file 
+
+    Parameters
+    ----------
+    filename : str
+    molecule : str
+    """
+    if type(molecule) is not list:
+        molecule = [molecule]
+
+    with open(filename, 'w') as f:
+        f.write("""[ bondedtypes ]
+    ; Col 1: Type of bond
+    ; Col 2: Type of angles
+    ; Col 3: Type of proper dihedrals
+    ; Col 4: Type of improper dihedrals
+    ; Col 5: Generate all dihedrals if 1, only heavy atoms of 0.
+    ; Col 6: Number of excluded neighbors for nonbonded interactions
+    ; Col 7: Generate 1,4 interactions between pairs of hydrogens if 1
+    ; Col 8: Remove impropers over the same bond as a proper if it is 1
+    ; bonds  angles  dihedrals  impropers all_dihedrals nrexcl HH14 RemoveDih
+    1       1          9          4        1         3      1     0\n\n""")
+        for mol in molecule:
+            f.write('[ {} ]\n'.format(mol.moleculetype))
+            f.write('[ atoms ]\n')
+            f.write(mol.atoms[['atom', 'type', 'charge', 'nr']].to_string(header=False, index=False))
+            f.write('\n[ bonds ]\n')
+            f.write(mol.bonds[['ai', 'aj']].to_string(header=False, index=False))
+            f.write('\n[ impropers ]\n')
+            f.write(mol.impropers[['ai', 'aj', 'ak', 'al']].to_string(header=False, index=False))
+            f.write('\n\n')
+
+
+def pymol_savemol2(filename, molecule, pc_decimals=6, overwrite=False, state=-1):
+    """
+    Export the selection to a mol2 file with user-defined partial charge precision. 
+    The PyMOL built-in save function truncates the string to 3 decimals.
+
+    Parameters
+    ----------
+    pc_decimals : int
+                  number of decimals for partial charge
+    """
+    try:
+        cmd_gui = jupyter.connect2pymol()
+    except NameError:
+        print('First launch a PyMOL server session with pymol -R')
+    else:
+        if os.path.isfile(filename) and not overwrite:
+            print('File already exists, do not overwrite')
+        else:
+            #mol2str = cmd_gui.get_str('mol2', molecule, -1)
+            model = cmd_gui.get_model(molecule, state)
+            substrucutre = []
+            visited_res = []
+            subst_id = 1
+            for i,atom in enumerate(model['atom']):
+                if atom['resn']+str(atom['resi_number']) not in visited_res:
+                    if atom['flags'] == 0x08000000:
+                        residue_type = 'RESIDUE'
+                    else:
+                        residue_type = 'GROUP'
+                    substrucutre.append([subst_id, atom['resn'], i+1, residue_type, atom['resi_number'], '****', atom['resn']])
+                    visited_res.append(atom['resn']+str(atom['resi_number']))
+                    subst_id += 1
+
+            with open(filename, 'w') as f:
+                f.write('@<TRIPOS>MOLECULE\n{}\n'.format(model['molecule']['title']))
+                f.write('{:d} {:d} {:d}\n'.format(len(model['atom']),len(model['bond']),len(visited_res)))
+                f.write('SMALL\nUSER_CHARGES\n@<TRIPOS>ATOM\n')
+                visited_res = []
+                subst_id = 0
+                for i,atom in enumerate(model['atom']):
+                    if atom['resn']+str(atom['resi_number']) not in visited_res:
+                        visited_res.append(atom['resn']+str(atom['resi_number']))
+                        subst_id += 1
+                    f.write('{:d}\t{}\t{:0.3f}\t{:0.3f}\t{:0.3f}\t{}\t{:d}\t{}\t{:.{prec}f}\n'.format(i+1,atom['name'],*atom['coord'],atom['text_type'],
+                             subst_id,atom['resn'],atom['partial_charge'], prec=pc_decimals))
+
+                f.write('@<TRIPOS>BOND\n')
+                for i,bond in enumerate(model['bond']):
+                    f.write('{:d} {:d} {:d} {:d}\n'.format(i+1, *np.array(bond['index'])+1, bond['order']))
+                f.write('@<TRIPOS>SUBSTRUCTURE\n')
+                for res in substrucutre:
+                    f.write('{:d} {} {:d} {} {:d} {} {}\n'.format(*res))
+
 
 
 def pandasMol2_replace(from_df, to_df, replace_name, subst_value=None, match_name='atom_name'):
@@ -158,7 +246,7 @@ def update_valency(pandasMol2, bonds_atomNames):
     return pandasMol2
 
 
-def update_specbond(specbond_string, filename='specbond.dat', outputdir=None, overwrite=False):
+def update_specbond(specbond_string, inputfile='specbond.dat', outputfile='specbond.dat', overwrite=False):
     """
     Add new special bonds
 
@@ -169,11 +257,11 @@ def update_specbond(specbond_string, filename='specbond.dat', outputdir=None, ov
                       'resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB'
     filename : str (optional)
     """
-    with open(filename, 'r') as f:
+    with open(inputfile, 'r') as f:
         n_specbonds = int(f.readline())
 
     specbond_format = ['resA', 'atomA', 'nbondsA', 'resB', 'atomB', 'nbondsB', 'length', 'newresA', 'newresB']
-    specbonds_df = pd.read_csv(filename, skiprows=1, sep='\s+', nrows=n_specbonds, names=specbond_format, na_filter=False)
+    specbonds_df = pd.read_csv(inputfile, skiprows=1, sep='\s+', nrows=n_specbonds, names=specbond_format, na_filter=False)
     
     try:
         specbond_newline = pd.DataFrame([specbond_string.split()], columns=specbond_format)
@@ -185,13 +273,40 @@ def update_specbond(specbond_string, filename='specbond.dat', outputdir=None, ov
         n_specbonds = specbonds_df.shape[0]
 
         
-        if outputdir is not None:
-            filename = os.path.join(outputdir, filename.split('/')[-1])
-        if os.path.isfile(filename):
-            filename = filename[:-4]+'_new.dat'
-        with open(filename, 'w') as f:
-            f.write('{:d}\n'.format(n_specbonds))
-            f.write(specbonds_df.to_string(header=False, index=False)+'\n')
+        if os.path.isfile(outputfile) and not overwrite:
+            print('File already exists, do not overwrite. Either change outputfilename or set overwrite=True')
+        else:
+            with open(outputfile, 'w') as f:
+                f.write('{:d}\n'.format(n_specbonds))
+                f.write(specbonds_df.to_string(header=False, index=False)+'\n')
+
+def update_residuetypes(residuetypes_string, inputfile='residuetypes.dat', outputfile='residuetypes.dat', overwrite=False):
+    """
+    Add new residue type
+
+    Parameters
+    ----------
+    residuetypes_string : str
+                          space-delimited string of following format:
+                          'residue  type'
+    filename : str (optional)
+    """
+    residuetype_format = ['residue', 'type']
+    residuetypes_df = pd.read_csv(inputfile, sep='\s+', names=residuetype_format, na_filter=False)
+    
+    try:
+        residuetype_newline = pd.DataFrame([residuetypes_string.split()], columns=residuetype_format)
+    except ValueError:
+        print('The residuetype string that was passed has a wrong format.\n\nThe format is:\n{}'.format(' '.join(residuetype_format)))
+    else:
+        residuetypes_df = residuetypes_df.append(residuetype_newline).reset_index(drop=True)
+        residuetypes_df.drop_duplicates(inplace=True, keep='last', subset=['residue'])
+        
+        if os.path.isfile(outputfile) and not overwrite:
+            print('File already exists, do not overwrite. Either change outputfilename or set overwrite=True')
+        else:
+            with open(outputfile, 'w') as f:
+                f.write(residuetypes_df.to_string(header=False, index=False)+'\n')
 
 
 def write_ff(ff_folder, amberdyes=None, linker=None, specialbond=None, outputdir='./'):
@@ -245,6 +360,29 @@ def write_ff(ff_folder, amberdyes=None, linker=None, specialbond=None, outputdir
         with open(os.path.join(outputdir, filename.split('/')[-1]), 'w') as f:
             f.write(newlines)
 
+def save_molecule(filename, selection, fmt='mol2', state=-1, overwrite=False):
+    """
+    Save the molecule
+    
+    Parameters
+    ----------
+    filename : str
+    fmt : str
+          format of the file (pdb or mol2)
+    state : int (optional)
+            current state = -1
+    overwrite : bool
+    """
+    try:
+        cmd_gui = jupyter.connect2pymol()
+    except NameError:
+        print('First launch a PyMOL server session with pymol -R')
+    else:
+        if os.path.isfile(filename) and not overwrite:
+            print('File already exists, do not overwrite')
+        else:
+            cmd_gui.save(filename, selection, state, fmt)
+
 
 class Parameters:
     def __init__(self, atomtypes, bondtypes, constrainttypes, angletypes, propertypes, impropertypes):
@@ -285,13 +423,19 @@ class Parameters:
                         else: 
                             key2 = key
                         amberlines[key2].append(line)
-
-        atomtypes = pd.DataFrame([x.split() for x in amberlines['atomtypes']], columns=['name','at.num','mass','charge','ptype','sigma','epsilon', ';','comment']).dropna()
-        bondtypes = pd.DataFrame([x.split() for x in amberlines['bondtypes']], columns=['i','j','funct','b0','kb',';', 'comment']).dropna()
-        constrainttypes = pd.DataFrame([x.split() for x in amberlines['constrainttypes']], columns=['i','j','funct','b0',';','comment']).dropna()
-        angletypes = pd.DataFrame([x.split() for x in amberlines['angletypes']], columns=['i','j','k','funct','th0','cth',';','comment']).dropna()
-        propertypes = pd.DataFrame([x.split() for x in amberlines['propertypes']], columns=['i','j','k','l','funct','phase','kd','pn',';','comment']).dropna()
-        impropertypes = pd.DataFrame([x.split() for x in amberlines['impropertypes']], columns=['i','j','k','l','funct','phase','kd','pn',';','comment']).dropna()
+        #print(amberlines['atomtypes'])
+        atomtypes = pd.DataFrame([x.split() for x in amberlines['atomtypes']], columns=['name','at.num','mass','charge','ptype','sigma','epsilon', ';','comment']).dropna().drop(';', axis=1)
+        bondtypes = pd.DataFrame([x.split() for x in amberlines['bondtypes']], columns=['i','j','funct','b0','kb',';', 'comment']).dropna().drop(';', axis=1)
+        constrainttypes = pd.DataFrame([x.split() for x in amberlines['constrainttypes']], columns=['i','j','funct','b0',';','comment']).dropna().drop(';', axis=1)
+        angletypes = pd.DataFrame([x.split() for x in amberlines['angletypes']], columns=['i','j','k','funct','th0','cth',';','comment']).dropna().drop(';', axis=1)
+        propertypes = pd.DataFrame([x.split() for x in amberlines['propertypes']], columns=['i','j','k','l','funct','phase','kb','pn',';','comment']).dropna().drop(';', axis=1)
+        impropertypes = pd.DataFrame([x.split() for x in amberlines['impropertypes']], columns=['i','j','k','l','funct','phase','kb','pn',';','comment']).dropna().drop(';', axis=1)
+        atomtypes['comment'] = '; '+atomtypes['comment']
+        bondtypes['comment'] = '; '+bondtypes['comment']
+        constrainttypes['comment'] = '; '+constrainttypes['comment']
+        angletypes['comment'] = '; '+angletypes['comment']
+        propertypes['comment'] = '; '+propertypes['comment']
+        impropertypes['comment'] = '; '+impropertypes['comment']
         return cls(atomtypes, bondtypes, constrainttypes, angletypes, propertypes, impropertypes)
 
 
@@ -427,6 +571,57 @@ class Parameters:
         return cls(None, bondtypes, None, angletypes, propertypes, None)
 
 
+    def append(self, parameters):
+        if self.atomtypes is not None:
+            self.atomtypes = self.atomtypes.append(parameters.atomtypes).drop_duplicates()
+        if self.bondtypes is not None:
+            self.bondtypes = self.bondtypes.append(parameters.bondtypes).drop_duplicates()
+        if self.constrainttypes is not None:
+            self.constrainttypes = self.constrainttypes.append(parameters.constrainttypes).drop_duplicates()
+        if self.angletypes is not None:
+            self.angletypes = self.angletypes.append(parameters.angletypes).drop_duplicates()
+        if self.propertypes is not None:
+            self.propertypes = self.propertypes.append(parameters.propertypes).drop_duplicates()
+        if self.impropertypes is not None:
+            self.impropertypes = self.impropertypes.append(parameters.impropertypes).drop_duplicates()
+
+
+    def add2ff(self, ff_folder, outputdir='./'):
+        """
+        Update the forcefield parameter files ffnonbonded.itp and ffbonded.itp with a new parameter set
+        Writes a copy of the forcefield files with the updated parameters to the current working directory
+
+        Parameters
+        ----------
+        ff_folder : str
+                    folder where the original ffnonbonded.itp and ffbonded.itp are located
+        """
+        for filename in ['{}/ffnonbonded.itp'.format(ff_folder), '{}/ffbonded.itp'.format(ff_folder)]:
+            with open(filename, 'r') as f:
+                lines = f.readlines()
+                keynames = []
+                newlines = ''
+                it = enumerate(lines)
+                for i,line in it:
+                    newlines += line
+                    match = re.search('\[\s(\w+)\s]', line)
+                    if match:
+                        newlines += lines[i+1]
+                        next(it)
+                        key = match.group(1)
+                        key2 = key
+                        if (key == 'dihedraltypes') and (' 9 ' in lines[i+2]):
+                            key2 = 'propertypes'
+                        if (key == 'dihedraltypes') and (' 4 ' in lines[i+2]):
+                            key2 = 'impropertypes'
+                        
+                        df = getattr(self, key2)
+                        if df is not None:
+                            newlines += df.to_string(header=False, index=False)+'\n'                 
+
+            with open(os.path.join(outputdir, filename.split('/')[-1]), 'w') as f:
+                f.write(newlines)
+
     def write_atp(self, filename):
         """
         Write a atomtype force field file
@@ -502,12 +697,12 @@ class Molecule:
         # map the atom name on the atom number of the bonds, angles and (im)proper dihedrals
         map_corresp = atoms.set_index('nr')['atom']
         for atm_id in ('i','j'):
-            bonds[atm_id] = bonds[atm_id].map(map_corresp)
+            bonds['a{}'.format(atm_id)] = bonds[atm_id].map(map_corresp)
         for atm_id in ('i','j','k'):
-            angles[atm_id] = angles[atm_id].map(map_corresp)
+            angles['a{}'.format(atm_id)] = angles[atm_id].map(map_corresp)
         for atm_id in ('i','j','k','l'):
-            propers[atm_id] = propers[atm_id].map(map_corresp)
-            impropers[atm_id] = impropers[atm_id].map(map_corresp)
+            propers['a{}'.format(atm_id)] = propers[atm_id].map(map_corresp)
+            impropers['a{}'.format(atm_id)] = impropers[atm_id].map(map_corresp)
 
         if comment is not None:
             bonds['comment'] = '; {}'.format(comment)
@@ -536,37 +731,20 @@ class Molecule:
         ----------
         name : str
         """
-        self.atoms = self.atoms.drop(self.atoms[self.atoms['atom'] == name].index).reset_index()
-        self.atoms['nr'] = range(self.atoms.shape[0])
+        if self.atoms is not None:
+            self.atoms = self.atoms.drop(self.atoms[(self.atoms['atom'] == name)].index).reset_index(drop=True)
+            self.atoms['nr'] = range(self.atoms.shape[0])
+        if self.bonds is not None:
+            self.bonds = self.bonds.drop(self.bonds[(self.bonds['ai'] == name) | (self.bonds['aj'] == name)].index).reset_index(drop=True)
+        if self.angles is not None:
+            self.angles = self.angles.drop(self.angles[(self.angles['ai'] == name) | (self.angles['aj'] == name) | (self.angles['ak'] == name)].index).reset_index(drop=True)
+        if self.propers is not None:
+            self.propers = self.propers.drop(self.propers[(self.propers['ai'] == name) | (self.propers['aj'] == name) | (self.propers['ak'] == name) | (self.propers['al'] == name)].index).reset_index(drop=True)
+        if self.impropers is not None:
+            self.impropers = self.impropers.drop(self.impropers[(self.impropers['ai'] == name) | (self.impropers['aj'] == name) | (self.impropers['ak'] == name) | (self.impropers['al'] == name)].index).reset_index(drop=True)
 
 
-    def write_rtp(self, filename):
-        """
-        Write a molecule in the TRIPOS mol2 format
-
-        Parameters
-        ----------
-        filename : str (optional)
-        """
-        with open(filename, 'w') as f:
-            f.write("""[ bondedtypes ]
-        ; Col 1: Type of bond
-        ; Col 2: Type of angles
-        ; Col 3: Type of proper dihedrals
-        ; Col 4: Type of improper dihedrals
-        ; Col 5: Generate all dihedrals if 1, only heavy atoms of 0.
-        ; Col 6: Number of excluded neighbors for nonbonded interactions
-        ; Col 7: Generate 1,4 interactions between pairs of hydrogens if 1
-        ; Col 8: Remove impropers over the same bond as a proper if it is 1
-        ; bonds  angles  dihedrals  impropers all_dihedrals nrexcl HH14 RemoveDih
-        1       1          9          4        1         3      1     0\n\n""")
-            f.write('[ {} ]\n'.format(self.moleculetype))
-            f.write('[ atoms ]\n')
-            f.write(self.atoms[['atom', 'type', 'charge', 'nr']].to_string(header=False, index=False))
-            f.write('\n[ bonds ]\n')
-            f.write(self.bonds[['i', 'j']].to_string(header=False, index=False))
-            f.write('\n[ impropers ]\n')
-            f.write(self.impropers[['i', 'j', 'k', 'l']].to_string(header=False, index=False))
-            f.write('\n')
+    def save_rtp(self, filename):
+        write_rtp(filename, self)
 
 
