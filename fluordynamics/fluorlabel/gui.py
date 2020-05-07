@@ -4,15 +4,9 @@ from pymol import cmd
 from pymol.Qt import QtWidgets, utils, QtCore
 import json
 import pandas as pd
-#import webbrowser
+import webbrowser
 
-
-#package_directory = os.path.dirname(os.path.abspath(cloud.__file__))
-
-#about = {}
-#with open(os.path.join(package_directory, '__about__.py')) as a:
-#    exec(a.read(), about)
-
+package_directory = os.path.dirname(os.path.abspath(__file__))
 
 class App(QtWidgets.QWidget):
 
@@ -20,12 +14,17 @@ class App(QtWidgets.QWidget):
         super().__init__(*args, **kwargs)
         #self.uiIconPath = '{}/icon'.format(package_directory)
         fluorlabelUI = os.path.join(os.path.dirname(__file__), 'fluorlabel.ui')
+        self.settingsUI = os.path.join(os.path.dirname(__file__), 'settings.ui')
         self.textUI = os.path.join(os.path.dirname(__file__), 'textpad.ui')
         utils.loadUi(fluorlabelUI, self)
         self.setWindowTitle("FluorLabel")
         #self.setWindowIcon(utils.QtGui.QIcon(self.uiIconPath))
         self._pymol_running = _pymol_running
         self.readTheDocsURL = None
+        self.settingsWindow = QtWidgets.QDialog(self)
+        utils.loadUi(self.settingsUI, self.settingsWindow)
+        self.settingsWindow.setWindowTitle("FluorLabel - Settings")
+        self.settings = {'browser': None, 'local_docs': None}
         self.textWindow = QtWidgets.QDialog(self)
         self.fileNamePath_pdb = None
         utils.loadUi(self.textUI, self.textWindow)
@@ -46,6 +45,8 @@ class App(QtWidgets.QWidget):
                 self.comboBox_selectPosition.addItem(frag['position'])
         self.selectBase()
 
+
+
         
         # signals
         self.push_addFragment.clicked.connect(self.addDye)
@@ -58,6 +59,9 @@ class App(QtWidgets.QWidget):
         self.comboBox_selectDye.currentIndexChanged.connect(self.valid_residues)
         self.push_demo.clicked.connect(self.runDemo)
         self.push_savePDB.clicked.connect(self.savePDB)
+        self.push_docs.clicked.connect(self.openDocumentation)
+        self.settingsWindow.push_browser.clicked.connect(self.set_browser)
+        self.settingsWindow.push_localdocs.clicked.connect(self.set_localdocsDir)
 
     def addDye(self):
         """
@@ -389,7 +393,7 @@ class App(QtWidgets.QWidget):
         """
         Display a demo file
         """
-        filename = os.path.join(os.path.dirname(__file__), 'demo/p19.pdb')
+        filename = os.path.join(os.path.dirname(__file__), 'demo/DNA.pdb')
         self.readPDB(fileNamePath_pdb=filename)
 
     def savePDB(self):
@@ -404,6 +408,60 @@ class App(QtWidgets.QWidget):
         cmd.save(filename, self.fileName_pdb[:-4], -1, filetype[0:3].lower())
         if self.pdb_altered == True:
             self.alter_nucleic(direction='forward')
+
+    def set_browser(self):
+        browser_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, 'Search for default browser')
+        if browser_path:
+            self.settingsWindow.lineEdit_browser.setText(browser_path)
+            self.settings['browser'] = browser_path
+            with open('{}/.fluorlabel_settings.conf'.format(package_directory), 'w') as f:
+                json.dump(self.settings, f, indent=2)
+
+    def set_localdocsDir(self):
+        docs_path = QtWidgets.QFileDialog.getExistingDirectory(self, 'Select docs directory')
+        if docs_path:
+            self.settingsWindow.lineEdit_localdocs.setText(docs_path)
+            self.settings['local_docs'] = docs_path
+            with open('{}/.fluorlabel_settings.conf'.format(package_directory), 'w') as f:
+                json.dump(self.settings, f, indent=2)
+
+
+    def openDocumentation(self):
+        if not self.readTheDocsURL:
+            if not self.settings['local_docs']:
+                msg = QtWidgets.QMessageBox()
+                msg.setIcon(QtWidgets.QMessageBox.Information)
+                msg.setWindowTitle("Location of docs not configured")
+                msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+                msg.setText('Press <OK> and specify the path of the local docs.')
+                returnValue = msg.exec_()
+                if returnValue == QtWidgets.QMessageBox.Ok:
+                    self.set_localdocsDir()
+                
+        if not self.settings['browser']:
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setWindowTitle("Web browser not configured")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+            msg.setText('For the documentation to be displayed, the path to a web browser needs to be configured. Press <OK> and search for the browser executable (Firefox, Chrome or Edge).')
+            returnValue = msg.exec_()
+            if returnValue == QtWidgets.QMessageBox.Ok:
+                self.set_browser()
+
+        if self.settings['browser']:
+            try:
+                browser = webbrowser.get('{} %s'.format(self.settings['browser']))
+                browser.open('file://{}/index.html'.format(self.settings['local_docs']))
+            except webbrowser.Error:
+                self.settings['browser'] = None
+                print('Browser not found!')
+                with open('{}/.fluorlabel_settings.conf'.format(package_directory), 'w') as f:
+                    json.dump(self.settings, f, indent=2)
+            except FileNotFoundError:
+                self.settings['local_docs'] = None
+                print('Local docs not found!')
+                with open('{}/.fluorlabel_settings.conf'.format(package_directory), 'w') as f:
+                    json.dump(self.settings, f, indent=2)
 
 
 if __name__ == '__main__':
