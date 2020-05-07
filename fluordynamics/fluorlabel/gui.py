@@ -76,7 +76,7 @@ class App(QtWidgets.QWidget):
             chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
             
             # make selections of base and sugar backbone
-            nucleic = 'resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DT'
+            nucleic = 'resn RA+RG+RC+RU+DA+DG+DC+DT'
             bases = '(name C*+N*+O*+H* and {} and not (name C*\'+O*\'+O*P*+H*\'*+P and {}))'.format(resin,resin)
             sugar_backbone = '(name C*\'+O*\'+O*P*+H*\'*+P and {})'.format(resin)
             sele_frag_bases = '{} and {} and {}'.format(self.fragment['filename'], nucleic, bases)
@@ -84,11 +84,25 @@ class App(QtWidgets.QWidget):
             sele_frag_sbb = '{} and {} and {}'.format(self.fragment['filename'], nucleic, sugar_backbone)
             sele_pdb_sbb = '{} and resi {:d} and {} and {}'.format(self.fileName_pdb[:-4], self.resi, nucleic, sugar_backbone)
 
+            # check NA type of fragment
+            if cmd.select('{} and {} and name O2\''.format(self.fragment['filename'], nucleic)) > 0: # RNA
+                self.NA_typefrag = 'RNA'
+            elif cmd.select('{} and {}'.format(self.fragment['filename'], nucleic)) > 0: # DNA
+                self.NA_typefrag = 'DNA'
+            else:
+                self.NA_typefrag = None
+
             if self.fragment['position'] == 'internal':
-                # (1) align fragment on base of PDB, (2) remove base of PDB and (3) remove sugar-backbone of fragment
+                # (1) align fragment on base of PDB, (2) remove base of PDB, 
+                # (3) remove sugar-backbone of fragment (4) remove O2' of PDB if NA_typefrag is DNA and alter PDB from RNA to DNA
+                # Note: (4) is useful for fragments like DTM which are DNA based but can be inserted at an internal DT or RU
                 cmd.align(sele_frag_bases, sele_pdb_bases)
                 cmd.remove('{} and {} and {}'.format(self.fileName_pdb[:-4], resin, bases))
                 cmd.remove('{} and {}'.format(self.fragment['filename'], sugar_backbone))
+                if self.NA_typefrag == 'DNA':
+                    cmd.remove('{} and resi {} and name O2\''.format(self.fileName_pdb[:-4], self.resi))
+                    resn = [r for r in self.fragment['base'].split('+') if 'D' in r][0]
+                    cmd.alter('{} and resi {}'.format(self.fileName_pdb[:-4], self.resi), 'resn="{}"'.format(resn))
             else:
                 # (1) align fragment on PDB sugar-backbone, (2) extract base from fragment, 
                 # (3) realign base of fragment on base of PDB, (4) remove entire residue of PDB
@@ -120,9 +134,10 @@ class App(QtWidgets.QWidget):
             # rename chain. residues and atoms
             cmd.alter('{} and name OP1'.format(resin), 'name="O1P"')
             cmd.alter('{} and name OP2'.format(resin), 'name="O2P"')
+            print(residue_names)
             for resn in residue_names:
                 cmd.alter('resi {:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(chain))
-                if resn.strip() in ['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU', 'A', 'G', 'C', 'T', 'POS', 'MLE']:
+                if resn.strip() in ['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU', 'POS', 'MLE']:
                     cmd.alter('resi {:d} and resn {}'.format(self.resi, resn), 'resn="{}"'.format(self.fragment['filename'][-3:]))
             
             # visualization settings
@@ -156,9 +171,11 @@ class App(QtWidgets.QWidget):
         cmd.reinitialize()
         cmd.load(self.fileNamePath_pdb)
         if cmd.select('{} and polymer.nucleic and name O2\''.format(self.fileName_pdb[:-4])) > 0: # RNA
-            self.NA_type = 'RNA'
+            self.NA_typePDB = 'RNA'
         elif cmd.select('{} and polymer.nucleic'.format(self.fileName_pdb[:-4])) > 0: # DNA
-            self.NA_type = 'DNA'
+            self.NA_typePDB = 'DNA'
+        else:
+            self.NA_typePDB = None
         if cmd.select('{} and resn A+G+C+U'.format(self.fileName_pdb[:-4])) > 0:
             self.alter_nucleic(direction='forward')
         else:
@@ -177,7 +194,7 @@ class App(QtWidgets.QWidget):
         Alter the nucleic acid residues from RA,RG,RC,RU (RNA) or DA,DG,DC,DT (DNA) into A,G,C,U/T  => direction = 'backward'
         """
         if direction == 'forward':
-            if self.NA_type == 'RNA':
+            if self.NA_typePDB == 'RNA':
                 for r in ['A', 'G', 'C', 'U']:
                     cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="R{}"'.format(r))
             else:
@@ -185,7 +202,7 @@ class App(QtWidgets.QWidget):
                     cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="D{}"'.format(r))
             self.pdb_altered = True
         else:
-            if self.NA_type == 'RNA':
+            if self.NA_typePDB == 'RNA':
                 for r in ['RA', 'RG', 'RC', 'RU']:
                     cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="{}"'.format(r[1]))
             else:

@@ -1,6 +1,6 @@
 [
-{"filename":"C3W_DTM", "dye":"sCy3", "base":"DT", "position":"internal"},
-{"filename":"C5W_DTM", "dye":"sCy5", "base":"DT", "position":"internal"},
+{"filename":"C3W_DTM", "dye":"sCy3", "base":"DT+RU", "position":"internal"},
+{"filename":"C5W_DTM", "dye":"sCy5", "base":"DT+RU", "position":"internal"},
 {"filename":"C3W_DAP", "dye":"sCy3", "base":"DA", "position":"5'-end"},
 {"filename":"C5W_DAP", "dye":"sCy5", "base":"DA", "position":"5'-end"},
 {"filename":"C3W_DGP", "dye":"sCy3", "base":"DG", "position":"5'-end"},
