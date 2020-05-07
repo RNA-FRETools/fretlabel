@@ -76,12 +76,13 @@ class App(QtWidgets.QWidget):
             chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
             
             # make selections of base and sugar backbone
+            nucleic = 'resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DT'
             bases = '(name C*+N*+O*+H* and {} and not (name C*\'+O*\'+O*P*+H*\'*+P and {}))'.format(resin,resin)
             sugar_backbone = '(name C*\'+O*\'+O*P*+H*\'*+P and {})'.format(resin)
-            sele_frag_bases = '{} and polymer.nucleic and {}'.format(self.fragment['filename'], bases)
-            sele_pdb_bases = '{} and resi {:d} and polymer.nucleic and {}'.format(self.fileName_pdb[:-4], self.resi, bases)
-            sele_frag_sbb = '{} and polymer.nucleic and {}'.format(self.fragment['filename'], sugar_backbone)
-            sele_pdb_sbb = '{} and resi {:d} and polymer.nucleic and {}'.format(self.fileName_pdb[:-4], self.resi, sugar_backbone)
+            sele_frag_bases = '{} and {} and {}'.format(self.fragment['filename'], nucleic, bases)
+            sele_pdb_bases = '{} and resi {:d} and {} and {}'.format(self.fileName_pdb[:-4], self.resi, nucleic, bases)
+            sele_frag_sbb = '{} and {} and {}'.format(self.fragment['filename'], nucleic, sugar_backbone)
+            sele_pdb_sbb = '{} and resi {:d} and {} and {}'.format(self.fileName_pdb[:-4], self.resi, nucleic, sugar_backbone)
 
             if self.fragment['position'] == 'internal':
                 # (1) align fragment on base of PDB, (2) remove base of PDB and (3) remove sugar-backbone of fragment
@@ -90,7 +91,7 @@ class App(QtWidgets.QWidget):
                 cmd.remove('{} and {}'.format(self.fragment['filename'], sugar_backbone))
             else:
                 # (1) align fragment on PDB sugar-backbone, (2) extract base from fragment, 
-                # (3) realign base of fragment on base of PDB, (4) remove entire residue of PDB 
+                # (3) realign base of fragment on base of PDB, (4) remove entire residue of PDB
                 cmd.align(sele_frag_sbb, sele_pdb_sbb)
                 cmd.extract('temp_base', sele_frag_bases)
                 cmd.align('temp_base', sele_pdb_bases)
@@ -154,12 +155,43 @@ class App(QtWidgets.QWidget):
         """
         cmd.reinitialize()
         cmd.load(self.fileNamePath_pdb)
+        if cmd.select('{} and polymer.nucleic and name O2\''.format(self.fileName_pdb[:-4])) > 0: # RNA
+            self.NA_type = 'RNA'
+        elif cmd.select('{} and polymer.nucleic'.format(self.fileName_pdb[:-4])) > 0: # DNA
+            self.NA_type = 'DNA'
+        if cmd.select('{} and resn A+G+C+U'.format(self.fileName_pdb[:-4])) > 0:
+            self.alter_nucleic(direction='forward')
+        else:
+            self.pdb_altered = False
         cmd.hide('cartoon')
         cmd.show('sticks')
-        self.n_atoms = cmd.count_atoms(self.fileName_pdb[:-4])
-        self.n_residues = self.count_residues(self.fileName_pdb[:-4])
+        nucleic_protein = '{} and not (polymer.nucleic or polymer.protein)'.format(self.fileName_pdb[:-4])
+        self.n_atoms = cmd.count_atoms(nucleic_protein)
+        self.n_residues = self.count_residues(nucleic_protein)
         self.valid_residues()
 
+
+    def alter_nucleic(self, direction='forward'):
+        """
+        Alter the nucleic acid residues from A,G,C,U/T into RA,RG,RC,RU (RNA) or DA,DG,DC,DT (DNA) => direction = 'forward'
+        Alter the nucleic acid residues from RA,RG,RC,RU (RNA) or DA,DG,DC,DT (DNA) into A,G,C,U/T  => direction = 'backward'
+        """
+        if direction == 'forward':
+            if self.NA_type == 'RNA':
+                for r in ['A', 'G', 'C', 'U']:
+                    cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="R{}"'.format(r))
+            else:
+                for r in ['A', 'G', 'C', 'T']:
+                    cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="D{}"'.format(r))
+            self.pdb_altered = True
+        else:
+            if self.NA_type == 'RNA':
+                for r in ['RA', 'RG', 'RC', 'RU']:
+                    cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="{}"'.format(r[1]))
+            else:
+                for r in ['DA', 'DG', 'DC', 'DU']:
+                    cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="{}"'.format(r[1]))
+        cmd.deselect()
 
 
     def readPDB(self, fileNamePath_pdb=False):
@@ -347,11 +379,14 @@ class App(QtWidgets.QWidget):
         """
         Save the PDB in PDB or CIF format
         """
+        if self.pdb_altered == True:
+            self.alter_nucleic(direction='backward')
         filename, filetype = QtWidgets.QFileDialog.getSaveFileName(self, "Save PDB", "", "PDB File (*.pdb);;CIF File (*.cif)")
         cmd.set('pdb_use_ter_records', 0)
         cmd.sort(self.fileName_pdb[:-4])
         cmd.save(filename, self.fileName_pdb[:-4], -1, filetype[0:3].lower())
-
+        if self.pdb_altered == True:
+            self.alter_nucleic(direction='forward')
 
 
 if __name__ == '__main__':
