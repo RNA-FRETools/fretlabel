@@ -71,5 +71,7 @@ gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p "$structureName".t
 
 gmx mdrun -v -s em/"$structureName".tpr -c em/"$structureName".gro -o em/"$structureName".trr -e em/"$structureName".edr -g em/"$structureName".log || { echo "-> Error: gmx mdrun failed" ; cleanup em; exit 1; }
 
+gmx editconf -f em/"$structureName".gro -o em/"$structureName".pdb || { echo "-> Error: gmx editconf failed" ; cleanup em; exit 1; }
+
 cleanup ./
 cleanup em
