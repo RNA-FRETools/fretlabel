@@ -45,6 +45,11 @@ if [ -z "$structureFile" ] || [ -z "$mdp_dir" ]; then
     usage
 fi
 
+# optional maxwarn not specified
+if [ -z "$maxwarn" ]; then
+    maxwarn=0
+fi
+
 structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
 
 # temperature equilibration
