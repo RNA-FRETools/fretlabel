@@ -56,7 +56,7 @@ fi
 structureName=`echo $structureFile | cut -f1 -d"."`
 mkdir em
 
-gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p "$structureName".top -i em/"$structureName".itp -merge all -ter yes || { echo "-> Error: gmx pdb2gmx failed" ; cleanup em; exit 1; }
+gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p "$structureName".top -i em/"$structureName".itp || { echo "-> Error: gmx pdb2gmx failed" ; cleanup em; exit 1; }
 
 gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d 1 || { echo "-> Error: gmx editconf failed" ; cleanup em; exit 1; }
 
