@@ -63,6 +63,7 @@ if [ ! -z "$plumedFile" ]; then
     gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
 else
     mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
+fi
 cleanup nvt
 
 
@@ -74,6 +75,7 @@ if [ ! -z "$plumedFile" ]; then
     gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
 else
     gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
+fi
 cleanup npt
 
 
@@ -86,5 +88,4 @@ if [ ! -z "$plumedFile" ]; then
 else
     gmx mdrun -v -s md0/"$structureName".tpr -c md0/"$structureName".gro -x md0/"$structureName".xtc -cpo md0/"$structureName".cpt -e md0/"$structureName".edr -g md0/"$structureName".log || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
 fi
-
 cleanup md0
