@@ -62,7 +62,7 @@ gmx grompp -f "$mdp_dir"/nvt.mdp -c em/"$structureName".gro -r em/"$structureNam
 if [ ! -z "$plumedFile" ]; then
     gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
 else
-    mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
+    gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
 fi
 cleanup nvt
 
