@@ -570,7 +570,7 @@ class Experiment:
         k_fret : numpy.ndarray
                  Rates of transfer efficiency dependent on the inter-dye distance, the Förster radius and the relative dye orientation (kappasquare)
         """
-        k_fret = self.rates['kD_tot'] * self.parameters['fret']['kappasquare'] * (R / self.parameters['fret']['R0_const'])**6
+        k_fret = self.rates['kD_tot'] * self.parameters['fret']['kappasquare'] * (self.parameters['fret']['R0_const'] / R)**6
         return k_fret
 
 
