@@ -58,7 +58,7 @@ structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
 if [ -f nvt/"$structureName".xtc ] & [ -f npt/"$structureName".xtc ]; then
     read -p "An existing equilibration has been found. Do you want to use it for this run? (n)" -n 1 -r
     echo
-    if [[ $REPLY =~ ^[Nn]$ ]]; then
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     
         # temperature equilibration
         mkdir nvt
