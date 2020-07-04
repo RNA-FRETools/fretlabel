@@ -55,35 +55,45 @@ fi
 
 structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
 
+
 if [ -f nvt/"$structureName".xtc ] & [ -f npt/"$structureName".xtc ]; then
     read -p "An existing equilibration has been found. Do you want to use it for this run? (n)" -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    
-        # temperature equilibration
-        mkdir nvt
-        gmx grompp -f "$mdp_dir"/nvt.mdp -c em/"$structureName".gro -r em/"$structureName".gro -p "$structureName".top -o nvt/"$structureName".tpr -po nvt/"$structureName".mdp -maxwarn "$maxwarn" || { echo "Error: grompp for nvt failed" ; cleanup nvt ; exit 1; }
-
-        if [ ! -z "$plumedFile" ]; then
-            gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
-        else
-            gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
-        fi
-        cleanup nvt
-
-
-        # pressure equilibration
-        mkdir npt
-        gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/"$structureName".gro -r nvt/"$structureName".gro -t nvt/"$structureName".cpt -p "$structureName".top -o npt/"$structureName".tpr -po npt/"$structureName".mdp -maxwarn "$maxwarn" || { echo "Error: grompp for npt failed" ; cleanup npt ; exit 1; }
-
-        if [ ! -z "$plumedFile" ]; then
-            gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
-        else
-            gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
-        fi
-        cleanup npt
+        run_equilibration="true"
+    else
+        run_equilibration="false"
     fi
+else
+    run_equilibration="true"
 fi
+
+
+if [ "$run_equilibration" == "true" ]; then
+    # temperature equilibration
+    mkdir nvt
+    gmx grompp -f "$mdp_dir"/nvt.mdp -c em/"$structureName".gro -r em/"$structureName".gro -p "$structureName".top -o nvt/"$structureName".tpr -po nvt/"$structureName".mdp -maxwarn "$maxwarn" || { echo "Error: grompp for nvt failed" ; cleanup nvt ; exit 1; }
+
+    if [ ! -z "$plumedFile" ]; then
+        gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
+    else
+        gmx mdrun -v -s nvt/"$structureName".tpr -c nvt/"$structureName".gro -x nvt/"$structureName".xtc -cpo nvt/"$structureName.cpt" -e nvt/"$structureName".edr -g nvt/"$structureName".log || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
+    fi
+    cleanup nvt
+
+
+    # pressure equilibration
+    mkdir npt
+    gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/"$structureName".gro -r nvt/"$structureName".gro -t nvt/"$structureName".cpt -p "$structureName".top -o npt/"$structureName".tpr -po npt/"$structureName".mdp -maxwarn "$maxwarn" || { echo "Error: grompp for npt failed" ; cleanup npt ; exit 1; }
+
+    if [ ! -z "$plumedFile" ]; then
+        gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log -plumed "$plumedFile" || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
+    else
+        gmx mdrun -v -s npt/"$structureName".tpr -c npt/"$structureName".gro -x npt/"$structureName".xtc -cpo npt/"$structureName.cpt" -e npt/"$structureName".edr -g npt/"$structureName".log || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
+    fi
+    cleanup npt
+fi
+
 
 # production run
 mkdir md0

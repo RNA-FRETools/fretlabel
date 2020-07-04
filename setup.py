@@ -1,6 +1,5 @@
 import setuptools
 import pybind11
-print(pybind11.get_include())
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -12,7 +11,6 @@ with open('fluordynamics/__about__.py') as a:
 INSTALL_REQUIRES = [
     'numpy',
     'tqdm',
-    'pybind11',
     'pandas',
     'biopandas'
     ]

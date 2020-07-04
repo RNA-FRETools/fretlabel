@@ -4,7 +4,7 @@
 
 # cmd parsing functions
 usage() { echo "Solvate of an biomolecule in a water box for an MD simulation
-Usage: solvate.sh -f <structure file (.gro, .pdb)> -w <solvent file (tip4p.gro, spc216.gro)> -d <mdp directory>" 1>&2; exit 1; }
+Usage: solvate.sh -f <structure file (.gro, .pdb)> -w <solvent file (tip4p.gro, spc216.gro)> -d <mdp directory> -b <distance to box edge (default: 1nm)>" 1>&2; exit 1; }
 invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
@@ -13,7 +13,7 @@ cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
 # cmd parsing
 #------------
 
-while getopts ":f:w:d:h" opt; do
+while getopts ":f:w:d:b:h" opt; do
     case $opt in
         f) 
             structureFile=$OPTARG
@@ -21,7 +21,11 @@ while getopts ":f:w:d:h" opt; do
         d)
             mdp_dir=$OPTARG
             ;;
-        w)  waterFile=$OPTARG
+        w)  
+            waterFile=$OPTARG
+            ;;
+        b) 
+            dist2boxedge=$OPTARG
             ;;
         h)
             usage
@@ -49,6 +53,9 @@ if [ ! -e "$structureFile" ]; then
     exit 1
 fi
 
+if [ -z $dist2boxedge ]; then
+    dist2boxedge=1
+fi
 
 # GROMACS pipeline
 
@@ -58,7 +65,7 @@ mkdir em
 
 gmx pdb2gmx -f "$structureFile" -o em/"$structureName".gro -p "$structureName".top -i em/"$structureName".itp || { echo "-> Error: gmx pdb2gmx failed" ; cleanup em; exit 1; }
 
-gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d 1 || { echo "-> Error: gmx editconf failed" ; cleanup em; exit 1; }
+gmx editconf -f em/"$structureName".gro -o em/"$structureName".gro -bt dodecahedron -d $dist2boxedge || { echo "-> Error: gmx editconf failed" ; cleanup em; exit 1; }
 
 gmx solvate -cp em/"$structureName".gro -cs "$waterFile" -o em/"$structureName".gro -p "$structureName".top || { echo "Error: gmx solvate failed" ; cleanup em; exit 1; }
 
