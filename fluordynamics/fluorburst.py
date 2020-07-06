@@ -613,7 +613,7 @@ class Experiment:
             burst.addRelaxationEvent(relax.event_AA, relax.decaytime_AA, relax.polarization_AA, True)
             if burst.checkBurstSizeReached(self.parameters['dyes']['QD'], self.parameters['dyes']['QA'], self.parameters['bursts']['QY_correction']):
                 break
-        burst.calcFRET(self.parameters['fret']['gamma_correction'], self.parameters['dyes']['QD'], self.parameters['dyes']['QA'])
+        burst.calcFRET(self.parameters['fret']['no_gamma'], self.parameters['dyes']['QD'], self.parameters['dyes']['QA'])
         return burst
 
 
