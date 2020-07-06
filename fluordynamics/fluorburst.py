@@ -10,6 +10,7 @@ import relaxation
 import tqdm
 import tqdm.notebook
 import itertools
+import dill
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -630,6 +631,11 @@ class Experiment:
         return burstsizes
 
 
+    def save(self, filename):
+        with open(filename, 'wb') as file:
+            dill.dump(self, file)
+           
+
     def print_settings(self, compute_anisotropy):
         """
         Print the rates and settings of the in-silico experiment
@@ -660,7 +666,7 @@ k_ic (ns^-1)  {:0.2f}    {:0.2f}
 
     def print_results(self):
         print('\n\naverage FRET efficiency: {:0.2f} +- {:0.2f}\n'.format(np.mean(self.FRETefficiencies), np.std(self.FRETefficiencies)))
-        print('------------\nHow to cite:\n------------\n\"An atomistic view on carbocyanine photophysics in the realm of RNA\"\nF.D. Steffen, R.K.O. Sigel, R. Börner, Phys. Chem.Chem. Phys (2016)\n\n\n'
+        print('------------\nHow to cite:\n------------\n\"An atomistic view on carbocyanine photophysics in the realm of RNA\"\nF.D. Steffen, R.K.O. Sigel, R. Börner, Phys. Chem. Chem. Phys (2016)\n\n\n'
 'This project was inspired by md2fret:\n\n\"In silico FRET from simulated dye dynamics\"\nM. Hoefling, H. Grubmüller, Comp. Phys. Commun. (2013)\n')
 
 
