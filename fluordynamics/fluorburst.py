@@ -11,6 +11,7 @@ import tqdm
 import tqdm.notebook
 import itertools
 import dill
+import copy
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -577,7 +578,7 @@ class Experiment:
 
     def calcBurst(self, burstsize):
         """
-        Compute a photon bursts
+        Compute a photon burst
 
         Parameters
         ---------- 
@@ -631,9 +632,33 @@ class Experiment:
         return burstsizes
 
 
-    def save(self, filename):
+    def save(self, filename, encoding='utf-8', light=False):
+        """
+        Pickle the experiment class to a file
+
+        Parameters
+        ----------
+        fielname : str
+        """
         with open(filename, 'wb') as file:
-            dill.dump(self, file)
+            if light:
+                exp_noburst = copy.deepcopy(self)
+                del exp_noburst['bursts']
+                dill.dump(exp_noburst, file)
+            else:
+                dill.dump(self, file)
+
+    @classmethod
+    def load(cls, filename):
+        """
+        Load an instance of the experiment class from a pickle file
+
+        Parameters
+        ----------
+        filename : str
+        """
+        with open(filename, 'rb') as file:
+            return dill.load(file)
            
 
     def print_settings(self, compute_anisotropy):

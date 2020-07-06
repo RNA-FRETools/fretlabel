@@ -8,6 +8,7 @@
 
 import os
 import re
+import pandas as pd
 
 def connect2pymol():
     import xmlrpc.client as xmlrpclib
