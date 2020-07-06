@@ -330,22 +330,23 @@ class Burst:
                 self.decaytimes_DD_DA['q'].append(decaytime)
 
 
-    def calcFRET(self, gamma_correction, QD, QA):
+    def calcFRET(self, no_gamma, QD, QA):
         """
         Calculate the transfer efficiency based on the donor and acceptor photon counts upon donor excitation
 
         Parameters
         ----------
-        gamma_correction : bool
-                           correct the FRET efficiency for differences in the donor and acceptor quantum yields 
-                           (note: the detection efficiency ratio is set to be 1)
+        no_gamma : bool
+                   mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different 
+                   quantum yields of donor and acceptor (note: the detection efficiency ratio always set to be 1).
+                   If the simulation should be comapred to a gamma-corrected experiment this parameter should be set to False.
         QD : float
              donor fluorescence quantum yield
         QA : float
              acceptor fluorescence quantum yield
         """
-        self.gamma_correction = gamma_correction
-        if gamma_correction:
+        self.no_gamma = no_gamma
+        if no_gamma:
             self.FRETefficiency = (self.events_DD_DA['A_p']/QA) / (self.events_DD_DA['A_p']/QA+ self.events_DD_DA['D_p']/QD)
         else:
             self.FRETefficiency = self.events_DD_DA['A_p'] / (self.events_DD_DA['A_p']+ self.events_DD_DA['D_p'])
