@@ -642,8 +642,8 @@ class Experiment:
         """
         with open(filename, 'wb') as file:
             if light:
-                exp_noburst = copy.deepcopy(self)
-                del exp_noburst['bursts']
+                exp_noburst = copy.copy(self)
+                exp_noburst.bursts = None
                 dill.dump(exp_noburst, file)
             else:
                 dill.dump(self, file)
