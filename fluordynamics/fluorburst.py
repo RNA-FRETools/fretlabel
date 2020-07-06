@@ -10,7 +10,7 @@ import relaxation
 import tqdm
 import tqdm.notebook
 import itertools
-import dill
+import pickle
 import copy
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
@@ -632,7 +632,7 @@ class Experiment:
         return burstsizes
 
 
-    def save(self, filename, encoding='utf-8', light=False):
+    def save(self, filename, remove_bursts=False):
         """
         Pickle the experiment class to a file
 
@@ -641,12 +641,12 @@ class Experiment:
         fielname : str
         """
         with open(filename, 'wb') as file:
-            if light:
+            if remove_bursts:
                 exp_noburst = copy.copy(self)
                 exp_noburst.bursts = None
-                dill.dump(exp_noburst, file)
+                pickle.dump(exp_noburst, file)
             else:
-                dill.dump(self, file)
+                pickle.dump(self, file)
 
     @classmethod
     def load(cls, filename):
@@ -658,7 +658,7 @@ class Experiment:
         filename : str
         """
         with open(filename, 'rb') as file:
-            return dill.load(file)
+            return pickle.load(file)
            
 
     def print_settings(self, compute_anisotropy):
