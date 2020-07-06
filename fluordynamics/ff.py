@@ -6,49 +6,15 @@ import re
 import os
 import copy
 from biopandas.mol2 import PandasMol2
+import json
 
 from fluordynamics import jupyter
 
 package_directory = os.path.dirname(os.path.relpath(__file__))
 fragments_dir=os.path.join(package_directory, 'fragments')
 
-def couple_dye2baselinker2(dye, baselinker, remove_names=None, remove_ids=None, atom_dye='C99', atom_baselinker='N99'):
-    """
-    Couple a dye to an exisiting base-linker fragment
 
-    Parameters
-    ----------
-    dye : str
-    baselinker : str
-    remove_names : list
-                   list of atom names to remove
-    remove_ids : list
-                 list of atom ids to remove
-    atom_dye : str
-               name of dye atom involved in the bond 
-    atom_baselinker : str
-                      name of base-linker atom involved in the bond
-    """
-    cmd_gui = jupyter.connect2pymol()
-    try:
-        cmd_gui = jupyter.connect2pymol()
-    except NameError:
-        print('First launch a PyMOL server session with pymol -R')
-    else:
-        cmd_gui.reinitialize()
-        cmd_gui.load('{}/dyes/{}.mol2'.format(fragments_dir, dye))
-        cmd_gui.load('{}/base_linkers/{}.mol2'.format(fragments_dir, baselinker))
-        if remove_names is not None:
-            cmd_gui.remove('{} and name {}'.format(baselinker, '+'.join(str(i) for i in remove_names)))
-        if remove_ids is not None:
-            cmd_gui.remove('{} and id {}'.format(baselinker, '+'.join(str(i) for i in remove_ids)))
-        cmd_gui.fuse('{} and name {}'.format(dye, atom_dye), '{} and name {}'.format(baselinker, atom_baselinker))
-        cmd_gui.delete(dye)
-        cmd_gui.alter('all', 'type="ATOM"')
-        cmd_gui.set('pdb_use_ter_records', 0)
-        cmd_gui.set_name(baselinker, '{}_{}'.format(dye, baselinker))
-
-def couple_dye2baselinker(dye, baselinker, align_dye_atoms, align_baselinker_atoms, remove_baselinker_atoms, atom_dye='C99', atom_baselinker='N99'):
+def couple_dye2baselinker(dye, baselinker, carbonylC_dye, align_baselinker_atoms, remove_baselinker_atoms, atom_dye='C99', atom_baselinker='N99'):
     """
     Couple a dye to an exisiting base-linker fragment
 
@@ -73,6 +39,9 @@ def couple_dye2baselinker(dye, baselinker, align_dye_atoms, align_baselinker_ato
         cmd_gui.reinitialize()
         cmd_gui.load('{}/dyes/{}.mol2'.format(fragments_dir, dye))
         cmd_gui.load('{}/base_linkers/{}.mol2'.format(fragments_dir, baselinker))
+        align_dye_atoms = [at['name'] for at in cmd_gui.get_model('neighbor name {}'.format(carbonylC_dye), 0)['atom']]
+        align_dye_atoms.sort()
+        align_dye_atoms.append(carbonylC_dye)
         cmd_gui.pair_fit(*[j for i in [['{} and name {}'.format(dye, a1), '{} and name {}'.format(baselinker, a2)] for (a1,a2) in zip(align_dye_atoms, align_baselinker_atoms)] for j in i])
         cmd_gui.remove('{} and name {}'.format(baselinker, '+'.join(str(i) for i in remove_baselinker_atoms)))
         cmd_gui.create('{}_{}'.format(dye, baselinker), '{} or {}'.format(dye, baselinker))
@@ -245,6 +214,22 @@ def update_valency(pandasMol2, bonds_atomNames):
         pandasMol2.mol2_text = pandasMol2.mol2_text.replace(' {:d} {:d} 1\n'.format(atom_id2, atom_id1), ' {:d} {:d} 2\n'.format(atom_id2, atom_id1))
     return pandasMol2
 
+def check_charge(filename, charge):
+    """
+    Check the net charge of a mol2 file
+
+    Parameters
+    ----------
+    filename : str
+    charge : float
+    """
+    mol2 = PandasMol2().read_mol2(filename)
+    sum_charge = round(mol2._df.charge.sum(),5)
+    if sum_charge == charge:
+        print('Check passed!')
+    else:
+        print('Check failed! The charge is: {:0.4f}'.format(sum_charge))
+
 
 def update_specbond(specbond_string, inputfile='specbond.dat', outputfile='specbond.dat', overwrite=False):
     """
@@ -255,7 +240,9 @@ def update_specbond(specbond_string, inputfile='specbond.dat', outputfile='specb
     specbond_string : str
                       space-delimited string of following format:
                       'resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB'
-    filename : str (optional)
+    inputfile : str (optional)
+    outputfile : str (optional)
+    overwrite : bool
     """
     with open(inputfile, 'r') as f:
         n_specbonds = int(f.readline())
@@ -289,7 +276,9 @@ def update_residuetypes(residuetypes_string, inputfile='residuetypes.dat', outpu
     residuetypes_string : str
                           space-delimited string of following format:
                           'residue  type'
-    filename : str (optional)
+    inputfile : str (optional)
+    outputfile : str (optional)
+    overwrite : bool
     """
     residuetype_format = ['residue', 'type']
     residuetypes_df = pd.read_csv(inputfile, sep='\s+', names=residuetype_format, na_filter=False)
@@ -307,6 +296,37 @@ def update_residuetypes(residuetypes_string, inputfile='residuetypes.dat', outpu
         else:
             with open(outputfile, 'w') as f:
                 f.write(residuetypes_df.to_string(header=False, index=False)+'\n')
+
+def update_dye_library(dye_entry, inputfile='dye_library.json', outputfile='dye_library.json', overwrite=False):
+    """
+    Add new dye-linker fragment to the FluorLabel library
+
+    Parameters
+    ----------
+    dye_entry : dict
+                dictionary of a dye entry such as: 
+                "filename":"C3W_DTM", "dye":"sCy3", "base":"DT+RU", "position":"internal"
+    inputfile : str (optional)
+    outputfile : str (optional)
+    overwrite : bool
+    """
+    try:
+        with open(inputfile, 'r') as f:
+            dye_library = json.load(f)
+    except FileNotFoundError:
+        print('No dye library found. Creating a new one.')
+        dye_library = []
+
+    dye_library.append(dye_entry)    
+    dye_library = pd.DataFrame(dye_library)
+    dye_library.drop_duplicates(inplace=True, keep='first')
+    dye_library = [val for val in dye_library.T.to_dict().values()] 
+
+    if os.path.isfile(outputfile) and not overwrite:
+            print('File already exists, do not overwrite. Either change outputfilename or set overwrite=True')
+    else:
+        with open(outputfile, 'w') as f:
+            json.dump(dye_library, f, indent=2)
 
 
 def write_ff(ff_folder, amberdyes=None, linker=None, specialbond=None, outputdir='./'):
@@ -381,6 +401,7 @@ def save_molecule(filename, selection, fmt='mol2', state=-1, overwrite=False):
         if os.path.isfile(filename) and not overwrite:
             print('File already exists, do not overwrite')
         else:
+            cmd_gui.set('pdb_conect_all', 'on')
             cmd_gui.save(filename, selection, state, fmt)
 
 
@@ -470,15 +491,15 @@ class Parameters:
                     flag = 'impropertype' 
                 
                 if flag == 'atomtype':
-                    match = re.search('(\w+)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
+                    match = re.search('(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
                         atomtype_list.append(match.group(1))
                 if flag == 'bondtype':
-                    match = re.search('(\w+)\s?-(\w+)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
+                    match = re.search('(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
                         bondtype_list.append([match.group(1), match.group(2), 1, float(match.group(4))/10, float(match.group(3))*4.1868*100, '; FLUOR-DYNAMICS'])
                 if flag == 'angletype':
-                    match = re.search('(\w+)\s?-(\w+)\s?-(\w+)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
+                    match = re.search('(\w+\*?)\s?-(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
                         angletype_list.append([match.group(1), match.group(2), match.group(3), 1, float(match.group(5)), float(match.group(4))*4.1868, '; FLUOR-DYNAMICS'])
                 if flag == 'propertype':

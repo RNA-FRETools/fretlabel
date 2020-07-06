@@ -1,0 +1,33 @@
+// ACE cap fixed to the charge of AMBER99ff (format: CHARGE <partial_charge> <atom_ID> <atom_name>)
+CHARGE 0.5972 10 C16 
+CHARGE -0.3662 11 C17
+CHARGE -0.5679 12 O98 
+CHARGE 0.1123 34 H97
+CHARGE 0.1123 33 H96
+CHARGE 0.1123 32 H95
+
+// phosphate cap fixed to the charges in AMBER99ff
+CHARGE 1.1662 1 P
+CHARGE -0.7760 16 O1P
+CHARGE -0.4989 3 O5'
+CHARGE -0.7760 18 O2P
+
+// Additional group constraint for methoxy cap (format: GROUP <number_atoms> <net_charge>)
+GROUP 5 -0.3081
+ATOM 9 O01
+ATOM 8 C01
+ATOM 23 H01
+ATOM 25 H02
+ATOM 26 H03
+
+// Group constraint for NH2 cap of the base (charge of base + C1' + H1' = 0.1160 for RNA)
+GROUP 5 0.1160
+ATOM 14 N97
+ATOM 30 H93
+ATOM 31 H94
+ATOM 24 H1'
+ATOM 7 C1'
+
+// C1' and H1' fixed to the charge of the specific nucleotide in the Amber 99ff
+CHARGE 0.0394 7 C1'
+CHARGE 0.2007 24 H1'

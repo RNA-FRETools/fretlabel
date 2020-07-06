@@ -1,0 +1,24 @@
+// ACE cap fixed to the charges in AMBER99ff (format: CHARGE <partial_charge> <atom_ID> <atom_name>)
+CHARGE 0.5972 11 C16 
+CHARGE -0.3662 12 C17
+CHARGE -0.5679 13 O98 
+CHARGE 0.1123 33 H95
+CHARGE 0.1123 34 H96
+CHARGE 0.1123 35 H97
+
+// phosphate cap fixed to the charges in AMBER99ff
+CHARGE 1.1662 1 P
+CHARGE -0.7760 2 O1P
+CHARGE -0.4989 3 O5'
+CHARGE -0.7760 4 O2P
+
+// Additional group constraint for phosphate cap (format: GROUP <number_atoms> <net_charge>)
+GROUP 8 -0.6919
+ATOM 1 P
+ATOM 2 O1P
+ATOM 3 O5'
+ATOM 4 O2P
+ATOM 15 C01
+ATOM 16 H01
+ATOM 17 H02
+ATOM 18 H03

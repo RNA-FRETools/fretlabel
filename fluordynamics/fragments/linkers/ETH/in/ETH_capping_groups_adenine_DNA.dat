@@ -1,0 +1,16 @@
+/ ACE cap fixed to the charge of AMBER99ff (format: CHARGE <partial_charge> <atom_ID> <atom_name>)
+CHARGE 0.5972 11 C16 
+CHARGE -0.3662 12 C17
+CHARGE -0.5679 16 O98 
+CHARGE 0.1123 32 H97
+CHARGE 0.1123 33 H96
+CHARGE 0.1123 34 H95
+
+// Group constraint for amino caps (format: GROUP <number_atoms> <net_charge>)
+GROUP 6 -0.8334
+ATOM 1 N1
+ATOM 2 N6
+ATOM 18 H11
+ATOM 19 H12
+ATOM 20 H61
+ATOM 21 H62

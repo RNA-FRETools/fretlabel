@@ -1,23 +1,6 @@
-   A35  Protein
-   A48  Protein
-   A53  Protein
-   A56  Protein
-   A59  Protein
-   A64  Protein
-   T39  Protein
-   T42  Protein
-   T46  Protein
-   T48  Protein
-   T49  Protein
-   T51  Protein
-   T52  Protein
-   T61  Protein
    Tth  Protein
    C3N  Protein
-   C55  Protein
    C5N  Protein
-   C75  Protein
-   C7N  Protein
    B1C  Protein
    C1C  Protein
    C2C  Protein
@@ -252,6 +235,8 @@
    DCP      DNA
    DTP      DNA
    DTM      DNA
+   DAE      DNA
+   DCE      DNA
    RAO      RNA
    RGO      RNA
    RCO      RNA
@@ -260,5 +245,28 @@
    RGP      RNA
    RCP      RNA
    RUP      RNA
-   C3W      DNA
-   C5W      DNA
+   RAH      RNA
+   RGH      RNA
+   RCH      RNA
+   RUH      RNA
+   RAE      RNA
+   RCE      RNA
+   C3W      RNA
+   C5W      RNA
+   C7N      RNA
+   C55      RNA
+   C75      RNA
+   A35      RNA
+   A48      RNA
+   A53      RNA
+   A56      RNA
+   A59      RNA
+   A64      RNA
+   T39      RNA
+   T42      RNA
+   T46      RNA
+   T48      RNA
+   T49      RNA
+   T51      RNA
+   T52      RNA
+   T61      RNA

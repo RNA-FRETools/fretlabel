@@ -81,7 +81,7 @@ ATOM     80  O5'  DG     1       1.105   8.869   1.295  0.00  0.00           O
 ATOM     81  C4'  DG     1       2.726   7.072   1.355  0.00  0.00           C  
 ATOM     82  O4'  DG     1       1.986   5.817   1.352  0.00  0.00           O  
 ATOM     83  C3'  DG     1       2.952   7.370  -0.127  0.00  0.00           C  
-ATOM     84  O3'  DG     1       4.210   6.832  -0.518  0.00  0.00           O1-
+ATOM     84  O3'  DG     1       4.210   6.832  -0.518  0.00  0.00           O  
 ATOM     85  C2'  DG     1       1.848   6.598  -0.850  0.00  0.00           C  
 ATOM     86  C1'  DG     1       1.913   5.344   0.016  0.00  0.00           C  
 ATOM     87  N1   DG     1       0.233   0.533   0.025  0.00  0.00           N  
@@ -106,28 +106,160 @@ ATOM    105 H2'1  DG     1       1.969   6.459  -1.924  0.00  0.00           H
 ATOM    106 H2'2  DG     1       0.881   7.097  -0.793  0.00  0.00           H  
 ATOM    107 H5'1  DG     1       1.466   7.698   2.965  0.00  0.00           H  
 ATOM    108 H5'2  DG     1       2.760   8.851   2.545  0.00  0.00           H  
-ATOM    109  P1  POS     2       5.267   7.619   0.426  0.00  0.00           P  
-ATOM    110  O3P POS     2       5.089   9.059   0.008  0.00  0.00          O2  
-ATOM    111  O4P POS     2       4.851   7.218   1.819  0.00  0.00          O2  
-ATOM    112  O01 POS     2       6.690   7.350   0.338  0.00  0.00          OS  
-ATOM    113  C10 POS     2       7.386   8.137   1.308  0.00  0.00          CT  
-ATOM    114  C11 POS     2       8.899   7.861   1.203  0.00  0.00          CT  
-ATOM    115  C12 POS     2       9.634   8.677   2.300  0.00  0.00          CT  
-ATOM    116  C13 POS     2      11.152   8.402   2.319  0.00  0.00          CT  
-ATOM    117  C14 POS     2      11.824   9.272   3.407  0.00  0.00          CT  
-ATOM    118  C15 POS     2      13.334   8.980   3.527  0.00  0.00          CT  
+ATOM    109 P1   POS     2       5.267   7.619   0.426  0.00  0.00          P1  
+ATOM    110  O3P POS     2       5.089   9.059   0.008  0.00  0.00           O  
+ATOM    111  O4P POS     2       4.851   7.218   1.819  0.00  0.00           O  
+ATOM    112  O01 POS     2       6.690   7.350   0.338  0.00  0.00           O  
+ATOM    113  C10 POS     2       7.386   8.137   1.308  0.00  0.00           C  
+ATOM    114  C11 POS     2       8.899   7.861   1.203  0.00  0.00           C  
+ATOM    115  C12 POS     2       9.634   8.677   2.300  0.00  0.00           C  
+ATOM    116  C13 POS     2      11.152   8.402   2.319  0.00  0.00           C  
+ATOM    117  C14 POS     2      11.824   9.272   3.407  0.00  0.00           C  
+ATOM    118  C15 POS     2      13.334   8.980   3.527  0.00  0.00           C  
 ATOM    119  N99 POS     2      13.941   9.822   4.567  0.00  0.00           N  
 ATOM    120  H11 POS     2      13.352  10.369   5.178  0.00  0.00           H  
-ATOM    121 H12  POS     2      13.818   9.167   2.566  0.00  0.00          H1  
-ATOM    122 H13  POS     2      13.481   7.921   3.784  0.00  0.00          H1  
-ATOM    123  H14 POS     2      11.680  10.328   3.162  0.00  0.00          HC  
-ATOM    124  H15 POS     2      11.348   9.085   4.373  0.00  0.00          HC  
-ATOM    125  H16 POS     2      11.593   8.625   1.353  0.00  0.00          HC  
-ATOM    126  H17 POS     2      11.334   7.345   2.536  0.00  0.00          HC  
-ATOM    127  H18 POS     2       9.458   9.736   2.137  0.00  0.00          HC  
-ATOM    128  H19 POS     2       9.222   8.423   3.277  0.00  0.00          HC  
-ATOM    129  H21 POS     2       9.018   6.801   1.425  0.00  0.00          HC  
-ATOM    130  H22 POS     2       9.295   8.130   0.225  0.00  0.00          HC  
-ATOM    131  H23 POS     2       7.038   7.875   2.307  0.00  0.00          H1  
-ATOM    132  H24 POS     2       7.196   9.194   1.123  0.00  0.00          H1  
+ATOM    121  H12 POS     2      13.818   9.167   2.566  0.00  0.00           H  
+ATOM    122  H13 POS     2      13.481   7.921   3.784  0.00  0.00           H  
+ATOM    123  H14 POS     2      11.680  10.328   3.162  0.00  0.00           H  
+ATOM    124  H15 POS     2      11.348   9.085   4.373  0.00  0.00           H  
+ATOM    125  H16 POS     2      11.593   8.625   1.353  0.00  0.00           H  
+ATOM    126  H17 POS     2      11.334   7.345   2.536  0.00  0.00           H  
+ATOM    127  H18 POS     2       9.458   9.736   2.137  0.00  0.00           H  
+ATOM    128  H19 POS     2       9.222   8.423   3.277  0.00  0.00           H  
+ATOM    129  H23 POS     2       9.018   6.801   1.425  0.00  0.00           H  
+ATOM    130  H24 POS     2       9.295   8.130   0.225  0.00  0.00           H  
+ATOM    131  H25 POS     2       7.038   7.875   2.307  0.00  0.00           H  
+ATOM    132  H26 POS     2       7.196   9.194   1.123  0.00  0.00           H  
+CONECT    1    3    4   13
+CONECT    2    9   15   31
+CONECT    3    1    8   16   40
+CONECT    4    1    7   42
+CONECT    5   25   28   32
+CONECT    6   10   12   14   22
+CONECT    7    4    9   43
+CONECT    8    3
+CONECT    9    2    7   11
+CONECT   10    6
+CONECT   11    9   13   17
+CONECT   12    6
+CONECT   13    1   11   44
+CONECT   14    6
+CONECT   15    2   17   19
+CONECT   16    3
+CONECT   17   11   15   18   37
+CONECT   18   17   45   46   47
+CONECT   19   15   20   48
+CONECT   20   19   21   49
+CONECT   21   20   28   50
+CONECT   22    6   23   27
+CONECT   23   22   24   51
+CONECT   24   23   25   52
+CONECT   25    5   24   26
+CONECT   26   25   27   29
+CONECT   27   22   26   53
+CONECT   28    5   21   29
+CONECT   29   26   28   30   38
+CONECT   30   29   54   55   56
+CONECT   31    2   57   58   59
+CONECT   32    5   33   60   61
+CONECT   33   32   34   62   63
+CONECT   34   33   35   64   65
+CONECT   35   34   36   66   67
+CONECT   36   35   41   68   69
+CONECT   37   17   70   71   72
+CONECT   38   29   73   74   75
+CONECT   39   41
+CONECT   40    3
+CONECT   41   36   39  119
+CONECT   42    4
+CONECT   43    7
+CONECT   44   13
+CONECT   45   18
+CONECT   46   18
+CONECT   47   18
+CONECT   48   19
+CONECT   49   20
+CONECT   50   21
+CONECT   51   23
+CONECT   52   24
+CONECT   53   27
+CONECT   54   30
+CONECT   55   30
+CONECT   56   30
+CONECT   57   31
+CONECT   58   31
+CONECT   59   31
+CONECT   60   32
+CONECT   61   32
+CONECT   62   33
+CONECT   63   33
+CONECT   64   34
+CONECT   65   34
+CONECT   66   35
+CONECT   67   35
+CONECT   68   36
+CONECT   69   36
+CONECT   70   37
+CONECT   71   37
+CONECT   72   37
+CONECT   73   38
+CONECT   74   38
+CONECT   75   38
+CONECT   76   77   78   80
+CONECT   77   76
+CONECT   78   76
+CONECT   79   80   81  107  108
+CONECT   80   76   79
+CONECT   81   79   82   83  104
+CONECT   82   81   86
+CONECT   83   81   84   85  102
+CONECT   84   83  109
+CONECT   85   83   86  105  106
+CONECT   86   82   85   97  100
+CONECT   87   88   93   98
+CONECT   88   87   89   90
+CONECT   89   88  101  103
+CONECT   90   88   91
+CONECT   91   90   92   97
+CONECT   92   91   93   95
+CONECT   93   87   92   94
+CONECT   94   93
+CONECT   95   92   96
+CONECT   96   95   97   99
+CONECT   97   86   91   96
+CONECT   98   87
+CONECT   99   96
+CONECT  100   86
+CONECT  101   89
+CONECT  102   83
+CONECT  103   89
+CONECT  104   81
+CONECT  105   85
+CONECT  106   85
+CONECT  107   79
+CONECT  108   79
+CONECT  109   84  110  111  112
+CONECT  110  109
+CONECT  111  109
+CONECT  112  109  113
+CONECT  113  112  114  131  132
+CONECT  114  113  115  129  130
+CONECT  115  114  116  127  128
+CONECT  116  115  117  125  126
+CONECT  117  116  118  123  124
+CONECT  118  117  119  121  122
+CONECT  119  118  120   41
+CONECT  120  119
+CONECT  121  118
+CONECT  122  118
+CONECT  123  117
+CONECT  124  117
+CONECT  125  116
+CONECT  126  116
+CONECT  127  115
+CONECT  128  115
+CONECT  129  114
+CONECT  130  114
+CONECT  131  113
+CONECT  132  113
 END
