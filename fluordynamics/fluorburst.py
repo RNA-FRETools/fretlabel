@@ -478,13 +478,14 @@ class Experiment:
         for t in _relax_types:
             self.decaytimes_DD_DA[t] = np.array([decaytime for decaytimes in [burst.decaytimes_DD_DA[t] for burst in self.bursts] for decaytime in decaytimes])
             self.decaytimes_AA[t] = np.array([decaytime for decaytimes in [burst.decaytimes_AA[t] for burst in self.bursts] for decaytime in decaytimes])
-        for t in ['D_p', 'A_p']:
-            self.polarizations[t] = np.array([pol for polarizations in [burst.polarizations[t] for burst in self.bursts] for pol in polarizations])
-            if t == 'D_p':
-                self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_DD_DA[t], self.polarizations[t])
-            else:
-                self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_AA[t], self.polarizations[t])
-            self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t])
+        if compute_anisotropy:
+            for t in ['D_p', 'A_p']:
+                self.polarizations[t] = np.array([pol for polarizations in [burst.polarizations[t] for burst in self.bursts] for pol in polarizations])
+                if t == 'D_p':
+                    self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_DD_DA[t], self.polarizations[t])
+                else:
+                    self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_AA[t], self.polarizations[t])
+                    self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t])
 
         if verbose:
             self.print_results()

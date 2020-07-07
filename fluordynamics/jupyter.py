@@ -20,6 +20,3 @@ def connect2pymol():
         cmd.cd(re.sub(r'/mnt/([a-z])', r'\1:', curr_wd))
     return cmd
     
-def fdisplay(df):
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-        display(df)

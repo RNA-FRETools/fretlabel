@@ -3,6 +3,7 @@
 #include <pybind11/numpy.h>
 #include <stdlib.h>
 #include <random>
+#include <math.h> 
 
 namespace py = pybind11;
 
@@ -23,7 +24,8 @@ int integerChoice(std::vector<double> probabilities){
 int polarization(std::vector<double> excitation_dipole, std::vector<double> emission_dipole){
     double product = std::inner_product(excitation_dipole.begin(), excitation_dipole.end(), emission_dipole.begin(), 0.0);
     double product_square = product*product;
-    std::vector<double> probabilities {product_square, 1-product_square};
+    double prob_parallel = 2*product_square/(product_square+1)
+    std::vector<double> probabilities {prob_parallel, 1-prob_parallel};
     std::discrete_distribution<> pol(probabilities.begin(), probabilities.end());
     return pol(gen);
 }
@@ -88,5 +90,5 @@ PYBIND11_MODULE(relaxation, m) {
     m.def("findExcitationIndex", &findExcitationIndex, "Return an excitation event within the trajectory interval defined by \"skipframesatstart\" and \"skipframesatend\"", 
         py::arg("traj_length"), py::arg("skipframesatstart"), py::arg("skipframesatend"));
     m.def("integerChoice", &integerChoice, "Return an integer in the interval [0,n) with the specified discrete probabilities [p_1,p_2,...,p_n]", py::arg("probabilities"));
-    m.def("polarization", &polarization, "Return the polarization of the photon where (0) is a s-photon and (1) is a p-photon"), py::arg("excitation_dipole"), py::arg("emission_dipole");
+    m.def("polarization", &polarization, "Return the polarization of the photon where 0 is a parallel p-photon and 1 is a perpendicular s-photon"), py::arg("excitation_dipole"), py::arg("emission_dipole");
 }

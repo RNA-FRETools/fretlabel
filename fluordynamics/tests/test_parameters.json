@@ -14,7 +14,7 @@
 "fret":{
     "R0":5.4,
     "kappasquare":0.666666,
-    "gamma_correction":true,
+    "no_gamma":true,
     "quenching_radius":1.0
     },
 "species":{
