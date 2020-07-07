@@ -24,7 +24,7 @@ int integerChoice(std::vector<double> probabilities){
 int polarization(std::vector<double> excitation_dipole, std::vector<double> emission_dipole){
     double product = std::inner_product(excitation_dipole.begin(), excitation_dipole.end(), emission_dipole.begin(), 0.0);
     double product_square = product*product;
-    double prob_parallel = 2*product_square/(product_square+1)
+    double prob_parallel = 2*product_square/(product_square+1);
     std::vector<double> probabilities {prob_parallel, 1-prob_parallel};
     std::discrete_distribution<> pol(probabilities.begin(), probabilities.end());
     return pol(gen);
