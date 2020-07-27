@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Solvation of an biomolecule in a water box for MD simulations
-
 # cmd parsing functions
 usage() { echo "Solvate of an biomolecule in a water box for an MD simulation
 Usage: solvate.sh -f <structure file (.gro, .pdb)> -w <solvent file (tip4p.gro, spc216.gro)> -d <mdp directory> -b <distance to box edge (default: 1nm)>" 1>&2; exit 1; }
@@ -9,9 +7,6 @@ invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
 
-#------------
-# cmd parsing
-#------------
 
 while getopts ":f:w:d:b:h" opt; do
     case $opt in
@@ -56,8 +51,6 @@ fi
 if [ -z $dist2boxedge ]; then
     dist2boxedge=1
 fi
-
-# GROMACS pipeline
 
 # note: .top must be in root directory
 structureName=`echo $structureFile | cut -f1 -d"."`

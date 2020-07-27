@@ -1,14 +1,10 @@
 #!/bin/bash
 
-# cmd parsing functions
 usage() { echo "Two-stage restrained electrostatic potential (RESP) fitting
 Usage: resp_fit.sh -n <name if the input mol2 file (no extension)> -i <input directory> -o <output directory> -g <capping group file (.dat)> -c <net charge>" 1>&2; exit 1; }
 invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 
-#------------
-# cmd parsing
-#------------
 
 while getopts ":n:i:o:g:c:h" opt; do
     case $opt in
@@ -41,7 +37,6 @@ while getopts ":n:i:o:g:c:h" opt; do
             ;;
     esac
 done
-
 
 # any cmd line argument not given
 if [ -z "$name" ] || [ -z "$input_folder" ] || [ -z "$output_folder" ] || [ -z "$capping_group" ] || [ -z "$net_charge" ]; then

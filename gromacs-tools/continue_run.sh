@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Solvation of an biomolecule in a water box for MD simulations
-
-# cmd parsing functions
 usage() { echo "Continue a stopped run 
 Usage: continue_run.sh -s <prev. run input file (.tpr)> -c <prev. checkpoint file>
 
@@ -11,10 +8,6 @@ Usage: continue_run.sh -s <prev. run input file (.tpr)> -c <prev. checkpoint fil
 invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
-
-#------------
-# cmd parsing
-#------------
 
 while getopts ":s:c:e:o:h" opt; do
     case $opt in
@@ -44,7 +37,6 @@ while getopts ":s:c:e:o:h" opt; do
             ;;
     esac
 done
-
 
 # no cmd line arguments given
 if [ -z "$inputFile" ] || [ -z "$checkptFile" ]; then

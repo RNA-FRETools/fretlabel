@@ -13,7 +13,6 @@ INSTALL_REQUIRES = [
     'tqdm',
     'pandas',
     'biopandas'
-    'dill'
     ]
 
 relaxation = setuptools.Extension('relaxation', sources=['fluordynamics/relaxation.cpp'], include_dirs=[pybind11.get_include()], language='c++')

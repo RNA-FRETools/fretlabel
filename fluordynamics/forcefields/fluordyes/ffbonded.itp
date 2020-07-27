@@ -74,12 +74,12 @@
   cg    N  1  0.1345  400160.0  same as AMBER-DYES cg-ng
    N   NT  1  0.1404    187862          ; FLUOR-DYNAMICS
   CA   CV  1  0.1456    161234          ; FLUOR-DYNAMICS
+  CA   N*  1  0.1352    195817          ; FLUOR-DYNAMICS
   CT   CV  1  0.1502    140174          ; FLUOR-DYNAMICS
   NB   NB  1  0.1365    213694          ; FLUOR-DYNAMICS
+  N*   NB  1  0.1365    213694          ; FLUOR-DYNAMICS
   CA   H5  1  0.1088    143691          ; FLUOR-DYNAMICS
   CB   CM  1  0.1398    193053          ; FLUOR-DYNAMICS
-  CA   N*  1  0.1352    195817          ; FLUOR-DYNAMICS
-  N*   NB  1  0.1365    213694          ; FLUOR-DYNAMICS
   C  C          1    0.15250   259408.0
   C  CA         1    0.14090   392459.2
   C  CB         1    0.14190   374049.6
@@ -512,24 +512,19 @@
   H2   CT   NT  1    109.35  207.665              ; FLUOR-DYNAMICS
    H    N   NT  1    117.24  204.316              ; FLUOR-DYNAMICS
   CT   CA   CV  1    120.77  265.862              ; FLUOR-DYNAMICS
+  CV   CA   N*  1    119.72  290.983              ; FLUOR-DYNAMICS
   CB   NB   CV  1    104.24  298.519              ; FLUOR-DYNAMICS
   CA   CV   H4  1    129.25  187.987              ; FLUOR-DYNAMICS
   CA   CV   NB  1    120.59  281.772              ; FLUOR-DYNAMICS
   CA   CT   CV  1    112.88  266.699              ; FLUOR-DYNAMICS
+  CA   N*   CA  1    109.95  292.657              ; FLUOR-DYNAMICS
+  CA   N*   CB  1    109.95  292.657              ; FLUOR-DYNAMICS
+  CT   CA   N*  1    116.68  281.772              ; FLUOR-DYNAMICS
   CA   CV   CT  1    126.52  256.651              ; FLUOR-DYNAMICS
   CT   CV   NB  1    120.95  276.329              ; FLUOR-DYNAMICS
   CV   CT   HC  1    110.49  197.617              ; FLUOR-DYNAMICS
   CV   CA   H4  1       120   209.34              ; FLUOR-DYNAMICS
   CV   NB   NB  1    108.62  305.218              ; FLUOR-DYNAMICS
-  H5   CA   NC  1    122.11  210.177              ; FLUOR-DYNAMICS
-  CB   CB   CB  1    120.02  278.841              ; FLUOR-DYNAMICS
-  CB   CM   CM  1    120.02  278.841              ; FLUOR-DYNAMICS
-  CB   CM   HA  1    119.88  201.804              ; FLUOR-DYNAMICS
-  CM   CB   NB  1    119.72  290.983              ; FLUOR-DYNAMICS
-  CV   CA   N*  1    119.72  290.983              ; FLUOR-DYNAMICS
-  CA   N*   CA  1    109.95  292.657              ; FLUOR-DYNAMICS
-  CA   N*   CB  1    109.95  292.657              ; FLUOR-DYNAMICS
-  CT   CA   N*  1    116.68  281.772              ; FLUOR-DYNAMICS
   CA   N*   CT  1     121.2  293.076              ; FLUOR-DYNAMICS
   CA   N*   NB  1    108.34   307.73              ; FLUOR-DYNAMICS
   CT   N*   NB  1   110.095  293.298              ; FLUOR-DYNAMICS
@@ -538,10 +533,15 @@
   N*   CA   NC  1    128.74  292.239              ; FLUOR-DYNAMICS
   H5   CA   N*  1    122.11  210.177              ; FLUOR-DYNAMICS
   N*   CB   NB  1    128.74  292.239              ; FLUOR-DYNAMICS
+  H5   CA   NC  1    122.11  210.177              ; FLUOR-DYNAMICS
+  CB   CB   CB  1    120.02  278.841              ; FLUOR-DYNAMICS
    C   N*   CA  1    120.66   275.91              ; FLUOR-DYNAMICS
   N*    C   N*  1    110.31  306.892              ; FLUOR-DYNAMICS
    C   N*   CB  1    120.66   275.91              ; FLUOR-DYNAMICS
   CM   CB   N*  1    119.72  290.983              ; FLUOR-DYNAMICS
+  CB   CM   CM  1    120.02  278.841              ; FLUOR-DYNAMICS
+  CB   CM   HA  1    119.88  201.804              ; FLUOR-DYNAMICS
+  CM   CB   NB  1    119.72  290.983              ; FLUOR-DYNAMICS
 HW  OW  HW           1   104.520    836.800 ; TIP3P water
 HW  HW  OW           1   127.740      0.000 ; (found in crystallographic water with 3 bonds)
 C   C   O            1   120.000     669.440

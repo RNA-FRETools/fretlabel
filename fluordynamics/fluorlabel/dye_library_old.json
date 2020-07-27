@@ -3798,5 +3798,613 @@
     "chemistry": "hydrazide",
     "position": "3'-end",
     "linker": "HYD"
+  },
+  {
+    "filename": "C3W_DTM",
+    "dye": "sCy3",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C5W_DTM",
+    "dye": "sCy5",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C7N_DTM",
+    "dye": "Cy7",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C55_DTM",
+    "dye": "Cy5.5",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C75_DTM",
+    "dye": "Cy7.5",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A35_DTM",
+    "dye": "Alexa350",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A48_DTM",
+    "dye": "Alexa488",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A53_DTM",
+    "dye": "Alexa532",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A56_DTM",
+    "dye": "Alexa568",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A59_DTM",
+    "dye": "Alexa594",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A64_DTM",
+    "dye": "Alexa647",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T39_DTM",
+    "dye": "Atto390",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T42_DTM",
+    "dye": "Atto425",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T46_DTM",
+    "dye": "Atto465",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T48_DTM",
+    "dye": "Atto488",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T49_DTM",
+    "dye": "Atto495",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T51_DTM",
+    "dye": "Atto514",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T52_DTM",
+    "dye": "Atto520",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T61_DTM",
+    "dye": "Atto610",
+    "base": "DT",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C3W_RUM",
+    "dye": "sCy3",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C5W_RUM",
+    "dye": "sCy5",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C7N_RUM",
+    "dye": "Cy7",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C55_RUM",
+    "dye": "Cy5.5",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C75_RUM",
+    "dye": "Cy7.5",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A35_RUM",
+    "dye": "Alexa350",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A48_RUM",
+    "dye": "Alexa488",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A53_RUM",
+    "dye": "Alexa532",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A56_RUM",
+    "dye": "Alexa568",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A59_RUM",
+    "dye": "Alexa594",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A64_RUM",
+    "dye": "Alexa647",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T39_RUM",
+    "dye": "Atto390",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T42_RUM",
+    "dye": "Atto425",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T46_RUM",
+    "dye": "Atto465",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T48_RUM",
+    "dye": "Atto488",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T49_RUM",
+    "dye": "Atto495",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T51_RUM",
+    "dye": "Atto514",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T52_RUM",
+    "dye": "Atto520",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T61_RUM",
+    "dye": "Atto610",
+    "base": "RU",
+    "chemistry": "dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C3W_DTM",
+    "dye": "sCy3",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C5W_DTM",
+    "dye": "sCy5",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C7N_DTM",
+    "dye": "Cy7",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C55_DTM",
+    "dye": "Cy5.5",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C75_DTM",
+    "dye": "Cy7.5",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A35_DTM",
+    "dye": "Alexa350",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A48_DTM",
+    "dye": "Alexa488",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A53_DTM",
+    "dye": "Alexa532",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A56_DTM",
+    "dye": "Alexa568",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A59_DTM",
+    "dye": "Alexa594",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A64_DTM",
+    "dye": "Alexa647",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T39_DTM",
+    "dye": "Atto390",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T42_DTM",
+    "dye": "Atto425",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T46_DTM",
+    "dye": "Atto465",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T48_DTM",
+    "dye": "Atto488",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T49_DTM",
+    "dye": "Atto495",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T51_DTM",
+    "dye": "Atto514",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T52_DTM",
+    "dye": "Atto520",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T61_DTM",
+    "dye": "Atto610",
+    "base": "DT",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C3W_RUM",
+    "dye": "sCy3",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C5W_RUM",
+    "dye": "sCy5",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C7N_RUM",
+    "dye": "Cy7",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C55_RUM",
+    "dye": "Cy5.5",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "C75_RUM",
+    "dye": "Cy7.5",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A35_RUM",
+    "dye": "Alexa350",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A48_RUM",
+    "dye": "Alexa488",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A53_RUM",
+    "dye": "Alexa532",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A56_RUM",
+    "dye": "Alexa568",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A59_RUM",
+    "dye": "Alexa594",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "A64_RUM",
+    "dye": "Alexa647",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T39_RUM",
+    "dye": "Atto390",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T42_RUM",
+    "dye": "Atto425",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T46_RUM",
+    "dye": "Atto465",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T48_RUM",
+    "dye": "Atto488",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T49_RUM",
+    "dye": "Atto495",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T51_RUM",
+    "dye": "Atto514",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T52_RUM",
+    "dye": "Atto520",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
+  },
+  {
+    "filename": "T61_RUM",
+    "dye": "Atto610",
+    "base": "RU",
+    "chemistry": "U/dT-C5",
+    "position": "internal",
+    "linker": "MLE"
   }
 ]

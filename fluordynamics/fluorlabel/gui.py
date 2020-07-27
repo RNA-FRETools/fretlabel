@@ -42,7 +42,7 @@ class App(QtWidgets.QWidget):
 
 
         # add fragments from dye library
-        with open(os.path.join(os.path.dirname(__file__), 'dyes/dye_library.json'), 'r') as f:
+        with open(os.path.join(os.path.dirname(__file__), 'dye_library.json'), 'r') as f:
             self.dye_lib = json.load(f)
         for frag in self.dye_lib:
             if self.comboBox_selectPosition.findText(frag['position']) == -1:

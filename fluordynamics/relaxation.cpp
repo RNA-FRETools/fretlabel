@@ -90,5 +90,9 @@ PYBIND11_MODULE(relaxation, m) {
     m.def("findExcitationIndex", &findExcitationIndex, "Return an excitation event within the trajectory interval defined by \"skipframesatstart\" and \"skipframesatend\"", 
         py::arg("traj_length"), py::arg("skipframesatstart"), py::arg("skipframesatend"));
     m.def("integerChoice", &integerChoice, "Return an integer in the interval [0,n) with the specified discrete probabilities [p_1,p_2,...,p_n]", py::arg("probabilities"));
-    m.def("polarization", &polarization, "Return the polarization of the photon where 0 is a parallel p-photon and 1 is a perpendicular s-photon"), py::arg("excitation_dipole"), py::arg("emission_dipole");
+    m.def("polarization", &polarization, "Return the polarization of the photon where 0 is a parallel p-photon and 1 is a perpendicular s-photon"
+                                         "The intensity of the parallel polarized light is proportional to cos^2(x), where x is the angle between between the dipoles at time points t_ex and t_em."
+                                         "Similarly, the intensity of perpedicular polarized light is proportional to 0.5*sin^2(x)"
+                                         "The probability of a parallel photon is thus calculated as cos^2(x)/(cos^2(x)+0.5*sin^2(x)) = 2*cos^2(x)/(cos^2(x)+1)"),
+                                         py::arg("excitation_dipole"), py::arg("emission_dipole");
 }

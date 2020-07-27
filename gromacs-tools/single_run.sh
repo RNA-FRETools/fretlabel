@@ -1,17 +1,10 @@
 #!/bin/bash
 
-# Solvation of an biomolecule in a water box for MD simulations
-
-# cmd parsing functions
 usage() { echo "Run a single replicate MD simulation
 Usage: single_run.sh -c <structure file (.gro)> -d <mdp directory> -a <max. warnings for grompp> (optional) -p <plumed file (.dat)>" 1>&2; exit 1; }
 invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
-
-#------------
-# cmd parsing
-#------------
 
 while getopts ":c:d:a:p:h" opt; do
     case $opt in
@@ -42,7 +35,6 @@ while getopts ":c:d:a:p:h" opt; do
     esac
 done
 
-
 # no cmd line arguments given
 if [ -z "$structureFile" ] || [ -z "$mdp_dir" ]; then
     usage
@@ -54,7 +46,6 @@ if [ -z "$maxwarn" ]; then
 fi
 
 structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
-
 
 if [ -f nvt/"$structureName".xtc ] & [ -f npt/"$structureName".xtc ]; then
     read -p "An existing equilibration has been found. Do you want to use it for this run? (n)" -n 1 -r
