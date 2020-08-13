@@ -1,6 +1,5 @@
 from fluordynamics import ff
 from fluordynamics import jupyter
-from fluordynamics import relaxation
 from fluordynamics import fluorburst
 import os
 
