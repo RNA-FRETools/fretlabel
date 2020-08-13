@@ -1,7 +1,7 @@
 from fluordynamics import ff
 from fluordynamics import jupyter
 from fluordynamics import fluorburst
-import relaxation
+from fluordynamics import relaxation
 import os
 
 _SRC_DIR = os.path.abspath(os.path.dirname(__file__))

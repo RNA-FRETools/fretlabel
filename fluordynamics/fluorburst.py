@@ -7,7 +7,6 @@ import json
 import glob
 import multiprocessing
 #import relaxation
-from fluordynamics import relaxation
 import tqdm
 import tqdm.notebook
 import itertools
