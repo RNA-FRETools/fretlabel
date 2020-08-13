@@ -10,8 +10,8 @@ class ImportTest(unittest.TestCase):
 
     def testTrajectory_dyecoords(self):
         traj = fd.fluorburst.Trajectory.from_file(rkappa_filename=os.path.join(fd._TEST_DIR, 'testdata', 'test_rkappa1.dat'), 
-                                              don_coords_filename=os.path.join(fd._TEST_DIR, 'testdata', 'test_donorCoords1.xvg'),
-                                              acc_coords_filename=os.path.join(fd._TEST_DIR, 'testdata', 'test_acceptorCoords1.xvg'))
+                                              don_coords_filename=os.path.join(fd._TEST_DIR, 'testdata', 'test_donorcoords1.xvg'),
+                                              acc_coords_filename=os.path.join(fd._TEST_DIR, 'testdata', 'test_acceptorcoords1.xvg'))
         self.assertEqual(traj.time[0], 0)
 
 
