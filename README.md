@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/fdsteffen/fluordynamics/master/docs/source/_static/fluordynamics_logo.png" width="50">Fluordynamics
+# <img src="https://github.com/fdsteffen/fluordynamics/blob/master/docs/source/_static/fluordynamics_logo.png" width="50">Fluordynamics
 
 
 ## Introduction
