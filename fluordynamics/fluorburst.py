@@ -214,7 +214,7 @@ class Trajectory:
     def checkLengthIdentity(self, traj_length, donor_xyz, acceptor_xyz):
         all_lengths = [traj_length, len(donor_xyz[:,0]), len(acceptor_xyz[:,0])]
         if all_lengths[1:] != all_lengths[:-1]:
-            raise ValueError('Length of rkappa and dye coordinates is not the same.')
+            raise ValueError('Length of rkappa and dye coordinates is not the same [{}].'.format(', '.join(all_lengths)))
 
 
     @staticmethod
