@@ -6,7 +6,7 @@ import argparse
 import json
 import glob
 import multiprocessing
-import relaxation
+#import relaxation
 from fluordynamics import relaxation
 import tqdm
 import tqdm.notebook
