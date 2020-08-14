@@ -1,5 +1,5 @@
 # <img src="https://github.com/fdsteffen/fluordynamics/blob/master/docs/source/_static/fluordynamics_logo.png" width="50">Fluordynamics
-
+[![Build Status](https://github.com/fdsteffen/fluordynamics/workflows/fluordynamics%20build/badge.svg)](https://github.com/fdsteffen/fluordynamics/actions)
 
 ## Introduction
 

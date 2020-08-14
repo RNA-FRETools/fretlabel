@@ -39,9 +39,9 @@ class IntegrationTest(unittest.TestCase):
         self.parameters['sampling']['multiprocessing'] = True
         self.experiment = fd.fluorburst.Experiment(os.path.join(fd._TEST_DIR, 'testdata'), self.parameters, binwidth=0.025, verbose=False, compute_anisotropy=False)
 
-    def test_multiCore_withAnisotropy(self):
-        self.parameters['sampling']['multiprocessing'] = True
-        self.experiment = fd.fluorburst.Experiment(os.path.join(fd._TEST_DIR, 'testdata'), self.parameters, binwidth=0.025, verbose=False, compute_anisotropy=True)
+    # def test_multiCore_withAnisotropy(self):
+    #     self.parameters['sampling']['multiprocessing'] = True
+    #     self.experiment = fd.fluorburst.Experiment(os.path.join(fd._TEST_DIR, 'testdata'), self.parameters, binwidth=0.025, verbose=False, compute_anisotropy=True)
 
 
 if __name__ == "__main__":

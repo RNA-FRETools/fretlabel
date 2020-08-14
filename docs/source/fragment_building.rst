@@ -1,3 +1,5 @@
+.. _fragment_building:
+
 Fragment building
 =================
 
@@ -5,33 +7,21 @@ Fragment building
    :maxdepth: 2
    :hidden:
 
-   tutorial/create_dye_fragment
-   tutorial/base_linker_generation
+   tutorial/deoxythymidine_fragment_building
+   tutorial/NA_coupling_chemistries
+   tutorial/partial_charges_to_mol2
+
+.. _Deoxythmidine fragment building: tutorial/deoxythymidine_fragment_building.ipynb
+.. _Nucleic Acid coupling chemistries: tutorial/NA_coupling_chemistries.ipynb
+.. _Adding partial charges to mol2 files: tutorial/partial_charges_to_mol2.ipynb
+
    
-.. jupyter-execute::
-    
-    import numpy as np
-    from matplotlib import pyplot
-    %matplotlib inline
+The following jupyter notebooks illustrate the process of creating nucleotide-linker fragments. 
 
-    x = np.linspace(1E-3, 2 * np.pi)
+- `Deoxythmidine fragment building`_ outlines how to calculate an electrostatic surface potential (ESP), appropriate capping groups for RESP fitting and how to patch an AMBER force field with the new fragment parameters 
 
-    pyplot.plot(x, np.sin(x) / x)
-    pyplot.plot(x, np.cos(x))
-    pyplot.grid()
+- `Nucleic Acid coupling chemistries`_ describes all currently implemented coupling chemistries for RNA and DNA labeling
 
-.. jupyter-execute::
-    
-    import numpy as np
-    from matplotlib import pyplot
-    %matplotlib inline
-
-    x = np.linspace(1E-3, 2 * np.pi)
-
-    pyplot.plot(x, np.sin(x) / x)
-    pyplot.plot(x, np.cos(x))
-    pyplot.grid()
-
-
+- `Adding partial charges to mol2 files`_ shows how partial charges can be transferred to mol2 files using biopandas 
 
 

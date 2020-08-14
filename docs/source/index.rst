@@ -18,8 +18,8 @@
    :hidden:
 
    fluorlabel
-   fluorrun
    fluorburst
+   utilities
 
 .. toctree::
    :maxdepth: 2
