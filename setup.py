@@ -26,7 +26,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url=about['__url__'],
-    packages=setuptools.find_packages('pybind11', exclude=['fluordynamics/fluorlabel']),
+    packages=setuptools.find_packages('pybind11', exclude=['fluordynamics/fluorlabel/gui.py']),
     install_requires=INSTALL_REQUIRES,
     classifiers=[
         'Programming Language :: Python :: 3',
