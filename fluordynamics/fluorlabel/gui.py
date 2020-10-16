@@ -1,11 +1,11 @@
 import sys
 import os
-from pymol import cmd
-from pymol.Qt import QtWidgets, utils, QtCore
 import json
 import numpy as np
 import pandas as pd
 import webbrowser
+from pymol import cmd
+from pymol.Qt import QtWidgets, utils, QtCore
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
 

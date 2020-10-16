@@ -6,8 +6,6 @@ Label biomolecules with a fluorophore
 (c) Fabio Steffen, University of Zurich, 2020
 """
 
-from . import gui
-
 dialog = None
 
 
@@ -25,5 +23,6 @@ def run_plugin_gui():
     """
     global dialog
     if dialog is None:
+        from . import gui
         dialog = gui.App(_pymol_running=True)
     dialog.show()
