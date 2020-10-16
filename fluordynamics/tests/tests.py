@@ -25,7 +25,7 @@ class ImportTest(unittest.TestCase):
 
     def testEnsemble(self):
         ensemble = fluorburst.Ensemble(os.path.join(_TEST_DIR, 'testdata'), {'species': {'name': ["all"], "unix_pattern_rkappa": ["*.dat"], "probability": [1]}})
-        self.assertEqual(ensemble.species[0].trajectories[0].time[0], 0)
+        self.assertEqual(len(ensemble.species[0].trajectories), 2)
 
 
 class IntegrationTest(unittest.TestCase):
