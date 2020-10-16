@@ -6,11 +6,13 @@ FluorBurst
 
    tutorial/fluorburst
 
-*FluorBurst* uses a Markov chain to compute fluorescent bursts from an MD trajectory of a biomolecule with fluorophores explicitely included. Distances and orientation factors are calculated from the transition dipoles of the donor and acceptor dye using *gmx dyecouple* implemented in Gromacs. Specifically, the orientation factor :math:`\kappa^2` is calculated as
+*FluorBurst* uses a Markov chain to compute fluorescent bursts from an MD trajectory of a biomolecule with fluorophores explicitely included. Distances and orientation factors are calculated from the transition dipoles of the donor and acceptor dye using *gmx dyecouple* which is part of Gromacs. Specifically, the orientation factor :math:`\kappa^2` is calculated as
 
-.. math:: \kappa^2 = (\cos\theta_T - 3\cos\theta_D\cos\theta_A)^2
+.. math:: 
 
-where :math:`\theta_D` and :math:`\theta_A` are the angles between the vector connecting the central carbons and the transition dipole of the donor or acceptor respectively, and :math:`\theta_T` is the angle between the two transition dipoles.[1]_ 
+   \kappa^2 = (\cos\theta_T - 3\cos\theta_D\cos\theta_A)^2
+
+where :math:`\theta_D` and :math:`\theta_A` are the angles between the vector connecting the central carbons and the transition dipole of the donor or acceptor respectively, and :math:`\theta_T` is the angle between the two transition dipoles. [1]_ 
 
 
 .. jupyter-execute::
