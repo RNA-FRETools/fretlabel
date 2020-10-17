@@ -5,7 +5,7 @@
 
 ### Interactive fragment generation
 
-Fluordynamics is a package for setting up and running Molecular dynamics simulations with extrinsic organic fluorophores. The eponymous Python module allows to build new fragments (base, linker and dye) interactively. It integrates into PyMOL such that the molecular viewer can be controlled directly from a Jupyter notebook. The module also features a dedicated PyMOL plugin called *Fluorlabel* to attach the new fragments to the nucleic acid of interest. 
+Fluordynamics is a package for setting up and running Molecular dynamics simulations with extrinsic organic fluorophores. The Python module allows to build new fragments (base, linker and dye) interactively. It integrates into PyMOL such that the molecular viewer can be controlled directly from a Jupyter notebook. The module also features a dedicated PyMOL plugin called *Fluorlabel* to attach the new fragments to the nucleic acid of interest. 
 
 ### Patching AMBER force fields
 
@@ -18,7 +18,7 @@ The package further includes run files for setting up molecular dynamics simulat
 
 ## Download and install
 
-Install gromacs-tools from Github with pip
+Install Fluordynamics from Github with pip
 ```
 pip install --user git+https://github.com/fdsteffen/fluordynamics.git
 ```

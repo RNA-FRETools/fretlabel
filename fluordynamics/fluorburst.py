@@ -485,7 +485,7 @@ class Experiment:
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_DD_DA[t], self.polarizations[t])
                 else:
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_AA[t], self.polarizations[t])
-                    self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t])
+                self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t])
 
         if verbose:
             self.print_results()
@@ -509,6 +509,7 @@ class Experiment:
         Returns
         -------
         polIntensity : numpy.ndarray
+                       polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)
         """
         time_pol = sorted(zip(decaytimes, polarizations))
         polIntensity = [[], [], []]
@@ -640,7 +641,7 @@ class Experiment:
 
         Parameters
         ----------
-        fielname : str
+        filename : str
         """
         with open(filename, 'wb') as file:
             if remove_bursts:

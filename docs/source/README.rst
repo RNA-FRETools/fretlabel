@@ -23,15 +23,15 @@ Together with established pipelines for topology generation such as *Antechamber
 MD simulation setup
 -------------------
 
-The package further includes run files for settig up molecular dynamics simulations in Gromacs.
+The package further includes run files for setting up molecular dynamics simulations in Gromacs.
 
 
 Download and install
 ********************
 
-Install gromacs-tools from Github with pip ::
+Install fluordynamics from Github with pip ::
 
-    pip install --user git+https://github.com/fdsteffen/gromacs-tools.git
+    pip install --user git+https://github.com/fdsteffen/fluordynamics.git
 
 
 
