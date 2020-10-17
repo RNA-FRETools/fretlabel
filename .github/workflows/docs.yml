@@ -13,11 +13,11 @@ jobs:
         python-version: 3.8
     - name: build docs
       run: |
+        sudo apt-get install pandoc 
         pip install sphinx
         pip install sphinx-rtd-theme
         pip install nbsphinx
         pip install jupyter-sphinx
-        pip install pypandoc
         pip install pybind11
         pip install matplotlib
         pip install .
