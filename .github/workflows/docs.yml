@@ -1,4 +1,4 @@
-name: Github pages
+name: Fluordynamics docs
 
 on: [push]
 
@@ -16,6 +16,7 @@ jobs:
         pip install sphinx
         pip install sphinx-rtd-theme
         pip install nbsphinx
+        pip install jupyter-sphinx
         cd docs/
         make html
     - name: deploy to gh-pages
