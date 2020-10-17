@@ -17,7 +17,7 @@ jobs:
         pip install sphinx-rtd-theme
         pip install nbsphinx
         pip install jupyter-sphinx
-        pip isntall pandoc
+        pip install pandoc
         pip install pybind11
         pip install matplotlib
         pip install .
