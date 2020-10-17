@@ -18,7 +18,7 @@ where :math:`\theta_D` and :math:`\theta_A` are the angles between the vector co
 .. jupyter-execute::
     
    import os
-   import fluordynamics as fd
+   from . import fluordynamics as fd
    import matplotlib.pyplot as plt 
    path = os.path.dirname(fd.__file__)
 
