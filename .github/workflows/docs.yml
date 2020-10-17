@@ -17,6 +17,7 @@ jobs:
         pip install sphinx-rtd-theme
         pip install nbsphinx
         pip install jupyter-sphinx
+        pip install .
         cd docs/
         make html
     - name: deploy to gh-pages
