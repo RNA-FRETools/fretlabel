@@ -45,7 +45,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon',
     'nbsphinx',
-    'jupyter_sphinx.execute',
+    'jupyter_sphinx',
 ]
 
 napoleon_use_ivar = True
