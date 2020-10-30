@@ -24,12 +24,10 @@ about = {}
 with open('../../fluordynamics/__about__.py') as a:
     exec(a.read(), about)
 
+project = about['__title__']
+copyright = about['__copyright__']
+author = about['__author__']
 release = about['__version__']
-
-project = 'Fluordynamics'
-copyright = '2020, Fabio D. Steffen'
-author = 'Fabio D. Steffen'
-
 
 
 # -- General configuration ---------------------------------------------------
