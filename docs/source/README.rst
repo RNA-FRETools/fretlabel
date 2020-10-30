@@ -1,30 +1,35 @@
-|logo| Fluordynamics   
-====================
-
-.. |logo| image:: _static/fluordynamics_logo.png
-   :width: 50
+Fluordynamics   
+=============
 
 .. toctree::
    :maxdepth: 2
 
-Introduction
-************
+
+.. image:: _static/graphical_abstract.png
+   :width: 100pc
+   :align: center
+
+What is in the box?
+*******************
+
+*Fluordynamics* simplifies the workflow of setting up, running and evaluating Molecular dynamics simulations with extrinsic organic fluorophores for *in silico* FRET calculations.
 
 Interactive fragment generation
 -------------------------------
 
-Fluordynamics is a package for setting up and running Molecular dynamics simulations with extrinsic organic fluorophores. The eponymous Python module allows to build new fragments (base, linker and dye) interactively. It integrates into PyMOL such that the molecular viewer can be controlled directly from a Jupyter notebook. The module also features a dedicated PyMOL plugin called *Fluorlabel* to attach the new fragments to the nucleic acid of interest. 
+The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button. 
 
 Patching AMBER force fields
 ---------------------------
 
-Together with established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics patches existing Gromacs ports of the AMBER force fields (including AMBERDYES, Graen et al. JCTC, 2014) with the newly generated fragment parameters.
+Together with established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics patches existing **Gromacs** ports of the AMBER force fields (including AMBERDYES) with new fragment parameters.
 
-MD simulation setup
--------------------
+*in silico* FRET
+----------------
 
-The package further includes run files for setting up molecular dynamics simulations in Gromacs.
+On top of the MD trajectories, photon bursts are computed allowing to simulate a FRET experiment.
 
+------
 
 Download and install
 ********************
@@ -33,16 +38,6 @@ Install fluordynamics from Github with pip ::
 
     pip install --user git+https://github.com/fdsteffen/fluordynamics.git
 
-
-
-Dependencies
-************
-
-Make sure you have two following Python dependencies installed:
-
-- numpy
-- pandas
-- biopandas
 
 To generate your own fragments you may further need:
 
@@ -55,17 +50,22 @@ To generate your own fragments you may further need:
     conda install -c conda-forge acpype
 - A quantum chemistry package such as *Gaussian* https://gaussian.com/ or *GAMESS* https://www.msg.chem.iastate.edu/gamess/
 
-
+------
 
 Getting started
 ***************
 
-Label your nucleic acid
------------------------
+.. role::  raw-html(raw)
+    :format: html
 
-See the quick intro to the :doc:`PyMOL plugin <fluorlabel>`
+Want to label your nucleic acid *in silico*?
+--------------------------------------------
+:raw-html:`&rarr;` See the quick intro to the :doc:`PyMOL plugin <fluorlabel>`
 
-Build your own fragment
------------------------
+Extend the labeling portfolio and build your own linker fragments?
+------------------------------------------------------------------
+:raw-html:`&rarr;` Visit one of the :doc:`tutorials <fragment_building>`
 
-Visit one of the :doc:`tutorials <fragment_building>`
+You have an MD trajectory and want to calculate FRET?
+-----------------------------------------------------
+:raw-html:`&rarr;` Check out the :doc:`Fluorburst tutorial <fluorburst>`

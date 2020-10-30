@@ -36,9 +36,10 @@ FluorBurst was inspired by md2fret:
  |Hoefling2013|
 
 
-Details about the 3'-end labeling (via hydrazide) and the ethenoadenine/cytosine chemistry can be found in the original paper (1) and reviewed in (2)
+Details about the 3'-end labeling (via hydrazide) and the ethenoadenine/cytosine chemistry can be found in the original paper
  M. Zhao, F.D. Steffen R. Börner, M. Schaffer, R.K.O. Sigel, E. Freisinger, *Nucleic Acids Res.* **2018**, *46*, e13. 
  |Zhao2018|
-
+ 
+and have been reviewed in
  F.D. Steffen, R. Börner, E. Freisinger, R.K.O. Sigel, *CHIMIA* **2019**, *73*, 257-261. 
  |Steffen2019|

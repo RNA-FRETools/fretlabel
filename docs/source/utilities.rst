@@ -1,9 +1,6 @@
 Utilities
 =========
 
-gromacs-tools
--------------
-
 *gromacs-tools* is a set of bash scripts to set up and run molecular dynamics simulation with Gromacs. It currently includes the following scripts:
 
 - *resp_fit.sh* implements two-stage restrained electrostatic potential (RESP) fitting using Antechamber_

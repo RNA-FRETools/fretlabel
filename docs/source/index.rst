@@ -26,7 +26,8 @@
    :caption: Code
    :hidden:
 
-   module
+   module_ff
+   module_fluorbursts
 
 .. toctree::
    :maxdepth: 2
