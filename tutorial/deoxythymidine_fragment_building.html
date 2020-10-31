@@ -498,18 +498,18 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>FluorLabel fuses a fragment that consists of a modified nucleotide and a fluorophore connected through a flexible linker.</p>
-<p><img alt="f59960fbf49a434e9bd71d47837fa618" class="no-scaled-link" src="../_images/dye-linker-base.png" style="width: 500px;" /></p>
+<p><img alt="44c168f4853b426d98ee863608723b3d" class="no-scaled-link" src="../_images/dye-linker-base.png" style="width: 500px;" /></p>
 <p>A set of commonly used fluorophores has been previously parameterized for Gromacs by the Grubmüller lab (Graen et al. <em>JCTC</em>, <strong>2014</strong>) and distributed through the AMBER-DYES package available on <a class="reference external" href="https://github.com/t-/amber-dyes">Github</a>. A subset of these dyes are located in <code class="docutils literal notranslate"><span class="pre">fragments/dyes/</span></code> (in the Tripos mol2 format). RNA and DNA nucleotides are located in <code class="docutils literal notranslate"><span class="pre">fragments/bases/</span></code>. To fuse the fluorophores to the bases we will need to create linkers which conform to the specific coupling
 chemistry used <em>in vitro</em>. This tutorial demonstrates the workflow using a sulfonated Cy3 dye attached to the C5 of deoxythymine as shown above.</p>
 <p>The parameterization involves calculating partial charges as well as bond, angle and dihedral parameters for all the atomtypes. The parameters of the bases and the dyes are already available as part of the AMBER and AMBER-DYES force fields. However, those of the linker need to be generated from scratch or in analogy to existing parameters.</p>
 <p>We will start by calculating partial charges of the linker by doing a RESP (Restrained ElectroStatic Potential) fit. For this labeling chemistry we use the following 6-carbon linker capped at each both ends with either a methylene or an acetylene (ACE) group to fill the bond valencies and to make the net charge of the spacer equal zero. The capping groups are chosen to best mimic the actual charge distribution when the linker is fused to the dye and the nucleotide.</p>
-<p><img alt="4c56e179e6154a3b83f8f39fe64938f6" class="no-scaled-link" src="../_images/MLE_linker.png" style="width: 450px;" /></p>
+<p><img alt="6e65687e7623406c8e744bd37f3f3407" class="no-scaled-link" src="../_images/MLE_linker.png" style="width: 450px;" /></p>
 <p>The partial charges of the ACE group have been derived when the AMBER-9X force field was designed (Cornell et al. <em>JACS</em> <strong>1995</strong>) and are itself summing up to zero. The methylene charges will be determined as part of the charge fitting procedure with a group charge constraint of -0.15400. This group constraint equals the charge difference between a normal deoxythymine and one where two of the three methyl hydrogens on C5 are removed (partial charge of H71 and H72 is 0.77200 each).</p>
 <div class="math notranslate nohighlight">
 \[\Delta q = q(\text{DT}_\text{-H71,-H72})-q(\text{DT}_\text{normal}) = -1.15400-(-1) = -0.15400\]</div>
 <div class="section" id="Build-capped-linker-with-PyMOL">
 <h2>Build capped linker with PyMOL<a class="headerlink" href="#Build-capped-linker-with-PyMOL" title="Permalink to this headline">¶</a></h2>
-<p>First, we create the linker with correct bond valencies using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> tool of PyMOL. Fragments can be added alltogether by <code class="docutils literal notranslate"><span class="pre">Build</span></code>→<code class="docutils literal notranslate"><span class="pre">Fragment</span></code>→<code class="docutils literal notranslate"><span class="pre">Acetylene</span></code>. <img alt="5e76f20d20f245988a339ecdabe2cc83" class="no-scaled-link" src="tutorial/images/PyMOL_builder.png" style="width: 350px;" /> <img alt="4743951df7c0423ca835797734f8a3a0" class="no-scaled-link" src="../_images/MLE_linker_PyMOL.png" style="width: 450px;" /></p>
+<p>First, we create the linker with correct bond valencies using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> tool of PyMOL. Fragments can be added alltogether by <code class="docutils literal notranslate"><span class="pre">Build</span></code>→<code class="docutils literal notranslate"><span class="pre">Fragment</span></code>→<code class="docutils literal notranslate"><span class="pre">Acetylene</span></code>. <img alt="5a4e7242128b43a093aede67c5564005" class="no-scaled-link" src="tutorial/images/PyMOL_builder.png" style="width: 350px;" /> <img alt="795e63ecc48047ebb3406c8f3abb79d5" class="no-scaled-link" src="../_images/MLE_linker_PyMOL.png" style="width: 450px;" /></p>
 <p>Rename the atoms in a logical way such that there is no overlap with the atom names of the nucleotide (atoms of the linker and the dye can have the same names because there residue name is different). Finally, the linker is saved as a <strong>mol2</strong> file (<code class="docutils literal notranslate"><span class="pre">linker/in/DTM_capped.mol2</span></code>).</p>
 <blockquote>
 <div><p><strong>Note:</strong> Mol2 files have the advantage that bond valencies are encoded in the format. You can emulate this behavior with PDB files by creating double CONECT entries, however this feature is not recognized by many programs and often leads to error messages instead.</p>
@@ -655,7 +655,7 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 </pre></div>
 </div>
 </div>
-<p><img alt="b751d1a2f0de4779898e3faf7e5242ed" class="no-scaled-link" src="tutorial/images/PyMOL_threeButtonEditor.png" style="width: 550px;" /></p>
+<p><img alt="bd54303f87a14273a8d6886d60f7d05b" class="no-scaled-link" src="tutorial/images/PyMOL_threeButtonEditor.png" style="width: 550px;" /></p>
 <p>Update the valency of the bond between the linker and the base.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
