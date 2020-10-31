@@ -1,0 +1,929 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fluordynamics.fluorburst &mdash; fluordynamics 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #333" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> fluordynamics
+          
+
+          
+            
+            <img src="../../_static/fluordynamics_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Fluordynamics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../fluorlabel.html">FluorLabel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fluorburst.html">FluorBurst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities.html">Utilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_ff.html">Force field parameterization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_fluorbursts.html">Fluorburst</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">Publications and related projects</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">fluordynamics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>fluordynamics.fluorburst</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for fluordynamics.fluorburst</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">relaxation</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">tqdm.notebook</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">package_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+<span class="n">about</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_directory</span><span class="p">,</span> <span class="s1">&#39;__about__.py&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">a</span><span class="p">:</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">about</span><span class="p">)</span>
+
+<span class="n">_relax_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">,</span> <span class="s1">&#39;D_ic&#39;</span><span class="p">,</span> <span class="s1">&#39;A_p&#39;</span><span class="p">,</span> <span class="s1">&#39;A_ic&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="parseCmd"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.parseCmd">[docs]</a><span class="k">def</span> <span class="nf">parseCmd</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the command line arguments</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    directory : str</span>
+<span class="sd">                path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates) </span>
+<span class="sd">    parameter_file : str</span>
+<span class="sd">                     path to a json formatted parameter file for the burst, FRET and anisotropy calculations (see tutorial for an example)</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Compute FRET histograms from MD simulations with fluorophore labels&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--version&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;version&#39;</span><span class="p">,</span>
+                        <span class="n">version</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(prog)s</span><span class="s1"> &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">about</span><span class="p">[</span><span class="s2">&quot;__version__&quot;</span><span class="p">]))</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--directory&#39;</span><span class="p">,</span> 
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Directory with gmx dyecouple output files&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--parameters&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Parameter file (.json)&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output file o&#39;</span><span class="p">,</span>
+                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">directory</span>
+    <span class="n">parameter_file</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">parameters</span>
+    <span class="k">return</span> <span class="n">directory</span><span class="p">,</span> <span class="n">parameter_file</span></div>
+
+
+<div class="viewcode-block" id="readParameters"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.readParameters">[docs]</a><span class="k">def</span> <span class="nf">readParameters</span><span class="p">(</span><span class="n">parameter_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read parameters from a json file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameter_file : str</span>
+<span class="sd">                     path to a json formatted parameter file (see tutorial for an example)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">                 parameters for the burst, FRET and anisotropy calculations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">parameter_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parameters</span></div>
+
+
+<div class="viewcode-block" id="Ensemble"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Ensemble">[docs]</a><span class="k">class</span> <span class="nc">Ensemble</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Instantiate a new ensemble of trajectories from different species</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    directory : str</span>
+<span class="sd">                path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates) </span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">                 parameters for the burst, FRET and anisotropy calculations (see tutorial for an example)</span>
+<span class="sd">    compute_anisotropy : bool</span>
+<span class="sd">                         Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor .xvg file in the directory</span>
+<span class="sd">                         where each contains xyz-coordinates of two atoms which define the transition dipole of the dye. </span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">              Output status and results to the command line</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">ps</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])):</span>
+            <span class="n">filelist_rkappa</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_rkappa&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">filelist_rkappa</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s1">&#39;No rkappa files found for species </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1"> with the pattern </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1"> in the directory </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_rkappa&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">directory</span><span class="p">))</span>
+            
+            <span class="k">if</span> <span class="n">compute_anisotropy</span><span class="p">:</span>
+                <span class="n">filelist_don_coords</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_don_coords&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+                <span class="n">filelist_acc_coords</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_acc_coords&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">filelist_don_coords</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">filelist_acc_coords</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s1">&#39;No dye coordinates files found for species </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1"> with the pattern </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1"> or </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1"> in the directory </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> 
+                        <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_don_coords&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;unix_pattern_acc_coords&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">directory</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filelist_rkappa</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filelist_don_coords</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filelist_rkappa</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filelist_acc_coords</span><span class="p">)):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;There are not the same number of rkappa and dye coordinates files in the directory </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkTimeStepIdentity</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Ensemble.checkTimeStepIdentity"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Ensemble.checkTimeStepIdentity">[docs]</a>    <span class="k">def</span> <span class="nf">checkTimeStepIdentity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Verify that the trajectories of all species in the ensemble have the same time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="p">[</span><span class="n">traj</span><span class="o">.</span><span class="n">dt</span> <span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="k">for</span> <span class="n">traj</span> <span class="ow">in</span> <span class="n">species</span><span class="o">.</span><span class="n">trajectories</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">dt</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="n">dt</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Timestep of trajectories is not the same across the ensemble.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="Species"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Species">[docs]</a><span class="k">class</span> <span class="nc">Species</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a new species of trajectories</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">           name of the species</span>
+<span class="sd">    probability : float</span>
+<span class="sd">                  relative weight of the species in the ensemble</span>
+<span class="sd">    filelist_rkappa : list of str</span>
+<span class="sd">                      list of .dat filenames with inter-dye distance (R) and kappasquare values</span>
+<span class="sd">    filelist_don_coords : list of str (optional)</span>
+<span class="sd">                          list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the donor dye</span>
+<span class="sd">    filelist_acc_coords : list of str (optional)</span>
+<span class="sd">                          list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the acceptor dye</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">probability</span><span class="p">,</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probability</span> <span class="o">=</span> <span class="n">probability</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">total_frames</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rkappa_filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filelist_rkappa</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">traj</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">rkappa_filename</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_acc_coords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">traj</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">rkappa_filename</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">traj</span><span class="p">)</span>
+            <span class="n">total_frames</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">traj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="n">total_frames</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trajectory"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Trajectory">[docs]</a><span class="k">class</span> <span class="nc">Trajectory</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Time trajectory (in ps) of inter-dye distances (in nm) and kappa-square values</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time : numpy.array</span>
+<span class="sd">           time in picoseconds</span>
+<span class="sd">    R : numpy.array</span>
+<span class="sd">        inter-dye distance in nanometers</span>
+<span class="sd">    kappasquare : numpy.array</span>
+<span class="sd">                  kappasquare values calculated from the orientation of the donor and acceptor transition dipoles</span>
+<span class="sd">    donor_xyz : numpy.ndarray (optional)</span>
+<span class="sd">                xyz coordinates of two atoms defining the transition dipole of the donor dye</span>
+<span class="sd">    acceptor_xyz : numpy.ndarray (optional)</span>
+<span class="sd">                   xyz coordinates of two atoms defining the transition dipole of the acceptor dye</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">kappasquare</span><span class="p">,</span> <span class="n">donor_xyz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acceptor_xyz</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kappasquare</span> <span class="o">=</span> <span class="n">kappasquare</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">1000</span> <span class="c1"># in nanoseconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_fret</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_fret</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pD_totfret</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">donor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">acceptor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checkLengthIdentity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">donor_xyz</span><span class="p">,</span> <span class="n">acceptor_xyz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donorTD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitionDipole</span><span class="p">(</span><span class="n">donor_xyz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acceptorTD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitionDipole</span><span class="p">(</span><span class="n">acceptor_xyz</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Trajectory.from_file"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Trajectory.from_file">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rkappa_filename</span><span class="p">,</span> <span class="n">don_coords_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">acc_coords_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a fluordynamics.fluorburst.Trajectory class from filenames</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rkappa_filename : str</span>
+<span class="sd">                          name of a .dat file containing inter-dye distances and kappasquare values</span>
+<span class="sd">        don_coords_filename : str (optional)</span>
+<span class="sd">                              name of a .xvg file containing xyz coordinates of two atoms defining the transition dipole of the donor dye</span>
+<span class="sd">        acc_coords_filename : str (optional)</span>
+<span class="sd">                              name of a .xvg file containing xyz coordinates of two atoms defining the transition dipole of the acceptor dye</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rkappa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">rkappa_filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">don_coords_filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">donor_xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">don_coords_filename</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;@&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">donor_xyz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">acc_coords_filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">acceptor_xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">acc_coords_filename</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;@&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">acceptor_xyz</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">rkappa</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">rkappa</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">rkappa</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">donor_xyz</span><span class="p">,</span> <span class="n">acceptor_xyz</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trajectory.checkLengthIdentity"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Trajectory.checkLengthIdentity">[docs]</a>    <span class="k">def</span> <span class="nf">checkLengthIdentity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">traj_length</span><span class="p">,</span> <span class="n">donor_xyz</span><span class="p">,</span> <span class="n">acceptor_xyz</span><span class="p">):</span>
+        <span class="n">all_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="n">traj_length</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">donor_xyz</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">acceptor_xyz</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])]</span>
+        <span class="k">if</span> <span class="n">all_lengths</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">all_lengths</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Length of rkappa and dye coordinates is not the same [</span><span class="si">{}</span><span class="s1">].&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_lengths</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="Trajectory.transitionDipole"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Trajectory.transitionDipole">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">transitionDipole</span><span class="p">(</span><span class="n">dye_xyz</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute a normalized transition dipole vector</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dye_xyz : numpy.ndarray</span>
+<span class="sd">                  array of shape [n,7] with columns: time, x1, y1, z1, x2, y2, z2 where 1 and 2 are two atoms defining the transition dipole</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">TD</span> <span class="o">=</span> <span class="n">dye_xyz</span><span class="p">[:,</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span><span class="o">-</span><span class="n">dye_xyz</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dye coordinate file has a wrong format. Rerun </span><span class="se">\&quot;</span><span class="s1">gmx traj</span><span class="se">\&quot;</span><span class="s1"> with an index file containing two atoms which define the transition dipole.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">TD</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">TD</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Burst"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst">[docs]</a><span class="k">class</span> <span class="nc">Burst</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a new burst</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    burstsize : int</span>
+<span class="sd">                total number of photons (donor + acceptor) to generate in this burst</span>
+<span class="sd">    QD : float</span>
+<span class="sd">         donor fluorescence quantum yield</span>
+<span class="sd">    QA : float</span>
+<span class="sd">         acceptor fluorescence quantum yield</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">burstsize</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">burstsize</span> <span class="o">=</span> <span class="n">burstsize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QY_correction</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma_correction</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_relax_types</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events_AA</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_relax_types</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_relax_types</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_relax_types</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">,</span> <span class="s1">&#39;A_p&#39;</span><span class="p">]}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiency</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="Burst.checkBurstSizeReached"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst.checkBurstSizeReached">[docs]</a>    <span class="k">def</span> <span class="nf">checkBurstSizeReached</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">,</span> <span class="n">QY_correction</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the number of photons has reached the specified burstsize</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        QD : float</span>
+<span class="sd">             donor fluorescence quantum yield</span>
+<span class="sd">        QA : float</span>
+<span class="sd">             acceptor fluorescence quantum yield</span>
+<span class="sd">        QY_correction : bool</span>
+<span class="sd">                        correct the number of donor and acceptor photons by their respective quantum yield when evaluating whether the burstsize is reached.</span>
+<span class="sd">                        e.g. say we collected 20 donor photons (with QD=0.5) and 25 acceptor photons (with QA=0.75) and the burstsize is set to be 50.</span>
+<span class="sd">                        If QY_correction = False the total photon count is 20+25=45 photons, so the required burstsize is not reached yet.</span>
+<span class="sd">                        if QY_correction = True the total photon count is (20/0.5 + 25/0.75 = 73) and so the burst is complete.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">QY_correction</span> <span class="o">=</span> <span class="n">QY_correction</span>
+        <span class="k">if</span> <span class="n">QY_correction</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">QD</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">QA</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">burstsize</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">QY_correction</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">burstsize</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Burst.addRelaxationEvent"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst.addRelaxationEvent">[docs]</a>    <span class="k">def</span> <span class="nf">addRelaxationEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">decaytime</span><span class="p">,</span> <span class="n">polarization</span><span class="p">,</span> <span class="n">AA</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Classify the relaxation event</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        event : int</span>
+<span class="sd">                type of relaxation event (1: donor photon, -1: internal conversion from donor, </span>
+<span class="sd">                2: acceptor photon, -2: internal conversion from acceptor, 0: relaxation due to inter-dye quenching)</span>
+<span class="sd">        decaytime : float</span>
+<span class="sd">                    time in nanoseconds after the excitation event</span>
+<span class="sd">        polarization : int</span>
+<span class="sd">                       polarization of the donor or acceptor photon (0: p, parallel, 1: s, orthogonal)</span>
+<span class="sd">        AA : bool</span>
+<span class="sd">             True = relaxation event after acceptor excitation (as in an ns-ALEX/PIE experiment)</span>
+<span class="sd">             False = relaxation event after donor excitation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">AA</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_AA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polarization</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_AA</span><span class="p">[</span><span class="s1">&#39;A_ic&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="s1">&#39;A_ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polarization</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_ic&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_ic&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_ic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Burst.calcFRET"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst.calcFRET">[docs]</a>    <span class="k">def</span> <span class="nf">calcFRET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">no_gamma</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the transfer efficiency based on the donor and acceptor photon counts upon donor excitation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        no_gamma : bool</span>
+<span class="sd">                   mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different </span>
+<span class="sd">                   quantum yields of donor and acceptor (note: the detection efficiency ratio always set to be 1).</span>
+<span class="sd">                   If the simulation should be comapred to a gamma-corrected experiment this parameter should be set to False.</span>
+<span class="sd">        QD : float</span>
+<span class="sd">             donor fluorescence quantum yield</span>
+<span class="sd">        QA : float</span>
+<span class="sd">             acceptor fluorescence quantum yield</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_gamma</span> <span class="o">=</span> <span class="n">no_gamma</span>
+        <span class="k">if</span> <span class="n">no_gamma</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiency</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">QA</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">QA</span><span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">QD</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;A_p&#39;</span><span class="p">]</span><span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">events_DD_DA</span><span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">])</span></div></div>
+
+
+<div class="viewcode-block" id="Relaxation"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Relaxation">[docs]</a><span class="k">class</span> <span class="nc">Relaxation</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a relaxation event (photon emission or internal conversion)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    trajectory : fluordynamics.burst.Trajectory</span>
+<span class="sd">                 trajectory object containing inter-dye distances, kappasquare values and donor/acceptor dye transition dipoles</span>
+<span class="sd">    pD_tot : float</span>
+<span class="sd">             probability of a donor relaxation event (photon emission + internal conversion)</span>
+<span class="sd">    pA_tot : float</span>
+<span class="sd">             probability of a acceptor relaxation event (photon emission + internal conversion)</span>
+<span class="sd">    quenching_radius : float</span>
+<span class="sd">                       minimum distance beyond which inter-dye quenching will lead to a non-radiative decay (e.g. Dexter energy transfer)</span>
+<span class="sd">    skipframesatstart : int</span>
+<span class="sd">                        number of frames to skip at the beginning of the trajectory</span>
+<span class="sd">    skipframesatend : int</span>
+<span class="sd">                        number of frames to skip at the end of the trajectory</span>
+<span class="sd">    QD : float</span>
+<span class="sd">         donor fluorescence quantum yield</span>
+<span class="sd">    QA : float</span>
+<span class="sd">         acceptor fluorescence quantum yield</span>
+<span class="sd">    compute_anisotropy : bool</span>
+<span class="sd">                         Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor transition dipole to be present in the trajectory. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">pD_tot</span><span class="p">,</span> <span class="n">pA_tot</span><span class="p">,</span> <span class="n">quenching_radius</span><span class="p">,</span> <span class="n">skipframesatstart</span><span class="p">,</span> <span class="n">skipframesatend</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="p">):</span>
+        <span class="n">event_DD_DA</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">event_DD_DA</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">findExcitationIndex</span><span class="p">(</span><span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">skipframesatstart</span><span class="p">,</span> <span class="n">skipframesatend</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span> <span class="o">&gt;</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The excitation index lies outside of the trajectory. Adjust the skipframesatstart and skipframesatend parameters.&#39;</span><span class="p">)</span>
+            <span class="n">event_DD_DA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_DD_DA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">findRelaxationIndex_DD_DA</span><span class="p">(</span><span class="n">pD_tot</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">pD_totfret</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="c1"># relaxation upon donor excitation (D emission/IC or FRET)</span>
+            
+        <span class="n">event_AA</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">event_AA</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">findExcitationIndex</span><span class="p">(</span><span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">skipframesatstart</span><span class="p">,</span> <span class="n">skipframesatend</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span> <span class="o">&gt;</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The excitation index lies outside of the trajectory. Adjust the skipframesatstart and skipframesatend parameters.&#39;</span><span class="p">)</span>
+            <span class="n">event_AA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_AA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">findRelaxationIndex_AA</span><span class="p">(</span><span class="n">pA_tot</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">length</span><span class="p">)</span> <span class="c1"># relaxation upon acceptor excitation (A emission/IC)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_DD_DA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">checkRelaxationIndex</span><span class="p">(</span><span class="n">event_DD_DA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_DD_DA</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">quenching_radius</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_AA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">checkRelaxationIndex</span><span class="p">(</span><span class="n">event_AA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_AA</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">quenching_radius</span><span class="p">,</span> <span class="n">QD</span><span class="p">,</span> <span class="n">QA</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">compute_anisotropy</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_DD_DA</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">polarization_DD</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">polarization</span><span class="p">(</span><span class="n">trajectory</span><span class="o">.</span><span class="n">donorTD</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span><span class="p">,:],</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">donorTD</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_DD_DA</span><span class="p">,:])</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">polarization_DD</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">compute_anisotropy</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_AA</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">polarization_AA</span> <span class="o">=</span> <span class="n">relaxation</span><span class="o">.</span><span class="n">polarization</span><span class="p">(</span><span class="n">trajectory</span><span class="o">.</span><span class="n">acceptorTD</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span><span class="p">,:],</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">acceptorTD</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_AA</span><span class="p">,:])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">polarization_AA</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytime_DD_DA</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_DD_DA</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_DD_DA</span><span class="p">)</span> <span class="o">*</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytime_AA</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">relaxation_ndx_AA</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">excitation_ndx_AA</span><span class="p">)</span> <span class="o">*</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dt</span></div>
+
+
+<div class="viewcode-block" id="Experiment"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment">[docs]</a><span class="k">class</span> <span class="nc">Experiment</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Setup an in silico fluorescence experiment</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    directory : str</span>
+<span class="sd">                path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates)</span>
+<span class="sd">    parameters : dict</span>
+<span class="sd">                 parameters for the burst, FRET and anisotropy calculations (see tutorial for an example)</span>
+<span class="sd">    binwidth : float</span>
+<span class="sd">               time between photon bins</span>
+<span class="sd">    compute_anisotropy : bool</span>
+<span class="sd">                         Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor .xvg file in the directory</span>
+<span class="sd">                         where each contains xyz-coordinates of two atoms which define the transition dipole of the dye.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">              Output status and results to the command line</span>
+<span class="sd">    show_progress : bool</span>
+<span class="sd">                    Display the progress of the burst calculation as a status bar</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;R0_const&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;R0&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;kappasquare&#39;</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compute_anisotropy</span> <span class="o">=</span> <span class="n">compute_anisotropy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span> <span class="o">=</span> <span class="n">Ensemble</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calcTransitionRates</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_settings</span><span class="p">(</span><span class="n">compute_anisotropy</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">species</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">traj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">trajectories</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">k_fret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcTransferRate</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">p_fret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">k_fret</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">pD_totfret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">p_fret</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">transProb</span><span class="p">[</span><span class="s1">&#39;pD_tot&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;multiprocessing&#39;</span><span class="p">]:</span>
+            <span class="n">burstsizes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcBurstsizes</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;_&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jupyter&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calcBurst</span><span class="p">,</span> <span class="n">burstsizes</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;nbursts&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">50</span><span class="p">)),</span> <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;nbursts&#39;</span><span class="p">],</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Calculating bursts&#39;</span><span class="p">,</span> <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">%|</span><span class="si">{bar}</span><span class="s2">| </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> [</span><span class="si">{remaining}</span><span class="s2"> s]&quot;</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calcBurst</span><span class="p">,</span> <span class="n">burstsizes</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;nbursts&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">50</span><span class="p">)),</span> <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;nbursts&#39;</span><span class="p">],</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Calculating bursts&#39;</span><span class="p">,</span> <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">%|</span><span class="si">{bar}</span><span class="s2">| </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> [</span><span class="si">{remaining}</span><span class="s2"> s]&quot;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calcBurst</span><span class="p">,</span> <span class="n">burstsizes</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;nbursts&#39;</span><span class="p">]</span>
+            <span class="n">burstsizes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcBurstsizes</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;_&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;jupyter&#39;</span><span class="p">:</span>
+                    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">total</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Calculating bursts&#39;</span><span class="p">,</span> <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">%|</span><span class="si">{bar}</span><span class="s2">| </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> [</span><span class="si">{remaining}</span><span class="s2"> s]&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">total</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Calculating bursts&#39;</span><span class="p">,</span> <span class="n">bar_format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">%|</span><span class="si">{bar}</span><span class="s2">| </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> [</span><span class="si">{remaining}</span><span class="s2"> s]&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">burstsizes</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calcBurst</span><span class="p">(</span><span class="n">bs</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">show_progress</span><span class="p">:</span>
+                    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>                          
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">burst</span><span class="o">.</span><span class="n">FRETefficiency</span> <span class="k">for</span> <span class="n">burst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">burstsizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">burst</span><span class="o">.</span><span class="n">burstsize</span> <span class="k">for</span> <span class="n">burst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_relax_types</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">decaytime</span> <span class="k">for</span> <span class="n">decaytimes</span> <span class="ow">in</span> <span class="p">[</span><span class="n">burst</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">burst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="p">]</span> <span class="k">for</span> <span class="n">decaytime</span> <span class="ow">in</span> <span class="n">decaytimes</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">decaytime</span> <span class="k">for</span> <span class="n">decaytimes</span> <span class="ow">in</span> <span class="p">[</span><span class="n">burst</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">burst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="p">]</span> <span class="k">for</span> <span class="n">decaytime</span> <span class="ow">in</span> <span class="n">decaytimes</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">compute_anisotropy</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;D_p&#39;</span><span class="p">,</span> <span class="s1">&#39;A_p&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pol</span> <span class="k">for</span> <span class="n">polarizations</span> <span class="ow">in</span> <span class="p">[</span><span class="n">burst</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">burst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bursts</span><span class="p">]</span> <span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">polarizations</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s1">&#39;D_p&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizationIntensity</span><span class="p">(</span><span class="n">binwidth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizationIntensity</span><span class="p">(</span><span class="n">binwidth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcAnisotropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Experiment.polarizationIntensity"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.polarizationIntensity">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">polarizationIntensity</span><span class="p">(</span><span class="n">binwidth</span><span class="p">,</span> <span class="n">decaytimes</span><span class="p">,</span> <span class="n">polarizations</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the polarization-resolved fluorescence intensities</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        binwidth : float</span>
+<span class="sd">                   time between photon bins</span>
+<span class="sd">        decaytimes : dict of numpy.ndarray</span>
+<span class="sd">                     Decaytimes for the different relaxation types collected from all bursts</span>
+<span class="sd">        polarizations : dict of numpy.ndarray</span>
+<span class="sd">                        Photon polarization for donor photons after donor excitation and acceptor photons after acceptor excitation</span>
+<span class="sd">                        The encoding is 0 = parallel (p) and 1 = orthogonal (s) </span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        polIntensity : numpy.ndarray</span>
+<span class="sd">                       polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">time_pol</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">decaytimes</span><span class="p">,</span> <span class="n">polarizations</span><span class="p">))</span>
+        <span class="n">polIntensity</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[]]</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">time_pol</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">tp</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">tp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="n">binwidth</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="n">tp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">tp</span> <span class="ow">in</span> <span class="n">group</span><span class="p">])</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">polIntensity</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">polIntensity</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">polIntensity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="o">*</span><span class="n">binwidth</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">polIntensity</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
+
+
+<div class="viewcode-block" id="Experiment.calcAnisotropy"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcAnisotropy">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">calcAnisotropy</span><span class="p">(</span><span class="n">polIntensity</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the time-resolved anisotropy decay</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        polIntensity : numpy.ndarray</span>
+<span class="sd">                       polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        anisotropy : numpy.ndarray</span>
+<span class="sd">                     anisotropy array of shape [n,2] with columns: time bins, anisotropy</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">ansiotropy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">ansiotropy</span></div>
+         
+
+<div class="viewcode-block" id="Experiment.calcTransitionRates"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcTransitionRates">[docs]</a>    <span class="k">def</span> <span class="nf">calcTransitionRates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the time-independent transition rates and probabilities</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kD_f&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauD&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;kA_f&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauA&#39;</span><span class="p">],</span> 
+                      <span class="s1">&#39;kD_ic&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauD&#39;</span><span class="p">],</span> 
+                      <span class="s1">&#39;kA_ic&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauA&#39;</span><span class="p">]}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_tot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s2">&quot;kD_f&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s2">&quot;kD_ic&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_tot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s2">&quot;kA_f&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s2">&quot;kA_ic&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">transProb</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;pD_f&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_f&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                          <span class="s1">&#39;pA_f&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_f&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                          <span class="s1">&#39;pD_ic&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_ic&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                          <span class="s1">&#39;pA_ic&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_ic&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                          <span class="s1">&#39;pD_tot&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_tot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span>
+                          <span class="s1">&#39;pA_tot&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_tot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">dt</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Experiment.calcTransferRate"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcTransferRate">[docs]</a>    <span class="k">def</span> <span class="nf">calcTransferRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculated the time-dependent transfer rate</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        R : numpy.ndarray</span>
+<span class="sd">            inter-dye distances</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        k_fret : numpy.ndarray</span>
+<span class="sd">                 Rates of transfer efficiency dependent on the inter-dye distance, the Förster radius and the relative dye orientation (kappasquare)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k_fret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_tot&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;kappasquare&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;R0_const&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">R</span><span class="p">)</span><span class="o">**</span><span class="mi">6</span>
+        <span class="k">return</span> <span class="n">k_fret</span></div>
+
+
+<div class="viewcode-block" id="Experiment.calcBurst"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcBurst">[docs]</a>    <span class="k">def</span> <span class="nf">calcBurst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">burstsize</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute a photon burst</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ---------- </span>
+<span class="sd">        burstsize : int</span>
+<span class="sd">                    total number of photons (donor + acceptor) to generate in this burst</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        burst : fluordynamics.fluorburst.Burst</span>
+<span class="sd">                Burst object containing a series of relaxation events with associated decaytimes, polarizations and FRET efficiencies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">burst</span> <span class="o">=</span> <span class="n">Burst</span><span class="p">(</span><span class="n">burstsize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">])</span>
+        <span class="n">species_probs</span> <span class="o">=</span> <span class="p">[</span><span class="n">species</span><span class="o">.</span><span class="n">probability</span> <span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">]</span>
+        <span class="n">traj_weights</span> <span class="o">=</span> <span class="p">{</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="p">[</span><span class="n">traj</span><span class="o">.</span><span class="n">weight</span> <span class="k">for</span> <span class="n">traj</span> <span class="ow">in</span> <span class="n">species</span><span class="o">.</span><span class="n">trajectories</span><span class="p">]</span> <span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;ensemble&#39;</span><span class="p">:</span>
+            <span class="n">species</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">relaxation</span><span class="o">.</span><span class="n">integerChoice</span><span class="p">(</span><span class="n">species_probs</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;ensemble&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;species&#39;</span><span class="p">):</span>
+            <span class="n">trajectory</span> <span class="o">=</span> <span class="n">species</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">relaxation</span><span class="o">.</span><span class="n">integerChoice</span><span class="p">(</span><span class="n">traj_weights</span><span class="p">[</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="p">])]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;trajectory&#39;</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;ensemble&#39;</span><span class="p">:</span>
+                <span class="n">species</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble</span><span class="o">.</span><span class="n">species</span><span class="p">[</span><span class="n">relaxation</span><span class="o">.</span><span class="n">integerChoice</span><span class="p">(</span><span class="n">species_probs</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;ensemble&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span><span class="s1">&#39;species&#39;</span><span class="p">):</span>
+                <span class="n">trajectory</span> <span class="o">=</span> <span class="n">species</span><span class="o">.</span><span class="n">trajectories</span><span class="p">[</span><span class="n">relaxation</span><span class="o">.</span><span class="n">integerChoice</span><span class="p">(</span><span class="n">traj_weights</span><span class="p">[</span><span class="n">species</span><span class="o">.</span><span class="n">name</span><span class="p">])]</span>
+            <span class="n">relax</span> <span class="o">=</span> <span class="n">Relaxation</span><span class="p">(</span><span class="n">trajectory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">transProb</span><span class="p">[</span><span class="s1">&#39;pD_tot&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">transProb</span><span class="p">[</span><span class="s1">&#39;pA_tot&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;quenching_radius&#39;</span><span class="p">],</span> 
+                               <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;skipframesatstart&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s1">&#39;skipframesatend&#39;</span><span class="p">],</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_anisotropy</span><span class="p">)</span>
+            <span class="n">burst</span><span class="o">.</span><span class="n">addRelaxationEvent</span><span class="p">(</span><span class="n">relax</span><span class="o">.</span><span class="n">event_DD_DA</span><span class="p">,</span> <span class="n">relax</span><span class="o">.</span><span class="n">decaytime_DD_DA</span><span class="p">,</span> <span class="n">relax</span><span class="o">.</span><span class="n">polarization_DD</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="n">burst</span><span class="o">.</span><span class="n">addRelaxationEvent</span><span class="p">(</span><span class="n">relax</span><span class="o">.</span><span class="n">event_AA</span><span class="p">,</span> <span class="n">relax</span><span class="o">.</span><span class="n">decaytime_AA</span><span class="p">,</span> <span class="n">relax</span><span class="o">.</span><span class="n">polarization_AA</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">burst</span><span class="o">.</span><span class="n">checkBurstSizeReached</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;QY_correction&#39;</span><span class="p">]):</span>
+                <span class="k">break</span>
+        <span class="n">burst</span><span class="o">.</span><span class="n">calcFRET</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;no_gamma&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">burst</span></div>
+
+
+<div class="viewcode-block" id="Experiment.calcBurstsizes"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcBurstsizes">[docs]</a>    <span class="k">def</span> <span class="nf">calcBurstsizes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute random burstsizes x_1,x_2,...x_n based on an analytical burstsize distribution P(x) = x^lambda </span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        burstsizes : numpy.ndarray</span>
+<span class="sd">                     Array of burstsizes within a range defined by a lower and upper threshold</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">burstsizetable</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s2">&quot;lower_limit&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s2">&quot;upper_limit&quot;</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">bcounts</span> <span class="o">=</span> <span class="n">burstsizetable</span><span class="o">**</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s2">&quot;lambda&quot;</span><span class="p">])</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+        <span class="n">burstsizes</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">burstsizetable</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;sampling&#39;</span><span class="p">][</span><span class="s2">&quot;nbursts&quot;</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="n">bcounts</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">bcounts</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">burstsizes</span></div>
+
+
+<div class="viewcode-block" id="Experiment.save"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">remove_bursts</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pickle the experiment class to a file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">remove_bursts</span><span class="p">:</span>
+                <span class="n">exp_noburst</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="n">exp_noburst</span><span class="o">.</span><span class="n">bursts</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">exp_noburst</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Experiment.load"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.load">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load an instance of the experiment class from a pickle file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></div>
+           
+
+<div class="viewcode-block" id="Experiment.print_settings"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.print_settings">[docs]</a>    <span class="k">def</span> <span class="nf">print_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print the rates and settings of the in-silico experiment</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------------------------------</span><span class="se">\n</span><span class="s1">Fluordynamics </span><span class="si">{}</span><span class="s1"> - FRET in silico</span><span class="se">\n</span><span class="s1">------------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;__version__&#39;</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Orientation independent R0_const = </span><span class="si">{:0.2f}</span><span class="s1"> nm&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;R0_const&#39;</span><span class="p">]))</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">              donor    acceptor</span>
+<span class="s1">QY            </span><span class="si">{:0.2f}</span><span class="s1">    </span><span class="si">{:0.2f}</span><span class="s1"> </span>
+<span class="s1">tau (ns)      </span><span class="si">{:0.2f}</span><span class="s1">    </span><span class="si">{:0.2f}</span><span class="s1"></span>
+<span class="s1">k_f (ns^-1)   </span><span class="si">{:0.2f}</span><span class="s1">    </span><span class="si">{:0.2f}</span><span class="s1"></span>
+<span class="s1">k_ic (ns^-1)  </span><span class="si">{:0.2f}</span><span class="s1">    </span><span class="si">{:0.2f}</span><span class="s1"></span>
+<span class="s1">              &#39;&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;QA&#39;</span><span class="p">],</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauD&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;tauA&#39;</span><span class="p">],</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_f&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_f&#39;</span><span class="p">],</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kD_ic&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">rates</span><span class="p">[</span><span class="s1">&#39;kA_ic&#39;</span><span class="p">]))</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Burst averaging method: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;bursts&#39;</span><span class="p">][</span><span class="s1">&#39;averaging&#39;</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="n">compute_anisotropy</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calculate anisotropy: yes</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calculate anisotropy: no</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Experiment.print_results"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.print_results">[docs]</a>    <span class="k">def</span> <span class="nf">print_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">average FRET efficiency: </span><span class="si">{:0.2f}</span><span class="s1"> +- </span><span class="si">{:0.2f}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiencies</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FRETefficiencies</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------</span><span class="se">\n</span><span class="s1">How to cite:</span><span class="se">\n</span><span class="s1">------------</span><span class="se">\n\&quot;</span><span class="s1">An atomistic view on carbocyanine photophysics in the realm of RNA</span><span class="se">\&quot;\n</span><span class="s1">F.D. Steffen, R.K.O. Sigel, R. Börner, Phys. Chem. Chem. Phys (2016)</span><span class="se">\n\n\n</span><span class="s1">&#39;</span>
+<span class="s1">&#39;This project was inspired by md2fret:</span><span class="se">\n\n\&quot;</span><span class="s1">In silico FRET from simulated dye dynamics</span><span class="se">\&quot;\n</span><span class="s1">M. Hoefling, H. Grubmüller, Comp. Phys. Commun. (2013)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">directory</span><span class="p">,</span> <span class="n">parameter_file</span> <span class="o">=</span> <span class="n">parseCmd</span><span class="p">()</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="n">readParameters</span><span class="p">(</span><span class="n">parameter_file</span><span class="p">)</span>
+    <span class="n">experiment</span> <span class="o">=</span> <span class="n">Experiment</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">binwidth</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">compute_anisotropy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Fabio D. Steffen, University of Zurich
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

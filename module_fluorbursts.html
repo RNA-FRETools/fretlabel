@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fluorburst &mdash; fluordynamics 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Publications and related projects" href="references.html" />
+    <link rel="prev" title="Force field parameterization" href="module_ff.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #333" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> fluordynamics
+          
+
+          
+            
+            <img src="_static/fluordynamics_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Fluordynamics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fluorlabel.html">FluorLabel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fluorburst.html">FluorBurst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="module_ff.html">Force field parameterization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fluorburst</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Publications and related projects</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">fluordynamics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Fluorburst</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/module_fluorbursts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="fluorburst">
+<h1>Fluorburst<a class="headerlink" href="#fluorburst" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-fluordynamics.fluorburst"></span><dl class="py class">
+<dt id="fluordynamics.fluorburst.Burst">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Burst</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">burstsize</span></em>, <em class="sig-param"><span class="n">QD</span></em>, <em class="sig-param"><span class="n">QA</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create a new burst</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>burstsize</strong> (<em>int</em>) – total number of photons (donor + acceptor) to generate in this burst</p></li>
+<li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
+<li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Burst.addRelaxationEvent">
+<code class="sig-name descname">addRelaxationEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em>, <em class="sig-param"><span class="n">decaytime</span></em>, <em class="sig-param"><span class="n">polarization</span></em>, <em class="sig-param"><span class="n">AA</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst.addRelaxationEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst.addRelaxationEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify the relaxation event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>int</em>) – type of relaxation event (1: donor photon, -1: internal conversion from donor,
+2: acceptor photon, -2: internal conversion from acceptor, 0: relaxation due to inter-dye quenching)</p></li>
+<li><p><strong>decaytime</strong> (<em>float</em>) – time in nanoseconds after the excitation event</p></li>
+<li><p><strong>polarization</strong> (<em>int</em>) – polarization of the donor or acceptor photon (0: p, parallel, 1: s, orthogonal)</p></li>
+<li><p><strong>AA</strong> (<em>bool</em>) – True = relaxation event after acceptor excitation (as in an ns-ALEX/PIE experiment)
+False = relaxation event after donor excitation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Burst.calcFRET">
+<code class="sig-name descname">calcFRET</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">no_gamma</span></em>, <em class="sig-param"><span class="n">QD</span></em>, <em class="sig-param"><span class="n">QA</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst.calcFRET"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst.calcFRET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the transfer efficiency based on the donor and acceptor photon counts upon donor excitation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>no_gamma</strong> (<em>bool</em>) – mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different
+quantum yields of donor and acceptor (note: the detection efficiency ratio always set to be 1).
+If the simulation should be comapred to a gamma-corrected experiment this parameter should be set to False.</p></li>
+<li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
+<li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Burst.checkBurstSizeReached">
+<code class="sig-name descname">checkBurstSizeReached</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">QD</span></em>, <em class="sig-param"><span class="n">QA</span></em>, <em class="sig-param"><span class="n">QY_correction</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst.checkBurstSizeReached"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst.checkBurstSizeReached" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the number of photons has reached the specified burstsize</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
+<li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
+<li><p><strong>QY_correction</strong> (<em>bool</em>) – correct the number of donor and acceptor photons by their respective quantum yield when evaluating whether the burstsize is reached.
+e.g. say we collected 20 donor photons (with QD=0.5) and 25 acceptor photons (with QA=0.75) and the burstsize is set to be 50.
+If QY_correction = False the total photon count is 20+25=45 photons, so the required burstsize is not reached yet.
+if QY_correction = True the total photon count is (20/0.5 + 25/0.75 = 73) and so the burst is complete.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fluordynamics.fluorburst.Ensemble">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Ensemble</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">compute_anisotropy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Ensemble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Instantiate a new ensemble of trajectories from different species</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>) – path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates)</p></li>
+<li><p><strong>parameters</strong> (<em>dict</em>) – parameters for the burst, FRET and anisotropy calculations (see tutorial for an example)</p></li>
+<li><p><strong>compute_anisotropy</strong> (<em>bool</em>) – Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor .xvg file in the directory
+where each contains xyz-coordinates of two atoms which define the transition dipole of the dye.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Output status and results to the command line</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Ensemble.checkTimeStepIdentity">
+<code class="sig-name descname">checkTimeStepIdentity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Ensemble.checkTimeStepIdentity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Ensemble.checkTimeStepIdentity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the trajectories of all species in the ensemble have the same time step</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fluordynamics.fluorburst.Experiment">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Experiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span></em>, <em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">binwidth</span><span class="o">=</span><span class="default_value">0.025</span></em>, <em class="sig-param"><span class="n">compute_anisotropy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show_progress</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Setup an in silico fluorescence experiment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>) – path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates)</p></li>
+<li><p><strong>parameters</strong> (<em>dict</em>) – parameters for the burst, FRET and anisotropy calculations (see tutorial for an example)</p></li>
+<li><p><strong>binwidth</strong> (<em>float</em>) – time between photon bins</p></li>
+<li><p><strong>compute_anisotropy</strong> (<em>bool</em>) – Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor .xvg file in the directory
+where each contains xyz-coordinates of two atoms which define the transition dipole of the dye.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Output status and results to the command line</p></li>
+<li><p><strong>show_progress</strong> (<em>bool</em>) – Display the progress of the burst calculation as a status bar</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.calcAnisotropy">
+<em class="property">static </em><code class="sig-name descname">calcAnisotropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polIntensity</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcAnisotropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcAnisotropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the time-resolved anisotropy decay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>polIntensity</strong> (<em>numpy.ndarray</em>) – polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>anisotropy</strong> (<em>numpy.ndarray</em>) – anisotropy array of shape [n,2] with columns: time bins, anisotropy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.calcBurst">
+<code class="sig-name descname">calcBurst</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">burstsize</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcBurst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcBurst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a photon burst</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>burstsize</strong> (<em>int</em>) – total number of photons (donor + acceptor) to generate in this burst</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>burst</strong> (<em>fluordynamics.fluorburst.Burst</em>) – Burst object containing a series of relaxation events with associated decaytimes, polarizations and FRET efficiencies</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.calcBurstsizes">
+<code class="sig-name descname">calcBurstsizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcBurstsizes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcBurstsizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute random burstsizes x_1,x_2,…x_n based on an analytical burstsize distribution P(x) = x^lambda</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>burstsizes</strong> (<em>numpy.ndarray</em>) – Array of burstsizes within a range defined by a lower and upper threshold</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.calcTransferRate">
+<code class="sig-name descname">calcTransferRate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">R</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcTransferRate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcTransferRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculated the time-dependent transfer rate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>R</strong> (<em>numpy.ndarray</em>) – inter-dye distances</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>k_fret</strong> (<em>numpy.ndarray</em>) – Rates of transfer efficiency dependent on the inter-dye distance, the Förster radius and the relative dye orientation (kappasquare)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.calcTransitionRates">
+<code class="sig-name descname">calcTransitionRates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcTransitionRates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcTransitionRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the time-independent transition rates and probabilities</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.load">
+<em class="property">classmethod </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an instance of the experiment class from a pickle file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.polarizationIntensity">
+<em class="property">static </em><code class="sig-name descname">polarizationIntensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">binwidth</span></em>, <em class="sig-param"><span class="n">decaytimes</span></em>, <em class="sig-param"><span class="n">polarizations</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.polarizationIntensity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.polarizationIntensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the polarization-resolved fluorescence intensities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>binwidth</strong> (<em>float</em>) – time between photon bins</p></li>
+<li><p><strong>decaytimes</strong> (<em>dict of numpy.ndarray</em>) – Decaytimes for the different relaxation types collected from all bursts</p></li>
+<li><p><strong>polarizations</strong> (<em>dict of numpy.ndarray</em>) – Photon polarization for donor photons after donor excitation and acceptor photons after acceptor excitation
+The encoding is 0 = parallel (p) and 1 = orthogonal (s)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>polIntensity</strong> (<em>numpy.ndarray</em>) – polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.print_results">
+<code class="sig-name descname">print_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.print_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.print_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.print_settings">
+<code class="sig-name descname">print_settings</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">compute_anisotropy</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.print_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.print_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the rates and settings of the in-silico experiment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">remove_bursts</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pickle the experiment class to a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="fluordynamics.fluorburst.Relaxation">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Relaxation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">trajectory</span></em>, <em class="sig-param"><span class="n">pD_tot</span></em>, <em class="sig-param"><span class="n">pA_tot</span></em>, <em class="sig-param"><span class="n">quenching_radius</span></em>, <em class="sig-param"><span class="n">skipframesatstart</span></em>, <em class="sig-param"><span class="n">skipframesatend</span></em>, <em class="sig-param"><span class="n">QD</span></em>, <em class="sig-param"><span class="n">QA</span></em>, <em class="sig-param"><span class="n">compute_anisotropy</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Relaxation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Relaxation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create a relaxation event (photon emission or internal conversion)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trajectory</strong> (<em>fluordynamics.burst.Trajectory</em>) – trajectory object containing inter-dye distances, kappasquare values and donor/acceptor dye transition dipoles</p></li>
+<li><p><strong>pD_tot</strong> (<em>float</em>) – probability of a donor relaxation event (photon emission + internal conversion)</p></li>
+<li><p><strong>pA_tot</strong> (<em>float</em>) – probability of a acceptor relaxation event (photon emission + internal conversion)</p></li>
+<li><p><strong>quenching_radius</strong> (<em>float</em>) – minimum distance beyond which inter-dye quenching will lead to a non-radiative decay (e.g. Dexter energy transfer)</p></li>
+<li><p><strong>skipframesatstart</strong> (<em>int</em>) – number of frames to skip at the beginning of the trajectory</p></li>
+<li><p><strong>skipframesatend</strong> (<em>int</em>) – number of frames to skip at the end of the trajectory</p></li>
+<li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
+<li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
+<li><p><strong>compute_anisotropy</strong> (<em>bool</em>) – Calculate the time-resolved ensemble anisotropy. Requires a donor and acceptor transition dipole to be present in the trajectory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fluordynamics.fluorburst.Species">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Species</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">probability</span></em>, <em class="sig-param"><span class="n">filelist_rkappa</span></em>, <em class="sig-param"><span class="n">filelist_don_coords</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filelist_acc_coords</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Create a new species of trajectories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – name of the species</p></li>
+<li><p><strong>probability</strong> (<em>float</em>) – relative weight of the species in the ensemble</p></li>
+<li><p><strong>filelist_rkappa</strong> (<em>list of str</em>) – list of .dat filenames with inter-dye distance (R) and kappasquare values</p></li>
+<li><p><strong>filelist_don_coords</strong> (<em>list of str (optional)</em>) – list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the donor dye</p></li>
+<li><p><strong>filelist_acc_coords</strong> (<em>list of str (optional)</em>) – list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the acceptor dye</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="fluordynamics.fluorburst.Trajectory">
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Trajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">time</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">kappasquare</span></em>, <em class="sig-param"><span class="n">donor_xyz</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">acceptor_xyz</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Time trajectory (in ps) of inter-dye distances (in nm) and kappa-square values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>numpy.array</em>) – time in picoseconds</p></li>
+<li><p><strong>R</strong> (<em>numpy.array</em>) – inter-dye distance in nanometers</p></li>
+<li><p><strong>kappasquare</strong> (<em>numpy.array</em>) – kappasquare values calculated from the orientation of the donor and acceptor transition dipoles</p></li>
+<li><p><strong>donor_xyz</strong> (<em>numpy.ndarray (optional)</em>) – xyz coordinates of two atoms defining the transition dipole of the donor dye</p></li>
+<li><p><strong>acceptor_xyz</strong> (<em>numpy.ndarray (optional)</em>) – xyz coordinates of two atoms defining the transition dipole of the acceptor dye</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Trajectory.checkLengthIdentity">
+<code class="sig-name descname">checkLengthIdentity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">traj_length</span></em>, <em class="sig-param"><span class="n">donor_xyz</span></em>, <em class="sig-param"><span class="n">acceptor_xyz</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Trajectory.checkLengthIdentity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Trajectory.checkLengthIdentity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Trajectory.from_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rkappa_filename</span></em>, <em class="sig-param"><span class="n">don_coords_filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">acc_coords_filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Trajectory.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Trajectory.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a fluordynamics.fluorburst.Trajectory class from filenames</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rkappa_filename</strong> (<em>str</em>) – name of a .dat file containing inter-dye distances and kappasquare values</p></li>
+<li><p><strong>don_coords_filename</strong> (<em>str (optional)</em>) – name of a .xvg file containing xyz coordinates of two atoms defining the transition dipole of the donor dye</p></li>
+<li><p><strong>acc_coords_filename</strong> (<em>str (optional)</em>) – name of a .xvg file containing xyz coordinates of two atoms defining the transition dipole of the acceptor dye</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Trajectory.transitionDipole">
+<em class="property">static </em><code class="sig-name descname">transitionDipole</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dye_xyz</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Trajectory.transitionDipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Trajectory.transitionDipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a normalized transition dipole vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dye_xyz</strong> (<em>numpy.ndarray</em>) – array of shape [n,7] with columns: time, x1, y1, z1, x2, y2, z2 where 1 and 2 are two atoms defining the transition dipole</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="fluordynamics.fluorburst.parseCmd">
+<code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">parseCmd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#parseCmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.parseCmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the command line arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>) – path to the directory containing the .dat files (rkappa) and .xvg files(dye coordinates)</p></li>
+<li><p><strong>parameter_file</strong> (<em>str</em>) – path to a json formatted parameter file for the burst, FRET and anisotropy calculations (see tutorial for an example)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="fluordynamics.fluorburst.readParameters">
+<code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">readParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameter_file</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#readParameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.readParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read parameters from a json file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parameter_file</strong> (<em>str</em>) – path to a json formatted parameter file (see tutorial for an example)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>parameters</strong> (<em>dict</em>) – parameters for the burst, FRET and anisotropy calculations</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="references.html" class="btn btn-neutral float-right" title="Publications and related projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="module_ff.html" class="btn btn-neutral float-left" title="Force field parameterization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Fabio D. Steffen, University of Zurich
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
