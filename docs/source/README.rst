@@ -17,19 +17,20 @@ What is in the box?
 Interactive fragment generation
 -------------------------------
 
-The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button. 
+The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button.
 
 Patching AMBER force fields
 ---------------------------
 
-Together with established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics patches existing **Gromacs** ports of the AMBER force fields (including AMBERDYES) with new fragment parameters.
+Using established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics builds on top of the AMBERDYES package (Graen et al. *JCTC* 2014) and extends the force field with parameters of common **nucleic acid** linker chemistries.
 
-*in silico* FRET
-----------------
+*in silico* FRET prediction
+---------------------------
 
-On top of the MD trajectories, photon bursts are computed allowing to simulate a FRET experiment.
+MD trajectories with all-atom organic dyes are used to as distance and orientation distributions (:math:`R_\text{DA}` and :math:`\kappa^2`) to compute photon bursts as part of an *in silico* FRET experiment.
 
 ------
+
 
 Download and install
 ********************
@@ -69,3 +70,18 @@ Extend the labeling portfolio and build your own linker fragments?
 You have an MD trajectory and want to calculate FRET?
 -----------------------------------------------------
 :raw-html:`&rarr;` Check out the :doc:`Fluorburst tutorial <fluorburst>`
+
+
+-----
+
+References
+**********
+
+.. |Steffen2016| image:: https://img.shields.io/badge/DOI-10.1039/C6CP04277E-blue.svg
+  :target: https://doi.org/10.1039/C6CP04277E
+
+If you use Fluordynamics in your work please refer to the following paper:
+ F.D. Steffen, R.K.O. Sigel, R. Börner, *Phys. Chem. Chem. Phys.* **2016**, *18*, 29045-29055. 
+ |Steffen2016|
+
+For further information see a list of :doc:`related projects <references>`
