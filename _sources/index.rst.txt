@@ -8,11 +8,6 @@
    README.rst
 
 .. toctree::
-   :hidden:
-
-   self 
-
-.. toctree::
    :maxdepth: 2
    :caption: Documentation
    :hidden:
