@@ -8,18 +8,17 @@
 
 The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button.
 
+<img src="https://github.com/fdsteffen/fluordynamics/blob/master//docs/source/_static/graphical_abstract.png" width="550">
+
 ### Patching AMBER force fields
 
 Using established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics builds on top of the AMBERDYES package (Graen et al. *JCTC* 2014) and extends the force field with parameters of common **nucleic acid** linker chemistries.
 
 ### *in silico* FRET prediction
 
-MD trajectories with all-atom organic dyes are used to as distance and orientation distributions (:math:`R_\text{DA}` and :math:`\kappa^2`) to compute photon bursts as part of an *in silico* FRET experiment.
+MD trajectories with all-atom organic dyes are used to as distance and orientation distributions to compute photon bursts as part of an *in silico* FRET experiment.
 
-
-### Documentation
-
-*Fluordynamics* is documented [here](https://fdsteffen.github.io/fluordynamics/)
+*Fluordynamics* is documented with tutorials [here](https://fdsteffen.github.io/fluordynamics/)
 
 
 ## Download and install
@@ -48,7 +47,8 @@ conda install -c conda-forge acpype
 ## References
 
 If you use Fluordynamics in your work please refer to the following paper:
- F.D. Steffen, R.K.O. Sigel, R. Börner, *Phys. Chem. Chem. Phys.* **2016**, *18*, 29045-29055. 
- |Steffen2016|
+
+F.D. Steffen, R.K.O. Sigel, R. Börner, *Phys. Chem. Chem. Phys.* **2016**, *18*, 29045-29055. [![](https://img.shields.io/badge/DOI-10.1039/C6CP04277E-blue.svg)](https://doi.org/10.1039/C6CP04277E)
+
 
 For further information see a list of [related projects](https://fdsteffen.github.io/fluordynamics/references)
