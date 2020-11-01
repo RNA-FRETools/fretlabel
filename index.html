@@ -210,11 +210,11 @@
 </div>
 <div class="section" id="patching-amber-force-fields">
 <h3>Patching AMBER force fields<a class="headerlink" href="#patching-amber-force-fields" title="Permalink to this headline">¶</a></h3>
-<p>Together with established pipelines for topology generation such as <em>Antechamber</em> and <em>Acpype</em>, Fluordynamics patches existing <strong>Gromacs</strong> ports of the AMBER force fields (including AMBERDYES) with new fragment parameters.</p>
+<p>Using established pipelines for topology generation such as <em>Antechamber</em> and <em>Acpype</em>, Fluordynamics builds on top of the AMBERDYES package (Graen et al. <em>JCTC</em> 2014) and extends the force field with parameters of common <strong>nucleic acid</strong> linker chemistries.</p>
 </div>
-<div class="section" id="in-silico-fret">
-<h3><em>in silico</em> FRET<a class="headerlink" href="#in-silico-fret" title="Permalink to this headline">¶</a></h3>
-<p>On top of the MD trajectories, photon bursts are computed allowing to simulate a FRET experiment.</p>
+<div class="section" id="in-silico-fret-prediction">
+<h3><em>in silico</em> FRET prediction<a class="headerlink" href="#in-silico-fret-prediction" title="Permalink to this headline">¶</a></h3>
+<p>MD trajectories with all-atom organic dyes are used to as distance and orientation distributions (<span class="math notranslate nohighlight">\(R_\text{DA}\)</span> and <span class="math notranslate nohighlight">\(\kappa^2\)</span>) to compute photon bursts as part of an <em>in silico</em> FRET experiment.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -254,12 +254,22 @@
 <div class="section" id="you-have-an-md-trajectory-and-want-to-calculate-fret">
 <h3>You have an MD trajectory and want to calculate FRET?<a class="headerlink" href="#you-have-an-md-trajectory-and-want-to-calculate-fret" title="Permalink to this headline">¶</a></h3>
 <p><span class="raw-html">&rarr;</span> Check out the <a class="reference internal" href="fluorburst.html"><span class="doc">Fluorburst tutorial</span></a></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>If you use Fluordynamics in your work please refer to the following paper:</dt><dd><p>F.D. Steffen, R.K.O. Sigel, R. Börner, <em>Phys. Chem. Chem. Phys.</em> <strong>2016</strong>, <em>18</em>, 29045-29055.
+<a class="reference external" href="https://doi.org/10.1039/C6CP04277E"><img alt="Steffen2016" src="https://img.shields.io/badge/DOI-10.1039/C6CP04277E-blue.svg" /></a></p>
+</dd>
+</dl>
+<p>For further information see a list of <a class="reference internal" href="references.html"><span class="doc">related projects</span></a></p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 </div>
