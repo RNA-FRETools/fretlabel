@@ -38,7 +38,7 @@ You may also need the following programs and packages
 - *PyMOL* https://pymol.org/2/#download
 - *Antechamber*  https://ambermd.org/GetAmber.php#ambertools
 ```
-conda install ambertools=19 -c ambermd
+conda install -c conda-forge ambertools=20
 ```
 
 - *Acpype* https://alanwilter.github.io/acpype/

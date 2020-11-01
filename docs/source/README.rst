@@ -1,5 +1,5 @@
-Fluordynamics   
-=============
+Fluordynamics - Fluorescent labeling *in silico*
+================================================
 
 .. toctree::
    :maxdepth: 2
@@ -44,7 +44,7 @@ To generate your own fragments you may further need:
 - *PyMOL* https://pymol.org/2/#download
 - *Antechamber*  https://ambermd.org/GetAmber.php#ambertools ::
 
-    conda install ambertools=19 -c ambermd
+    conda install -c conda-forge ambertools=20
 - *Acpype* https://alanwilter.github.io/acpype/ ::
 
     conda install -c conda-forge acpype
