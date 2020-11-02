@@ -2,13 +2,14 @@
 [![Build Status](https://github.com/fdsteffen/fluordynamics/workflows/Fluordynamics%20build/badge.svg)](https://github.com/fdsteffen/fluordynamics/actions)
 [![Docs Status](https://github.com/fdsteffen/fluordynamics/workflows/Fluordynamics%20docs/badge.svg)](https://github.com/fdsteffen/fluordynamics/actions)
 
-*Fluordynamics* simplifies the workflow of setting up, running and evaluating Molecular dynamics simulations with extrinsic organic fluorophores for *in silico* FRET experiments.
+*Fluordynamics* simplifies the workflow of setting up, running and evaluating Molecular dynamics simulations with extrinsic organic fluorophores for *in silico* FRET experiments. Documentation including tutorials can be found [here](https://fdsteffen.github.io/fluordynamics/)
+
+
+<img src="https://github.com/fdsteffen/fluordynamics/blob/master//docs/source/_static/graphical_abstract.png" width="550">
 
 ### Interactive fragment generation
 
 The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button.
-
-<img src="https://github.com/fdsteffen/fluordynamics/blob/master//docs/source/_static/graphical_abstract.png" width="550">
 
 ### Patching AMBER force fields
 
@@ -17,9 +18,6 @@ Using established pipelines for topology generation such as *Antechamber* and *A
 ### *in silico* FRET prediction
 
 MD trajectories with all-atom organic dyes are used to as distance and orientation distributions to compute photon bursts as part of an *in silico* FRET experiment.
-
-*Fluordynamics* is documented with tutorials [here](https://fdsteffen.github.io/fluordynamics/)
-
 
 ## Download and install
 
