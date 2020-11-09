@@ -642,6 +642,7 @@ class Experiment:
         Parameters
         ----------
         filename : str
+        remove_bursts : bool
         """
         with open(filename, 'wb') as file:
             if remove_bursts:
@@ -670,6 +671,7 @@ class Experiment:
 
         Parameters
         ----------
+        compute_anisotropy : bool
         """
         print('\n------------------------------------\nFluordynamics {} - FRET in silico\n------------------------------------\n'.format(about['__version__']))
         print('Orientation independent R0_const = {:0.2f} nm'.format(self.parameters['fret']['R0_const']))

@@ -4,6 +4,8 @@ Fluordynamics - Fluorescent labeling *in silico*
 .. toctree::
    :maxdepth: 2
 
+.. role:: raw-html(raw)
+   :format: html
 
 .. image:: _static/graphical_abstract.png
    :width: 100pc
@@ -14,20 +16,23 @@ What is in the box?
 
 *Fluordynamics* simplifies the workflow of setting up, running and evaluating Molecular dynamics simulations with extrinsic organic fluorophores for *in silico* FRET calculations.
 
+Fluorescent labeling *in silico*
+--------------------------------
+
+Label your nucleic acid of interest with the click of a button. A **PyMOL plugin** [#]_ called *Fluorlabel* extends the AMBERDYES package (Graen et al. *JCTC* 2014) designed originally for proteins with geometries and force field parameters of common nucleic acid linker chemistries.
+
+
 Interactive fragment generation
 -------------------------------
 
-The Python module allows to build new fragments (base, linker and dye) **interactively**. It integrates into PyMOL such that the molecular viewer can be controlled directly from a **Jupyter notebook**. The module also features a dedicated **PyMOL plugin** called *Fluorlabel* to attach the new fragments to a nucleic acid of interest with the click of a button.
+The module further describes how to build new fragments (base, linker and dye) by integrating with established pipelines for topology generation such as *Antechamber* and *Acpype*.
 
-Patching AMBER force fields
----------------------------
 
-Using established pipelines for topology generation such as *Antechamber* and *Acpype*, Fluordynamics builds on top of the AMBERDYES package (Graen et al. *JCTC* 2014) and extends the force field with parameters of common **nucleic acid** linker chemistries.
+FRET prediction
+---------------
 
-*in silico* FRET prediction
----------------------------
+Calculate FRET distributions on the basis of MD simulation with all-atom organic dyes. *Fluorburst* uses distance :math:`R_\text{DA}(t)` and orientation trajectories :math:`\kappa^2(t)` of the fluorophores to compute photon bursts as part of *in silico* FRET experiment.
 
-MD trajectories with all-atom organic dyes are used to as distance and orientation distributions (:math:`R_\text{DA}` and :math:`\kappa^2`) to compute photon bursts as part of an *in silico* FRET experiment.
 
 ------
 
@@ -35,21 +40,26 @@ MD trajectories with all-atom organic dyes are used to as distance and orientati
 Download and install
 ********************
 
-Install fluordynamics from Github with pip ::
+- Clone or download the git repository from ::
 
-    pip install --user git+https://github.com/fdsteffen/fluordynamics.git
+    git clone https://github.com/fdsteffen/fluordynamics.git
+
+    # or from the mirror
+    git clone https://github.com/RNA-FRETools/fluordynamics.git
 
 
-To generate your own fragments you may further need:
+- Install the PyMOL plugin via the Plugin manager: ``Plugin`` :raw-html:`&rarr;` ``Plugin manager`` :raw-html:`&rarr;` ``Install New Plugin`` :raw-html:`&rarr;` ``Choose file...`` and select the ``__init__`` file from the *fluorlabel* subdirectory.
 
-- *PyMOL* https://pymol.org/2/#download
-- *Antechamber*  https://ambermd.org/GetAmber.php#ambertools ::
+- To generate your own fragments you may further need:
 
-    conda install -c conda-forge ambertools=20
-- *Acpype* https://alanwilter.github.io/acpype/ ::
+    - *PyMOL* https://github.com/schrodinger/pymol-open-source
+    - *Antechamber*  https://ambermd.org/GetAmber.php#ambertools ::
 
-    conda install -c conda-forge acpype
-- A quantum chemistry package such as *Gaussian* https://gaussian.com/ or *GAMESS* https://www.msg.chem.iastate.edu/gamess/
+        conda install -c conda-forge ambertools=20
+    - *Acpype* https://alanwilter.github.io/acpype/ ::
+
+        conda install -c conda-forge acpype
+    - A quantum chemistry package such as *Gaussian* https://gaussian.com/ or *GAMESS* https://www.msg.chem.iastate.edu/gamess/
 
 ------
 
@@ -85,3 +95,7 @@ If you use Fluordynamics in your work please refer to the following paper:
  |Steffen2016|
 
 For further information see a list of :doc:`related projects <references>`
+
+----
+
+.. [#] PyMOL is a trademark of Schrödinger, LLC.

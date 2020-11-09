@@ -58,7 +58,7 @@ def write_mol2(pandasMol2, filename=None, overwrite=False):
     Parameters
     ----------
     pandasMol2 : biopandas.mol2.pandas_mol2.PandasMol2 instance
-    filename : str (optional)
+    filename : str, optional
     """
     atom_str = '@<TRIPOS>ATOM'
     bond_str = '@<TRIPOS>BOND'
@@ -240,8 +240,8 @@ def update_specbond(specbond_string, inputfile='specbond.dat', outputfile='specb
     specbond_string : str
                       space-delimited string of following format:
                       'resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB'
-    inputfile : str (optional)
-    outputfile : str (optional)
+    inputfile : str, optional
+    outputfile : str, optional
     overwrite : bool
     """
     with open(inputfile, 'r') as f:
@@ -276,8 +276,8 @@ def update_residuetypes(residuetypes_string, inputfile='residuetypes.dat', outpu
     residuetypes_string : str
                           space-delimited string of following format:
                           'residue  type'
-    inputfile : str (optional)
-    outputfile : str (optional)
+    inputfile : str, optional
+    outputfile : str, optional
     overwrite : bool
     """
     residuetype_format = ['residue', 'type']
@@ -306,8 +306,8 @@ def update_dye_library(dye_entry, inputfile='dye_library.json', outputfile='dye_
     dye_entry : dict
                 dictionary of a dye entry such as: 
                 "filename":"C3W_DTM", "dye":"sCy3", "base":"DT+RU", "position":"internal"
-    inputfile : str (optional)
-    outputfile : str (optional)
+    inputfile : str, optional
+    outputfile : str, optional
     overwrite : bool
     """
     try:
@@ -338,9 +338,9 @@ def write_ff(ff_folder, amberdyes=None, linker=None, specialbond=None, outputdir
     ----------
     ff_folder : str
                 folder where the original ffnonbonded.itp and ffbonded.itp are located
-    amberdyes : fluordynamics.ff.Parameters instance (optional)
-    linker : fluordynamics.ff.Parameters instance (optional)
-    specialbond : fluordynamics.ff.Parameters instance (optional)
+    amberdyes : fluordynamics.ff.Parameters instance, optional
+    linker : fluordynamics.ff.Parameters instance, optional
+    specialbond : fluordynamics.ff.Parameters instance, optional
     """
     for filename in ['{}/ffnonbonded.itp'.format(ff_folder), '{}/ffbonded.itp'.format(ff_folder)]:
         with open(filename, 'r') as f:
@@ -389,7 +389,7 @@ def save_molecule(filename, selection, fmt='mol2', state=-1, overwrite=False):
     filename : str
     fmt : str
           format of the file (pdb or mol2)
-    state : int (optional)
+    state : int, optional
             current state = -1
     overwrite : bool
     """
@@ -444,7 +444,7 @@ class Parameters:
                         else: 
                             key2 = key
                         amberlines[key2].append(line)
-        #print(amberlines['atomtypes'])
+
         atomtypes = pd.DataFrame([x.split() for x in amberlines['atomtypes']], columns=['name','at.num','mass','charge','ptype','sigma','epsilon', ';','comment']).dropna().drop(';', axis=1)
         bondtypes = pd.DataFrame([x.split() for x in amberlines['bondtypes']], columns=['i','j','funct','b0','kb',';', 'comment']).dropna().drop(';', axis=1)
         constrainttypes = pd.DataFrame([x.split() for x in amberlines['constrainttypes']], columns=['i','j','funct','b0',';','comment']).dropna().drop(';', axis=1)
@@ -649,7 +649,7 @@ class Parameters:
 
         Parameters
         ----------
-        filename : str (optional)
+        filename : str, optional
         """
         with open(filename, 'w') as f:
             f.write(self.atomtypes[['name', 'mass']].to_string(header=False, index=False))
