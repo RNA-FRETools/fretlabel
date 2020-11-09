@@ -9,7 +9,7 @@
 
 ### Fluorescent labeling *in silico*
 
-Label your nucleic acid of interest with the click of a button. A **PyMOL plugin**<sup>[1](#pymol)</sup> called *Fluorlabel* extends the AMBERDYES package (Graen et al. *JCTC* 2014) designed originally for proteins with geometries and force field parameters of common **nucleic acid** linker chemistries.
+Label your nucleic acid of interest with the click of a button. A **PyMOL plugin**<sup>[1](#pymol)</sup> called *Fluorlabel* extends the AMBERDYES package (Graen et al. *JCTC* 2014) designed originally for proteins with geometries and force field parameters of common nucleic acid linker chemistries.
 
 ### Interactive fragment generation
 
@@ -60,5 +60,6 @@ F.D. Steffen, R.K.O. Sigel, R. Börner, *Phys. Chem. Chem. Phys.* **2016**, *18*
 
 For further information see a list of [related projects](https://fdsteffen.github.io/fluordynamics/references).
 
+----
 
 <sup><a name="pymol">1</a></sup> PyMOL is a trademark of Schrödinger, LLC.
