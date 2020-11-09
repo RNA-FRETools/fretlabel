@@ -814,6 +814,7 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        filename : str</span>
+<span class="sd">        remove_bursts : bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">remove_bursts</span><span class="p">:</span>
@@ -842,6 +843,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        compute_anisotropy : bool</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">------------------------------------</span><span class="se">\n</span><span class="s1">Fluordynamics </span><span class="si">{}</span><span class="s1"> - FRET in silico</span><span class="se">\n</span><span class="s1">------------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">about</span><span class="p">[</span><span class="s1">&#39;__version__&#39;</span><span class="p">]))</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Orientation independent R0_const = </span><span class="si">{:0.2f}</span><span class="s1"> nm&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;fret&#39;</span><span class="p">][</span><span class="s1">&#39;R0_const&#39;</span><span class="p">]))</span>

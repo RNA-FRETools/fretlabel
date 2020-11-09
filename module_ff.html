@@ -310,7 +310,7 @@ and values defining the</p></li>
 <dd><p>Write a atomtype force field file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str (optional)</em>)</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str, optional</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -387,7 +387,7 @@ The PyMOL built-in save function truncates the string to 3 decimals.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filename</strong> (<em>str</em>)</p></li>
 <li><p><strong>fmt</strong> (<em>str</em>) – format of the file (pdb or mol2)</p></li>
-<li><p><strong>state</strong> (<em>int (optional)</em>) – current state = -1</p></li>
+<li><p><strong>state</strong> (<em>int, optional</em>) – current state = -1</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
@@ -403,8 +403,8 @@ The PyMOL built-in save function truncates the string to 3 decimals.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dye_entry</strong> (<em>dict</em>) – dictionary of a dye entry such as:
 “filename”:”C3W_DTM”, “dye”:”sCy3”, “base”:”DT+RU”, “position”:”internal”</p></li>
-<li><p><strong>inputfile</strong> (<em>str (optional)</em>)</p></li>
-<li><p><strong>outputfile</strong> (<em>str (optional)</em>)</p></li>
+<li><p><strong>inputfile</strong> (<em>str, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str, optional</em>)</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
@@ -420,8 +420,8 @@ The PyMOL built-in save function truncates the string to 3 decimals.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>residuetypes_string</strong> (<em>str</em>) – space-delimited string of following format:
 ‘residue  type’</p></li>
-<li><p><strong>inputfile</strong> (<em>str (optional)</em>)</p></li>
-<li><p><strong>outputfile</strong> (<em>str (optional)</em>)</p></li>
+<li><p><strong>inputfile</strong> (<em>str, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str, optional</em>)</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
@@ -437,8 +437,8 @@ The PyMOL built-in save function truncates the string to 3 decimals.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>specbond_string</strong> (<em>str</em>) – space-delimited string of following format:
 ‘resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB’</p></li>
-<li><p><strong>inputfile</strong> (<em>str (optional)</em>)</p></li>
-<li><p><strong>outputfile</strong> (<em>str (optional)</em>)</p></li>
+<li><p><strong>inputfile</strong> (<em>str, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str, optional</em>)</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
@@ -471,9 +471,9 @@ Writes a copy of the forcefield files with the updated parameters to the current
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ff_folder</strong> (<em>str</em>) – folder where the original ffnonbonded.itp and ffbonded.itp are located</p></li>
-<li><p><strong>amberdyes</strong> (<em>fluordynamics.ff.Parameters instance (optional)</em>)</p></li>
-<li><p><strong>linker</strong> (<em>fluordynamics.ff.Parameters instance (optional)</em>)</p></li>
-<li><p><strong>specialbond</strong> (<em>fluordynamics.ff.Parameters instance (optional)</em>)</p></li>
+<li><p><strong>amberdyes</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
+<li><p><strong>linker</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
+<li><p><strong>specialbond</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -487,7 +487,7 @@ Writes a copy of the forcefield files with the updated parameters to the current
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pandasMol2</strong> (<em>biopandas.mol2.pandas_mol2.PandasMol2 instance</em>)</p></li>
-<li><p><strong>filename</strong> (<em>str (optional)</em>)</p></li>
+<li><p><strong>filename</strong> (<em>str, optional</em>)</p></li>
 </ul>
 </dd>
 </dl>

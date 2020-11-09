@@ -230,7 +230,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    pandasMol2 : biopandas.mol2.pandas_mol2.PandasMol2 instance</span>
-<span class="sd">    filename : str (optional)</span>
+<span class="sd">    filename : str, optional</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">atom_str</span> <span class="o">=</span> <span class="s1">&#39;@&lt;TRIPOS&gt;ATOM&#39;</span>
     <span class="n">bond_str</span> <span class="o">=</span> <span class="s1">&#39;@&lt;TRIPOS&gt;BOND&#39;</span>
@@ -412,8 +412,8 @@
 <span class="sd">    specbond_string : str</span>
 <span class="sd">                      space-delimited string of following format:</span>
 <span class="sd">                      &#39;resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB&#39;</span>
-<span class="sd">    inputfile : str (optional)</span>
-<span class="sd">    outputfile : str (optional)</span>
+<span class="sd">    inputfile : str, optional</span>
+<span class="sd">    outputfile : str, optional</span>
 <span class="sd">    overwrite : bool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -448,8 +448,8 @@
 <span class="sd">    residuetypes_string : str</span>
 <span class="sd">                          space-delimited string of following format:</span>
 <span class="sd">                          &#39;residue  type&#39;</span>
-<span class="sd">    inputfile : str (optional)</span>
-<span class="sd">    outputfile : str (optional)</span>
+<span class="sd">    inputfile : str, optional</span>
+<span class="sd">    outputfile : str, optional</span>
 <span class="sd">    overwrite : bool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">residuetype_format</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;residue&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span>
@@ -478,8 +478,8 @@
 <span class="sd">    dye_entry : dict</span>
 <span class="sd">                dictionary of a dye entry such as: </span>
 <span class="sd">                &quot;filename&quot;:&quot;C3W_DTM&quot;, &quot;dye&quot;:&quot;sCy3&quot;, &quot;base&quot;:&quot;DT+RU&quot;, &quot;position&quot;:&quot;internal&quot;</span>
-<span class="sd">    inputfile : str (optional)</span>
-<span class="sd">    outputfile : str (optional)</span>
+<span class="sd">    inputfile : str, optional</span>
+<span class="sd">    outputfile : str, optional</span>
 <span class="sd">    overwrite : bool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
@@ -510,9 +510,9 @@
 <span class="sd">    ----------</span>
 <span class="sd">    ff_folder : str</span>
 <span class="sd">                folder where the original ffnonbonded.itp and ffbonded.itp are located</span>
-<span class="sd">    amberdyes : fluordynamics.ff.Parameters instance (optional)</span>
-<span class="sd">    linker : fluordynamics.ff.Parameters instance (optional)</span>
-<span class="sd">    specialbond : fluordynamics.ff.Parameters instance (optional)</span>
+<span class="sd">    amberdyes : fluordynamics.ff.Parameters instance, optional</span>
+<span class="sd">    linker : fluordynamics.ff.Parameters instance, optional</span>
+<span class="sd">    specialbond : fluordynamics.ff.Parameters instance, optional</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/ffnonbonded.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ff_folder</span><span class="p">),</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/ffbonded.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ff_folder</span><span class="p">)]:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -561,7 +561,7 @@
 <span class="sd">    filename : str</span>
 <span class="sd">    fmt : str</span>
 <span class="sd">          format of the file (pdb or mol2)</span>
-<span class="sd">    state : int (optional)</span>
+<span class="sd">    state : int, optional</span>
 <span class="sd">            current state = -1</span>
 <span class="sd">    overwrite : bool</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -616,7 +616,7 @@
                         <span class="k">else</span><span class="p">:</span> 
                             <span class="n">key2</span> <span class="o">=</span> <span class="n">key</span>
                         <span class="n">amberlines</span><span class="p">[</span><span class="n">key2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-        <span class="c1">#print(amberlines[&#39;atomtypes&#39;])</span>
+
         <span class="n">atomtypes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">amberlines</span><span class="p">[</span><span class="s1">&#39;atomtypes&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;at.num&#39;</span><span class="p">,</span><span class="s1">&#39;mass&#39;</span><span class="p">,</span><span class="s1">&#39;charge&#39;</span><span class="p">,</span><span class="s1">&#39;ptype&#39;</span><span class="p">,</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span><span class="s1">&#39;epsilon&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">bondtypes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">amberlines</span><span class="p">[</span><span class="s1">&#39;bondtypes&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;funct&#39;</span><span class="p">,</span><span class="s1">&#39;b0&#39;</span><span class="p">,</span><span class="s1">&#39;kb&#39;</span><span class="p">,</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">constrainttypes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">amberlines</span><span class="p">[</span><span class="s1">&#39;constrainttypes&#39;</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;funct&#39;</span><span class="p">,</span><span class="s1">&#39;b0&#39;</span><span class="p">,</span><span class="s1">&#39;;&#39;</span><span class="p">,</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -821,7 +821,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        filename : str (optional)</span>
+<span class="sd">        filename : str, optional</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atomtypes</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span></div></div>

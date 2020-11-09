@@ -204,29 +204,36 @@
 <div class="section" id="what-is-in-the-box">
 <h2>What is in the box?<a class="headerlink" href="#what-is-in-the-box" title="Permalink to this headline">¶</a></h2>
 <p><em>Fluordynamics</em> simplifies the workflow of setting up, running and evaluating Molecular dynamics simulations with extrinsic organic fluorophores for <em>in silico</em> FRET calculations.</p>
+<div class="section" id="fluorescent-labeling-in-silico">
+<h3>Fluorescent labeling <em>in silico</em><a class="headerlink" href="#fluorescent-labeling-in-silico" title="Permalink to this headline">¶</a></h3>
+<p>Label your nucleic acid of interest with the click of a button. A <strong>PyMOL plugin</strong> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> called <em>Fluorlabel</em> extends the AMBERDYES package (Graen et al. <em>JCTC</em> 2014) designed originally for proteins with geometries and force field parameters of common nucleic acid linker chemistries.</p>
+</div>
 <div class="section" id="interactive-fragment-generation">
 <h3>Interactive fragment generation<a class="headerlink" href="#interactive-fragment-generation" title="Permalink to this headline">¶</a></h3>
-<p>The Python module allows to build new fragments (base, linker and dye) <strong>interactively</strong>. It integrates into PyMOL such that the molecular viewer can be controlled directly from a <strong>Jupyter notebook</strong>. The module also features a dedicated <strong>PyMOL plugin</strong> called <em>Fluorlabel</em> to attach the new fragments to a nucleic acid of interest with the click of a button.</p>
+<p>The module further describes how to build new fragments (base, linker and dye) by integrating with established pipelines for topology generation such as <em>Antechamber</em> and <em>Acpype</em>.</p>
 </div>
-<div class="section" id="patching-amber-force-fields">
-<h3>Patching AMBER force fields<a class="headerlink" href="#patching-amber-force-fields" title="Permalink to this headline">¶</a></h3>
-<p>Using established pipelines for topology generation such as <em>Antechamber</em> and <em>Acpype</em>, Fluordynamics builds on top of the AMBERDYES package (Graen et al. <em>JCTC</em> 2014) and extends the force field with parameters of common <strong>nucleic acid</strong> linker chemistries.</p>
-</div>
-<div class="section" id="in-silico-fret-prediction">
-<h3><em>in silico</em> FRET prediction<a class="headerlink" href="#in-silico-fret-prediction" title="Permalink to this headline">¶</a></h3>
-<p>MD trajectories with all-atom organic dyes are used to as distance and orientation distributions (<span class="math notranslate nohighlight">\(R_\text{DA}\)</span> and <span class="math notranslate nohighlight">\(\kappa^2\)</span>) to compute photon bursts as part of an <em>in silico</em> FRET experiment.</p>
+<div class="section" id="fret-prediction">
+<h3>FRET prediction<a class="headerlink" href="#fret-prediction" title="Permalink to this headline">¶</a></h3>
+<p>Calculate FRET distributions on the basis of MD simulation with all-atom organic dyes. <em>Fluorburst</em> uses distance <span class="math notranslate nohighlight">\(R_\text{DA}(t)\)</span> and orientation trajectories <span class="math notranslate nohighlight">\(\kappa^2(t)\)</span> of the fluorophores to compute photon bursts as part of <em>in silico</em> FRET experiment.</p>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="download-and-install">
 <h2>Download and install<a class="headerlink" href="#download-and-install" title="Permalink to this headline">¶</a></h2>
-<p>Install fluordynamics from Github with pip</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fdsteffen</span><span class="o">/</span><span class="n">fluordynamics</span><span class="o">.</span><span class="n">git</span>
+<ul>
+<li><p>Clone or download the git repository from</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">fdsteffen</span><span class="o">/</span><span class="n">fluordynamics</span><span class="o">.</span><span class="n">git</span>
+
+<span class="c1"># or from the mirror</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RNA</span><span class="o">-</span><span class="n">FRETools</span><span class="o">/</span><span class="n">fluordynamics</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-<p>To generate your own fragments you may further need:</p>
-<ul>
-<li><p><em>PyMOL</em> <a class="reference external" href="https://pymol.org/2/#download">https://pymol.org/2/#download</a></p></li>
+</li>
+<li><p>Install the PyMOL plugin via the Plugin manager: <code class="docutils literal notranslate"><span class="pre">Plugin</span></code> <span class="raw-html">&rarr;</span> <code class="docutils literal notranslate"><span class="pre">Plugin</span> <span class="pre">manager</span></code> <span class="raw-html">&rarr;</span> <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">New</span> <span class="pre">Plugin</span></code> <span class="raw-html">&rarr;</span> <code class="docutils literal notranslate"><span class="pre">Choose</span> <span class="pre">file...</span></code> and select the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> file from the <em>fluorlabel</em> subdirectory.</p></li>
+<li><p>To generate your own fragments you may further need:</p>
+<blockquote>
+<div><ul>
+<li><p><em>PyMOL</em> <a class="reference external" href="https://github.com/schrodinger/pymol-open-source">https://github.com/schrodinger/pymol-open-source</a></p></li>
 <li><p><em>Antechamber</em>  <a class="reference external" href="https://ambermd.org/GetAmber.php#ambertools">https://ambermd.org/GetAmber.php#ambertools</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ambertools</span><span class="o">=</span><span class="mi">20</span>
 </pre></div>
@@ -238,6 +245,9 @@
 </div>
 </li>
 <li><p>A quantum chemistry package such as <em>Gaussian</em> <a class="reference external" href="https://gaussian.com/">https://gaussian.com/</a> or <em>GAMESS</em> <a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/">https://www.msg.chem.iastate.edu/gamess/</a></p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -265,6 +275,12 @@
 </dd>
 </dl>
 <p>For further information see a list of <a class="reference internal" href="references.html"><span class="doc">related projects</span></a></p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>PyMOL is a trademark of Schrödinger, LLC.</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
