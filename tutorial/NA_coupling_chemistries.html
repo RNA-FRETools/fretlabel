@@ -1267,7 +1267,7 @@ Check passed!
 <p>Reference: <a class="reference external" href="https://ambermd.org/tutorials/advanced/tutorial1/section1.htm">https://ambermd.org/tutorials/advanced/tutorial1/section1.htm</a></p>
 <p>In the AMBER force fields (Cornell, <em>JACS</em>, <strong>1995</strong>) the <strong>DNA</strong> nucleotides the charges at the termini is as follows: - 5’-end nucleotide: -0.3079 - 3’-end nucleotide: -0.6921</p>
 <p>For <strong>RNA</strong> the charges are: - 5’-end nucleotide: -0.3081 - 3’-end nucleotide: -0.6919</p>
-<p><img alt="b5a4f301b453425b89f26379d5ce3cf4" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
+<p><img alt="0305107e98624813b4a6595e5d4a1708" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
 <div class="section" id="Labeled-DNA-5'-terminus">
 <h4>Labeled DNA 5’-terminus<a class="headerlink" href="#Labeled-DNA-5'-terminus" title="Permalink to this headline">¶</a></h4>
 <p>The 5’-end nucleotide will become an internal residue (DNA charge: -1; i.e. the phosphate of the linker will be transferred to this nucleotide). The linker will become the new 5’-terminus (DNA charge: -0.3079). For this purpose, the <strong>methylphosphate cap</strong> (<span class="math notranslate nohighlight">\(-PO_2-OCH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.3079)=**-0.6921** during the RESP fit.</p>
@@ -1275,7 +1275,7 @@ Check passed!
 <div class="section" id="Labeled-DNA-3'-terminus">
 <h4>Labeled DNA 3’-terminus<a class="headerlink" href="#Labeled-DNA-3'-terminus" title="Permalink to this headline">¶</a></h4>
 <p>The 3’-end nucleotide will become an internal residue (DNA charge: -1). The linker will become the new 3’-terminus (DNA charge: -0.36921, i.e. <span class="math notranslate nohighlight">\(-PO_2-\)</span> will be retained). For this purpose, the <strong>methoxy cap</strong> (<span class="math notranslate nohighlight">\(-O-CH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.6021)=**-0.3079** during the RESP fit.</p>
-<p><img alt="e4f930c1c4a049abaf2f94cc357ffb1a" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
+<p><img alt="57822562bca74d35b44806d21563b1cc" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
 </div>
 </div>
 <div class="section" id="Rational-for-linker-RESP-charge-derivation-at-3'-end-via-hydrazide">
@@ -1283,7 +1283,7 @@ Check passed!
 <p>Insertion of a hydrazide with sugar ring closure can only occur in riboses (RNA) because it requires a dialdehyde (O2’, O3’). The four RNA bases are parameterized such that the partial charges of the base + C1’ + H1’ = <strong>0.1160</strong>. The NH2 capping group of the linker (which is a placeholder for the base) + C1’ + H1’ are therefore constrained to <strong>0.1160</strong>. The charges of C1’ and H1’ are fixed to those of the respective nucleotide in the Amber force field (e.g. for adenosine: C1’=<strong>0.0394</strong> and
 H1’=<strong>0.2007</strong>)</p>
 <p>The methoxy cap (which will be removed) is constrained to -0.3081 such that the remaining fragment will sum up to <strong>-0.6919</strong>.</p>
-<p><img alt="9e32f484e08046afb2f258d522a39e36" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
+<p><img alt="8838464efed0419f84583a9ba0ff4a70" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
 </div>
 <div class="section" id="Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine">
 <h3>Rational for linker RESP charge derivation at internal ethenoadenine / ethenocytosine<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine" title="Permalink to this headline">¶</a></h3>
