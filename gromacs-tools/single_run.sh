@@ -6,7 +6,7 @@ invalidOpt() { echo "Invalid option: -$OPTARG" 1>&2; exit 1; }
 missingArg() { echo "Option -$OPTARG requires an argument" 1>&2; exit 1; }
 cleanup() { if ls -f $1/\#* 1> /dev/null 2>&1 ; then rm $1/\#* ; fi ; }
 
-while getopts ":c:d:a:p:h" opt; do
+while getopts ":c:d:a:p:n:h" opt; do
     case $opt in
         c) 
             structureFile=$OPTARG
