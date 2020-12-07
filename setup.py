@@ -34,5 +34,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     keywords=about['__keywords__'],
-    ext_modules=[relaxation]
+    ext_modules=[relaxation],
+    skripts=['gromacs-tools/solvate.sh', 'gromacs-tools/single_run.sh', 'gromacs-tools/continue_run.sh', 'gromacs-tools/resp_fit.sh']
 )

@@ -49,7 +49,7 @@ if [ ! -e "$structureFile" ]; then
 fi
 
 if [ -z $dist2boxedge ]; then
-    dist2boxedge=1
+    dist2boxedge=1.5
 fi
 
 # note: .top must be in root directory
@@ -64,8 +64,7 @@ gmx solvate -cp em/"$structureName".gro -cs "$waterFile" -o em/"$structureName".
 
 gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p "$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp -maxwarn 2 || { echo "-> Error: grompp after solvation failed" ; cleanup em; exit 1; }
 
-gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p "$structureName".top -nname Cl -pname K -neutral || { echo "-> Error: gmx genion failed" ; cleanup em; exit 1; }
-
+echo SOL | gmx genion -s em/"$structureName".tpr -o em/"$structureName".gro -p "$structureName".top -nname Cl -pname K -neutral || { echo "-> Error: gmx genion failed" ; cleanup em; exit 1; }
 
 gmx grompp -f "$mdp_dir"/em.mdp -c em/"$structureName".gro -p "$structureName".top -o em/"$structureName".tpr -po em/"$structureName".mdp || { echo "-> Error: gmx grompp after genion failed" ; cleanup em; exit 1; }
 
