@@ -60,7 +60,7 @@ if [ -z "$ensemble" ]; then
 fi
 
 structureName=`echo $structureFile | rev | cut -f1 -d"/" | rev | cut -f1 -d"."`
-folders=`seq -s' ' 0 $replicates`
+folders=`seq -s' ' 1 $replicates`
 
 if [ -f nvt/"$structureName".xtc ] & [ -f npt/"$structureName".xtc ]; then
     read -p "An existing equilibration has been found. Do you want to use it for this run? (n)" -n 1 -r
@@ -79,35 +79,47 @@ if [ "$run_equilibration" == "true" ]; then
     # temperature equilibration
     if [ "$ensemble" == "all" ] || [ "$ensemble" == "nvt" ] ; then
     mkdir nvt
+    nvt_folders=`for i in $(seq -s' ' 1 $replicates); do echo npt/$i;done`
     for i in $folders; do
-        gmx grompp -f "$mdp_dir"/nvt.mdp -c em/"$structureName".gro -r em/"$structureName".gro -p "$structureName".top -o nvt/$i/"$structureName".tpr -po nvt/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for nvt failed" ; cleanup nvt ; exit 1; }
+        mkdir $i
+        gmx grompp -f "$mdp_dir"/nvt.mdp -c em/"$structureName".gro -r em/"$structureName".gro -p "$structureName".top -o nvt/$i/"$structureName".tpr -po nvt/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for nvt failed" ; cleanup nvt/$i ; exit 1; }
     done
-    mpirun -np $replicates gmx mdrun -v -s nvt/$i/"$structureName".tpr -c nvt/$i/"$structureName".gro -x nvt/$i/"$structureName".xtc -cpo nvt/$i/"$structureName.cpt" -e nvt/$i/"$structureName".edr -g nvt/$i/"$structureName".log -multidir $folders || { echo "-> Error: gmx mdrun for nvt failed" ; cleanup nvt ; exit 1; }
-    cleanup nvt
+    mpirun -np $replicates gmx mdrun -v -s "$structureName".tpr -c "$structureName".gro -x "$structureName".xtc -cpo "$structureName.cpt" -e "$structureName".edr -g "$structureName".log -multidir $nvt_folders || { echo "-> Error: gmx mdrun for nvt failed" ; for i in $folders; do cleanup nvt/$i;done ; exit 1; }
+    for i in $folders; do
+        cleanup nvt/$i
+    done
     fi
 
     # pressure equilibration
     if [ "$ensemble" == "all" ] || [ "$ensemble" == "npt" ] ; then
     mkdir npt
-    for i in {0..$replicates}; do
-        gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/$i/"$structureName".gro -r nvt/$i/"$structureName".gro -t nvt/$i/"$structureName".cpt -p "$structureName".top -o npt/$i/"$structureName".tpr -po npt/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for npt failed" ; cleanup npt ; exit 1; }
+    npt_folders=`for i in $(seq -s' ' 1 $replicates); do echo npt/$i;done`
+    for i in $folders; do
+        mkdir npt/$i
+        gmx grompp -f "$mdp_dir"/npt.mdp -c nvt/$i/"$structureName".gro -r nvt/$i/"$structureName".gro -t nvt/$i/"$structureName".cpt -p "$structureName".top -o npt/$i/"$structureName".tpr -po npt/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for npt failed" ; cleanup npt/$i ; exit 1; }
     done
-    mpirun -np $replicates gmx mdrun -v -s npt/$i/"$structureName".tpr -c npt/$i/"$structureName".gro -x npt/$i/"$structureName".xtc -cpo npt/$i/"$structureName.cpt" -e npt/$i/"$structureName".edr -g npt/$i/"$structureName".log -multidir $folders || { echo "-> Error: gmx mdrun for npt failed" ; cleanup npt ; exit 1; }
-    cleanup npt
+    mpirun -np $replicates gmx mdrun -v -s "$structureName".tpr -c "$structureName".gro -x "$structureName".xtc -cpo "$structureName.cpt" -e "$structureName".edr -g "$structureName".log -multidir $npt_folders || { echo "-> Error: gmx mdrun for npt failed" ; for i in $folders; do cleanup npt/$i;done ; exit 1; }
+    for i in $folders; do
+        cleanup npt/$i
+    done
     fi
 fi
 
 
 # production run
-mkdir md0
 if [ "$ensemble" == "all" ] || [ "$ensemble" == "md" ] ; then
-for i in {0..$replicates}; do
-    gmx grompp -f "$mdp_dir"/md0.mdp -c npt/$i/"$structureName".gro -t npt/$i/"$structureName".cpt -p "$structureName".top -o md0/$i/"$structureName".tpr -po md0/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for md0 failed" ; cleanup md0 ; exit 1; }
+mkdir md0
+for i in $folders; do
+    mkdir md0/$i
+    md0_folders=`for i in $(seq -s' ' 1 $replicates); do echo md0/$i;done`
+    gmx grompp -f "$mdp_dir"/md0.mdp -c npt/$i/"$structureName".gro -t npt/$i/"$structureName".cpt -p "$structureName".top -o md0/$i/"$structureName".tpr -po md0/$i/"$structureName".mdp -maxwarn "$maxwarn" -n "$indexFile" || { echo "Error: grompp for md0 failed" ; cleanup md0/$i ; exit 1; }
 done
 if [ ! -z "$plumedFile" ]; then
-    mpirun -np $replicates gmx mdrun -v -s md0/$i/"$structureName".tpr -c md0/$i/"$structureName".gro -x md0/$i/"$structureName".xtc -cpo md0/$i/"$structureName".cpt -e md0/$i/"$structureName".edr -g md0/$i/"$structureName".log -plumed "$plumedFile" -multidir $folders || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
+    mpirun -np $replicates gmx mdrun -v -s "$structureName".tpr -c "$structureName".gro -x "$structureName".xtc -cpo "$structureName".cpt -e "$structureName".edr -g "$structureName".log -plumed "$plumedFile" -multidir $md0_folders || { echo "-> Error: gmx mdrun for md0 failed" ; for i in $folders; do cleanup md0/$i;done ; exit 1; }
 else
-    mpirun -np $replicates gmx mdrun -v -s md0/$i/"$structureName".tpr -c md0/$i/"$structureName".gro -x md0/$i/"$structureName".xtc -cpo md0/$i/"$structureName".cpt -e md0/$i/"$structureName".edr -g md0/$i/"$structureName".log -multidir $folders || { echo "-> Error: gmx mdrun for md0 failed" ; cleanup md0 ; exit 1; }
+    mpirun -np $replicates gmx mdrun -v -s "$structureName".tpr -c "$structureName".gro -x "$structureName".xtc -cpo "$structureName".cpt -e "$structureName".edr -g "$structureName".log -multidir $md0_folders || { echo "-> Error: gmx mdrun for md0 failed" ; for i in $folders; do cleanup md0/$i;done ; exit 1; }
 fi
-cleanup md0
+for i in $folders; do
+    cleanup md0/$i
+done
 fi
