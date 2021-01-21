@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Nucleic acid coupling chemistries &mdash; fluordynamics 0.1.0 documentation</title>
   
@@ -19,7 +19,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -32,10 +35,9 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
@@ -60,7 +62,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> fluordynamics
+            <a href="../index.html" class="icon icon-home"> fluordynamics
           
 
           
@@ -165,6 +167,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -180,7 +184,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/tutorial/NA_coupling_chemistries.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -1267,7 +1271,7 @@ Check passed!
 <p>Reference: <a class="reference external" href="https://ambermd.org/tutorials/advanced/tutorial1/section1.htm">https://ambermd.org/tutorials/advanced/tutorial1/section1.htm</a></p>
 <p>In the AMBER force fields (Cornell, <em>JACS</em>, <strong>1995</strong>) the <strong>DNA</strong> nucleotides the charges at the termini is as follows: - 5’-end nucleotide: -0.3079 - 3’-end nucleotide: -0.6921</p>
 <p>For <strong>RNA</strong> the charges are: - 5’-end nucleotide: -0.3081 - 3’-end nucleotide: -0.6919</p>
-<p><img alt="638c81ccc0f84264a6c2f0d9dfbe2d31" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
+<p><img alt="8ba9141b4d674286ac045d251e749b41" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
 <div class="section" id="Labeled-DNA-5'-terminus">
 <h4>Labeled DNA 5’-terminus<a class="headerlink" href="#Labeled-DNA-5'-terminus" title="Permalink to this headline">¶</a></h4>
 <p>The 5’-end nucleotide will become an internal residue (DNA charge: -1; i.e. the phosphate of the linker will be transferred to this nucleotide). The linker will become the new 5’-terminus (DNA charge: -0.3079). For this purpose, the <strong>methylphosphate cap</strong> (<span class="math notranslate nohighlight">\(-PO_2-OCH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.3079)=**-0.6921** during the RESP fit.</p>
@@ -1275,7 +1279,7 @@ Check passed!
 <div class="section" id="Labeled-DNA-3'-terminus">
 <h4>Labeled DNA 3’-terminus<a class="headerlink" href="#Labeled-DNA-3'-terminus" title="Permalink to this headline">¶</a></h4>
 <p>The 3’-end nucleotide will become an internal residue (DNA charge: -1). The linker will become the new 3’-terminus (DNA charge: -0.36921, i.e. <span class="math notranslate nohighlight">\(-PO_2-\)</span> will be retained). For this purpose, the <strong>methoxy cap</strong> (<span class="math notranslate nohighlight">\(-O-CH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.6021)=**-0.3079** during the RESP fit.</p>
-<p><img alt="923090a877944f819b32494b1ac37db9" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
+<p><img alt="82166b4993904835a888bacc16c6e3a8" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
 </div>
 </div>
 <div class="section" id="Rational-for-linker-RESP-charge-derivation-at-3'-end-via-hydrazide">
@@ -1283,7 +1287,7 @@ Check passed!
 <p>Insertion of a hydrazide with sugar ring closure can only occur in riboses (RNA) because it requires a dialdehyde (O2’, O3’). The four RNA bases are parameterized such that the partial charges of the base + C1’ + H1’ = <strong>0.1160</strong>. The NH2 capping group of the linker (which is a placeholder for the base) + C1’ + H1’ are therefore constrained to <strong>0.1160</strong>. The charges of C1’ and H1’ are fixed to those of the respective nucleotide in the Amber force field (e.g. for adenosine: C1’=<strong>0.0394</strong> and
 H1’=<strong>0.2007</strong>)</p>
 <p>The methoxy cap (which will be removed) is constrained to -0.3081 such that the remaining fragment will sum up to <strong>-0.6919</strong>.</p>
-<p><img alt="25bf76518e5b4cbcaec4e7235dc6f89e" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
+<p><img alt="c357a926a90e4e0ea7a3ebe3382d27a1" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
 </div>
 <div class="section" id="Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine">
 <h3>Rational for linker RESP charge derivation at internal ethenoadenine / ethenocytosine<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine" title="Permalink to this headline">¶</a></h3>
@@ -1571,37 +1575,29 @@ H1’=<strong>0.2007</strong>)</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="partial_charges_to_mol2.html" class="btn btn-neutral float-right" title="Adding partial charges to mol2 files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="deoxythymidine_fragment_building.html" class="btn btn-neutral float-left" title="Deoxythymidine fragment building" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="partial_charges_to_mol2.html" class="btn btn-neutral float-right" title="Adding partial charges to mol2 files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="deoxythymidine_fragment_building.html" class="btn btn-neutral float-left" title="Deoxythymidine fragment building" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Fabio D. Steffen, University of Zurich
+        &#169; Copyright 2020, Fabio D. Steffen, University of Zurich.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
