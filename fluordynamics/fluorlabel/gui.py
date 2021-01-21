@@ -207,7 +207,7 @@ class App(QtWidgets.QWidget):
         """
         Clean up the PDB file for Gromacs
         """
-        cmd.remove('hydrogens')
+        cmd.remove('hydrogens and resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DU') # remove hydrogens on nucleic acids
         cmd.remove('inorganic or solvent')
         atom_names = [atom.name for atom in cmd.get_model('resi 1').atom]
         if 'O5\'' not in atom_names:  # O5' is missing in Rosetta models
