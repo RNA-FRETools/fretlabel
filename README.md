@@ -1,4 +1,4 @@
-# <img src="https://github.com/fdsteffen/fluordynamics/blob/master/docs/source/_static/fluordynamics_logo.png" width="200">
+# <img src="docs/source/_static/fluordynamics_logo.png" width="200">
 [![Build Status](https://github.com/fdsteffen/fluordynamics/workflows/Fluordynamics%20build/badge.svg)](https://github.com/fdsteffen/fluordynamics/actions)
 [![Docs Status](https://github.com/fdsteffen/fluordynamics/workflows/Fluordynamics%20docs/badge.svg)](https://github.com/fdsteffen/fluordynamics/actions)
 
@@ -35,21 +35,24 @@ git clone https://github.com/RNA-FRETools/fluordynamics.git
 
 - Install the PyMOL plugin via the Plugin manager: `Plugin` &rarr; `Plugin manager` &rarr; `Install New Plugin` &rarr; `Choose file...` and select the *Fluorlabel* `__init__` file.
 
-- To generate your own fragments you may further need:
+<details>
+<summary>Generate your own fragments</summary>
+    
+To create your own fragments you will additionally need:
+    
+- *PyMOL* https://pymol.org/2/#download
+- *Antechamber*  https://ambermd.org/GetAmber.php#ambertools
+```
+conda install -c conda-forge ambertools=20
+```
 
-    - *PyMOL* https://pymol.org/2/#download
-    - *Antechamber*  https://ambermd.org/GetAmber.php#ambertools
-    ```
-    conda install -c conda-forge ambertools=20
-    ```
+- *Acpype* https://alanwilter.github.io/acpype/
+```
+conda install -c conda-forge acpype
+```
 
-    - *Acpype* https://alanwilter.github.io/acpype/
-    ```
-    conda install -c conda-forge acpype
-    ```
-
-    - A quantum chemistry package such as *Gaussian* https://gaussian.com/ or *GAMESS* https://www.msg.chem.iastate.edu/gamess/
-
+- A quantum chemistry package such as *Gaussian* https://gaussian.com/ or *GAMESS* https://www.msg.chem.iastate.edu/gamess/
+</details>
 
 ## References
 
