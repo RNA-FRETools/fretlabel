@@ -76,7 +76,7 @@ int checkRelaxationIndex(int event, int excitation_ndx, int relaxation_ndx, py::
 
 
 PYBIND11_MODULE(relaxation, m) {
-    m.doc() = "C-extension of the fluordynamics pacakge for fast photon sampling";
+    m.doc() = "C-extension of the fluordynamics package for fast photon sampling";
     m.def("findRelaxationIndex_DD_DA", &findRelaxationIndex_DD_DA, "Return a relaxation event upon donor excitation from a donor dye (1, photon/IC), an acceptor dye (1, photon/IC) or no relaxation (0, remain in excited state)", 
         py::arg("pD_tot"), py::arg("pD_totfret"), py::arg("excitation_ndx"), py::arg("traj_length"));
     m.def("findRelaxationIndex_AA", &findRelaxationIndex_AA, "Return a relaxation event upon acceptor excitation from an acceptor dye (2, photon/IC) or no relaxation (0, remain in excited state)", 

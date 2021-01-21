@@ -1,5 +1,4 @@
 import setuptools
-import pybind11
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -12,10 +11,16 @@ INSTALL_REQUIRES = [
     'numpy',
     'tqdm',
     'pandas',
-    'biopandas'
+    'biopandas',
+    'pybind11',
     ]
 
-relaxation = setuptools.Extension('relaxation', sources=['fluordynamics/relaxation.cpp'], include_dirs=[pybind11.get_include()], language='c++')
+class get_pybind_include(object):
+    def __str__(self):
+        import pybind11
+        return pybind11.get_include()
+
+ext_modules = [setuptools.Extension('relaxation', sources=['fluordynamics/relaxation.cpp'], include_dirs=[get_pybind_include()], language='c++')]
 
 setuptools.setup(
     name=about['__title__'],
@@ -34,6 +39,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     keywords=about['__keywords__'],
-    ext_modules=[relaxation],
-    skripts=['gromacs-tools/solvate.sh', 'gromacs-tools/single_run.sh', 'gromacs-tools/continue_run.sh', 'gromacs-tools/resp_fit.sh']
+    ext_modules=ext_modules,
+    skripts=['gromacs-tools/solvate.sh', 'gromacs-tools/single_run.sh', 'gromacs-tools/continue_run.sh', 'gromacs-tools/resp_fit.sh'],
 )
