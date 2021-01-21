@@ -382,9 +382,9 @@
 [ impropers ]
  C4   C8  N9  C1'
  C5   N6  C6   N1
- C5   N9  C4   N3
- C6   C4  C5   N7
  C6  H61  N6  H62
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H2   N1  C2   N3
  H8   N9  C8   N7
 
@@ -508,9 +508,9 @@
 [ impropers ]
  C4   C8  N9  C1'
  C5   N6  C6   N1
- C5   N9  C4   N3
- C6   C4  C5   N7
  C6  H61  N6  H62
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H2   N1  C2   N3
  H8   N9  C8   N7
 
@@ -632,9 +632,9 @@
  N2   N1  C2   N3
  C4   C8  N9  C1'
  C5   N1  C6   O6
- C5   N9  C4   N3
  C6   C2  N1   H1
- C6   C4  C5   N7
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H8   N9  C8   N7
 
 [ DGO ]
@@ -761,9 +761,9 @@
  N2   N1  C2   N3
  C4   C8  N9  C1'
  C5   N1  C6   O6
- C5   N9  C4   N3
  C6   C2  N1   H1
- C6   C4  C5   N7
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H8   N9  C8   N7
 
 [ DCP ]
@@ -1317,9 +1317,9 @@
   C8   H8
 [ impropers ]
  C5   N6  C6   N1
- C5   N9  C4   N3
- C6   C4  C5   N7
  C6  H61  N6  H62
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H2   N1  C2   N3
  H8   N9  C8   N7
 
@@ -1445,9 +1445,9 @@
 [ impropers ]
  C4   C8  N9  C1'
  C5   N6  C6   N1
- C5   N9  C4   N3
- C6   C4  C5   N7
  C6  H61  N6  H62
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H2   N1  C2   N3
  H8   N9  C8   N7
 
@@ -1530,9 +1530,9 @@
  C2  H21  N2  H22
  N2   N1  C2   N3
  C5   N1  C6   O6
- C5   N9  C4   N3
  C6   C2  N1   H1
- C6   C4  C5   N7
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H8   N9  C8   N7
 
 [ RGO ]
@@ -1661,9 +1661,9 @@
  N2   N1  C2   N3
  C4   C8  N9  C1'
  C5   N1  C6   O6
- C5   N9  C4   N3
  C6   C2  N1   H1
- C6   C4  C5   N7
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H8   N9  C8   N7
 
 [ RCP ]
@@ -2080,7 +2080,7 @@
   C4'  CT -0.733448  19
   O4'  OS  0.603719  20
   C3'  CT -0.201255  21
-  O3'  OS -0.259896  22
+  O3'  OH -0.259896  22
   C2'  CT  1.701142  23
   O2'  OH -0.755060  24
   C1'  CT  0.039400  25
@@ -2138,9 +2138,9 @@
 [ impropers ]
  C4   C8  N9  C1'
  C5   N6  C6   N1
- C5   N9  C4   N3
- C6   C4  C5   N7
  C6  H61  N6  H62
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H2   N1  C2   N3
  H8   N9  C8   N7
 
@@ -2169,7 +2169,7 @@
   C4'  CT -0.727780  20
   O4'  OS  0.586862  21
   C3'  CT -0.198891  22
-  O3'  OS -0.253731  23
+  O3'  OH -0.253731  23
   C2'  CT  1.702637  24
   O2'  OH -0.755413  25
   C1'  CT  0.019100  26
@@ -2230,9 +2230,9 @@
  N2   N1  C2   N3
  C4   C8  N9  C1'
  C5   N1  C6   O6
- C5   N9  C4   N3
  C6   C2  N1   H1
- C6   C4  C5   N7
+ N7   C6  C5   C4
+ N9   C5  C4   N3
  H8   N9  C8   N7
 
 [ RCH ]
@@ -2257,7 +2257,7 @@
   C4'  CT -0.725373  17
   O4'  OS  0.578413  18
   C3'  CT -0.198482  19
-  O3'  OS -0.250464  20
+  O3'  OH -0.250464  20
   C2'  CT  1.708382  21
   O2'  OH -0.755545  22
   C1'  CT  0.006600  23
@@ -2338,7 +2338,7 @@
   C4'  CT -0.732815  16
   O4'  OS  0.611900  17
   C3'  CT -0.196350  18
-  O3'  OS -0.264268  19
+  O3'  OH -0.264268  19
   C2'  CT  1.661408  20
   O2'  OH -0.755233  21
   C1'  CT  0.067400  22
@@ -2521,8 +2521,8 @@
   C4   C6   C5   N7
   C4   C8   N9  C1'
   C5   N1   C6   N6
-  C5   N9   C4   N3
   N6   C7  H85   C9
+  N9   C5   C4   N3
   H2   N1   C2   N3
   H8   N9   C8   N7
 
@@ -2767,7 +2767,7 @@
   C4   C6   C5   N7
   C4   C8   N9  C1'
   C5   N1   C6   N6
-  C5   N9   C4   N3
+  N9   C5   C4   N3
   H2   N1   C2   N3
   H8   N9   C8   N7
   C9  H85   C7   N6

@@ -16,7 +16,7 @@ fragments_dir=os.path.join(package_directory, 'fragments')
 
 def couple_dye2baselinker(dye, baselinker, carbonylC_dye, align_baselinker_atoms, remove_baselinker_atoms, atom_dye='C99', atom_baselinker='N99'):
     """
-    Couple a dye to an exisiting base-linker fragment
+    Couple a dye to an existing base-linker fragment
 
     Parameters
     ----------
@@ -329,57 +329,6 @@ def update_dye_library(dye_entry, inputfile='dye_library.json', outputfile='dye_
             json.dump(dye_library, f, indent=2)
 
 
-def write_ff(ff_folder, amberdyes=None, linker=None, specialbond=None, outputdir='./'):
-    """
-    Update the forcefield parameter files ffnonbonded.itp and ffbonded.itp with a new parameter set
-    Writes a copy of the forcefield files with the updated parameters to the current working directory
-
-    Parameters
-    ----------
-    ff_folder : str
-                folder where the original ffnonbonded.itp and ffbonded.itp are located
-    amberdyes : fluordynamics.ff.Parameters instance, optional
-    linker : fluordynamics.ff.Parameters instance, optional
-    specialbond : fluordynamics.ff.Parameters instance, optional
-    """
-    for filename in ['{}/ffnonbonded.itp'.format(ff_folder), '{}/ffbonded.itp'.format(ff_folder)]:
-        with open(filename, 'r') as f:
-            lines = f.readlines()
-            keynames = []
-            newlines = ''
-            it = enumerate(lines)
-            for i,line in it:
-                newlines += line
-                match = re.search('\[\s(\w+)\s]', line)
-                if match:
-                    newlines += lines[i+1]
-                    next(it)
-                    key = match.group(1)
-                    key2 = key
-                    if (key == 'dihedraltypes') and (' 9 ' in lines[i+2]):
-                        key2 = 'propertypes'
-                    if (key == 'dihedraltypes') and (' 4 ' in lines[i+2]):
-                        key2 = 'impropertypes'
-                    
-                    if amberdyes is not None:
-                        amberdyes_df = getattr(amberdyes, key2)
-                        if amberdyes_df is not None:
-                            newlines += amberdyes_df.to_string(header=False, index=False)+'\n'
-
-                    if linker is not None:
-                        linker_df = getattr(linker, key2)
-                        if linker_df is not None:
-                            newlines += linker_df.to_string(header=False, index=False)+'\n'
-
-                    if specialbond is not None:
-                        specialbond_df = getattr(specialbond, key2)
-                        if specialbond_df is not None:
-                            newlines += specialbond_df.to_string(header=False, index=False)+'\n'                 
-
-
-        with open(os.path.join(outputdir, filename.split('/')[-1]), 'w') as f:
-            f.write(newlines)
-
 def save_molecule(filename, selection, fmt='mol2', state=-1, overwrite=False):
     """
     Save the molecule
@@ -415,6 +364,45 @@ class Parameters:
         self.angletypes = angletypes
         self.propertypes = propertypes
         self.impropertypes = impropertypes
+
+
+    @classmethod
+    def read_ff(cls, filelist):
+        if isinstance(filelist, str):
+            filelist = [filelist] 
+        fflines = {'atomtypes':[],
+                      'bondtypes':[],
+                      'constrainttypes':[],
+                      'angletypes':[],
+                      'propertypes':[],
+                      'impropertypes':[]
+                      }
+        for filename in filelist:
+            with open(filename, 'r') as f:
+                lines = f.readlines()
+
+                for i,line in enumerate(lines):
+                    match = re.search('\[\s(\w+)\s]', line)
+                    if match:
+                        key = match.group(1)
+                    line = line.lstrip()
+                    if line and line[0].isalpha():
+                        if (key == 'dihedraltypes') and (' 9 ' in line):
+                            key2 = 'propertypes'
+                        elif (key == 'dihedraltypes') and (' 4 ' in line):
+                            key2 = 'impropertypes'
+                        else: 
+                            key2 = key
+                        fflines[key2].append(line)
+
+        atomtypes = pd.DataFrame([x.split() for x in fflines['atomtypes']], columns=['name','at.num','mass','charge','ptype','sigma','epsilon']).dropna()
+        bondtypes = pd.DataFrame([x.split() for x in fflines['bondtypes']], columns=['i','j','funct','b0','kb']).dropna()
+        constrainttypes = pd.DataFrame([x.split() for x in fflines['constrainttypes']], columns=['i','j','funct','b0']).dropna()
+        angletypes = pd.DataFrame([x.split()[0:6] for x in fflines['angletypes']], columns=['i','j','k','funct','th0','cth']).dropna()
+        propertypes = pd.DataFrame([x.split()[0:8] for x in fflines['propertypes']], columns=['i','j','k','l','funct','phase','kb','pn']).dropna()
+        impropertypes = pd.DataFrame([x.split()[0:8] for x in fflines['impropertypes']], columns=['i','j','k','l','funct','phase','kb','pn']).dropna()
+        
+        return cls(atomtypes, bondtypes, constrainttypes, angletypes, propertypes, impropertypes)
 
 
     @classmethod
@@ -493,28 +481,29 @@ class Parameters:
                 if flag == 'atomtype':
                     match = re.search('(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
-                        atomtype_list.append(match.group(1))
+                        atomtype_list.append(match.group(1).strip())
                 if flag == 'bondtype':
                     match = re.search('(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
-                        bondtype_list.append([match.group(1), match.group(2), 1, float(match.group(4))/10, float(match.group(3))*4.1868*100, '; FLUOR-DYNAMICS'])
+                        bondtype_list.append([match.group(1).strip(), match.group(2).strip(), 1, float(match.group(4))/10, float(match.group(3))*4.1868*100, '; FLUOR-DYNAMICS'])
                 if flag == 'angletype':
                     match = re.search('(\w+\*?)\s?-(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
-                        angletype_list.append([match.group(1), match.group(2), match.group(3), 1, float(match.group(5)), float(match.group(4))*4.1868, '; FLUOR-DYNAMICS'])
+                        angletype_list.append([match.group(1).strip(), match.group(2).strip(), match.group(3).strip(), 1, float(match.group(5)), float(match.group(4))*4.1868, '; FLUOR-DYNAMICS'])
                 if flag == 'propertype':
                     match = re.search('(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
-                        propertype_list.append([match.group(1), match.group(2), match.group(3), match.group(4), 9, float(match.group(7)), float(match.group(6))*4.1868, float(match.group(8)), '; FLUOR-DYNAMICS'])
+                        propertype_list.append([match.group(1).strip(), match.group(2).strip(), match.group(3).strip(), match.group(4).strip(), 9, float(match.group(7)), float(match.group(6))*4.1868, float(match.group(8)), '; FLUOR-DYNAMICS'])
                 if flag == 'impropertype':
                     match = re.search('(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)', line)
                     if match:
-                        impropertype_list.append([match.group(1), match.group(2), match.group(3), match.group(4), 4, float(match.group(6)), float(match.group(5))*4.1868, float(match.group(7)), '; FLUOR-DYNAMICS'])
+                        impropertype_list.append([match.group(1).strip(), match.group(2).strip(), match.group(3).strip(), match.group(4).strip(), 4, float(match.group(6)), float(match.group(5))*4.1868, float(match.group(7)), '; FLUOR-DYNAMICS'])
 
         if (atomtypes_molecule is not None) and atomtype_list:
             atomtypes = atomtypes_molecule[atomtypes_molecule['name'].isin(atomtype_list)]
         else:
             atomtypes = None
+
         bondtypes = pd.DataFrame(bondtype_list, columns=['i','j','funct', 'b0', 'kb','comment'])
         angletypes = pd.DataFrame(angletype_list, columns=['i','j','k','funct','th0', 'cth','comment'])
         propertypes = pd.DataFrame(propertype_list, columns=['i','j','k','l','funct','phase','kb','pn','comment'])
@@ -532,7 +521,7 @@ class Parameters:
 
 
     @classmethod
-    def read_specialbond(cls, amberdyes, atoms_amberdyes, atoms_other):
+    def read_specialbond(cls, amberdyes, atoms_amberdyes, atoms_other, ff_name='AMBER-DYES'):
         """
         Alternative constructor of the Parameters class which creates bondtypes, angletypes and propertypes by similarity 
         to existing parameters
@@ -549,47 +538,73 @@ class Parameters:
         bondtype_list = []
         angletype_list = []
         propertype_list = []
-
-        for a,b in zip(atoms_amberdyes['bondtypes'], atoms_other['bondtypes']):
-            bondtype1 = copy.deepcopy(amberdyes.bondtypes[(amberdyes.bondtypes[['i','j']] == a).all(1)])
-            bondtype2 = copy.deepcopy(amberdyes.bondtypes[(amberdyes.bondtypes[['i','j']] == a[::-1]).all(1)])
-            if not bondtype1.empty:
-                bondtype1[['i','j']] = b
-                bondtype1['comment'] = 'same as AMBER-DYES {}-{}'.format(*a)
-                bondtype_list.append(bondtype1)
-            if not bondtype2.empty:
-                bondtype2[['i','j']] = b[::-1]
-                bondtype2['comment'] = 'same as AMBER-DYES {}-{}'.format(*a[::-1])
-                bondtype_list.append(bondtype2)
-            bondtypes = pd.concat(bondtype_list)
+        impropertype_list = []
+        if 'bondtypes' in atoms_amberdyes.keys():
+            for a,b in zip(atoms_amberdyes['bondtypes'], atoms_other['bondtypes']):
+                bondtype1 = copy.deepcopy(amberdyes.bondtypes[(amberdyes.bondtypes[['i','j']] == a).all(1)])
+                bondtype2 = copy.deepcopy(amberdyes.bondtypes[(amberdyes.bondtypes[['i','j']] == a[::-1]).all(1)])
+                if not bondtype1.empty:
+                    bondtype1[['i','j']] = b
+                    bondtype1['comment'] = '; same as {} {}-{}'.format(ff_name, *a)
+                    bondtype_list.append(bondtype1)
+                if not bondtype2.empty:
+                    bondtype2[['i','j']] = b[::-1]
+                    bondtype2['comment'] = '; same as {} {}-{}'.format(ff_name, *a[::-1])
+                    bondtype_list.append(bondtype2)
+                bondtypes = pd.concat(bondtype_list)
+        else:
+            bondtypes = None
             
+        
+        if 'angletypes' in atoms_amberdyes.keys():
+            for a,b in zip(atoms_amberdyes['angletypes'], atoms_other['angletypes']):
+                angletype1 = copy.deepcopy(amberdyes.angletypes[(amberdyes.angletypes[['i','j','k']] == a).all(1)])
+                angletype2 = copy.deepcopy(amberdyes.angletypes[(amberdyes.angletypes[['i','j','k']] == a[::-1]).all(1)])
+                if not angletype1.empty:
+                    angletype1[['i','j','k']] = b
+                    angletype1['comment'] = '; same as {} {}-{}-{}'.format(ff_name, *a)
+                    angletype_list.append(angletype1)
+                if not angletype2.empty:
+                    angletype2[['i','j','k']] = b[::-1]
+                    angletype2['comment'] = '; same as {} {}-{}-{}'.format(ff_name, *a[::-1])
+                    angletype_list.append(angletype2)
+                angletypes = pd.concat(angletype_list)
+        else:
+            angletypes = None
                 
-        for a,b in zip(atoms_amberdyes['angletypes'], atoms_other['angletypes']):
-            angletype1 = copy.deepcopy(amberdyes.angletypes[(amberdyes.angletypes[['i','j','k']] == a).all(1)])
-            angletype2 = copy.deepcopy(amberdyes.angletypes[(amberdyes.angletypes[['i','j','k']] == a[::-1]).all(1)])
-            if not angletype1.empty:
-                angletype1[['i','j','k']] = b
-                angletype1['comment'] = 'same as AMBER-DYES {}-{}-{}'.format(*a)
-                angletype_list.append(angletype1)
-            if not angletype2.empty:
-                angletype2[['i','j','k']] = b[::-1]
-                angletype2['comment'] = 'same as AMBER-DYES {}-{}-{}'.format(*a[::-1])
-                angletype_list.append(angletype2)
-            angletypes = pd.concat(angletype_list)
-                
-        for a,b in zip(atoms_amberdyes['propertypes'], atoms_other['propertypes']):
-            propertype1 = copy.deepcopy(amberdyes.propertypes[(amberdyes.propertypes[['i','j','k','l']] == a).all(1)])
-            propertype2 = copy.deepcopy(amberdyes.propertypes[(amberdyes.propertypes[['i','j','k','l']] == a[::-1]).all(1)])
-            if not propertype1.empty:
-                propertype1[['i','j','k','l']] = b
-                propertype1['comment'] = 'same as AMBER-DYES {}-{}-{}-{}'.format(*a)
-                propertype_list.append(propertype1)
-            if not propertype2.empty:
-                propertype2[['i','j','k','l']] = b[::-1]
-                propertype2['comment'] = 'same as AMBER-DYES {}-{}-{}-{}'.format(*a[::-1])
-                propertype_list.append(propertype2)
-            propertypes = pd.concat(propertype_list)
-        return cls(None, bondtypes, None, angletypes, propertypes, None)
+        if 'propertypes' in atoms_amberdyes.keys():
+            for a,b in zip(atoms_amberdyes['propertypes'], atoms_other['propertypes']):
+                propertype1 = copy.deepcopy(amberdyes.propertypes[(amberdyes.propertypes[['i','j','k','l']] == a).all(1)])
+                propertype2 = copy.deepcopy(amberdyes.propertypes[(amberdyes.propertypes[['i','j','k','l']] == a[::-1]).all(1)])
+                if not propertype1.empty:
+                    propertype1[['i','j','k','l']] = b
+                    propertype1['comment'] = '; same as {} {}-{}-{}-{}'.format(ff_name, *a)
+                    propertype_list.append(propertype1)
+                if not propertype2.empty:
+                    propertype2[['i','j','k','l']] = b[::-1]
+                    propertype2['comment'] = '; same as {} {}-{}-{}-{}'.format(ff_name, *a[::-1])
+                    propertype_list.append(propertype2)
+                propertypes = pd.concat(propertype_list)
+        else:
+            propertypes = None
+
+        if 'impropertypes' in atoms_amberdyes.keys():
+            for a,b in zip(atoms_amberdyes['impropertypes'], atoms_other['impropertypes']):
+                impropertype1 = copy.deepcopy(amberdyes.impropertypes[(amberdyes.impropertypes[['i','j','k','l']] == a).all(1)])
+                impropertype2 = copy.deepcopy(amberdyes.impropertypes[(amberdyes.impropertypes[['i','j','k','l']] == a[::-1]).all(1)])
+                if not impropertype1.empty:
+                    impropertype1[['i','j','k','l']] = b
+                    impropertype1['comment'] = '; same as {} {}-{}-{}-{}'.format(ff_name, *a)
+                    impropertype_list.append(impropertype1)
+                if not impropertype2.empty:
+                    impropertype2[['i','j','k','l']] = b[::-1]
+                    impropertype2['comment'] = '; same as {} {}-{}-{}-{}'.format(ff_name, *a[::-1])
+                    impropertype_list.append(impropertype2)
+                impropertypes = pd.concat(impropertype_list)
+        else:
+            impropertypes = None
+
+        return cls(None, bondtypes, None, angletypes, propertypes, impropertypes)
 
 
     def append(self, parameters):
@@ -642,6 +657,7 @@ class Parameters:
 
             with open(os.path.join(outputdir, filename.split('/')[-1]), 'w') as f:
                 f.write(newlines)
+
 
     def write_atp(self, filename):
         """

@@ -1,85 +1,85 @@
 [ bondtypes ]
 ; i    j  func       b0          kb
-   C  c3g  1  0.1508  274720.0              ; AMBER-DYES
-  CT  c3g  1  0.1535  253630.0              ; AMBER-DYES
-  CT   cg  1  0.1508  274720.0              ; AMBER-DYES
-  CT  n3g  1  0.1470  268280.0              ; AMBER-DYES
-  CT  n4g  1  0.1499  245680.0              ; AMBER-DYES
- c2g  c3g  1  0.1508  274720.0              ; AMBER-DYES
- c2g  ceg  1  0.1339  469030.0              ; AMBER-DYES
- c2g  cfg  1  0.1339  469030.0              ; AMBER-DYES
- c2g  hag  1  0.1087  288110.0              ; AMBER-DYES
- c2g  nhg  1  0.1355  387100.0              ; AMBER-DYES
- c3g  c3g  1  0.1535  253630.0              ; AMBER-DYES
- c3g  cag  1  0.1512  272144.0              ; AMBER-DYES
- c3g  ccg  1  0.1499  282250.0              ; AMBER-DYES
- c3g  cdg  1  0.1499  282250.0              ; AMBER-DYES
- c3g  ceg  1  0.1505  277230.0              ; AMBER-DYES
- c3g  cfg  1  0.1505  277230.0              ; AMBER-DYES
- c3g   cg  1  0.1508  274720.0              ; AMBER-DYES
- c3g   fg  1  0.1344  304430.0              ; AMBER-DYES
- c3g  h1g  1  0.1093  281080.0              ; AMBER-DYES
- c3g  hcg  1  0.1092  282250.0              ; AMBER-DYES
- c3g  n3g  1  0.1470  268280.0              ; AMBER-DYES
- c3g  nag  1  0.1456  280080.0              ; AMBER-DYES
- c3g   ng  1  0.1460  276650.0              ; AMBER-DYES
- c3g  nhg  1  0.1458  278400.0              ; AMBER-DYES
- c3g  osg  1  0.1439  252300.0              ; AMBER-DYES
- c3g  s6g  1  0.1774  212550.0              ; AMBER-DYES
- c3g  ssg  1  0.1821  188950.0              ; AMBER-DYES
- cag  cag  1  0.1397  389275.0              ; AMBER-DYES
- cag  ccg  1  0.1426  354165.0              ; AMBER-DYES
- cag  ceg  1  0.1472  306270.0              ; AMBER-DYES
- cag   cg  1  0.1456  328800.0              ; AMBER-DYES
- cag  cwg  1  0.1404  379845.0              ; AMBER-DYES
- cag  h4g  1  0.1088  286940.0              ; AMBER-DYES
- cag  hag  1  0.1086  288718.0              ; AMBER-DYES
- cag  nag  1  0.1350  393550.0              ; AMBER-DYES
- cag  ncg  1  0.1336  412460.0              ; AMBER-DYES
- cag  nhg  1  0.1364  375720.0              ; AMBER-DYES
- cag   og  1  0.1222  526350.0              ; AMBER-DYES
- cag  osg  1  0.1372  312395.0              ; AMBER-DYES
- cag  s6g  1   0.176  220758.0              ; AMBER-DYES
- cag  ssg  1  0.1770  214720.0              ; AMBER-DYES
- ccg  cdg  1  0.1371  421750.0              ; AMBER-DYES
- ccg   cg  1  0.1462  315810.0              ; AMBER-DYES
- ccg  h4g  1  0.1083  292960.0              ; AMBER-DYES
- ccg  hag  1  0.1085  290540.0              ; AMBER-DYES
- ccg  osg  1  0.1370  314720.0              ; AMBER-DYES
- ccg  ssg  1  0.1737  233720.0              ; AMBER-DYES
- cdg  cdg  1  0.1429  350030.0              ; AMBER-DYES
- cdg   cg  1  0.1462  315810.0              ; AMBER-DYES
- cdg  hag  1  0.1085  290540.0              ; AMBER-DYES
- ceg  ceg  1  0.1451  326770.0              ; AMBER-DYES
- ceg  cfg  1  0.1338  470620.0              ; AMBER-DYES
- ceg  hag  1  0.1089  285770.0              ; AMBER-DYES
- ceg  n2g  1  0.1279  501910.0              ; AMBER-DYES
- ceg  nhg  1  0.1391  343760.0              ; AMBER-DYES
- cfg  cfg  1  0.1451  326770.0              ; AMBER-DYES
- cfg  hag  1  0.1089  285770.0              ; AMBER-DYES
-  cg   ng  1  0.1345  400160.0              ; AMBER-DYES
-  cg   og  1  0.1216  537145.0              ; AMBER-DYES
-  cg  ohg  1  0.1306  390280.0              ; AMBER-DYES
-  cg  osg  1  0.1343  344180.0              ; AMBER-DYES
- cwg  cwg  1  0.1442  339197.0              ; AMBER-DYES
- hng  n3g  1  0.1018  329780.0              ; AMBER-DYES
- hng  n4g  1  0.1033  308780.0              ; AMBER-DYES
- hng   ng  1  0.1009  343260.0              ; AMBER-DYES
- hng  nhg  1  0.1014  335720.0              ; AMBER-DYES
- hog  ohg  1  0.0974  309280.0              ; AMBER-DYES
- n2g  osg  1  0.1406  335140.0              ; AMBER-DYES
-  og  s6g  1  0.1436  452790.0              ; AMBER-DYES
-  CT    O  1  0.1317    188364          ; FLUOR-DYNAMICS
-   C   CD  1  0.1468    155330          ; FLUOR-DYNAMICS
-  cg    N  1  0.1345  400160.0  same as AMBER-DYES cg-ng
-   N   NT  1  0.1404    187862          ; FLUOR-DYNAMICS
-  CA   CV  1  0.1456    161234          ; FLUOR-DYNAMICS
-  CA   N*  1  0.1352    195817          ; FLUOR-DYNAMICS
-  CT   CV  1  0.1502    140174          ; FLUOR-DYNAMICS
-  NB   NB  1  0.1365    213694          ; FLUOR-DYNAMICS
-  N*   NB  1  0.1365    213694          ; FLUOR-DYNAMICS
-  CA   H5  1  0.1088    143691          ; FLUOR-DYNAMICS
-  CB   CM  1  0.1398    193053          ; FLUOR-DYNAMICS
+   C  c3g  1  0.1508  274720.0                ; AMBER-DYES
+  CT  c3g  1  0.1535  253630.0                ; AMBER-DYES
+  CT   cg  1  0.1508  274720.0                ; AMBER-DYES
+  CT  n3g  1  0.1470  268280.0                ; AMBER-DYES
+  CT  n4g  1  0.1499  245680.0                ; AMBER-DYES
+ c2g  c3g  1  0.1508  274720.0                ; AMBER-DYES
+ c2g  ceg  1  0.1339  469030.0                ; AMBER-DYES
+ c2g  cfg  1  0.1339  469030.0                ; AMBER-DYES
+ c2g  hag  1  0.1087  288110.0                ; AMBER-DYES
+ c2g  nhg  1  0.1355  387100.0                ; AMBER-DYES
+ c3g  c3g  1  0.1535  253630.0                ; AMBER-DYES
+ c3g  cag  1  0.1512  272144.0                ; AMBER-DYES
+ c3g  ccg  1  0.1499  282250.0                ; AMBER-DYES
+ c3g  cdg  1  0.1499  282250.0                ; AMBER-DYES
+ c3g  ceg  1  0.1505  277230.0                ; AMBER-DYES
+ c3g  cfg  1  0.1505  277230.0                ; AMBER-DYES
+ c3g   cg  1  0.1508  274720.0                ; AMBER-DYES
+ c3g   fg  1  0.1344  304430.0                ; AMBER-DYES
+ c3g  h1g  1  0.1093  281080.0                ; AMBER-DYES
+ c3g  hcg  1  0.1092  282250.0                ; AMBER-DYES
+ c3g  n3g  1  0.1470  268280.0                ; AMBER-DYES
+ c3g  nag  1  0.1456  280080.0                ; AMBER-DYES
+ c3g   ng  1  0.1460  276650.0                ; AMBER-DYES
+ c3g  nhg  1  0.1458  278400.0                ; AMBER-DYES
+ c3g  osg  1  0.1439  252300.0                ; AMBER-DYES
+ c3g  s6g  1  0.1774  212550.0                ; AMBER-DYES
+ c3g  ssg  1  0.1821  188950.0                ; AMBER-DYES
+ cag  cag  1  0.1397  389275.0                ; AMBER-DYES
+ cag  ccg  1  0.1426  354165.0                ; AMBER-DYES
+ cag  ceg  1  0.1472  306270.0                ; AMBER-DYES
+ cag   cg  1  0.1456  328800.0                ; AMBER-DYES
+ cag  cwg  1  0.1404  379845.0                ; AMBER-DYES
+ cag  h4g  1  0.1088  286940.0                ; AMBER-DYES
+ cag  hag  1  0.1086  288718.0                ; AMBER-DYES
+ cag  nag  1  0.1350  393550.0                ; AMBER-DYES
+ cag  ncg  1  0.1336  412460.0                ; AMBER-DYES
+ cag  nhg  1  0.1364  375720.0                ; AMBER-DYES
+ cag   og  1  0.1222  526350.0                ; AMBER-DYES
+ cag  osg  1  0.1372  312395.0                ; AMBER-DYES
+ cag  s6g  1   0.176  220758.0                ; AMBER-DYES
+ cag  ssg  1  0.1770  214720.0                ; AMBER-DYES
+ ccg  cdg  1  0.1371  421750.0                ; AMBER-DYES
+ ccg   cg  1  0.1462  315810.0                ; AMBER-DYES
+ ccg  h4g  1  0.1083  292960.0                ; AMBER-DYES
+ ccg  hag  1  0.1085  290540.0                ; AMBER-DYES
+ ccg  osg  1  0.1370  314720.0                ; AMBER-DYES
+ ccg  ssg  1  0.1737  233720.0                ; AMBER-DYES
+ cdg  cdg  1  0.1429  350030.0                ; AMBER-DYES
+ cdg   cg  1  0.1462  315810.0                ; AMBER-DYES
+ cdg  hag  1  0.1085  290540.0                ; AMBER-DYES
+ ceg  ceg  1  0.1451  326770.0                ; AMBER-DYES
+ ceg  cfg  1  0.1338  470620.0                ; AMBER-DYES
+ ceg  hag  1  0.1089  285770.0                ; AMBER-DYES
+ ceg  n2g  1  0.1279  501910.0                ; AMBER-DYES
+ ceg  nhg  1  0.1391  343760.0                ; AMBER-DYES
+ cfg  cfg  1  0.1451  326770.0                ; AMBER-DYES
+ cfg  hag  1  0.1089  285770.0                ; AMBER-DYES
+  cg   ng  1  0.1345  400160.0                ; AMBER-DYES
+  cg   og  1  0.1216  537145.0                ; AMBER-DYES
+  cg  ohg  1  0.1306  390280.0                ; AMBER-DYES
+  cg  osg  1  0.1343  344180.0                ; AMBER-DYES
+ cwg  cwg  1  0.1442  339197.0                ; AMBER-DYES
+ hng  n3g  1  0.1018  329780.0                ; AMBER-DYES
+ hng  n4g  1  0.1033  308780.0                ; AMBER-DYES
+ hng   ng  1  0.1009  343260.0                ; AMBER-DYES
+ hng  nhg  1  0.1014  335720.0                ; AMBER-DYES
+ hog  ohg  1  0.0974  309280.0                ; AMBER-DYES
+ n2g  osg  1  0.1406  335140.0                ; AMBER-DYES
+  og  s6g  1  0.1436  452790.0                ; AMBER-DYES
+  CT    O  1  0.1317    188364            ; FLUOR-DYNAMICS
+   C   CD  1  0.1468    155330            ; FLUOR-DYNAMICS
+   N   NT  1  0.1404    187862            ; FLUOR-DYNAMICS
+  CA   CV  1  0.1456    161234            ; FLUOR-DYNAMICS
+  CA   N*  1  0.1352    195817            ; FLUOR-DYNAMICS
+  CT   CV  1  0.1502    140174            ; FLUOR-DYNAMICS
+  NB   NB  1  0.1365    213694            ; FLUOR-DYNAMICS
+  N*   NB  1  0.1365    213694            ; FLUOR-DYNAMICS
+  CA   H5  1  0.1088    143691            ; FLUOR-DYNAMICS
+  CB   CM  1  0.1398    193053            ; FLUOR-DYNAMICS
+  cg    N  1  0.1345  400160.0  ; same as AMBER-DYES cg-ng
   C  C          1    0.15250   259408.0
   C  CA         1    0.14090   392459.2
   C  CB         1    0.14190   374049.6
@@ -306,242 +306,243 @@
 
 [ angletypes ]
 ;  i    j    k  func       th0       cth
-   C   CT  c3g  1   110.530  533.790                  ; AMBER-DYES
-   C   CT  n3g  1   111.140  557.230                  ; AMBER-DYES
-   C   CT  n4g  1   114.210  544.510                  ; AMBER-DYES
-   C  c3g  c3g  1   110.530  533.790                  ; AMBER-DYES
-   C  c3g  hcg  1   109.680  394.970                  ; AMBER-DYES
-  CT  c3g  c3g  1   110.630  528.940                  ; AMBER-DYES
-  CT  c3g  cag  1   112.090  529.280                  ; AMBER-DYES
-  CT  c3g  h1g  1   110.070  387.940                  ; AMBER-DYES
-  CT  c3g  hcg  1   110.050  388.020                  ; AMBER-DYES
-  CT  c3g  ssg  1   112.690  647.100                  ; AMBER-DYES
-  CT   cg   og  1   123.110  569.280                  ; AMBER-DYES
-  CT  n3g  c3g  1   110.900  535.640                  ; AMBER-DYES
-  CT  n3g  hng  1   109.920  394.380                  ; AMBER-DYES
-  CT  n4g  hng  1   110.110  386.520                  ; AMBER-DYES
-  H1   CT  c3g  1   110.070  387.940                  ; AMBER-DYES
-  H1   CT   cg  1   107.660  398.570                  ; AMBER-DYES
-  H1   CT  n3g  1   109.920  413.300                  ; AMBER-DYES
-  HP   CT  c3g  1   111.740  385.100                  ; AMBER-DYES
-  HP   CT  n3g  1   109.920  413.300                  ; AMBER-DYES
-  HP   CT  n4g  1   107.910  410.200                  ; AMBER-DYES
-   N    C  c3g  1   115.150  567.850                  ; AMBER-DYES
-   N   CT  c3g  1   112.130  551.030                  ; AMBER-DYES
-   N   CT   cg  1   111.560  557.890                  ; AMBER-DYES
-   O    C  c3g  1   123.110  569.280                  ; AMBER-DYES
- c2g  c3g  c3g  1   111.440  531.620                  ; AMBER-DYES
- c2g  c3g  cag  1   112.450  533.130                  ; AMBER-DYES
- c2g  c3g  nhg  1   110.270  561.490                  ; AMBER-DYES
- c2g  ceg  c3g  1   122.890  538.060                  ; AMBER-DYES
- c2g  ceg  cag  1   123.080  545.260                  ; AMBER-DYES
- c2g  ceg  ceg  1   123.080  550.030                  ; AMBER-DYES
- c2g  ceg  hag  1   121.100  414.720                  ; AMBER-DYES
- c2g  cfg  cfg  1   123.080  550.030                  ; AMBER-DYES
- c2g  cfg  hag  1   121.100  414.720                  ; AMBER-DYES
- c2g  nhg  c3g  1   123.710  528.610                  ; AMBER-DYES
- c2g  nhg  cag  1   127.340  540.490                  ; AMBER-DYES
- c3g   CT   cg  1   110.530  533.790                  ; AMBER-DYES
- c3g   CT  n4g  1   114.320  539.320                  ; AMBER-DYES
- c3g  c2g  ceg  1   123.020  537.140                  ; AMBER-DYES
- c3g  c2g  cfg  1   123.870  535.220                  ; AMBER-DYES
- c3g  c2g  hag  1   117.300  382.080                  ; AMBER-DYES
- c3g  c2g  nhg  1   118.590  558.060                  ; AMBER-DYES
- c3g  c3g  c3g  1   110.630  528.940                  ; AMBER-DYES
- c3g  c3g  cag  1   112.090  529.280                  ; AMBER-DYES
- c3g  c3g  ccg  1   111.920  531.950                  ; AMBER-DYES
- c3g  c3g  ceg  1   111.220  532.620                  ; AMBER-DYES
- c3g  c3g  cfg  1   110.370  534.720                  ; AMBER-DYES
- c3g  c3g   cg  1   110.530  533.790                  ; AMBER-DYES
- c3g  c3g  h1g  1   110.070  387.940                  ; AMBER-DYES
- c3g  c3g  hcg  1   110.050  388.020                  ; AMBER-DYES
- c3g  c3g  n3g  1   110.380  553.790                  ; AMBER-DYES
- c3g  c3g  nag  1   112.810  550.030                  ; AMBER-DYES
- c3g  c3g   ng  1   112.130  551.030                  ; AMBER-DYES
- c3g  c3g  nhg  1   110.450  555.550                  ; AMBER-DYES
- c3g  c3g  osg  1   108.420  567.180                  ; AMBER-DYES
- c3g  c3g  s6g  1   110.000  666.930                  ; AMBER-DYES
- c3g  cag  cag  1  120.1433    536.0                  ; AMBER-DYES
- c3g  ccg  cag  1  125.5575    521.0                  ; AMBER-DYES
- c3g  ccg  cdg  1   119.450  542.330                  ; AMBER-DYES
- c3g  ccg   cg  1   112.750  543.080                  ; AMBER-DYES
- c3g  cdg  ccg  1   119.450  542.330                  ; AMBER-DYES
- c3g  cdg   cg  1   117.570  531.870                  ; AMBER-DYES
- c3g  ceg  cag  1   119.110  525.590                  ; AMBER-DYES
- c3g  ceg  ceg  1   116.590  534.800                  ; AMBER-DYES
- c3g  ceg  n2g  1   122.640  560.150                  ; AMBER-DYES
- c3g  ceg  nhg  1   119.900  550.110                  ; AMBER-DYES
- c3g  cfg  ceg  1   122.030  540.150                  ; AMBER-DYES
- c3g  cfg  cfg  1   118.010  531.540                  ; AMBER-DYES
- c3g   cg  cag  1   118.540  523.750                  ; AMBER-DYES
- c3g   cg   ng  1   115.150  567.850                  ; AMBER-DYES
- c3g   cg   og  1   123.110  569.280                  ; AMBER-DYES
- c3g  n3g  hng  1   109.920  394.380                  ; AMBER-DYES
- c3g  nag  cag  1   124.360  528.440                  ; AMBER-DYES
- c3g   ng  c3g  1   115.560  528.270                  ; AMBER-DYES
- c3g   ng   cg  1   121.350  534.880                  ; AMBER-DYES
- c3g   ng  hng  1   116.780  385.260                  ; AMBER-DYES
- c3g  nhg  c3g  1   114.440  531.620                  ; AMBER-DYES
- c3g  nhg  cag  1  118.1962    539.0                  ; AMBER-DYES
- c3g  nhg  ceg  1   123.710  528.610                  ; AMBER-DYES
- c3g  nhg  hng  1   114.950  388.780                  ; AMBER-DYES
- c3g  osg   cg  1   115.140  532.460                  ; AMBER-DYES
- c3g  osg  n2g  1   108.120  551.620                  ; AMBER-DYES
- c3g  s6g   og  1   108.320  348.610                  ; AMBER-DYES
- c3g  ssg  ccg  1   100.850  323.090                  ; AMBER-DYES
- cag  c3g  cag  1   112.260  532.710                  ; AMBER-DYES
- cag  c3g  ceg  1   112.330  533.960                  ; AMBER-DYES
- cag  c3g  hcg  1  110.2388    393.0                  ; AMBER-DYES
- cag  cag  cag  1  117.8085    563.0                  ; AMBER-DYES
- cag  cag  ccg  1  119.3612    555.0                  ; AMBER-DYES
- cag  cag  ceg  1   120.660  542.920                  ; AMBER-DYES
- cag  cag   cg  1  121.4575    542.0                  ; AMBER-DYES
- cag  cag  cwg  1  118.4333    561.0                  ; AMBER-DYES
- cag  cag  h4g  1   121.090  403.670                  ; AMBER-DYES
- cag  cag  hag  1  120.2771    403.0                  ; AMBER-DYES
- cag  cag  nag  1   118.340  587.520                  ; AMBER-DYES
- cag  cag  ncg  1   119.720  586.930                  ; AMBER-DYES
- cag  cag  nhg  1  120.0125    580.0                  ; AMBER-DYES
- cag  cag   og  1     124.5    589.0                  ; AMBER-DYES
- cag  cag  osg  1  119.0766    584.0                  ; AMBER-DYES
- cag  cag  s6g  1  120.4738    659.0                  ; AMBER-DYES
- cag  cag  ssg  1   119.930  656.890                  ; AMBER-DYES
- cag  ccg  cag  1   113.510  570.950                  ; AMBER-DYES
- cag  ccg  cdg  1   113.510  570.950                  ; AMBER-DYES
- cag  ccg  hag  1   124.040  388.280                  ; AMBER-DYES
- cag  ceg  cag  1   117.820  534.460                  ; AMBER-DYES
- cag  ceg  hag  1   115.120  393.970                  ; AMBER-DYES
- cag  ceg  n2g  1   120.720  573.290                  ; AMBER-DYES
- cag   cg   ng  1   115.140  572.960                  ; AMBER-DYES
- cag   cg   og  1    123.35    585.0                  ; AMBER-DYES
- cag   cg  ohg  1   113.440  586.680                  ; AMBER-DYES
- cag  cwg  cag  1  117.3662    559.0                  ; AMBER-DYES
- cag  cwg  cwg  1   118.185    549.0                  ; AMBER-DYES
- cag  nag  cag  1   120.090  560.490                  ; AMBER-DYES
- cag  ncg  cag  1   109.950  591.870                  ; AMBER-DYES
- cag  nhg  ceg  1   127.340  540.490                  ; AMBER-DYES
- cag  nhg  hng  1  116.2588    410.0                  ; AMBER-DYES
- cag  osg  cag  1    114.86    542.0                  ; AMBER-DYES
- cag  osg   cg  1   120.870  533.460                  ; AMBER-DYES
- cag  s6g   og  1   104.015    358.0                  ; AMBER-DYES
- cag  ssg  cag  1    98.710  328.610                  ; AMBER-DYES
- ccg  c3g   cg  1   112.690  535.050                  ; AMBER-DYES
- ccg  c3g  hcg  1   110.860  394.970                  ; AMBER-DYES
- ccg  cdg  cdg  1   114.190  570.360                  ; AMBER-DYES
- ccg  cdg   cg  1   121.320  546.260                  ; AMBER-DYES
- ccg  cdg  hag  1   122.890  404.590                  ; AMBER-DYES
- ccg   cg   ng  1   111.860  587.350                  ; AMBER-DYES
- ccg   cg   og  1   125.710  576.640                  ; AMBER-DYES
- ccg   cg  osg  1   112.300  589.940                  ; AMBER-DYES
- ccg  osg   cg  1   119.620  536.810                  ; AMBER-DYES
- cdg  c3g   cg  1   113.170  533.960                  ; AMBER-DYES
- cdg  c3g  hcg  1   110.860  394.970                  ; AMBER-DYES
- cdg  ccg   cg  1   121.510  545.840                  ; AMBER-DYES
- cdg  ccg  h4g  1   129.110  394.890                  ; AMBER-DYES
- cdg  ccg  hag  1   122.890  404.590                  ; AMBER-DYES
- cdg  ccg  osg  1   120.300  585.430                  ; AMBER-DYES
- cdg  ccg  ssg  1   111.220  694.040                  ; AMBER-DYES
- cdg  cdg  hag  1   121.510  393.460                  ; AMBER-DYES
- cdg   cg   ng  1   111.860  587.350                  ; AMBER-DYES
- cdg   cg   og  1   125.710  576.640                  ; AMBER-DYES
- cdg   cg  osg  1   112.300  589.940                  ; AMBER-DYES
- ceg  c2g  hag  1   121.190  414.800                  ; AMBER-DYES
- ceg  c2g  nhg  1   120.720  591.120                  ; AMBER-DYES
- ceg  c3g  h1g  1   109.650  395.640                  ; AMBER-DYES
- ceg  c3g  hcg  1   110.980  393.300                  ; AMBER-DYES
- ceg  c3g  s6g  1   111.600  666.220                  ; AMBER-DYES
- ceg  ceg  cfg  1   124.050  548.020                  ; AMBER-DYES
- ceg  ceg  hag  1   115.900  397.480                  ; AMBER-DYES
- ceg  ceg  nhg  1   120.720  591.120                  ; AMBER-DYES
- ceg  cfg  ceg  1   121.810  584.420                  ; AMBER-DYES
- ceg  cfg  cfg  1   124.330  547.430                  ; AMBER-DYES
- ceg  cfg  hag  1   117.980  420.410                  ; AMBER-DYES
- ceg  n2g  osg  1   112.780  596.550                  ; AMBER-DYES
- cfg  c2g  nhg  1   124.990  584.090                  ; AMBER-DYES
- cfg  c3g  hcg  1   110.980  393.300                  ; AMBER-DYES
- cfg  ceg  cfg  1   121.810  584.420                  ; AMBER-DYES
- cfg  ceg  hag  1   118.290  419.910                  ; AMBER-DYES
- cfg  cfg  hag  1   115.900  397.480                  ; AMBER-DYES
-  cg  c3g  h1g  1   107.660  398.570                  ; AMBER-DYES
-  cg  c3g  hcg  1   109.680  394.970                  ; AMBER-DYES
-  cg  c3g  osg  1   109.820  569.280                  ; AMBER-DYES
-  cg  cag  cwg  1  121.4575    542.0                  ; AMBER-DYES
-  cg  ccg  ssg  1   121.220  654.340                  ; AMBER-DYES
-  cg  cdg   cg  1   121.180  530.610                  ; AMBER-DYES
-  cg  cdg  hag  1   117.020  393.210                  ; AMBER-DYES
-  cg   ng   cg  1   127.140  546.680                  ; AMBER-DYES
-  cg   ng  hng  1   118.460  411.790                  ; AMBER-DYES
-  cg  ohg  hog  1   107.370  428.360                  ; AMBER-DYES
- cwg  cag  hag  1  120.6167    402.0                  ; AMBER-DYES
-  fg  c3g   fg  1   107.160  596.300                  ; AMBER-DYES
-  fg  c3g  nhg  1   106.520  594.450                  ; AMBER-DYES
- h1g  c3g  h1g  1   109.550  327.860                  ; AMBER-DYES
- h1g  c3g  n3g  1   109.920  413.300                  ; AMBER-DYES
- h1g  c3g  nag  1   109.450  417.560                  ; AMBER-DYES
- h1g  c3g   ng  1   109.320  416.890                  ; AMBER-DYES
- h1g  c3g  nhg  1   109.960  416.140                  ; AMBER-DYES
- h1g  c3g  osg  1   108.820  425.430                  ; AMBER-DYES
- h1g  c3g  s6g  1   108.110  464.510                  ; AMBER-DYES
- h1g  c3g  ssg  1   109.340  449.030                  ; AMBER-DYES
- h4g  cag  nag  1   114.650  434.130                  ; AMBER-DYES
- h4g  ccg  osg  1   111.890  437.400                  ; AMBER-DYES
- hcg  c3g  hcg  1   108.350  329.950                  ; AMBER-DYES
- hng  n4g  hng  1   108.110  339.070                  ; AMBER-DYES
- hng  nhg  hng  1   114.850  335.140                  ; AMBER-DYES
-  ng   cg   og  1   122.030  634.550                  ; AMBER-DYES
-  og   cg   og  1   130.380  654.130                  ; AMBER-DYES
-  og   cg  ohg  1   122.880  647.520                  ; AMBER-DYES
-  og   cg  osg  1   123.330  635.380                  ; AMBER-DYES
-  og  s6g   og  1   119.730  390.450                  ; AMBER-DYES
-  CT   CT    O  1    113.01  286.796              ; FLUOR-DYNAMICS
-  H1   CT    O  1    116.45  220.226              ; FLUOR-DYNAMICS
-   C   CM   CD  1     120.7  263.768              ; FLUOR-DYNAMICS
-  CD   CM   CM  1    120.79  272.142              ; FLUOR-DYNAMICS
-   C   CD   CD  1    122.69   266.28              ; FLUOR-DYNAMICS
-  CD    C    N  1     112.7  289.308              ; FLUOR-DYNAMICS
-  CD    C    O  1    123.93  289.308              ; FLUOR-DYNAMICS
-   C   CD   HA  1    116.64  196.361              ; FLUOR-DYNAMICS
-  CT    N   cg  1   121.350  534.880  same as AMBER-DYES c3g-ng-cg
-  cg    N    H  1   118.460  411.790  same as AMBER-DYES cg-ng-hng
-   N   cg   og  1   122.030  634.550   same as AMBER-DYES ng-cg-og
- c3g   cg    N  1   115.150  567.850  same as AMBER-DYES c3g-cg-ng
-  CT   NT    N  1    111.71  280.097              ; FLUOR-DYNAMICS
-  NT   CT   OH  1     110.7  296.844              ; FLUOR-DYNAMICS
-  H2   CT   OH  1    109.43  213.945              ; FLUOR-DYNAMICS
-   C    N   NT  1     120.1  278.841              ; FLUOR-DYNAMICS
-  H2   CT   NT  1    109.35  207.665              ; FLUOR-DYNAMICS
-   H    N   NT  1    117.24  204.316              ; FLUOR-DYNAMICS
-  CT   CA   CV  1    120.77  265.862              ; FLUOR-DYNAMICS
-  CV   CA   N*  1    119.72  290.983              ; FLUOR-DYNAMICS
-  CB   NB   CV  1    104.24  298.519              ; FLUOR-DYNAMICS
-  CA   CV   H4  1    129.25  187.987              ; FLUOR-DYNAMICS
-  CA   CV   NB  1    120.59  281.772              ; FLUOR-DYNAMICS
-  CA   CT   CV  1    112.88  266.699              ; FLUOR-DYNAMICS
-  CA   N*   CA  1    109.95  292.657              ; FLUOR-DYNAMICS
-  CA   N*   CB  1    109.95  292.657              ; FLUOR-DYNAMICS
-  CT   CA   N*  1    116.68  281.772              ; FLUOR-DYNAMICS
-  CA   CV   CT  1    126.52  256.651              ; FLUOR-DYNAMICS
-  CT   CV   NB  1    120.95  276.329              ; FLUOR-DYNAMICS
-  CV   CT   HC  1    110.49  197.617              ; FLUOR-DYNAMICS
-  CV   CA   H4  1       120   209.34              ; FLUOR-DYNAMICS
-  CV   NB   NB  1    108.62  305.218              ; FLUOR-DYNAMICS
-  CA   N*   CT  1     121.2  293.076              ; FLUOR-DYNAMICS
-  CA   N*   NB  1    108.34   307.73              ; FLUOR-DYNAMICS
-  CT   N*   NB  1   110.095  293.298              ; FLUOR-DYNAMICS
-  N*   NB   NB  1    111.46  309.405              ; FLUOR-DYNAMICS
-  H4   CA   N*  1    118.36  213.527              ; FLUOR-DYNAMICS
-  N*   CA   NC  1    128.74  292.239              ; FLUOR-DYNAMICS
-  H5   CA   N*  1    122.11  210.177              ; FLUOR-DYNAMICS
-  N*   CB   NB  1    128.74  292.239              ; FLUOR-DYNAMICS
-  H5   CA   NC  1    122.11  210.177              ; FLUOR-DYNAMICS
-  CB   CB   CB  1    120.02  278.841              ; FLUOR-DYNAMICS
-   C   N*   CA  1    120.66   275.91              ; FLUOR-DYNAMICS
-  N*    C   N*  1    110.31  306.892              ; FLUOR-DYNAMICS
-   C   N*   CB  1    120.66   275.91              ; FLUOR-DYNAMICS
-  CM   CB   N*  1    119.72  290.983              ; FLUOR-DYNAMICS
-  CB   CM   CM  1    120.02  278.841              ; FLUOR-DYNAMICS
-  CB   CM   HA  1    119.88  201.804              ; FLUOR-DYNAMICS
-  CM   CB   NB  1    119.72  290.983              ; FLUOR-DYNAMICS
+   C   CT  c3g  1   110.530  533.790                    ; AMBER-DYES
+   C   CT  n3g  1   111.140  557.230                    ; AMBER-DYES
+   C   CT  n4g  1   114.210  544.510                    ; AMBER-DYES
+   C  c3g  c3g  1   110.530  533.790                    ; AMBER-DYES
+   C  c3g  hcg  1   109.680  394.970                    ; AMBER-DYES
+  CT  c3g  c3g  1   110.630  528.940                    ; AMBER-DYES
+  CT  c3g  cag  1   112.090  529.280                    ; AMBER-DYES
+  CT  c3g  h1g  1   110.070  387.940                    ; AMBER-DYES
+  CT  c3g  hcg  1   110.050  388.020                    ; AMBER-DYES
+  CT  c3g  ssg  1   112.690  647.100                    ; AMBER-DYES
+  CT   cg   og  1   123.110  569.280                    ; AMBER-DYES
+  CT  n3g  c3g  1   110.900  535.640                    ; AMBER-DYES
+  CT  n3g  hng  1   109.920  394.380                    ; AMBER-DYES
+  CT  n4g  hng  1   110.110  386.520                    ; AMBER-DYES
+  H1   CT  c3g  1   110.070  387.940                    ; AMBER-DYES
+  H1   CT   cg  1   107.660  398.570                    ; AMBER-DYES
+  H1   CT  n3g  1   109.920  413.300                    ; AMBER-DYES
+  HP   CT  c3g  1   111.740  385.100                    ; AMBER-DYES
+  HP   CT  n3g  1   109.920  413.300                    ; AMBER-DYES
+  HP   CT  n4g  1   107.910  410.200                    ; AMBER-DYES
+   N    C  c3g  1   115.150  567.850                    ; AMBER-DYES
+   N   CT  c3g  1   112.130  551.030                    ; AMBER-DYES
+   N   CT   cg  1   111.560  557.890                    ; AMBER-DYES
+   O    C  c3g  1   123.110  569.280                    ; AMBER-DYES
+ c2g  c3g  c3g  1   111.440  531.620                    ; AMBER-DYES
+ c2g  c3g  cag  1   112.450  533.130                    ; AMBER-DYES
+ c2g  c3g  nhg  1   110.270  561.490                    ; AMBER-DYES
+ c2g  ceg  c3g  1   122.890  538.060                    ; AMBER-DYES
+ c2g  ceg  cag  1   123.080  545.260                    ; AMBER-DYES
+ c2g  ceg  ceg  1   123.080  550.030                    ; AMBER-DYES
+ c2g  ceg  hag  1   121.100  414.720                    ; AMBER-DYES
+ c2g  cfg  cfg  1   123.080  550.030                    ; AMBER-DYES
+ c2g  cfg  hag  1   121.100  414.720                    ; AMBER-DYES
+ c2g  nhg  c3g  1   123.710  528.610                    ; AMBER-DYES
+ c2g  nhg  cag  1   127.340  540.490                    ; AMBER-DYES
+ c3g   CT   cg  1   110.530  533.790                    ; AMBER-DYES
+ c3g   CT  n4g  1   114.320  539.320                    ; AMBER-DYES
+ c3g  c2g  ceg  1   123.020  537.140                    ; AMBER-DYES
+ c3g  c2g  cfg  1   123.870  535.220                    ; AMBER-DYES
+ c3g  c2g  hag  1   117.300  382.080                    ; AMBER-DYES
+ c3g  c2g  nhg  1   118.590  558.060                    ; AMBER-DYES
+ c3g  c3g  c3g  1   110.630  528.940                    ; AMBER-DYES
+ c3g  c3g  cag  1   112.090  529.280                    ; AMBER-DYES
+ c3g  c3g  ccg  1   111.920  531.950                    ; AMBER-DYES
+ c3g  c3g  ceg  1   111.220  532.620                    ; AMBER-DYES
+ c3g  c3g  cfg  1   110.370  534.720                    ; AMBER-DYES
+ c3g  c3g   cg  1   110.530  533.790                    ; AMBER-DYES
+ c3g  c3g  h1g  1   110.070  387.940                    ; AMBER-DYES
+ c3g  c3g  hcg  1   110.050  388.020                    ; AMBER-DYES
+ c3g  c3g  n3g  1   110.380  553.790                    ; AMBER-DYES
+ c3g  c3g  nag  1   112.810  550.030                    ; AMBER-DYES
+ c3g  c3g   ng  1   112.130  551.030                    ; AMBER-DYES
+ c3g  c3g  nhg  1   110.450  555.550                    ; AMBER-DYES
+ c3g  c3g  osg  1   108.420  567.180                    ; AMBER-DYES
+ c3g  c3g  s6g  1   110.000  666.930                    ; AMBER-DYES
+ c3g  cag  cag  1  120.1433    536.0                    ; AMBER-DYES
+ c3g  ccg  cag  1  125.5575    521.0                    ; AMBER-DYES
+ c3g  ccg  cdg  1   119.450  542.330                    ; AMBER-DYES
+ c3g  ccg   cg  1   112.750  543.080                    ; AMBER-DYES
+ c3g  cdg  ccg  1   119.450  542.330                    ; AMBER-DYES
+ c3g  cdg   cg  1   117.570  531.870                    ; AMBER-DYES
+ c3g  ceg  cag  1   119.110  525.590                    ; AMBER-DYES
+ c3g  ceg  ceg  1   116.590  534.800                    ; AMBER-DYES
+ c3g  ceg  n2g  1   122.640  560.150                    ; AMBER-DYES
+ c3g  ceg  nhg  1   119.900  550.110                    ; AMBER-DYES
+ c3g  cfg  ceg  1   122.030  540.150                    ; AMBER-DYES
+ c3g  cfg  cfg  1   118.010  531.540                    ; AMBER-DYES
+ c3g   cg  cag  1   118.540  523.750                    ; AMBER-DYES
+ c3g   cg   ng  1   115.150  567.850                    ; AMBER-DYES
+ c3g   cg   og  1   123.110  569.280                    ; AMBER-DYES
+ c3g  n3g  hng  1   109.920  394.380                    ; AMBER-DYES
+ c3g  nag  cag  1   124.360  528.440                    ; AMBER-DYES
+ c3g   ng  c3g  1   115.560  528.270                    ; AMBER-DYES
+ c3g   ng   cg  1   121.350  534.880                    ; AMBER-DYES
+ c3g   ng  hng  1   116.780  385.260                    ; AMBER-DYES
+ c3g  nhg  c3g  1   114.440  531.620                    ; AMBER-DYES
+ c3g  nhg  cag  1  118.1962    539.0                    ; AMBER-DYES
+ c3g  nhg  ceg  1   123.710  528.610                    ; AMBER-DYES
+ c3g  nhg  hng  1   114.950  388.780                    ; AMBER-DYES
+ c3g  osg   cg  1   115.140  532.460                    ; AMBER-DYES
+ c3g  osg  n2g  1   108.120  551.620                    ; AMBER-DYES
+ c3g  s6g   og  1   108.320  348.610                    ; AMBER-DYES
+ c3g  ssg  ccg  1   100.850  323.090                    ; AMBER-DYES
+ cag  c3g  cag  1   112.260  532.710                    ; AMBER-DYES
+ cag  c3g  ceg  1   112.330  533.960                    ; AMBER-DYES
+ cag  c3g  hcg  1  110.2388    393.0                    ; AMBER-DYES
+ cag  cag  cag  1  117.8085    563.0                    ; AMBER-DYES
+ cag  cag  ccg  1  119.3612    555.0                    ; AMBER-DYES
+ cag  cag  ceg  1   120.660  542.920                    ; AMBER-DYES
+ cag  cag   cg  1  121.4575    542.0                    ; AMBER-DYES
+ cag  cag  cwg  1  118.4333    561.0                    ; AMBER-DYES
+ cag  cag  h4g  1   121.090  403.670                    ; AMBER-DYES
+ cag  cag  hag  1  120.2771    403.0                    ; AMBER-DYES
+ cag  cag  nag  1   118.340  587.520                    ; AMBER-DYES
+ cag  cag  ncg  1   119.720  586.930                    ; AMBER-DYES
+ cag  cag  nhg  1  120.0125    580.0                    ; AMBER-DYES
+ cag  cag   og  1     124.5    589.0                    ; AMBER-DYES
+ cag  cag  osg  1  119.0766    584.0                    ; AMBER-DYES
+ cag  cag  s6g  1  120.4738    659.0                    ; AMBER-DYES
+ cag  cag  ssg  1   119.930  656.890                    ; AMBER-DYES
+ cag  ccg  cag  1   113.510  570.950                    ; AMBER-DYES
+ cag  ccg  cdg  1   113.510  570.950                    ; AMBER-DYES
+ cag  ccg  hag  1   124.040  388.280                    ; AMBER-DYES
+ cag  ceg  cag  1   117.820  534.460                    ; AMBER-DYES
+ cag  ceg  hag  1   115.120  393.970                    ; AMBER-DYES
+ cag  ceg  n2g  1   120.720  573.290                    ; AMBER-DYES
+ cag   cg   ng  1   115.140  572.960                    ; AMBER-DYES
+ cag   cg   og  1    123.35    585.0                    ; AMBER-DYES
+ cag   cg  ohg  1   113.440  586.680                    ; AMBER-DYES
+ cag  cwg  cag  1  117.3662    559.0                    ; AMBER-DYES
+ cag  cwg  cwg  1   118.185    549.0                    ; AMBER-DYES
+ cag  nag  cag  1   120.090  560.490                    ; AMBER-DYES
+ cag  ncg  cag  1   109.950  591.870                    ; AMBER-DYES
+ cag  nhg  ceg  1   127.340  540.490                    ; AMBER-DYES
+ cag  nhg  hng  1  116.2588    410.0                    ; AMBER-DYES
+ cag  osg  cag  1    114.86    542.0                    ; AMBER-DYES
+ cag  osg   cg  1   120.870  533.460                    ; AMBER-DYES
+ cag  s6g   og  1   104.015    358.0                    ; AMBER-DYES
+ cag  ssg  cag  1    98.710  328.610                    ; AMBER-DYES
+ ccg  c3g   cg  1   112.690  535.050                    ; AMBER-DYES
+ ccg  c3g  hcg  1   110.860  394.970                    ; AMBER-DYES
+ ccg  cdg  cdg  1   114.190  570.360                    ; AMBER-DYES
+ ccg  cdg   cg  1   121.320  546.260                    ; AMBER-DYES
+ ccg  cdg  hag  1   122.890  404.590                    ; AMBER-DYES
+ ccg   cg   ng  1   111.860  587.350                    ; AMBER-DYES
+ ccg   cg   og  1   125.710  576.640                    ; AMBER-DYES
+ ccg   cg  osg  1   112.300  589.940                    ; AMBER-DYES
+ ccg  osg   cg  1   119.620  536.810                    ; AMBER-DYES
+ cdg  c3g   cg  1   113.170  533.960                    ; AMBER-DYES
+ cdg  c3g  hcg  1   110.860  394.970                    ; AMBER-DYES
+ cdg  ccg   cg  1   121.510  545.840                    ; AMBER-DYES
+ cdg  ccg  h4g  1   129.110  394.890                    ; AMBER-DYES
+ cdg  ccg  hag  1   122.890  404.590                    ; AMBER-DYES
+ cdg  ccg  osg  1   120.300  585.430                    ; AMBER-DYES
+ cdg  ccg  ssg  1   111.220  694.040                    ; AMBER-DYES
+ cdg  cdg  hag  1   121.510  393.460                    ; AMBER-DYES
+ cdg   cg   ng  1   111.860  587.350                    ; AMBER-DYES
+ cdg   cg   og  1   125.710  576.640                    ; AMBER-DYES
+ cdg   cg  osg  1   112.300  589.940                    ; AMBER-DYES
+ ceg  c2g  hag  1   121.190  414.800                    ; AMBER-DYES
+ ceg  c2g  nhg  1   120.720  591.120                    ; AMBER-DYES
+ ceg  c3g  h1g  1   109.650  395.640                    ; AMBER-DYES
+ ceg  c3g  hcg  1   110.980  393.300                    ; AMBER-DYES
+ ceg  c3g  s6g  1   111.600  666.220                    ; AMBER-DYES
+ ceg  ceg  cfg  1   124.050  548.020                    ; AMBER-DYES
+ ceg  ceg  hag  1   115.900  397.480                    ; AMBER-DYES
+ ceg  ceg  nhg  1   120.720  591.120                    ; AMBER-DYES
+ ceg  cfg  ceg  1   121.810  584.420                    ; AMBER-DYES
+ ceg  cfg  cfg  1   124.330  547.430                    ; AMBER-DYES
+ ceg  cfg  hag  1   117.980  420.410                    ; AMBER-DYES
+ ceg  n2g  osg  1   112.780  596.550                    ; AMBER-DYES
+ cfg  c2g  nhg  1   124.990  584.090                    ; AMBER-DYES
+ cfg  c3g  hcg  1   110.980  393.300                    ; AMBER-DYES
+ cfg  ceg  cfg  1   121.810  584.420                    ; AMBER-DYES
+ cfg  ceg  hag  1   118.290  419.910                    ; AMBER-DYES
+ cfg  cfg  hag  1   115.900  397.480                    ; AMBER-DYES
+  cg  c3g  h1g  1   107.660  398.570                    ; AMBER-DYES
+  cg  c3g  hcg  1   109.680  394.970                    ; AMBER-DYES
+  cg  c3g  osg  1   109.820  569.280                    ; AMBER-DYES
+  cg  cag  cwg  1  121.4575    542.0                    ; AMBER-DYES
+  cg  ccg  ssg  1   121.220  654.340                    ; AMBER-DYES
+  cg  cdg   cg  1   121.180  530.610                    ; AMBER-DYES
+  cg  cdg  hag  1   117.020  393.210                    ; AMBER-DYES
+  cg   ng   cg  1   127.140  546.680                    ; AMBER-DYES
+  cg   ng  hng  1   118.460  411.790                    ; AMBER-DYES
+  cg  ohg  hog  1   107.370  428.360                    ; AMBER-DYES
+ cwg  cag  hag  1  120.6167    402.0                    ; AMBER-DYES
+  fg  c3g   fg  1   107.160  596.300                    ; AMBER-DYES
+  fg  c3g  nhg  1   106.520  594.450                    ; AMBER-DYES
+ h1g  c3g  h1g  1   109.550  327.860                    ; AMBER-DYES
+ h1g  c3g  n3g  1   109.920  413.300                    ; AMBER-DYES
+ h1g  c3g  nag  1   109.450  417.560                    ; AMBER-DYES
+ h1g  c3g   ng  1   109.320  416.890                    ; AMBER-DYES
+ h1g  c3g  nhg  1   109.960  416.140                    ; AMBER-DYES
+ h1g  c3g  osg  1   108.820  425.430                    ; AMBER-DYES
+ h1g  c3g  s6g  1   108.110  464.510                    ; AMBER-DYES
+ h1g  c3g  ssg  1   109.340  449.030                    ; AMBER-DYES
+ h4g  cag  nag  1   114.650  434.130                    ; AMBER-DYES
+ h4g  ccg  osg  1   111.890  437.400                    ; AMBER-DYES
+ hcg  c3g  hcg  1   108.350  329.950                    ; AMBER-DYES
+ hng  n4g  hng  1   108.110  339.070                    ; AMBER-DYES
+ hng  nhg  hng  1   114.850  335.140                    ; AMBER-DYES
+  ng   cg   og  1   122.030  634.550                    ; AMBER-DYES
+  og   cg   og  1   130.380  654.130                    ; AMBER-DYES
+  og   cg  ohg  1   122.880  647.520                    ; AMBER-DYES
+  og   cg  osg  1   123.330  635.380                    ; AMBER-DYES
+  og  s6g   og  1   119.730  390.450                    ; AMBER-DYES
+  CT   CT    O  1    113.01  286.796                ; FLUOR-DYNAMICS
+  H1   CT    O  1    116.45  220.226                ; FLUOR-DYNAMICS
+   C   CM   CD  1     120.7  263.768                ; FLUOR-DYNAMICS
+  CD   CM   CM  1    120.79  272.142                ; FLUOR-DYNAMICS
+   C   CD   CD  1    122.69   266.28                ; FLUOR-DYNAMICS
+  CD    C    N  1     112.7  289.308                ; FLUOR-DYNAMICS
+  CD    C    O  1    123.93  289.308                ; FLUOR-DYNAMICS
+   C   CD   HA  1    116.64  196.361                ; FLUOR-DYNAMICS
+  CT   NT    N  1    111.71  280.097                ; FLUOR-DYNAMICS
+  NT   CT   OH  1     110.7  296.844                ; FLUOR-DYNAMICS
+  H2   CT   OH  1    109.43  213.945                ; FLUOR-DYNAMICS
+   C    N   NT  1     120.1  278.841                ; FLUOR-DYNAMICS
+  H2   CT   NT  1    109.35  207.665                ; FLUOR-DYNAMICS
+   H    N   NT  1    117.24  204.316                ; FLUOR-DYNAMICS
+  CT   CA   CV  1    120.77  265.862                ; FLUOR-DYNAMICS
+  CV   CA   N*  1    119.72  290.983                ; FLUOR-DYNAMICS
+  CB   NB   CV  1    104.24  298.519                ; FLUOR-DYNAMICS
+  CA   CV   H4  1    129.25  187.987                ; FLUOR-DYNAMICS
+  CA   CV   NB  1    120.59  281.772                ; FLUOR-DYNAMICS
+  CA   CT   CV  1    112.88  266.699                ; FLUOR-DYNAMICS
+  CA   N*   CA  1    109.95  292.657                ; FLUOR-DYNAMICS
+  CA   N*   CB  1    109.95  292.657                ; FLUOR-DYNAMICS
+  CT   CA   N*  1    116.68  281.772                ; FLUOR-DYNAMICS
+  CA   CV   CT  1    126.52  256.651                ; FLUOR-DYNAMICS
+  CT   CV   NB  1    120.95  276.329                ; FLUOR-DYNAMICS
+  CV   CT   HC  1    110.49  197.617                ; FLUOR-DYNAMICS
+  CV   CA   H4  1       120   209.34                ; FLUOR-DYNAMICS
+  CV   NB   NB  1    108.62  305.218                ; FLUOR-DYNAMICS
+  CA   N*   CT  1     121.2  293.076                ; FLUOR-DYNAMICS
+  CA   N*   NB  1    108.34   307.73                ; FLUOR-DYNAMICS
+  CT   N*   NB  1   110.095  293.298                ; FLUOR-DYNAMICS
+  N*   NB   NB  1    111.46  309.405                ; FLUOR-DYNAMICS
+  H4   CA   N*  1    118.36  213.527                ; FLUOR-DYNAMICS
+  N*   CA   NC  1    128.74  292.239                ; FLUOR-DYNAMICS
+  H5   CA   N*  1    122.11  210.177                ; FLUOR-DYNAMICS
+  N*   CB   NB  1    128.74  292.239                ; FLUOR-DYNAMICS
+  H5   CA   NC  1    122.11  210.177                ; FLUOR-DYNAMICS
+  CB   CB   CB  1    120.02  278.841                ; FLUOR-DYNAMICS
+   C   N*   CA  1    120.66   275.91                ; FLUOR-DYNAMICS
+  N*    C   N*  1    110.31  306.892                ; FLUOR-DYNAMICS
+   C   N*   CB  1    120.66   275.91                ; FLUOR-DYNAMICS
+  CM   CB   N*  1    119.72  290.983                ; FLUOR-DYNAMICS
+  CB   CM   CM  1    120.02  278.841                ; FLUOR-DYNAMICS
+  CB   CM   HA  1    119.88  201.804                ; FLUOR-DYNAMICS
+  CM   CB   NB  1    119.72  290.983                ; FLUOR-DYNAMICS
+  CT    N   cg  1   121.350  534.880  ; same as AMBER-DYES c3g-ng-cg
+  cg    N    H  1   118.460  411.790  ; same as AMBER-DYES cg-ng-hng
+   N   cg   og  1   122.030  634.550   ; same as AMBER-DYES ng-cg-og
+ c3g   cg    N  1   115.150  567.850  ; same as AMBER-DYES c3g-cg-ng
+  cg    N   NT  1     120.1  278.841     ; same as AMBER-DYES C-N-NT
 HW  OW  HW           1   104.520    836.800 ; TIP3P water
 HW  HW  OW           1   127.740      0.000 ; (found in crystallographic water with 3 bonds)
 C   C   O            1   120.000     669.440
@@ -1089,105 +1090,106 @@ HC  3C  2C           1   109.500     418.400
 
 [ dihedraltypes ] ; improper
 ;i  j   k  l     func      phase      kd      pn
-  CT   og   cg   og  4  180.00   4.60240  2      ; AMBER-DYES
- c2g  c3g  ceg  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c2g  c3g  nhg  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c2g  ceg  ceg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- c2g  cfg  cfg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  c3g  nhg  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag  cag  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag  ccg  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag  ccg  cdg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag  ceg  n2g  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag   cg   og  4  180.00  43.93200  2      ; AMBER-DYES
- c3g  cag  nhg  ceg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cag  nhg  hng  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  ceg  c2g  hag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  ceg  c2g  nhg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  ceg  ceg  nhg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  ceg  cfg  ceg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  ceg  cfg  cfg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  cfg  c2g  nhg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g  nag  cag  cag  4  180.00   4.60240  2      ; AMBER-DYES
- c3g   ng  c3g   cg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g   ng   cg   cg  4  180.00   4.60240  2      ; AMBER-DYES
- c3g   ng   cg   og  4  180.00  43.93200  2      ; AMBER-DYES
- cag  cag  cag  cag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  ccg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  ceg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag   cg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  cwg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  hag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  nag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  ncg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  nhg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag   og  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  osg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  s6g  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cag  ssg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  ceg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cwg   cg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cag  cwg  cwg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cdg  ccg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cwg  cag  cwg  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cwg  cag  hag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  cwg  cwg  cag  4    0.00   4.60240  2      ; AMBER-DYES
- cag  h4g  cag  nag  4  180.00   4.60240  2      ; AMBER-DYES
- cag  hng  nhg  hng  4  180.00   4.60240  2      ; AMBER-DYES
- cag   ng   cg   og  4  180.00  43.93200  2      ; AMBER-DYES
- cag   og   cg   og  4  180.00   4.60240  2      ; AMBER-DYES
- cag   og   cg  ohg  4  180.00  43.93200  2      ; AMBER-DYES
- ccg  cdg  c3g   cg  4  180.00   4.60240  2      ; AMBER-DYES
- ccg  cdg  cdg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- ccg  cdg   cg   cg  4  180.00   4.60240  2      ; AMBER-DYES
- ccg   ng   cg   og  4  180.00  43.93200  2      ; AMBER-DYES
- ccg   og   cg  osg  4  180.00  43.93200  2      ; AMBER-DYES
- cdg  ccg  c3g   cg  4  180.00   4.60240  2      ; AMBER-DYES
- cdg  h4g  ccg  osg  4  180.00   4.60240  2      ; AMBER-DYES
- cdg   ng   cg   og  4  180.00  43.93200  2      ; AMBER-DYES
- cdg   og   cg  osg  4  180.00  43.93200  2      ; AMBER-DYES
- ceg  cfg  ceg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- ceg  cfg  cfg  hag  4  180.00   4.60240  2      ; AMBER-DYES
- cfg  cfg  ceg  hag  4  180.00   4.60240  2      ; AMBER-DYES
-  cg  c3g   ng  hng  4  180.00   4.60240  2      ; AMBER-DYES
-  cg  cag  cag  cwg  4  180.00   4.60240  2      ; AMBER-DYES
-  cg  ccg  cdg  hag  4  180.00   4.60240  2      ; AMBER-DYES
-  cg  cdg  ccg  ssg  4  180.00   4.60240  2      ; AMBER-DYES
- cwg  cag  cag  hag  4  180.00   4.60240  2      ; AMBER-DYES
-  N*   NA   C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  C    C    NA    H  4     180    4.1868  2  ; FLUOR-DYNAMICS
-  CM   NA   C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  C    CD   CM   CM  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CM   H4   CM   N*  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CD   CM   CD   HA  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  C    CD   CD   HA  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CD   N    C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  CT   N    C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  H5   NC   CQ   NC  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CB   N*   CB   NC  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CA   CB   CB   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CA   H    N2    H  4     180    4.1868  2  ; FLUOR-DYNAMICS
-  H5   N*   CK   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  C    CA   NA    H  4     180    4.1868  2  ; FLUOR-DYNAMICS
-  C    CB   CB   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CB   NA   C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  N*   NC   C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  CA   CM   CM   HA  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  C    CM   CM   HA  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  C    H    N    NT  4     180    4.1868  2  ; FLUOR-DYNAMICS
-  CA   H4   CV   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CT   CV   CA   N*  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CA   CT   CV   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CV   H4   CA   N*  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CA   CT   N*   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CA   CA   N*   CB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  H5   N*   CA   NC  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CB   CB   CB   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CB   N*   CB   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  N*   N*   C     O  4     180   43.9614  2  ; FLUOR-DYNAMICS
-  C    CA   N*   CB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CM   N*   CB   NB  4     180   4.60548  2  ; FLUOR-DYNAMICS
-  CB   CM   CM   HA  4     180   4.60548  2  ; FLUOR-DYNAMICS
+  CT   og   cg   og  4  180.00   4.60240  2                      ; AMBER-DYES
+ c2g  c3g  ceg  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c2g  c3g  nhg  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c2g  ceg  ceg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c2g  cfg  cfg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  c3g  nhg  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag  cag  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag  ccg  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag  ccg  cdg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag  ceg  n2g  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag   cg   og  4  180.00  43.93200  2                      ; AMBER-DYES
+ c3g  cag  nhg  ceg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cag  nhg  hng  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  ceg  c2g  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  ceg  c2g  nhg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  ceg  ceg  nhg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  ceg  cfg  ceg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  ceg  cfg  cfg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  cfg  c2g  nhg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g  nag  cag  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g   ng  c3g   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g   ng   cg   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ c3g   ng   cg   og  4  180.00  43.93200  2                      ; AMBER-DYES
+ cag  cag  cag  cag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  ccg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  ceg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  cwg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  nag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  ncg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  nhg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag   og  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  osg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  s6g  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cag  ssg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  ceg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cwg   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cag  cwg  cwg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cdg  ccg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cwg  cag  cwg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cwg  cag  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  cwg  cwg  cag  4    0.00   4.60240  2                      ; AMBER-DYES
+ cag  h4g  cag  nag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag  hng  nhg  hng  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag   ng   cg   og  4  180.00  43.93200  2                      ; AMBER-DYES
+ cag   og   cg   og  4  180.00   4.60240  2                      ; AMBER-DYES
+ cag   og   cg  ohg  4  180.00  43.93200  2                      ; AMBER-DYES
+ ccg  cdg  c3g   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ ccg  cdg  cdg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ ccg  cdg   cg   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ ccg   ng   cg   og  4  180.00  43.93200  2                      ; AMBER-DYES
+ ccg   og   cg  osg  4  180.00  43.93200  2                      ; AMBER-DYES
+ cdg  ccg  c3g   cg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cdg  h4g  ccg  osg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cdg   ng   cg   og  4  180.00  43.93200  2                      ; AMBER-DYES
+ cdg   og   cg  osg  4  180.00  43.93200  2                      ; AMBER-DYES
+ ceg  cfg  ceg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ ceg  cfg  cfg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+ cfg  cfg  ceg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+  cg  c3g   ng  hng  4  180.00   4.60240  2                      ; AMBER-DYES
+  cg  cag  cag  cwg  4  180.00   4.60240  2                      ; AMBER-DYES
+  cg  ccg  cdg  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+  cg  cdg  ccg  ssg  4  180.00   4.60240  2                      ; AMBER-DYES
+ cwg  cag  cag  hag  4  180.00   4.60240  2                      ; AMBER-DYES
+  N*   NA    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+   C    C   NA    H  4     180    4.1868  2                  ; FLUOR-DYNAMICS
+  CM   NA    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+   C   CD   CM   CM  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CM   H4   CM   N*  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CD   CM   CD   HA  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+   C   CD   CD   HA  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CD    N    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+  CT    N    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+  H5   NC   CQ   NC  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CA    H   N2    H  4     180    4.1868  2                  ; FLUOR-DYNAMICS
+  H5   N*   CK   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+   C   CA   NA    H  4     180    4.1868  2                  ; FLUOR-DYNAMICS
+  CB   NA    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+  N*   NC    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+  CA   CM   CM   HA  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+   C   CM   CM   HA  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+   C    H    N   NT  4     180    4.1868  2                  ; FLUOR-DYNAMICS
+  CB   N*   CB   NC  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+   C   CB   CB   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CA   H4   CV   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CT   CV   CA   N*  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CA   CT   CV   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CV   H4   CA   N*  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CA   CT   N*   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CA   CA   N*   CB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  H5   N*   CA   NC  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CB   CB   CB   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CB   N*   CB   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  N*   N*    C    O  4     180   43.9614  2                  ; FLUOR-DYNAMICS
+   C   CA   N*   CB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CM   N*   CB   NB  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CB   CM   CM   HA  4     180   4.60548  2                  ; FLUOR-DYNAMICS
+  CB   CB    C   NB  4     180   4.60548  2   ; same as AMBER-DYES C-CB-CB-NB
+  NC   CB   CB   N*  4     180   4.60548  2  ; same as AMBER-DYES CB-N*-CB-NC
 Br  CA  CA  CA       4      180.00     4.60240     2
 C4  N2  CA  NC       4      180.00     4.60240     2
 C1  N2  CA  NC       4      180.00     4.60240     2
@@ -1262,478 +1264,481 @@ X   X   N   H        4      180.00     4.18400     2
 
 [ dihedraltypes ]
 ;i   j   k   l     func
-   C   CT  c3g  c3g  9    0.0   0.65084   3                      ; AMBER-DYES
-   C   CT  c3g  cag  9    0.0   0.65084   3                      ; AMBER-DYES
-   C   CT  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-   C   CT  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-   C   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
-   C   CT  n3g  c3g  9    0.0   1.25520   3                      ; AMBER-DYES
-   C   CT  n3g  hng  9    0.0   1.25520   3                      ; AMBER-DYES
-   C   CT  n4g  hng  9    0.0   0.65084   3                      ; AMBER-DYES
-   C  c3g  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-   C  c3g  c3g  nhg  9    0.0   0.65084   3                      ; AMBER-DYES
-  CT  c3g  c3g  c3g  9    0.0   0.75312   3                      ; AMBER-DYES
-  CT  c3g  c3g  c3g  9  180.0   0.83680   1                      ; AMBER-DYES
-  CT  c3g  c3g  c3g  9  180.0   1.04600   2                      ; AMBER-DYES
-  CT  c3g  c3g  hcg  9    0.0   0.66944   3                      ; AMBER-DYES
-  CT  c3g  cag  cag  9    0.0   0.00000   0                      ; AMBER-DYES
-  CT  c3g  ssg  ccg  9    0.0   1.39467   3                      ; AMBER-DYES
-  CT  n3g  c3g  c3g  9    0.0   1.25520   3                      ; AMBER-DYES
-  CT  n3g  c3g  c3g  9  180.0   2.00832   2                      ; AMBER-DYES
-  CT  n3g  c3g  h1g  9    0.0   1.25520   3                      ; AMBER-DYES
-   H    N   CT  c3g  9    0.0   0.00000   0                      ; AMBER-DYES
-   H    N   CT   cg  9    0.0   0.00000   0                      ; AMBER-DYES
-  H1   CT  c3g  c3g  9    0.0   0.65084   3                      ; AMBER-DYES
-  H1   CT  c3g  cag  9    0.0   0.65084   3                      ; AMBER-DYES
-  H1   CT  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-  H1   CT  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-  H1   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
-  H1   CT   cg   og  9    0.0   3.34720   1                      ; AMBER-DYES
-  H1   CT   cg   og  9  180.0   0.33472   3                      ; AMBER-DYES
-  H1   CT  n3g  c3g  9    0.0   1.25520   3                      ; AMBER-DYES
-  H1   CT  n3g  hng  9    0.0   1.25520   3                      ; AMBER-DYES
-  HP   CT  c3g  c3g  9    0.0   0.65084   3                      ; AMBER-DYES
-  HP   CT  c3g  cag  9    0.0   0.65084   3                      ; AMBER-DYES
-  HP   CT  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-  HP   CT  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-  HP   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
-  HP   CT  n3g  c3g  9    0.0   1.25520   3                      ; AMBER-DYES
-  HP   CT  n3g  hng  9    0.0   1.25520   3                      ; AMBER-DYES
-  HP   CT  n4g  hng  9    0.0   0.65084   3                      ; AMBER-DYES
-   N    C  c3g  c3g  9    0.0   0.29288   2                      ; AMBER-DYES
-   N    C  c3g  c3g  9    0.0   0.41840   4                      ; AMBER-DYES
-   N    C  c3g  hcg  9  180.0   0.00000   2                      ; AMBER-DYES
-   N   CT  c3g  c3g  9    0.0   0.65084   3                      ; AMBER-DYES
-   N   CT  c3g  cag  9    0.0   0.65084   3                      ; AMBER-DYES
-   N   CT  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-   N   CT  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-   N   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
-   N   CT   cg   og  9  180.0   0.00000   2                      ; AMBER-DYES
-   O    C   CT  c3g  9  180.0   0.00000   2                      ; AMBER-DYES
-   O    C   CT  n3g  9  180.0   0.00000   2                      ; AMBER-DYES
-   O    C   CT  n4g  9  180.0   0.00000   2                      ; AMBER-DYES
-   O    C  c3g  c3g  9  180.0   0.00000   2                      ; AMBER-DYES
-   O    C  c3g  hcg  9    0.0   3.34720   1                      ; AMBER-DYES
-   O    C  c3g  hcg  9  180.0   0.33472   3                      ; AMBER-DYES
- c2g  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- c2g  c3g  cag  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  c3g  nhg  c3g  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  c3g  nhg  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  c3g  nhg  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  ceg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  ceg  c3g  hcg  9    0.0   4.81160   1                      ; AMBER-DYES
- c2g  ceg  c3g  hcg  9  180.0   1.58992   3                      ; AMBER-DYES
- c2g  ceg  c3g  s6g  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  ceg  cag  cag  9  180.0  27.82360   2                      ; AMBER-DYES
- c2g  ceg  ceg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- c2g  ceg  ceg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- c2g  cfg  cfg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- c2g  cfg  cfg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- c2g  nhg  c3g  c3g  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  nhg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- c2g  nhg  cag  cag  9  180.0   4.39320   2                      ; AMBER-DYES
- c3g   CT   cg   og  9  180.0   0.00000   2                      ; AMBER-DYES
- c3g   CT  n4g  hng  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c2g  ceg  c3g  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  ceg  cag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  ceg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  ceg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  cfg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  cfg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  c2g  nhg  c3g  9  180.0   2.82420   2                      ; AMBER-DYES
- c3g  c2g  nhg  cag  9  180.0   2.82420   2                      ; AMBER-DYES
- c3g  c3g   CT   cg  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g   CT  n4g  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c2g  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  c2g  cfg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  c2g  hag  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  c2g  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  c3g  c3g  9    0.0   0.75312   3                      ; AMBER-DYES
- c3g  c3g  c3g  c3g  9  180.0   0.83680   1                      ; AMBER-DYES
- c3g  c3g  c3g  c3g  9  180.0   1.04600   2                      ; AMBER-DYES
- c3g  c3g  c3g  cag  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  ceg  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  cfg  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g   cg  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  hcg  9    0.0   0.66944   3                      ; AMBER-DYES
- c3g  c3g  c3g  n3g  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  nag  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g   ng  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  nhg  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  c3g  s6g  9    0.0   0.65084   3                      ; AMBER-DYES
- c3g  c3g  cag  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  ccg  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  ceg  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  ceg  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  cfg  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  cfg  cfg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g   cg   ng  9    0.0   0.29288   2                      ; AMBER-DYES
- c3g  c3g   cg   ng  9    0.0   0.41840   4                      ; AMBER-DYES
- c3g  c3g   cg   og  9  180.0   0.00000   2                      ; AMBER-DYES
- c3g  c3g  n3g  hng  9    0.0   1.25520   3                      ; AMBER-DYES
- c3g  c3g  nag  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g   ng  c3g  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g   ng   cg  9    0.0   2.21752   1                      ; AMBER-DYES
- c3g  c3g   ng   cg  9  180.0   0.62760   3                      ; AMBER-DYES
- c3g  c3g   ng   cg  9  180.0   2.09200   4                      ; AMBER-DYES
- c3g  c3g   ng  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  nhg  c3g  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  nhg  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  nhg  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  nhg  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  c3g  osg   cg  9    0.0   1.60247   3                      ; AMBER-DYES
- c3g  c3g  osg   cg  9  180.0   3.34720   1                      ; AMBER-DYES
- c3g  c3g  s6g   og  9    0.0   0.60436   3                      ; AMBER-DYES
- c3g  cag  cag  cag  9  180.0  15.16700   2                      ; AMBER-DYES
- c3g  cag  cag  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  cag  cag  ceg  9  180.0  15.16700   2                      ; AMBER-DYES
- c3g  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- c3g  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  cag  cag  nhg  9  180.0  15.16700   2                      ; AMBER-DYES
- c3g  cag  cag  nhg  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg  cag  cag  9  180.0  10.66920   2                      ; AMBER-DYES
- c3g  ccg  cag  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg  cdg  c3g  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg  cdg  cdg  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg  cdg   cg  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  ccg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
- c3g  ccg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
- c3g  cdg  ccg  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  cdg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
- c3g  cdg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
- c3g  ceg  c2g  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  ceg  cag  cag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  ceg  ceg  cfg  9  180.0  27.82360  2;                      ; AMBER-DYES
- c3g  ceg  ceg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- c3g  ceg  n2g  osg  9  180.0  17.36360   2                      ; AMBER-DYES
- c3g  ceg  nhg  c3g  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  ceg  nhg  cag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  cfg  ceg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  cfg  ceg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  cfg  ceg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  cfg  cfg  ceg  9  180.0  27.82360  2;                      ; AMBER-DYES
- c3g  cfg  cfg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- c3g   cg  cag  cag  9  180.0  15.16700   2                      ; AMBER-DYES
- c3g   cg   ng  c3g  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g   cg   ng  hng  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g  nag  cag  cag  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g  nag  cag  h4g  9  180.0   1.25520   2                      ; AMBER-DYES
- c3g   ng  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g   ng   cg  cag  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g   ng   cg  ccg  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g   ng   cg  cdg  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g   ng   cg   og  9  180.0  10.46000   2                      ; AMBER-DYES
- c3g  nhg  c2g  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  nhg  c2g  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  nhg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- c3g  nhg  cag  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- c3g  nhg  ceg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- c3g  osg   cg  cdg  9  180.0  11.29680   2                      ; AMBER-DYES
- c3g  osg   cg   og  9  180.0  11.29680   2                      ; AMBER-DYES
- c3g  osg   cg   og  9  180.0   5.85760   1                      ; AMBER-DYES
- c3g  osg  n2g  ceg  9  180.0  12.55200   2                      ; AMBER-DYES
- c3g  ssg  ccg  cdg  9  180.0   4.60240   2                      ; AMBER-DYES
- c3g  ssg  ccg   cg  9  180.0   4.60240   2                      ; AMBER-DYES
- cag  c3g   CT   cg  9    0.0   0.65084   3                      ; AMBER-DYES
- cag  c3g   CT  n4g  9    0.0   0.65084   3                      ; AMBER-DYES
- cag  c3g  c2g  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  c3g  c2g  cfg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  c3g  c2g  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  c3g  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
- cag  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- cag  c3g  c3g  nhg  9    0.0   0.65084   3                      ; AMBER-DYES
- cag  c3g  cag  cag  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  c3g  ceg  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  c3g  ceg  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  cag  c3g  ceg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  cag  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  cag  cag  cag  9  180.0  12.02900   2                      ; AMBER-DYES
- cag  cag  cag  cag  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  ccg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  ccg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag  cag   cg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag   cg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  cwg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  cwg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  h4g  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  hag  9  180.0  12.02900   2                      ; AMBER-DYES
- cag  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  nag  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  ncg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  nhg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  nhg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag   og  9  180.0  12.02900   2                      ; AMBER-DYES
- cag  cag  cag   og  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  osg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  s6g  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cag  s6g  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cag  ssg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  ccg  cag  9  180.0  10.66920   2                      ; AMBER-DYES
- cag  cag  ccg  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  ccg  cdg  9  180.0  10.66920   2                      ; AMBER-DYES
- cag  cag  ccg  hag  9  180.0  10.66920   2                      ; AMBER-DYES
- cag  cag  ceg  cag  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag  ceg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag  ceg  n2g  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag   cg   ng  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag   cg   og  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag   cg   og  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag   cg  ohg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cwg  cag  9  180.0  10.66920   2                      ; AMBER-DYES
- cag  cag  cwg  cag  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cwg  cag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  cwg  cwg  9  180.0  10.66920   2                      ; AMBER-DYES
- cag  cag  cwg  cwg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  cwg  cwg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cag  nag  cag  9  180.0   1.25520   2                      ; AMBER-DYES
- cag  cag  ncg  cag  9  180.0  20.08320   2                      ; AMBER-DYES
- cag  cag  nhg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag  nhg  hng  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cag  osg  cag  9  180.0   3.76560   2                      ; AMBER-DYES
- cag  cag  osg  cag  9  180.0   4.39320   2                      ; AMBER-DYES
- cag  cag  osg   cg  9  180.0   3.76560   2                      ; AMBER-DYES
- cag  cag  s6g   og  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  cag  s6g   og  9  180.0   5.43920   2                      ; AMBER-DYES
- cag  cag  ssg  cag  9  180.0   1.67360   2                      ; AMBER-DYES
- cag  ccg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  ccg  cdg   cg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  ccg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  ceg  c2g  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  ceg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  ceg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  ceg  c3g  s6g  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  ceg  n2g  osg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag   cg  c3g  hcg  9  180.0   0.00000   2                      ; AMBER-DYES
- cag   cg   ng  hng  9  180.0  10.46000   2                      ; AMBER-DYES
- cag   cg  ohg  hog  9  180.0   9.62320   2                      ; AMBER-DYES
- cag  cwg  cag   cg  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cwg  cag   cg  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cwg  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- cag  cwg  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- cag  cwg  cwg  cag  9    0.0  10.66920   2                      ; AMBER-DYES
- cag  cwg  cwg  cag  9    0.0  16.73600   2                      ; AMBER-DYES
- cag  cwg  cwg  cag  9    0.0   4.18400   2                      ; AMBER-DYES
- cag  nag  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  nag  cag  h4g  9  180.0   1.25520   2                      ; AMBER-DYES
- cag  nhg  c2g  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  nhg  c2g  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  nhg  c3g   fg  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  nhg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- cag  nhg  ceg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- cag  osg   cg  cdg  9  180.0  11.29680   2                      ; AMBER-DYES
- cag  osg   cg   og  9  180.0  11.29680   2                      ; AMBER-DYES
- ccg  c3g  c3g   cg  9    0.0   0.65084   3                      ; AMBER-DYES
- ccg  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- ccg  c3g   cg   ng  9  180.0   0.00000   2                      ; AMBER-DYES
- ccg  c3g   cg   og  9  180.0   0.00000   2                      ; AMBER-DYES
- ccg  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- ccg  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- ccg  cag  cag  osg  9  180.0  15.16700   2                      ; AMBER-DYES
- ccg  cag  cag  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- ccg  cdg  c3g   cg  9    0.0   0.00000   0                      ; AMBER-DYES
- ccg  cdg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- ccg  cdg  cdg  ccg  9  180.0  16.73600   2                      ; AMBER-DYES
- ccg  cdg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- ccg  cdg   cg   ng  9  180.0  12.02900   2                      ; AMBER-DYES
- ccg  cdg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
- ccg  cdg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
- ccg   cg   ng   cg  9  180.0  10.46000   2                      ; AMBER-DYES
- ccg   cg  osg  ccg  9  180.0  11.29680   2                      ; AMBER-DYES
- ccg  osg   cg   og  9  180.0  11.29680   2                      ; AMBER-DYES
- ccg  ssg  c3g  h1g  9    0.0   1.39467   3                      ; AMBER-DYES
- cdg  c3g   cg   ng  9  180.0   0.00000   2                      ; AMBER-DYES
- cdg  c3g   cg   og  9  180.0   0.00000   2                      ; AMBER-DYES
- cdg  ccg  c3g   cg  9    0.0   0.00000   0                      ; AMBER-DYES
- cdg  ccg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- cdg  ccg   cg   ng  9  180.0  12.02900   2                      ; AMBER-DYES
- cdg  ccg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
- cdg  ccg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
- cdg  ccg  osg   cg  9  180.0   4.39320   2                      ; AMBER-DYES
- cdg  cdg  ccg   cg  9  180.0  16.73600   2                      ; AMBER-DYES
- cdg  cdg  ccg  h4g  9  180.0  16.73600   2                      ; AMBER-DYES
- cdg  cdg  ccg  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- cdg   cg   ng   cg  9  180.0  10.46000   2                      ; AMBER-DYES
- ceg  c2g  c3g  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- ceg  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- ceg  c3g  s6g   og  9    0.0   0.60436   3                      ; AMBER-DYES
- ceg  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- ceg  cag  cag  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  ceg  c2g  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  ceg  cfg  ceg  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  ceg  cfg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  ceg  cfg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  cfg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- ceg  cfg  ceg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  cfg  ceg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- ceg  cfg  cfg  ceg  9  180.0  27.82360  2;                      ; AMBER-DYES
- ceg  cfg  cfg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- ceg  nhg  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
- cfg  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- cfg  ceg  ceg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- cfg  ceg  ceg  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- cfg  ceg  cfg  cfg  9  180.0  27.82360   2                      ; AMBER-DYES
- cfg  cfg  c2g  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- cfg  cfg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
- cfg  cfg  ceg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
-  cg   CT  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
-  cg   CT  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-  cg   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
-  cg  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
-  cg  c3g  ccg   cg  9    0.0   0.00000   0                      ; AMBER-DYES
-  cg  c3g  cdg   cg  9    0.0   0.00000   0                      ; AMBER-DYES
-  cg  c3g  osg  n2g  9    0.0   1.60387   3                      ; AMBER-DYES
-  cg  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
-  cg  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  cag  cwg  cwg  9  180.0  15.16700   2                      ; AMBER-DYES
-  cg  cag  cwg  cwg  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  ccg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
-  cg  ccg  cdg   cg  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  ccg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  cdg  c3g  hcg  9    0.0   0.00000   0                      ; AMBER-DYES
-  cg  cdg  ccg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  cdg  ccg  ssg  9  180.0  16.73600   2                      ; AMBER-DYES
-  cg  cdg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
-  cg  cdg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
-  cg   ng  c3g  h1g  9    0.0   0.00000   0                      ; AMBER-DYES
-  cg   ng   cg   og  9  180.0  10.46000   2                      ; AMBER-DYES
-  cg  osg  c3g  h1g  9    0.0   1.60387   3                      ; AMBER-DYES
-  cg  osg  ccg  h4g  9  180.0   4.39320   2                      ; AMBER-DYES
- cwg  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- cwg  cag  cag  osg  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cag  cag  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- cwg  cag  cag  ssg  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cag   cg   ng  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cag   cg   og  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cag   cg   og  9  180.0  27.82360   2                      ; AMBER-DYES
- cwg  cag   cg  ohg  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cwg  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- cwg  cwg  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
-  fg  c3g  nhg  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- h1g  c3g   CT  n4g  9    0.0   0.65084   3                      ; AMBER-DYES
- h1g  c3g  c3g  h1g  9    0.0   0.65084   3                      ; AMBER-DYES
- h1g  c3g  c3g  hcg  9    0.0   0.65084   3                      ; AMBER-DYES
- h1g  c3g  c3g  n3g  9    0.0   0.65084   3                      ; AMBER-DYES
- h1g  c3g  c3g   ng  9    0.0   0.65084   3                      ; AMBER-DYES
- h1g  c3g   cg   ng  9  180.0   0.00000   2                      ; AMBER-DYES
- h1g  c3g   cg   og  9    0.0   3.34720   1                      ; AMBER-DYES
- h1g  c3g   cg   og  9  180.0   0.33472   3                      ; AMBER-DYES
- h1g  c3g  n3g  hng  9    0.0   1.25520   3                      ; AMBER-DYES
- h1g  c3g   ng  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- h1g  c3g  nhg  hng  9    0.0   0.00000   0                      ; AMBER-DYES
- h1g  c3g  osg  n2g  9    0.0   1.60387   3                      ; AMBER-DYES
- h1g  c3g  s6g   og  9    0.0   0.60436   3                      ; AMBER-DYES
- h4g  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- h4g  ccg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  c2g  c3g  nhg  9    0.0   0.00000   0                      ; AMBER-DYES
- hag  cag  cag  hag  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cag  cag  nag  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  ncg  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  nhg  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  nhg  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cag  cag   og  9  180.0  12.02900   2                      ; AMBER-DYES
- hag  cag  cag   og  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  osg  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cag  cag  s6g  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cag  cag  ssg  9  180.0  15.16700   2                      ; AMBER-DYES
- hag  cdg  ccg  osg  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cdg  ccg  ssg  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cdg  cdg  hag  9  180.0  16.73600   2                      ; AMBER-DYES
- hag  cdg   cg   ng  9  180.0  12.02900   2                      ; AMBER-DYES
- hag  cdg   cg   og  9  180.0  12.02900   2                      ; AMBER-DYES
- hag  cdg   cg  osg  9  180.0  12.02900   2                      ; AMBER-DYES
- hag  ceg  c2g  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- hag  ceg  ceg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- hag  ceg  ceg  nhg  9  180.0   4.18400   2                      ; AMBER-DYES
- hag  ceg  cfg  hag  9  180.0  27.82360   2                      ; AMBER-DYES
- hag  cfg  c2g  nhg  9  180.0  27.82360   2                      ; AMBER-DYES
- hag  cfg  cfg  hag  9  180.0   4.18400   2                      ; AMBER-DYES
- hcg  c3g   CT  n4g  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  c3g  hcg  9    0.0   0.62760   3                      ; AMBER-DYES
- hcg  c3g  c3g  n3g  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  c3g  nag  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  c3g   ng  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  c3g  nhg  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  c3g  osg  9    0.0   0.00000   0                      ; AMBER-DYES
- hcg  c3g  c3g  osg  9    0.0   1.04600   1                      ; AMBER-DYES
- hcg  c3g  c3g  s6g  9    0.0   0.65084   3                      ; AMBER-DYES
- hcg  c3g  ceg  n2g  9    0.0   0.00000   0                      ; AMBER-DYES
- hcg  c3g   cg   ng  9  180.0   0.00000   2                      ; AMBER-DYES
- hcg  c3g   cg   og  9    0.0   3.34720   1                      ; AMBER-DYES
- hcg  c3g   cg   og  9  180.0   0.33472   3                      ; AMBER-DYES
- hng   ng   cg   og  9    0.0   8.36800   1                      ; AMBER-DYES
- hng   ng   cg   og  9  180.0  10.46000   2                      ; AMBER-DYES
- hog  ohg   cg   og  9    0.0   7.94960   1                      ; AMBER-DYES
- hog  ohg   cg   og  9  180.0   9.62320   2                      ; AMBER-DYES
- n3g  c3g  c3g   ng  9    0.0   0.65084   3                      ; AMBER-DYES
- n4g   CT  c3g  ssg  9    0.0   0.65084   3                      ; AMBER-DYES
- ncg  cag  cag  osg  9  180.0  15.16700   2                      ; AMBER-DYES
-  ng  c3g  c3g   ng  9    0.0   0.65084   3                      ; AMBER-DYES
-  ng   cg  c3g  osg  9  180.0   0.00000   2                      ; AMBER-DYES
-  ng   cg  ccg  ssg  9  180.0  12.02900   2                      ; AMBER-DYES
- nhg  cag  cag  s6g  9  180.0  15.16700   2                      ; AMBER-DYES
- nhg  cag  cag  s6g  9  180.0  16.73600   2                      ; AMBER-DYES
-  og   cg  c3g  osg  9  180.0   0.00000   2                      ; AMBER-DYES
-  og   cg  ccg  ssg  9  180.0  12.02900   2                      ; AMBER-DYES
- osg  cag  cag  s6g  9  180.0  15.16700   2                      ; AMBER-DYES
- osg  cag  cag  s6g  9  180.0  16.73600   2                      ; AMBER-DYES
-  CT   CT   OS    P  9    180   16.5379   1                  ; FLUOR-DYNAMICS
-  CT   OS   P    O2  9      0   2.30274   3                  ; FLUOR-DYNAMICS
-  N    C    CD   CD  9    180   48.1482   2                  ; FLUOR-DYNAMICS
-  O    C    CD   CD  9    180   48.1482   2                  ; FLUOR-DYNAMICS
-  CT   C    N    CT  9    180    6.2802   1                  ; FLUOR-DYNAMICS
-  N    C    CD   HA  9    180   48.1482   2                  ; FLUOR-DYNAMICS
-  O    C    CD   HA  9    180   48.1482   2                  ; FLUOR-DYNAMICS
- c3g  c3g   cg    N  9    0.0   0.29288   2  same as AMBER-DYES c3g-c3g-cg-ng
- c3g  c3g   cg    N  9    0.0   0.41840   4  same as AMBER-DYES c3g-c3g-cg-ng
- hcg  c3g   cg    N  9  180.0   0.00000   2  same as AMBER-DYES hcg-c3g-cg-ng
- c3g   cg    N    H  9  180.0  10.46000   2  same as AMBER-DYES c3g-cg-ng-hng
-   H    N   cg   og  9    0.0   8.36800   1   same as AMBER-DYES hng-ng-cg-og
-   H    N   cg   og  9  180.0  10.46000   2   same as AMBER-DYES hng-ng-cg-og
- c3g   cg    N   CT  9  180.0  10.46000   2  same as AMBER-DYES c3g-cg-ng-c3g
-  CT    N   cg   og  9  180.0  10.46000   2   same as AMBER-DYES c3g-ng-cg-og
-  C    N    NT   CT  9      0   18.0032   2                  ; FLUOR-DYNAMICS
-  H    N    NT   CT  9      0   18.0032   2                  ; FLUOR-DYNAMICS
-  CV   CA   N*   CA  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CV   CA   N*   CB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CA   CT   CV   CA  9      0         0   3                  ; FLUOR-DYNAMICS
-  CA   CT   CV   NB  9      0         0   3                  ; FLUOR-DYNAMICS
-  NC   CA   N*   CA  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  H5   CA   N*   CA  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CT   CA   CV   H4  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  CT   CA   CV   NB  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  CT   CA   N*   CA  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CT   CA   N*   CB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  N*   CA   CV   CT  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  H4   CA   CV   CT  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  CV   CA   N*   CT  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CV   CA   N*   NB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CV   NB   NB   N*  9    180   16.7472   2                  ; FLUOR-DYNAMICS
-  HC   CT   CV   CA  9      0         0   3                  ; FLUOR-DYNAMICS
-  CA   N*   NB   NB  9    180   16.7472   2                  ; FLUOR-DYNAMICS
-  H4   CA   N*   CT  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CT   N*   NB   NB  9    180   16.7472   2                  ; FLUOR-DYNAMICS
-  HC   CT   CV   NB  9      0         0   3                  ; FLUOR-DYNAMICS
-  N*   CA   CV   NB  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  H4   CA   CV   NB  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  H4   CA   N*   NB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  N*   CA   CV   H4  9    180   86.2481   2                  ; FLUOR-DYNAMICS
-  NC   CA   N*   CB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  H5   CA   N*   CB  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CV   CA   N*    C  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  CT   CA   N*    C  9    180   40.1933   2                  ; FLUOR-DYNAMICS
-  N*   CB   CM   CM  9    180   60.7086   2                  ; FLUOR-DYNAMICS
-  N*   CB   CM   HA  9    180   60.7086   2                  ; FLUOR-DYNAMICS
-  NB   CB   CM   CM  9    180   60.7086   2                  ; FLUOR-DYNAMICS
-  NB   CB   CM   HA  9    180   60.7086   2                  ; FLUOR-DYNAMICS
+   C   CT  c3g  c3g  9    0.0   0.65084   3                        ; AMBER-DYES
+   C   CT  c3g  cag  9    0.0   0.65084   3                        ; AMBER-DYES
+   C   CT  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+   C   CT  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+   C   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+   C   CT  n3g  c3g  9    0.0   1.25520   3                        ; AMBER-DYES
+   C   CT  n3g  hng  9    0.0   1.25520   3                        ; AMBER-DYES
+   C   CT  n4g  hng  9    0.0   0.65084   3                        ; AMBER-DYES
+   C  c3g  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+   C  c3g  c3g  nhg  9    0.0   0.65084   3                        ; AMBER-DYES
+  CT  c3g  c3g  c3g  9    0.0   0.75312   3                        ; AMBER-DYES
+  CT  c3g  c3g  c3g  9  180.0   0.83680   1                        ; AMBER-DYES
+  CT  c3g  c3g  c3g  9  180.0   1.04600   2                        ; AMBER-DYES
+  CT  c3g  c3g  hcg  9    0.0   0.66944   3                        ; AMBER-DYES
+  CT  c3g  cag  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+  CT  c3g  ssg  ccg  9    0.0   1.39467   3                        ; AMBER-DYES
+  CT  n3g  c3g  c3g  9    0.0   1.25520   3                        ; AMBER-DYES
+  CT  n3g  c3g  c3g  9  180.0   2.00832   2                        ; AMBER-DYES
+  CT  n3g  c3g  h1g  9    0.0   1.25520   3                        ; AMBER-DYES
+   H    N   CT  c3g  9    0.0   0.00000   0                        ; AMBER-DYES
+   H    N   CT   cg  9    0.0   0.00000   0                        ; AMBER-DYES
+  H1   CT  c3g  c3g  9    0.0   0.65084   3                        ; AMBER-DYES
+  H1   CT  c3g  cag  9    0.0   0.65084   3                        ; AMBER-DYES
+  H1   CT  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+  H1   CT  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+  H1   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+  H1   CT   cg   og  9    0.0   3.34720   1                        ; AMBER-DYES
+  H1   CT   cg   og  9  180.0   0.33472   3                        ; AMBER-DYES
+  H1   CT  n3g  c3g  9    0.0   1.25520   3                        ; AMBER-DYES
+  H1   CT  n3g  hng  9    0.0   1.25520   3                        ; AMBER-DYES
+  HP   CT  c3g  c3g  9    0.0   0.65084   3                        ; AMBER-DYES
+  HP   CT  c3g  cag  9    0.0   0.65084   3                        ; AMBER-DYES
+  HP   CT  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+  HP   CT  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+  HP   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+  HP   CT  n3g  c3g  9    0.0   1.25520   3                        ; AMBER-DYES
+  HP   CT  n3g  hng  9    0.0   1.25520   3                        ; AMBER-DYES
+  HP   CT  n4g  hng  9    0.0   0.65084   3                        ; AMBER-DYES
+   N    C  c3g  c3g  9    0.0   0.29288   2                        ; AMBER-DYES
+   N    C  c3g  c3g  9    0.0   0.41840   4                        ; AMBER-DYES
+   N    C  c3g  hcg  9  180.0   0.00000   2                        ; AMBER-DYES
+   N   CT  c3g  c3g  9    0.0   0.65084   3                        ; AMBER-DYES
+   N   CT  c3g  cag  9    0.0   0.65084   3                        ; AMBER-DYES
+   N   CT  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+   N   CT  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+   N   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+   N   CT   cg   og  9  180.0   0.00000   2                        ; AMBER-DYES
+   O    C   CT  c3g  9  180.0   0.00000   2                        ; AMBER-DYES
+   O    C   CT  n3g  9  180.0   0.00000   2                        ; AMBER-DYES
+   O    C   CT  n4g  9  180.0   0.00000   2                        ; AMBER-DYES
+   O    C  c3g  c3g  9  180.0   0.00000   2                        ; AMBER-DYES
+   O    C  c3g  hcg  9    0.0   3.34720   1                        ; AMBER-DYES
+   O    C  c3g  hcg  9  180.0   0.33472   3                        ; AMBER-DYES
+ c2g  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c2g  c3g  cag  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  c3g  nhg  c3g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  c3g  nhg  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  c3g  nhg  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  ceg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  ceg  c3g  hcg  9    0.0   4.81160   1                        ; AMBER-DYES
+ c2g  ceg  c3g  hcg  9  180.0   1.58992   3                        ; AMBER-DYES
+ c2g  ceg  c3g  s6g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  ceg  cag  cag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c2g  ceg  ceg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c2g  ceg  ceg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ c2g  cfg  cfg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c2g  cfg  cfg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ c2g  nhg  c3g  c3g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  nhg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c2g  nhg  cag  cag  9  180.0   4.39320   2                        ; AMBER-DYES
+ c3g   CT   cg   og  9  180.0   0.00000   2                        ; AMBER-DYES
+ c3g   CT  n4g  hng  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c2g  ceg  c3g  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  ceg  cag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  ceg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  ceg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  cfg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  cfg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  c2g  nhg  c3g  9  180.0   2.82420   2                        ; AMBER-DYES
+ c3g  c2g  nhg  cag  9  180.0   2.82420   2                        ; AMBER-DYES
+ c3g  c3g   CT   cg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g   CT  n4g  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c2g  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  c2g  cfg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  c2g  hag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  c2g  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  c3g  c3g  9    0.0   0.75312   3                        ; AMBER-DYES
+ c3g  c3g  c3g  c3g  9  180.0   0.83680   1                        ; AMBER-DYES
+ c3g  c3g  c3g  c3g  9  180.0   1.04600   2                        ; AMBER-DYES
+ c3g  c3g  c3g  cag  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  ceg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  cfg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g   cg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  hcg  9    0.0   0.66944   3                        ; AMBER-DYES
+ c3g  c3g  c3g  n3g  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  nag  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g   ng  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  nhg  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  c3g  s6g  9    0.0   0.65084   3                        ; AMBER-DYES
+ c3g  c3g  cag  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  ccg  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  ceg  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  ceg  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  cfg  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  cfg  cfg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g   cg   ng  9    0.0   0.29288   2                        ; AMBER-DYES
+ c3g  c3g   cg   ng  9    0.0   0.41840   4                        ; AMBER-DYES
+ c3g  c3g   cg   og  9  180.0   0.00000   2                        ; AMBER-DYES
+ c3g  c3g  n3g  hng  9    0.0   1.25520   3                        ; AMBER-DYES
+ c3g  c3g  nag  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g   ng  c3g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g   ng   cg  9    0.0   2.21752   1                        ; AMBER-DYES
+ c3g  c3g   ng   cg  9  180.0   0.62760   3                        ; AMBER-DYES
+ c3g  c3g   ng   cg  9  180.0   2.09200   4                        ; AMBER-DYES
+ c3g  c3g   ng  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  nhg  c3g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  nhg  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  nhg  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  nhg  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  c3g  osg   cg  9    0.0   1.60247   3                        ; AMBER-DYES
+ c3g  c3g  osg   cg  9  180.0   3.34720   1                        ; AMBER-DYES
+ c3g  c3g  s6g   og  9    0.0   0.60436   3                        ; AMBER-DYES
+ c3g  cag  cag  cag  9  180.0  15.16700   2                        ; AMBER-DYES
+ c3g  cag  cag  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  cag  cag  ceg  9  180.0  15.16700   2                        ; AMBER-DYES
+ c3g  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ c3g  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  cag  cag  nhg  9  180.0  15.16700   2                        ; AMBER-DYES
+ c3g  cag  cag  nhg  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg  cag  cag  9  180.0  10.66920   2                        ; AMBER-DYES
+ c3g  ccg  cag  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg  cdg  c3g  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg  cdg  cdg  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg  cdg   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  ccg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ c3g  ccg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+ c3g  cdg  ccg  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  cdg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ c3g  cdg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+ c3g  ceg  c2g  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  ceg  cag  cag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  ceg  ceg  cfg  9  180.0  27.82360  2;                        ; AMBER-DYES
+ c3g  ceg  ceg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ c3g  ceg  n2g  osg  9  180.0  17.36360   2                        ; AMBER-DYES
+ c3g  ceg  nhg  c3g  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  ceg  nhg  cag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  cfg  ceg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  cfg  ceg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  cfg  ceg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  cfg  cfg  ceg  9  180.0  27.82360  2;                        ; AMBER-DYES
+ c3g  cfg  cfg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ c3g   cg  cag  cag  9  180.0  15.16700   2                        ; AMBER-DYES
+ c3g   cg   ng  c3g  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g   cg   ng  hng  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g  nag  cag  cag  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g  nag  cag  h4g  9  180.0   1.25520   2                        ; AMBER-DYES
+ c3g   ng  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g   ng   cg  cag  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g   ng   cg  ccg  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g   ng   cg  cdg  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g   ng   cg   og  9  180.0  10.46000   2                        ; AMBER-DYES
+ c3g  nhg  c2g  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  nhg  c2g  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  nhg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ c3g  nhg  cag  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ c3g  nhg  ceg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ c3g  osg   cg  cdg  9  180.0  11.29680   2                        ; AMBER-DYES
+ c3g  osg   cg   og  9  180.0  11.29680   2                        ; AMBER-DYES
+ c3g  osg   cg   og  9  180.0   5.85760   1                        ; AMBER-DYES
+ c3g  osg  n2g  ceg  9  180.0  12.55200   2                        ; AMBER-DYES
+ c3g  ssg  ccg  cdg  9  180.0   4.60240   2                        ; AMBER-DYES
+ c3g  ssg  ccg   cg  9  180.0   4.60240   2                        ; AMBER-DYES
+ cag  c3g   CT   cg  9    0.0   0.65084   3                        ; AMBER-DYES
+ cag  c3g   CT  n4g  9    0.0   0.65084   3                        ; AMBER-DYES
+ cag  c3g  c2g  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  c3g  c2g  cfg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  c3g  c2g  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  c3g  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+ cag  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ cag  c3g  c3g  nhg  9    0.0   0.65084   3                        ; AMBER-DYES
+ cag  c3g  cag  cag  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  c3g  ceg  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  c3g  ceg  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  cag  c3g  ceg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  cag  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  cag  cag  cag  9  180.0  12.02900   2                        ; AMBER-DYES
+ cag  cag  cag  cag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  ccg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  ccg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag  cag   cg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  cwg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  cwg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  h4g  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  hag  9  180.0  12.02900   2                        ; AMBER-DYES
+ cag  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  nag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  ncg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  nhg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  nhg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ cag  cag  cag   og  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  osg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  s6g  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cag  s6g  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cag  ssg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  ccg  cag  9  180.0  10.66920   2                        ; AMBER-DYES
+ cag  cag  ccg  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  ccg  cdg  9  180.0  10.66920   2                        ; AMBER-DYES
+ cag  cag  ccg  hag  9  180.0  10.66920   2                        ; AMBER-DYES
+ cag  cag  ceg  cag  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag  ceg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag  ceg  n2g  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag   cg   ng  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag   cg   og  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag   cg   og  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag   cg  ohg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cwg  cag  9  180.0  10.66920   2                        ; AMBER-DYES
+ cag  cag  cwg  cag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cwg  cag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  cwg  cwg  9  180.0  10.66920   2                        ; AMBER-DYES
+ cag  cag  cwg  cwg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  cwg  cwg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cag  nag  cag  9  180.0   1.25520   2                        ; AMBER-DYES
+ cag  cag  ncg  cag  9  180.0  20.08320   2                        ; AMBER-DYES
+ cag  cag  nhg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag  nhg  hng  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cag  osg  cag  9  180.0   3.76560   2                        ; AMBER-DYES
+ cag  cag  osg  cag  9  180.0   4.39320   2                        ; AMBER-DYES
+ cag  cag  osg   cg  9  180.0   3.76560   2                        ; AMBER-DYES
+ cag  cag  s6g   og  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  cag  s6g   og  9  180.0   5.43920   2                        ; AMBER-DYES
+ cag  cag  ssg  cag  9  180.0   1.67360   2                        ; AMBER-DYES
+ cag  ccg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  ccg  cdg   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  ccg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  ceg  c2g  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  ceg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  ceg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  ceg  c3g  s6g  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  ceg  n2g  osg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag   cg  c3g  hcg  9  180.0   0.00000   2                        ; AMBER-DYES
+ cag   cg   ng  hng  9  180.0  10.46000   2                        ; AMBER-DYES
+ cag   cg  ohg  hog  9  180.0   9.62320   2                        ; AMBER-DYES
+ cag  cwg  cag   cg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cwg  cag   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cwg  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cag  cwg  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cag  cwg  cwg  cag  9    0.0  10.66920   2                        ; AMBER-DYES
+ cag  cwg  cwg  cag  9    0.0  16.73600   2                        ; AMBER-DYES
+ cag  cwg  cwg  cag  9    0.0   4.18400   2                        ; AMBER-DYES
+ cag  nag  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  nag  cag  h4g  9  180.0   1.25520   2                        ; AMBER-DYES
+ cag  nhg  c2g  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  nhg  c2g  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  nhg  c3g   fg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  nhg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ cag  nhg  ceg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cag  osg   cg  cdg  9  180.0  11.29680   2                        ; AMBER-DYES
+ cag  osg   cg   og  9  180.0  11.29680   2                        ; AMBER-DYES
+ ccg  c3g  c3g   cg  9    0.0   0.65084   3                        ; AMBER-DYES
+ ccg  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ ccg  c3g   cg   ng  9  180.0   0.00000   2                        ; AMBER-DYES
+ ccg  c3g   cg   og  9  180.0   0.00000   2                        ; AMBER-DYES
+ ccg  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ ccg  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ ccg  cag  cag  osg  9  180.0  15.16700   2                        ; AMBER-DYES
+ ccg  cag  cag  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ ccg  cdg  c3g   cg  9    0.0   0.00000   0                        ; AMBER-DYES
+ ccg  cdg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ ccg  cdg  cdg  ccg  9  180.0  16.73600   2                        ; AMBER-DYES
+ ccg  cdg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ ccg  cdg   cg   ng  9  180.0  12.02900   2                        ; AMBER-DYES
+ ccg  cdg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ ccg  cdg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+ ccg   cg   ng   cg  9  180.0  10.46000   2                        ; AMBER-DYES
+ ccg   cg  osg  ccg  9  180.0  11.29680   2                        ; AMBER-DYES
+ ccg  osg   cg   og  9  180.0  11.29680   2                        ; AMBER-DYES
+ ccg  ssg  c3g  h1g  9    0.0   1.39467   3                        ; AMBER-DYES
+ cdg  c3g   cg   ng  9  180.0   0.00000   2                        ; AMBER-DYES
+ cdg  c3g   cg   og  9  180.0   0.00000   2                        ; AMBER-DYES
+ cdg  ccg  c3g   cg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cdg  ccg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cdg  ccg   cg   ng  9  180.0  12.02900   2                        ; AMBER-DYES
+ cdg  ccg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ cdg  ccg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+ cdg  ccg  osg   cg  9  180.0   4.39320   2                        ; AMBER-DYES
+ cdg  cdg  ccg   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cdg  cdg  ccg  h4g  9  180.0  16.73600   2                        ; AMBER-DYES
+ cdg  cdg  ccg  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cdg   cg   ng   cg  9  180.0  10.46000   2                        ; AMBER-DYES
+ ceg  c2g  c3g  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ ceg  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ ceg  c3g  s6g   og  9    0.0   0.60436   3                        ; AMBER-DYES
+ ceg  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ ceg  cag  cag  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  ceg  c2g  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  ceg  cfg  ceg  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  ceg  cfg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  ceg  cfg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  cfg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ ceg  cfg  ceg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  cfg  ceg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ ceg  cfg  cfg  ceg  9  180.0  27.82360  2;                        ; AMBER-DYES
+ ceg  cfg  cfg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ ceg  nhg  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+ cfg  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ cfg  ceg  ceg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ cfg  ceg  ceg  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cfg  ceg  cfg  cfg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cfg  cfg  c2g  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ cfg  cfg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+ cfg  cfg  ceg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+  cg   CT  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+  cg   CT  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+  cg   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+  cg  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+  cg  c3g  ccg   cg  9    0.0   0.00000   0                        ; AMBER-DYES
+  cg  c3g  cdg   cg  9    0.0   0.00000   0                        ; AMBER-DYES
+  cg  c3g  osg  n2g  9    0.0   1.60387   3                        ; AMBER-DYES
+  cg  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+  cg  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  cag  cwg  cwg  9  180.0  15.16700   2                        ; AMBER-DYES
+  cg  cag  cwg  cwg  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  ccg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+  cg  ccg  cdg   cg  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  ccg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  cdg  c3g  hcg  9    0.0   0.00000   0                        ; AMBER-DYES
+  cg  cdg  ccg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  cdg  ccg  ssg  9  180.0  16.73600   2                        ; AMBER-DYES
+  cg  cdg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+  cg  cdg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+  cg   ng  c3g  h1g  9    0.0   0.00000   0                        ; AMBER-DYES
+  cg   ng   cg   og  9  180.0  10.46000   2                        ; AMBER-DYES
+  cg  osg  c3g  h1g  9    0.0   1.60387   3                        ; AMBER-DYES
+  cg  osg  ccg  h4g  9  180.0   4.39320   2                        ; AMBER-DYES
+ cwg  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ cwg  cag  cag  osg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cag  cag  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ cwg  cag  cag  ssg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cag   cg   ng  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cag   cg   og  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cag   cg   og  9  180.0  27.82360   2                        ; AMBER-DYES
+ cwg  cag   cg  ohg  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cwg  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ cwg  cwg  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+  fg  c3g  nhg  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ h1g  c3g   CT  n4g  9    0.0   0.65084   3                        ; AMBER-DYES
+ h1g  c3g  c3g  h1g  9    0.0   0.65084   3                        ; AMBER-DYES
+ h1g  c3g  c3g  hcg  9    0.0   0.65084   3                        ; AMBER-DYES
+ h1g  c3g  c3g  n3g  9    0.0   0.65084   3                        ; AMBER-DYES
+ h1g  c3g  c3g   ng  9    0.0   0.65084   3                        ; AMBER-DYES
+ h1g  c3g   cg   ng  9  180.0   0.00000   2                        ; AMBER-DYES
+ h1g  c3g   cg   og  9    0.0   3.34720   1                        ; AMBER-DYES
+ h1g  c3g   cg   og  9  180.0   0.33472   3                        ; AMBER-DYES
+ h1g  c3g  n3g  hng  9    0.0   1.25520   3                        ; AMBER-DYES
+ h1g  c3g   ng  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ h1g  c3g  nhg  hng  9    0.0   0.00000   0                        ; AMBER-DYES
+ h1g  c3g  osg  n2g  9    0.0   1.60387   3                        ; AMBER-DYES
+ h1g  c3g  s6g   og  9    0.0   0.60436   3                        ; AMBER-DYES
+ h4g  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ h4g  ccg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  c2g  c3g  nhg  9    0.0   0.00000   0                        ; AMBER-DYES
+ hag  cag  cag  hag  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cag  cag  nag  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  ncg  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  nhg  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  nhg  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cag  cag   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ hag  cag  cag   og  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  osg  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cag  cag  s6g  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cag  cag  ssg  9  180.0  15.16700   2                        ; AMBER-DYES
+ hag  cdg  ccg  osg  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cdg  ccg  ssg  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cdg  cdg  hag  9  180.0  16.73600   2                        ; AMBER-DYES
+ hag  cdg   cg   ng  9  180.0  12.02900   2                        ; AMBER-DYES
+ hag  cdg   cg   og  9  180.0  12.02900   2                        ; AMBER-DYES
+ hag  cdg   cg  osg  9  180.0  12.02900   2                        ; AMBER-DYES
+ hag  ceg  c2g  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ hag  ceg  ceg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ hag  ceg  ceg  nhg  9  180.0   4.18400   2                        ; AMBER-DYES
+ hag  ceg  cfg  hag  9  180.0  27.82360   2                        ; AMBER-DYES
+ hag  cfg  c2g  nhg  9  180.0  27.82360   2                        ; AMBER-DYES
+ hag  cfg  cfg  hag  9  180.0   4.18400   2                        ; AMBER-DYES
+ hcg  c3g   CT  n4g  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  c3g  hcg  9    0.0   0.62760   3                        ; AMBER-DYES
+ hcg  c3g  c3g  n3g  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  c3g  nag  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  c3g   ng  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  c3g  nhg  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  c3g  osg  9    0.0   0.00000   0                        ; AMBER-DYES
+ hcg  c3g  c3g  osg  9    0.0   1.04600   1                        ; AMBER-DYES
+ hcg  c3g  c3g  s6g  9    0.0   0.65084   3                        ; AMBER-DYES
+ hcg  c3g  ceg  n2g  9    0.0   0.00000   0                        ; AMBER-DYES
+ hcg  c3g   cg   ng  9  180.0   0.00000   2                        ; AMBER-DYES
+ hcg  c3g   cg   og  9    0.0   3.34720   1                        ; AMBER-DYES
+ hcg  c3g   cg   og  9  180.0   0.33472   3                        ; AMBER-DYES
+ hng   ng   cg   og  9    0.0   8.36800   1                        ; AMBER-DYES
+ hng   ng   cg   og  9  180.0  10.46000   2                        ; AMBER-DYES
+ hog  ohg   cg   og  9    0.0   7.94960   1                        ; AMBER-DYES
+ hog  ohg   cg   og  9  180.0   9.62320   2                        ; AMBER-DYES
+ n3g  c3g  c3g   ng  9    0.0   0.65084   3                        ; AMBER-DYES
+ n4g   CT  c3g  ssg  9    0.0   0.65084   3                        ; AMBER-DYES
+ ncg  cag  cag  osg  9  180.0  15.16700   2                        ; AMBER-DYES
+  ng  c3g  c3g   ng  9    0.0   0.65084   3                        ; AMBER-DYES
+  ng   cg  c3g  osg  9  180.0   0.00000   2                        ; AMBER-DYES
+  ng   cg  ccg  ssg  9  180.0  12.02900   2                        ; AMBER-DYES
+ nhg  cag  cag  s6g  9  180.0  15.16700   2                        ; AMBER-DYES
+ nhg  cag  cag  s6g  9  180.0  16.73600   2                        ; AMBER-DYES
+  og   cg  c3g  osg  9  180.0   0.00000   2                        ; AMBER-DYES
+  og   cg  ccg  ssg  9  180.0  12.02900   2                        ; AMBER-DYES
+ osg  cag  cag  s6g  9  180.0  15.16700   2                        ; AMBER-DYES
+ osg  cag  cag  s6g  9  180.0  16.73600   2                        ; AMBER-DYES
+  CT   OS    P   O2  9      0   2.30274   3                    ; FLUOR-DYNAMICS
+  CT   CT   OS    P  9    180   16.5379   1                    ; FLUOR-DYNAMICS
+   N    C   CD   CD  9    180   48.1482   2                    ; FLUOR-DYNAMICS
+   O    C   CD   CD  9    180   48.1482   2                    ; FLUOR-DYNAMICS
+  CT    C    N   CT  9    180    6.2802   1                    ; FLUOR-DYNAMICS
+   N    C   CD   HA  9    180   48.1482   2                    ; FLUOR-DYNAMICS
+   O    C   CD   HA  9    180   48.1482   2                    ; FLUOR-DYNAMICS
+   C    N   NT   CT  9      0   18.0032   2                    ; FLUOR-DYNAMICS
+   H    N   NT   CT  9      0   18.0032   2                    ; FLUOR-DYNAMICS
+  CV   CA   N*   CA  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CV   CA   N*   CB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CA   CT   CV   CA  9      0         0   3                    ; FLUOR-DYNAMICS
+  CA   CT   CV   NB  9      0         0   3                    ; FLUOR-DYNAMICS
+  NC   CA   N*   CA  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  H5   CA   N*   CA  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CT   CA   N*   CA  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CT   CA   N*   CB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  N*   CA   CV   CT  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  H4   CA   CV   CT  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  CV   CA   N*   CT  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CV   CA   N*   NB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CV   NB   NB   N*  9    180   16.7472   2                    ; FLUOR-DYNAMICS
+  N*   CA   CV   NB  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  H4   CA   CV   NB  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  CA   N*   NB   NB  9    180   16.7472   2                    ; FLUOR-DYNAMICS
+  CT   N*   NB   NB  9    180   16.7472   2                    ; FLUOR-DYNAMICS
+  CT   CA   CV   H4  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  N*   CA   CV   H4  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  HC   CT   CV   CA  9      0         0   3                    ; FLUOR-DYNAMICS
+  HC   CT   CV   NB  9      0         0   3                    ; FLUOR-DYNAMICS
+  H4   CA   N*   CT  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  H4   CA   N*   NB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  NC   CA   N*   CB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  H5   CA   N*   CB  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CT   CA   CV   NB  9    180   86.2481   2                    ; FLUOR-DYNAMICS
+  CV   CA   N*    C  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  CT   CA   N*    C  9    180   40.1933   2                    ; FLUOR-DYNAMICS
+  N*   CB   CM   CM  9    180   60.7086   2                    ; FLUOR-DYNAMICS
+  N*   CB   CM   HA  9    180   60.7086   2                    ; FLUOR-DYNAMICS
+  NB   CB   CM   CM  9    180   60.7086   2                    ; FLUOR-DYNAMICS
+  NB   CB   CM   HA  9    180   60.7086   2                    ; FLUOR-DYNAMICS
+ c3g  c3g   cg    N  9    0.0   0.29288   2  ; same as AMBER-DYES c3g-c3g-cg-ng
+ c3g  c3g   cg    N  9    0.0   0.41840   4  ; same as AMBER-DYES c3g-c3g-cg-ng
+ hcg  c3g   cg    N  9  180.0   0.00000   2  ; same as AMBER-DYES hcg-c3g-cg-ng
+ c3g   cg    N    H  9  180.0  10.46000   2  ; same as AMBER-DYES c3g-cg-ng-hng
+   H    N   cg   og  9    0.0   8.36800   1   ; same as AMBER-DYES hng-ng-cg-og
+   H    N   cg   og  9  180.0  10.46000   2   ; same as AMBER-DYES hng-ng-cg-og
+ c3g   cg    N   CT  9  180.0  10.46000   2  ; same as AMBER-DYES c3g-cg-ng-c3g
+  CT    N   cg   og  9  180.0  10.46000   2   ; same as AMBER-DYES c3g-ng-cg-og
+  cg    N   NT   CT  9      0   18.0032   2      ; same as AMBER-DYES C-N-NT-CT
+ c3g   cg    N   NT  9  180.0  10.46000   2         ; same as AMBER14sb X-C-N-X
+  og   cg    N   NT  9  180.0  10.46000   2         ; same as AMBER14sb X-C-N-X
  3C  CX  N   C     9         0.0      0.00000     4
  3C  CX  N   C     9         0.0      3.34720     3
  3C  CX  N   C     9         0.0      7.53120     2
