@@ -19,7 +19,7 @@ about = {}
 with open(os.path.join(package_directory, '__about__.py')) as a:
     exec(a.read(), about)
 
-_relax_types = ['D_p', 'D_ic', 'A_p', 'A_ic', 'q']
+_relax_types = ['D_f', 'D_ic', 'A_f', 'A_ic', 'q']
 
 
 def parseCmd():
@@ -259,7 +259,7 @@ class Burst:
         self.events_AA = {t: 0 for t in _relax_types}
         self.decaytimes_DD_DA = {t: [] for t in _relax_types}
         self.decaytimes_AA = {t: [] for t in _relax_types}
-        self.polarizations = {t: [] for t in ['D_p', 'A_p']}
+        self.polarizations = {t: [] for t in ['D_f', 'A_f']}
         self.FRETefficiency = None
 
 
@@ -280,9 +280,9 @@ class Burst:
                         if QY_correction = True the total photon count is (20/0.5 + 25/0.75 = 73) and so the burst is complete.
         """
         self.QY_correction = QY_correction
-        if QY_correction and (self.events_DD_DA['D_p']/QD + self.events_DD_DA['A_p']/QA >= self.burstsize):
+        if QY_correction and (self.events_DD_DA['D_f']/QD + self.events_DD_DA['A_f']/QA >= self.burstsize):
             return True
-        elif (not QY_correction) and (self.events_DD_DA['D_p'] + self.events_DD_DA['A_p'] == self.burstsize):
+        elif (not QY_correction) and (self.events_DD_DA['D_f'] + self.events_DD_DA['A_f'] == self.burstsize):
             return True
 
 
@@ -305,23 +305,23 @@ class Burst:
         """
         if AA:
             if event == 2:
-                self.events_AA['A_p'] += 1
-                self.decaytimes_AA['A_p'].append(decaytime)
-                self.polarizations['A_p'].append(polarization)
+                self.events_AA['A_f'] += 1
+                self.decaytimes_AA['A_f'].append(decaytime)
+                self.polarizations['A_f'].append(polarization)
             elif event == -2:
                 self.events_AA['A_ic'] += 1
                 self.decaytimes_AA['A_ic'].append(decaytime)
         else:
             if event == 1:
-                self.events_DD_DA['D_p'] += 1
-                self.decaytimes_DD_DA['D_p'].append(decaytime)
-                self.polarizations['D_p'].append(polarization)
+                self.events_DD_DA['D_f'] += 1
+                self.decaytimes_DD_DA['D_f'].append(decaytime)
+                self.polarizations['D_f'].append(polarization)
             elif event == -1:
                 self.events_DD_DA['D_ic'] += 1
                 self.decaytimes_DD_DA['D_ic'].append(decaytime)
             elif event == 2:
-                self.events_DD_DA['A_p'] += 1
-                self.decaytimes_DD_DA['A_p'].append(decaytime)
+                self.events_DD_DA['A_f'] += 1
+                self.decaytimes_DD_DA['A_f'].append(decaytime)
             elif event == -2:
                 self.events_DD_DA['A_ic'] += 1
                 self.decaytimes_DD_DA['A_ic'].append(decaytime)
@@ -347,9 +347,9 @@ class Burst:
         """
         self.no_gamma = no_gamma
         if no_gamma:
-            self.FRETefficiency = (self.events_DD_DA['A_p']/QA) / (self.events_DD_DA['A_p']/QA+ self.events_DD_DA['D_p']/QD)
+            self.FRETefficiency = (self.events_DD_DA['A_f']/QA) / (self.events_DD_DA['A_f']/QA+ self.events_DD_DA['D_f']/QD)
         else:
-            self.FRETefficiency = self.events_DD_DA['A_p'] / (self.events_DD_DA['A_p']+ self.events_DD_DA['D_p'])
+            self.FRETefficiency = self.events_DD_DA['A_f'] / (self.events_DD_DA['A_f']+ self.events_DD_DA['D_f'])
 
 
 class Relaxation:
@@ -479,9 +479,9 @@ class Experiment:
             self.decaytimes_DD_DA[t] = np.array([decaytime for decaytimes in [burst.decaytimes_DD_DA[t] for burst in self.bursts] for decaytime in decaytimes])
             self.decaytimes_AA[t] = np.array([decaytime for decaytimes in [burst.decaytimes_AA[t] for burst in self.bursts] for decaytime in decaytimes])
         if compute_anisotropy:
-            for t in ['D_p', 'A_p']:
+            for t in ['D_f', 'A_f']:
                 self.polarizations[t] = np.array([pol for polarizations in [burst.polarizations[t] for burst in self.bursts] for pol in polarizations])
-                if t == 'D_p':
+                if t == 'D_f':
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_DD_DA[t], self.polarizations[t])
                 else:
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_AA[t], self.polarizations[t])
@@ -538,8 +538,8 @@ class Experiment:
                      anisotropy array of shape [n,2] with columns: time bins, anisotropy
         """
         r = 2/5 * (polIntensity[:,1]-polIntensity[:,2]) / (polIntensity[:,1]+2*polIntensity[:,2])
-        ansiotropy = np.vstack((polIntensity[:,0], r)).T
-        return ansiotropy
+        anisotropy = np.vstack((polIntensity[:,0], r)).T
+        return anisotropy
          
 
     def calcTransitionRates(self):
