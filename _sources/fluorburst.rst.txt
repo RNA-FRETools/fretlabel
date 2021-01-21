@@ -4,6 +4,7 @@ FluorBurst
 .. toctree::
    :hidden:
 
+   fluorburst_parameters
    tutorial/fluorburst
 
 *FluorBurst* uses a Markov chain to compute fluorescent bursts from an MD trajectory of a biomolecule with fluorophores explicitely included. Distances and orientation factors are calculated from the transition dipoles of the donor and acceptor dye using *gmx dyecouple* which is part of Gromacs. Specifically, the orientation factor :math:`\kappa^2` is calculated as

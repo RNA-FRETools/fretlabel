@@ -284,6 +284,11 @@ Writes a copy of the forcefield files with the updated parameters to the current
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="fluordynamics.ff.Parameters.read_ff">
+<em class="property">classmethod </em><code class="sig-name descname">read_ff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filelist</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#Parameters.read_ff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.Parameters.read_ff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="fluordynamics.ff.Parameters.read_frcmod">
 <em class="property">classmethod </em><code class="sig-name descname">read_frcmod</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">atomtypes_molecule</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#Parameters.read_frcmod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.Parameters.read_frcmod" title="Permalink to this definition">¶</a></dt>
 <dd><p># Note: units in AMBER frcmod are different from those in Gromacs!
@@ -293,7 +298,7 @@ Writes a copy of the forcefield files with the updated parameters to the current
 
 <dl class="py method">
 <dt id="fluordynamics.ff.Parameters.read_specialbond">
-<em class="property">classmethod </em><code class="sig-name descname">read_specialbond</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">amberdyes</span></em>, <em class="sig-param"><span class="n">atoms_amberdyes</span></em>, <em class="sig-param"><span class="n">atoms_other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#Parameters.read_specialbond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.Parameters.read_specialbond" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">read_specialbond</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">amberdyes</span></em>, <em class="sig-param"><span class="n">atoms_amberdyes</span></em>, <em class="sig-param"><span class="n">atoms_other</span></em>, <em class="sig-param"><span class="n">ff_name</span><span class="o">=</span><span class="default_value">'AMBER-DYES'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#Parameters.read_specialbond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.Parameters.read_specialbond" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alternative constructor of the Parameters class which creates bondtypes, angletypes and propertypes by similarity
 to existing parameters</p>
 <dl class="field-list simple">
@@ -338,7 +343,7 @@ and values defining the</p></li>
 <dl class="py function">
 <dt id="fluordynamics.ff.couple_dye2baselinker">
 <code class="sig-prename descclassname">fluordynamics.ff.</code><code class="sig-name descname">couple_dye2baselinker</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dye</span></em>, <em class="sig-param"><span class="n">baselinker</span></em>, <em class="sig-param"><span class="n">carbonylC_dye</span></em>, <em class="sig-param"><span class="n">align_baselinker_atoms</span></em>, <em class="sig-param"><span class="n">remove_baselinker_atoms</span></em>, <em class="sig-param"><span class="n">atom_dye</span><span class="o">=</span><span class="default_value">'C99'</span></em>, <em class="sig-param"><span class="n">atom_baselinker</span><span class="o">=</span><span class="default_value">'N99'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#couple_dye2baselinker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.couple_dye2baselinker" title="Permalink to this definition">¶</a></dt>
-<dd><p>Couple a dye to an exisiting base-linker fragment</p>
+<dd><p>Couple a dye to an existing base-linker fragment</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -462,23 +467,6 @@ The PyMOL built-in save function truncates the string to 3 decimals.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>pandasMol2</strong> (<em>biopandas.mol2.pandas_mol2.PandasMol2 instance</em>)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="fluordynamics.ff.write_ff">
-<code class="sig-prename descclassname">fluordynamics.ff.</code><code class="sig-name descname">write_ff</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ff_folder</span></em>, <em class="sig-param"><span class="n">amberdyes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linker</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">specialbond</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">outputdir</span><span class="o">=</span><span class="default_value">'./'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/ff.html#write_ff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.ff.write_ff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the forcefield parameter files ffnonbonded.itp and ffbonded.itp with a new parameter set
-Writes a copy of the forcefield files with the updated parameters to the current working directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ff_folder</strong> (<em>str</em>) – folder where the original ffnonbonded.itp and ffbonded.itp are located</p></li>
-<li><p><strong>amberdyes</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
-<li><p><strong>linker</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
-<li><p><strong>specialbond</strong> (<em>fluordynamics.ff.Parameters instance, optional</em>)</p></li>
-</ul>
 </dd>
 </dl>
 </dd></dl>
