@@ -12,6 +12,7 @@ import tqdm.notebook
 import itertools
 import pickle
 import copy
+import pandas as pd
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -101,8 +102,12 @@ class Ensemble:
                 elif (len(filelist_rkappa) != len(filelist_don_coords)) or (len(filelist_rkappa) != len(filelist_acc_coords)):
                     raise ValueError('There are not the same number of rkappa and dye coordinates files in the directory \"{}\".'.format(directory))
                 else:
+                    if verbose:
+                        print('Loading files...')
                     self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa, filelist_don_coords, filelist_acc_coords))
             else:
+                if verbose:
+                    print('Loading files...')
                 self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa))
 
         self.checkTimeStepIdentity()
@@ -199,13 +204,13 @@ class Trajectory:
         acc_coords_filename : str (optional)
                               name of a .xvg file containing xyz coordinates of two atoms defining the transition dipole of the acceptor dye
         """
-        rkappa = np.loadtxt(rkappa_filename)
+        rkappa = pd.read_csv(rkappa_filename, sep='\s+', names=['time', 'R', 'kappa']).values
         if don_coords_filename is not None:
-            donor_xyz = np.loadtxt(don_coords_filename, comments=['@', '#'])
+            donor_xyz = pd.read_csv(don_coords_filename, sep='\s+', comment='@', skiprows=13, names=['time','x1','y1','z1','x2','y2','z2']).values
         else:
             donor_xyz = None
         if acc_coords_filename is not None:
-            acceptor_xyz = np.loadtxt(acc_coords_filename, comments=['@', '#'])
+            acceptor_xyz = pd.read_csv(acc_coords_filename, sep='\s+', comment='@', skiprows=13, names=['time','x1','y1','z1','x2','y2','z2']).values
         else:
             acceptor_xyz = None
         return cls(rkappa[:,0], rkappa[:,1], rkappa[:,2], donor_xyz, acceptor_xyz)
@@ -253,8 +258,6 @@ class Burst:
     """
     def __init__(self, burstsize, QD, QA):
         self.burstsize = burstsize
-        self.QY_correction = True
-        self.gamma_correction = True
         self.events_DD_DA = {t: 0 for t in _relax_types}
         self.events_AA = {t: 0 for t in _relax_types}
         self.decaytimes_DD_DA = {t: [] for t in _relax_types}
@@ -279,7 +282,6 @@ class Burst:
                         If QY_correction = False the total photon count is 20+25=45 photons, so the required burstsize is not reached yet.
                         if QY_correction = True the total photon count is (20/0.5 + 25/0.75 = 73) and so the burst is complete.
         """
-        self.QY_correction = QY_correction
         if QY_correction and (self.events_DD_DA['D_f']/QD + self.events_DD_DA['A_f']/QA >= self.burstsize):
             return True
         elif (not QY_correction) and (self.events_DD_DA['D_f'] + self.events_DD_DA['A_f'] == self.burstsize):
@@ -339,13 +341,12 @@ class Burst:
         no_gamma : bool
                    mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different 
                    quantum yields of donor and acceptor (note: the detection efficiency ratio always set to be 1).
-                   If the simulation should be comapred to a gamma-corrected experiment this parameter should be set to False.
+                   If the simulation should be compared to a gamma-corrected experiment this parameter should be set to False.
         QD : float
              donor fluorescence quantum yield
         QA : float
              acceptor fluorescence quantum yield
         """
-        self.no_gamma = no_gamma
         if no_gamma:
             self.FRETefficiency = (self.events_DD_DA['A_f']/QA) / (self.events_DD_DA['A_f']/QA+ self.events_DD_DA['D_f']/QD)
         else:
@@ -468,6 +469,8 @@ class Experiment:
                 if show_progress:
                     pbar.update()                          
 
+        if verbose:
+            print('Combining burst...')
         self.FRETefficiencies = np.array([burst.FRETefficiency for burst in self.bursts])
         self.burstsizes = np.array([burst.burstsize for burst in self.bursts])
         self.decaytimes_DD_DA = {}
@@ -633,6 +636,43 @@ class Experiment:
         rng = np.random.default_rng()
         burstsizes = rng.choice(a=burstsizetable, size=self.parameters['sampling']["nbursts"], p=bcounts/sum(bcounts))
         return burstsizes
+
+    @staticmethod
+    def shot_noise_width(mean_E, N):
+        """
+        Compute the width (standard deviation) expected due to shot noise given the total number of photons N
+        When N is the minimal photon threshold for a burst, i.e. parameters['burst']['lower_limit'], then shot_noise() returns 
+        the maximum width expected solely due to shot noise. 
+        
+        Parameters
+        ----------
+        mean_E : float
+        N : int
+
+        Returns
+        -------
+        sigma : float
+                standard deviation of a shot-noise limited Gaussian
+        """
+        sigma = np.sqrt(mean_E*(1-mean_E)/N)
+        return sigma
+
+    def gaussian(x, mean, sigma):
+        """
+        Calculate a Gaussian probability density function
+    
+        Parameters
+        ----------
+        x : numpy.array
+        mean : float
+        sigma : float
+
+        Returns
+        -------
+        pdf : numpy.array
+        """
+        pdf = 1/np.sqrt(2*np.pi*sigma**2)*np.exp(-(x-mean)**2/(2*sigma**2))
+        return pdf
 
 
     def save(self, filename, remove_bursts=False):
