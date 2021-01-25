@@ -248,7 +248,7 @@ False = relaxation event after donor excitation</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>no_gamma</strong> (<em>bool</em>) – mimic an uncorrected FRET experiment (i.e. before gamma-correction) which is affected by the different
 quantum yields of donor and acceptor (note: the detection efficiency ratio always set to be 1).
-If the simulation should be comapred to a gamma-corrected experiment this parameter should be set to False.</p></li>
+If the simulation should be compared to a gamma-corrected experiment this parameter should be set to False.</p></li>
 <li><p><strong>QD</strong> (<em>float</em>) – donor fluorescence quantum yield</p></li>
 <li><p><strong>QA</strong> (<em>float</em>) – acceptor fluorescence quantum yield</p></li>
 </ul>
@@ -378,6 +378,24 @@ where each contains xyz-coordinates of two atoms which define the transition dip
 </dd></dl>
 
 <dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.gaussian">
+<code class="sig-name descname">gaussian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mean</span></em>, <em class="sig-param"><span class="n">sigma</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate a Gaussian probability density function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>numpy.array</em>)</p></li>
+<li><p><strong>mean</strong> (<em>float</em>)</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pdf</strong> (<em>numpy.array</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="fluordynamics.fluorburst.Experiment.load">
 <em class="property">classmethod </em><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load an instance of the experiment class from a pickle file</p>
@@ -433,6 +451,25 @@ The encoding is 0 = parallel (p) and 1 = orthogonal (s)</p></li>
 <li><p><strong>filename</strong> (<em>str</em>)</p></li>
 <li><p><strong>remove_bursts</strong> (<em>bool</em>)</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="fluordynamics.fluorburst.Experiment.shot_noise_width">
+<em class="property">static </em><code class="sig-name descname">shot_noise_width</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mean_E</span></em>, <em class="sig-param"><span class="n">N</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.shot_noise_width"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.shot_noise_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the width (standard deviation) expected due to shot noise given the total number of photons N
+When N is the minimal photon threshold for a burst, i.e. parameters[‘burst’][‘lower_limit’], then shot_noise() returns
+the maximum width expected solely due to shot noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mean_E</strong> (<em>float</em>)</p></li>
+<li><p><strong>N</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sigma</strong> (<em>float</em>) – standard deviation of a shot-noise limited Gaussian</p>
 </dd>
 </dl>
 </dd></dl>
