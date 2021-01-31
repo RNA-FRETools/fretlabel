@@ -588,7 +588,7 @@ class Experiment:
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_DD_DA[t], self.polarizations[t])
                 else:
                     self.polIntensity[t] = self.polarizationIntensity(binwidth, self.decaytimes_AA[t], self.polarizations[t])
-                self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t])
+                self.anisotropy[t] = self.calcAnisotropy(self.polIntensity[t], parameters['dyes']['dipole_angle_abs_em'])
 
         if verbose:
             self.print_results()
@@ -626,7 +626,7 @@ class Experiment:
 
 
     @staticmethod
-    def calcAnisotropy(polIntensity):
+    def calcAnisotropy(polIntensity, dipole_angle_abs_em):
         """
         Calculate the time-resolved anisotropy decay
 
@@ -634,13 +634,21 @@ class Experiment:
         ----------
         polIntensity : numpy.ndarray
                        polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)
-        
+        dipole_angle_abs_em : float
+                              angle between the absorption and emission dipoles in the absence of depolarization due to rotation
+
         Returns
         -------
         anisotropy : numpy.ndarray
                      anisotropy array of shape [n,2] with columns: time bins, anisotropy
+
+        Reference
+        ----------
+        Lakowicz, Principles of fluorescence spectroscopy, 3rd ed. (2006), pp.355-358. 
         """
-        r = 2/5 * (polIntensity[:,1]-polIntensity[:,2]) / (polIntensity[:,1]+2*polIntensity[:,2])
+        loss_photoselection = 2/5
+        loss_abs_em_dipoles = (3*np.cos(dipole_angle_abs_em)**2-1)/2
+        r = loss_photoselection * loss_abs_em_dipoles * (polIntensity[:,1]-polIntensity[:,2]) / (polIntensity[:,1]+2*polIntensity[:,2])
         anisotropy = np.vstack((polIntensity[:,0], r)).T
         return anisotropy
          
