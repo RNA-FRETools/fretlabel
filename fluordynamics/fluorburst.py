@@ -182,11 +182,11 @@ class Ensemble:
                 else:
                     if verbose:
                         print('Loading files...')
-                    self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa, filelist_don_coords, filelist_acc_coords))
+                    self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa, ps['n_trajectory_splits'], filelist_don_coords, filelist_acc_coords))
             else:
                 if verbose:
                     print('Loading files...')
-                self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa))
+                self.species.append(Species(ps['name'][i], ps['probability'][i], filelist_rkappa, ps['n_trajectory_splits']))
 
         self.checkTimeStepIdentity()
 
@@ -219,7 +219,7 @@ class Species:
     filelist_acc_coords : list of str (optional)
                           list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the acceptor dye
     """
-    def __init__(self, name, probability, filelist_rkappa, filelist_don_coords=None, filelist_acc_coords=None):
+    def __init__(self, name, probability, filelist_rkappa, n_trajectory_splits=None, filelist_don_coords=None, filelist_acc_coords=None):
         self.name = name
         self.probability = probability
         self.trajectories = []
@@ -229,8 +229,28 @@ class Species:
                 traj = Trajectory.from_file(rkappa_filename, filelist_don_coords[i], filelist_acc_coords[i])
             except TypeError:
                 traj = Trajectory.from_file(rkappa_filename)
-            self.trajectories.append(traj)
-            total_frames += len(traj.time)
+            
+            if n_trajectory_splits:
+                time = np.array_split(traj.time, n_trajectory_splits)
+                R = np.array_split(traj.R, n_trajectory_splits)
+                kappasquare = np.array_split(traj.kappasquare, n_trajectory_splits)
+                if traj.donor_xyz is not None:
+                    donor_xyz = np.array_split(traj.donor_xyz, n_trajectory_splits)
+                else:
+                    donor_xyz = [None]*n_trajectory_splits
+                if traj.acceptor_xyz is not None:
+                    acceptor_xyz = np.array_split(traj.acceptor_xyz, n_trajectory_splits)
+                else:
+                    acceptor_xyz = [None]*n_trajectory_splits
+                for i in range(n_trajectory_splits):
+                    time[i] = np.array([k*(time[i][1]-time[i][0]) for k in range(len(time[i]))])
+                    traj = Trajectory(time[i], R[i], kappasquare[i], donor_xyz[i], acceptor_xyz[i])
+                    self.trajectories.append(traj)
+                    total_frames += len(traj.time)
+            else:
+                self.trajectories.append(traj)
+                total_frames += len(traj.time)
+
         for traj in self.trajectories:
             setattr(traj, 'weight', len(traj.time)/total_frames)
 
@@ -262,6 +282,8 @@ class Trajectory:
         self.p_fret = None
         self.pD_totfret = None
         self.weight = None
+        self.donor_xyz = donor_xyz
+        self.acceptor_xyz = acceptor_xyz
         if (donor_xyz is not None) and (acceptor_xyz is not None):
             self.checkLengthIdentity(self.length, donor_xyz, acceptor_xyz)
         self.donorTD = self.transitionDipole(donor_xyz)

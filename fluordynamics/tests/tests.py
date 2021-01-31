@@ -24,7 +24,7 @@ class ImportTest(unittest.TestCase):
         self.assertAlmostEqual(species.trajectories[0].weight, 0.4, places=3)
 
     def testEnsemble(self):
-        ensemble = fluorburst.Ensemble(os.path.join(_TEST_DIR, 'testdata'), {'species': {'name': ["all"], "unix_pattern_rkappa": ["*.dat"], "probability": [1]}})
+        ensemble = fluorburst.Ensemble(os.path.join(_TEST_DIR, 'testdata'), {'species': {'name': ["all"], "unix_pattern_rkappa": ["*.dat"], "probability": [1], "n_trajectory_splits": None}})
         self.assertEqual(len(ensemble.species[0].trajectories), 2)
 
 

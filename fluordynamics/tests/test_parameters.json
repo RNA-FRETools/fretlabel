@@ -27,7 +27,7 @@
 "bursts":{
     "lower_limit":20,
     "upper_limit":150,
-    "lambda":2.3,
+    "lambda":-2.3,
     "QY_correction":false,
     "averaging": "all"
 }
