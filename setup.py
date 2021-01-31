@@ -13,6 +13,7 @@ INSTALL_REQUIRES = [
     'pandas',
     'biopandas',
     'pybind11',
+    'jsonschema'
     ]
 
 class get_pybind_include(object):

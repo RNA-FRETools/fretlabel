@@ -13,6 +13,7 @@ import itertools
 import pickle
 import copy
 import pandas as pd
+import jsonschema
 
 package_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -21,6 +22,78 @@ with open(os.path.join(package_directory, '__about__.py')) as a:
     exec(a.read(), about)
 
 _relax_types = ['D_f', 'D_ic', 'A_f', 'A_ic', 'q']
+
+_schema =  {"title": "Fluorburst",
+            "description": "Parameters for Fluorburst to calculate FRET efficiencies and anisotropy decays from all-atom MD simulations",
+            "type": "object",
+            "properties":{
+                "dyes":{
+                    "description": "dye lifetimes and quantum yields",
+                    "type": "object",
+                    "properties":{
+                        "tauD":{"type": "number"},
+                        "tauA":{"type": "number"},
+                        "QD":{"type": "number"},
+                        "QA":{"type": "number"},
+                        "dipole_angle_abs_em":{"type": "number"} 
+                        },
+                    "required":["tauD", "tauA", "QD", "QA"]
+                    },
+                "sampling":{
+                    "description": "settings for Monte-Carlo sampling",
+                    "type": "object",
+                    "properties":{
+                        "nbursts":{"type": "integer"},
+                        "skipframesatstart":{"type": "integer"},
+                        "skipframesatend":{"type": "integer"},
+                        "multiprocessing":{"type": "boolean"},
+                        },
+                    "required":[]
+                    },
+                "fret":{
+                    "description": "FRET pair parameters",
+                    "type": "object",
+                    "properties":{
+                        "R0":{"type": "number"},
+                        "kappasquare":{"type": "number"},
+                        "no_gamma":{"type": "boolean"},
+                        "quenching_radius":{"type": "number"},
+                        },
+                    "required":["R0"]
+                    },
+                "species":{
+                    "description": "FRET pair parameters",
+                    "type": "object",
+                    "properties":{
+                        "name":{"type": "array"},
+                        "unix_pattern_rkappa":{"type": "array"},
+                        "unix_pattern_don_coords":{"type": "array"},
+                        "unix_pattern_acc_coords":{"type": "array"},
+                        "probability":{"type": "array"},
+                        "n_trajectory_splits":{"type": ["integer", "null"], "minimum": 1},
+                        },
+                    "required": ["name", "unix_pattern_rkappa", "unix_pattern_don_coords", "unix_pattern_acc_coords", "probability"]
+                    },
+                "bursts":{
+                    "description": "FRET pair parameters",
+                    "type": "object",
+                    "properties":{
+                        "lower_limit":{"type": "integer"},
+                        "upper_limit":{"type": "integer"},
+                        "lambda":{"type": "number",  "maximum": 0},
+                        "QY_correction":{"type": "boolean"},
+                        "averaging":{"type": "string"}
+                        },
+                    "required": ["lower_limit", "upper_limit", "lambda", "averaging"],
+                  }
+                }
+            }
+
+_defaults = {'dyes':{"dipole_angle_abs_em": 0}, 
+             'sampling':{'nbursts': 2000, 'skipframesatstart': 0, 'skipframesatend': 1000, 'multiprocessing': True}, 
+             'fret':{'kappasquare': 0.6666, 'no_gamma': False, 'quenching_radius':1}, 
+             'species':{'n_trajectory_splits':None}, 
+             'bursts':{'QY_correction':False}}
 
 
 def parseCmd():
@@ -66,6 +139,11 @@ def readParameters(parameter_file):
     """
     with open(parameter_file, 'r') as f:
         parameters = json.load(f)
+        jsonschema.validate(parameters, schema=_schema)
+        for section in _defaults.keys():
+            for key, val in _defaults[section].items():
+                if key not in parameters[section]:
+                    parameters[section][key] = val
     return parameters
 
 
@@ -288,7 +366,7 @@ class Burst:
             return True
 
 
-    def addRelaxationEvent(self, event, decaytime, polarization, AA):
+    def addRelaxationEvent(self, event, decaytime, polarization, is_AA):
         """
         Classify the relaxation event
 
@@ -305,7 +383,7 @@ class Burst:
              True = relaxation event after acceptor excitation (as in an ns-ALEX/PIE experiment)
              False = relaxation event after donor excitation
         """
-        if AA:
+        if is_AA:
             if event == 2:
                 self.events_AA['A_f'] += 1
                 self.decaytimes_AA['A_f'].append(decaytime)
