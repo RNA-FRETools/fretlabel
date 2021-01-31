@@ -223,7 +223,7 @@
 </dl>
 <dl class="py method">
 <dt id="fluordynamics.fluorburst.Burst.addRelaxationEvent">
-<code class="sig-name descname">addRelaxationEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em>, <em class="sig-param"><span class="n">decaytime</span></em>, <em class="sig-param"><span class="n">polarization</span></em>, <em class="sig-param"><span class="n">AA</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst.addRelaxationEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst.addRelaxationEvent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addRelaxationEvent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em>, <em class="sig-param"><span class="n">decaytime</span></em>, <em class="sig-param"><span class="n">polarization</span></em>, <em class="sig-param"><span class="n">is_AA</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Burst.addRelaxationEvent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Burst.addRelaxationEvent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classify the relaxation event</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -320,14 +320,23 @@ where each contains xyz-coordinates of two atoms which define the transition dip
 </dl>
 <dl class="py method">
 <dt id="fluordynamics.fluorburst.Experiment.calcAnisotropy">
-<em class="property">static </em><code class="sig-name descname">calcAnisotropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polIntensity</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcAnisotropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcAnisotropy" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">calcAnisotropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polIntensity</span></em>, <em class="sig-param"><span class="n">dipole_angle_abs_em</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Experiment.calcAnisotropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Experiment.calcAnisotropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the time-resolved anisotropy decay</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>polIntensity</strong> (<em>numpy.ndarray</em>) – polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>polIntensity</strong> (<em>numpy.ndarray</em>) – polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</p></li>
+<li><p><strong>dipole_angle_abs_em</strong> (<em>float</em>) – angle between the absorption and emission dipoles in the absence of depolarization due to rotation</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>anisotropy</strong> (<em>numpy.ndarray</em>) – anisotropy array of shape [n,2] with columns: time bins, anisotropy</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>anisotropy</strong> (<em>numpy.ndarray</em>) – anisotropy array of shape [n,2] with columns: time bins, anisotropy</p></li>
+<li><p><em>Reference</em></p></li>
+<li><p><em>———-</em></p></li>
+<li><p><em>Lakowicz, Principles of fluorescence spectroscopy, 3rd ed. (2006), pp.355-358.</em></p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -500,7 +509,7 @@ the maximum width expected solely due to shot noise.</p>
 
 <dl class="py class">
 <dt id="fluordynamics.fluorburst.Species">
-<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Species</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">probability</span></em>, <em class="sig-param"><span class="n">filelist_rkappa</span></em>, <em class="sig-param"><span class="n">filelist_don_coords</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filelist_acc_coords</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Species" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">fluordynamics.fluorburst.</code><code class="sig-name descname">Species</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">probability</span></em>, <em class="sig-param"><span class="n">filelist_rkappa</span></em>, <em class="sig-param"><span class="n">n_trajectory_splits</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filelist_don_coords</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">filelist_acc_coords</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fluordynamics/fluorburst.html#Species"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fluordynamics.fluorburst.Species" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Create a new species of trajectories</p>
 <dl class="field-list simple">

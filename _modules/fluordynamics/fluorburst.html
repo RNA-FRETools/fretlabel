@@ -189,6 +189,7 @@
 <span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">jsonschema</span>
 
 <span class="n">package_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 
@@ -197,6 +198,78 @@
     <span class="n">exec</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">about</span><span class="p">)</span>
 
 <span class="n">_relax_types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;D_f&#39;</span><span class="p">,</span> <span class="s1">&#39;D_ic&#39;</span><span class="p">,</span> <span class="s1">&#39;A_f&#39;</span><span class="p">,</span> <span class="s1">&#39;A_ic&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">]</span>
+
+<span class="n">_schema</span> <span class="o">=</span>  <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Fluorburst&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Parameters for Fluorburst to calculate FRET efficiencies and anisotropy decays from all-atom MD simulations&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;dyes&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;dye lifetimes and quantum yields&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;tauD&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;tauA&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;QD&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;QA&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;dipole_angle_abs_em&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">}</span> 
+                        <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;tauD&quot;</span><span class="p">,</span> <span class="s2">&quot;tauA&quot;</span><span class="p">,</span> <span class="s2">&quot;QD&quot;</span><span class="p">,</span> <span class="s2">&quot;QA&quot;</span><span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="s2">&quot;sampling&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;settings for Monte-Carlo sampling&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;nbursts&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;skipframesatstart&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;skipframesatend&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;multiprocessing&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:[]</span>
+                    <span class="p">},</span>
+                <span class="s2">&quot;fret&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FRET pair parameters&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;R0&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;kappasquare&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;no_gamma&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;quenching_radius&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">},</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:[</span><span class="s2">&quot;R0&quot;</span><span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="s2">&quot;species&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FRET pair parameters&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;unix_pattern_rkappa&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;unix_pattern_don_coords&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;unix_pattern_acc_coords&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;probability&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;array&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;n_trajectory_splits&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span> <span class="s2">&quot;null&quot;</span><span class="p">],</span> <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;unix_pattern_rkappa&quot;</span><span class="p">,</span> <span class="s2">&quot;unix_pattern_don_coords&quot;</span><span class="p">,</span> <span class="s2">&quot;unix_pattern_acc_coords&quot;</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">]</span>
+                    <span class="p">},</span>
+                <span class="s2">&quot;bursts&quot;</span><span class="p">:{</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FRET pair parameters&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;lower_limit&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;upper_limit&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;lambda&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>  <span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                        <span class="s2">&quot;QY_correction&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">},</span>
+                        <span class="s2">&quot;averaging&quot;</span><span class="p">:{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">}</span>
+                        <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;lower_limit&quot;</span><span class="p">,</span> <span class="s2">&quot;upper_limit&quot;</span><span class="p">,</span> <span class="s2">&quot;lambda&quot;</span><span class="p">,</span> <span class="s2">&quot;averaging&quot;</span><span class="p">],</span>
+                  <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+<span class="n">_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dyes&#39;</span><span class="p">:{</span><span class="s2">&quot;dipole_angle_abs_em&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> 
+             <span class="s1">&#39;sampling&#39;</span><span class="p">:{</span><span class="s1">&#39;nbursts&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span> <span class="s1">&#39;skipframesatstart&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;skipframesatend&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;multiprocessing&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> 
+             <span class="s1">&#39;fret&#39;</span><span class="p">:{</span><span class="s1">&#39;kappasquare&#39;</span><span class="p">:</span> <span class="mf">0.6666</span><span class="p">,</span> <span class="s1">&#39;no_gamma&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;quenching_radius&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span> 
+             <span class="s1">&#39;species&#39;</span><span class="p">:{</span><span class="s1">&#39;n_trajectory_splits&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">},</span> 
+             <span class="s1">&#39;bursts&#39;</span><span class="p">:{</span><span class="s1">&#39;QY_correction&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">}}</span>
 
 
 <div class="viewcode-block" id="parseCmd"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.parseCmd">[docs]</a><span class="k">def</span> <span class="nf">parseCmd</span><span class="p">():</span>
@@ -242,6 +315,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">parameter_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">parameters</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">jsonschema</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">_schema</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">_defaults</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">_defaults</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">[</span><span class="n">section</span><span class="p">]:</span>
+                    <span class="n">parameters</span><span class="p">[</span><span class="n">section</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
     <span class="k">return</span> <span class="n">parameters</span></div>
 
 
@@ -280,11 +358,11 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading files...&#39;</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;n_trajectory_splits&#39;</span><span class="p">],</span> <span class="n">filelist_don_coords</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loading files...&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Species</span><span class="p">(</span><span class="n">ps</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">ps</span><span class="p">[</span><span class="s1">&#39;n_trajectory_splits&#39;</span><span class="p">]))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">checkTimeStepIdentity</span><span class="p">()</span>
 
@@ -317,7 +395,7 @@
 <span class="sd">    filelist_acc_coords : list of str (optional)</span>
 <span class="sd">                          list of .xvg filenames with xyz coordinates of two atoms defining the transition dipole of the acceptor dye</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">probability</span><span class="p">,</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">probability</span><span class="p">,</span> <span class="n">filelist_rkappa</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filelist_acc_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">probability</span> <span class="o">=</span> <span class="n">probability</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span> <span class="o">=</span> <span class="p">[]</span>
@@ -327,8 +405,28 @@
                 <span class="n">traj</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">rkappa_filename</span><span class="p">,</span> <span class="n">filelist_don_coords</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">filelist_acc_coords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
                 <span class="n">traj</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">rkappa_filename</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">traj</span><span class="p">)</span>
-            <span class="n">total_frames</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">n_trajectory_splits</span><span class="p">:</span>
+                <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="p">)</span>
+                <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="p">)</span>
+                <span class="n">kappasquare</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">kappasquare</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">traj</span><span class="o">.</span><span class="n">donor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">donor_xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">donor_xyz</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">donor_xyz</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">n_trajectory_splits</span>
+                <span class="k">if</span> <span class="n">traj</span><span class="o">.</span><span class="n">acceptor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">acceptor_xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">acceptor_xyz</span><span class="p">,</span> <span class="n">n_trajectory_splits</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">acceptor_xyz</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="n">n_trajectory_splits</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trajectory_splits</span><span class="p">):</span>
+                    <span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">]))])</span>
+                    <span class="n">traj</span> <span class="o">=</span> <span class="n">Trajectory</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">kappasquare</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">donor_xyz</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">acceptor_xyz</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">traj</span><span class="p">)</span>
+                    <span class="n">total_frames</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">traj</span><span class="p">)</span>
+                <span class="n">total_frames</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
         <span class="k">for</span> <span class="n">traj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trajectories</span><span class="p">:</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">traj</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">traj</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="n">total_frames</span><span class="p">)</span></div>
 
@@ -360,6 +458,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">p_fret</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pD_totfret</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">donor_xyz</span> <span class="o">=</span> <span class="n">donor_xyz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acceptor_xyz</span> <span class="o">=</span> <span class="n">acceptor_xyz</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">donor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">acceptor_xyz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">checkLengthIdentity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">donor_xyz</span><span class="p">,</span> <span class="n">acceptor_xyz</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">donorTD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transitionDipole</span><span class="p">(</span><span class="n">donor_xyz</span><span class="p">)</span>
@@ -464,7 +564,7 @@
             <span class="k">return</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="Burst.addRelaxationEvent"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst.addRelaxationEvent">[docs]</a>    <span class="k">def</span> <span class="nf">addRelaxationEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">decaytime</span><span class="p">,</span> <span class="n">polarization</span><span class="p">,</span> <span class="n">AA</span><span class="p">):</span>
+<div class="viewcode-block" id="Burst.addRelaxationEvent"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Burst.addRelaxationEvent">[docs]</a>    <span class="k">def</span> <span class="nf">addRelaxationEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">decaytime</span><span class="p">,</span> <span class="n">polarization</span><span class="p">,</span> <span class="n">is_AA</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Classify the relaxation event</span>
 
@@ -481,7 +581,7 @@
 <span class="sd">             True = relaxation event after acceptor excitation (as in an ns-ALEX/PIE experiment)</span>
 <span class="sd">             False = relaxation event after donor excitation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">AA</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">is_AA</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">events_AA</span><span class="p">[</span><span class="s1">&#39;A_f&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="s1">&#39;A_f&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decaytime</span><span class="p">)</span>
@@ -664,7 +764,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizationIntensity</span><span class="p">(</span><span class="n">binwidth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_DD_DA</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizationIntensity</span><span class="p">(</span><span class="n">binwidth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">decaytimes_AA</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">polarizations</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcAnisotropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">anisotropy</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcAnisotropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">polIntensity</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;dyes&#39;</span><span class="p">][</span><span class="s1">&#39;dipole_angle_abs_em&#39;</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
@@ -702,7 +802,7 @@
 
 
 <div class="viewcode-block" id="Experiment.calcAnisotropy"><a class="viewcode-back" href="../../module_fluorbursts.html#fluordynamics.fluorburst.Experiment.calcAnisotropy">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">calcAnisotropy</span><span class="p">(</span><span class="n">polIntensity</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calcAnisotropy</span><span class="p">(</span><span class="n">polIntensity</span><span class="p">,</span> <span class="n">dipole_angle_abs_em</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the time-resolved anisotropy decay</span>
 
@@ -710,13 +810,21 @@
 <span class="sd">        ----------</span>
 <span class="sd">        polIntensity : numpy.ndarray</span>
 <span class="sd">                       polarization intensity array of shape [n,3] with columns: time bins, p-photons counts (parallel), s-photon counts (orthogonal)</span>
-<span class="sd">        </span>
+<span class="sd">        dipole_angle_abs_em : float</span>
+<span class="sd">                              angle between the absorption and emission dipoles in the absence of depolarization due to rotation</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        anisotropy : numpy.ndarray</span>
 <span class="sd">                     anisotropy array of shape [n,2] with columns: time bins, anisotropy</span>
+
+<span class="sd">        Reference</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Lakowicz, Principles of fluorescence spectroscopy, 3rd ed. (2006), pp.355-358. </span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">loss_photoselection</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span>
+        <span class="n">loss_abs_em_dipoles</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dipole_angle_abs_em</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">loss_photoselection</span> <span class="o">*</span> <span class="n">loss_abs_em_dipoles</span> <span class="o">*</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
         <span class="n">anisotropy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">polIntensity</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
         <span class="k">return</span> <span class="n">anisotropy</span></div>
          
