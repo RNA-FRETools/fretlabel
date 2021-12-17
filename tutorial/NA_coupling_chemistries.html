@@ -1,37 +1,20 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Nucleic acid coupling chemistries &mdash; fluordynamics 0.1.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -39,44 +22,23 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Adding partial charges to mol2 files" href="partial_charges_to_mol2.html" />
     <link rel="prev" title="Deoxythymidine fragment building" href="deoxythymidine_fragment_building.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #333" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> fluordynamics
-          
-
-          
-            
             <img src="../_static/fluordynamics_logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,29 +46,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Documentation</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../fluorlabel.html">FluorLabel</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../fragment_building.html">Fragment building</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="deoxythymidine_fragment_building.html">Deoxythymidine fragment building</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Nucleic acid coupling chemistries</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Labeling-on-C5-of-deoxythymidine">Labeling on C5 of deoxythymidine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-phosphate-at-5'-end">Labeling via phosphate at 5’-end</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-phosphate-at-3'-end">Labeling via phosphate at 3’-end</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-phosphate-at-5’-end">Labeling via phosphate at 5’-end</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-phosphate-at-3’-end">Labeling via phosphate at 3’-end</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Internal-labeling-via-ethenoadenine-or-ethenocytosine">Internal labeling via ethenoadenine or ethenocytosine</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-hydrazide-at-3'-end">Labeling via hydrazide at 3’-end</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Labeling-via-hydrazide-at-3’-end">Labeling via hydrazide at 3’-end</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Forcefield-parameterization">Forcefield parameterization</a></li>
 </ul>
 </li>
@@ -119,85 +70,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../fluorburst.html">FluorBurst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Code</span></p>
+<p class="caption" role="heading"><span class="caption-text">Code</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../module_ff.html">Force field parameterization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_fluorbursts.html">Fluorburst</a></li>
 </ul>
-<p class="caption"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">Publications and related projects</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #333" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">fluordynamics</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../fluorlabel.html">FluorLabel</a> &raquo;</li>
-        
           <li><a href="../fragment_building.html">Fragment building</a> &raquo;</li>
-        
       <li>Nucleic acid coupling chemistries</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/tutorial/NA_coupling_chemistries.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -468,11 +376,11 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Nucleic-acid-coupling-chemistries">
-<h1>Nucleic acid coupling chemistries<a class="headerlink" href="#Nucleic-acid-coupling-chemistries" title="Permalink to this headline">¶</a></h1>
+<section id="Nucleic-acid-coupling-chemistries">
+<h1>Nucleic acid coupling chemistries<a class="headerlink" href="#Nucleic-acid-coupling-chemistries" title="Permalink to this headline"></a></h1>
 <p>This notebook implements all base-linker fragments currently available in Fluordynamics.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -484,7 +392,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[605]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -494,7 +402,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[605]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -502,8 +410,8 @@ div.rendered_html tbody tr:hover {
 &lt;module &#39;fluordynamics.ff&#39; from &#39;/mnt/c/Users/fsteffen/Github/fluordynamics/fluordynamics/ff.py&#39;&gt;
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -511,8 +419,182 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ConnectionRefusedError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">/mnt/c/Users/fsteffen/Github/fluordynamics/fluordynamics/jupyter.py</span> in <span class="ansi-cyan-fg">connect2pymol</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 18</span><span class="ansi-red-fg">         </span>cmd<span class="ansi-blue-fg">.</span>cd<span class="ansi-blue-fg">(</span>curr_wd<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     19</span>     <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1111</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1112</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__send<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>__name<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1113</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">__request</span><span class="ansi-blue-fg">(self, methodname, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1451</span>             request<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 1452</span><span class="ansi-red-fg">             </span>verbose<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>__verbose
+<span class="ansi-green-intense-fg ansi-bold">   1453</span>             )
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, host, handler, request_body, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1153</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1154</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>single_request<span class="ansi-blue-fg">(</span>host<span class="ansi-blue-fg">,</span> handler<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">,</span> verbose<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1155</span>             <span class="ansi-green-fg">except</span> http<span class="ansi-blue-fg">.</span>client<span class="ansi-blue-fg">.</span>RemoteDisconnected<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">single_request</span><span class="ansi-blue-fg">(self, host, handler, request_body, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1165</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1166</span><span class="ansi-red-fg">             </span>http_conn <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send_request<span class="ansi-blue-fg">(</span>host<span class="ansi-blue-fg">,</span> handler<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">,</span> verbose<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1167</span>             resp <span class="ansi-blue-fg">=</span> http_conn<span class="ansi-blue-fg">.</span>getresponse<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">send_request</span><span class="ansi-blue-fg">(self, host, handler, request_body, debug)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1278</span>         self<span class="ansi-blue-fg">.</span>send_headers<span class="ansi-blue-fg">(</span>connection<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1279</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send_content<span class="ansi-blue-fg">(</span>connection<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1280</span>         <span class="ansi-green-fg">return</span> connection
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">send_content</span><span class="ansi-blue-fg">(self, connection, request_body)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1308</span>         connection<span class="ansi-blue-fg">.</span>putheader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Content-Length&#34;</span><span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>request_body<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1309</span><span class="ansi-red-fg">         </span>connection<span class="ansi-blue-fg">.</span>endheaders<span class="ansi-blue-fg">(</span>request_body<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1310</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">endheaders</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1271</span>             <span class="ansi-green-fg">raise</span> CannotSendHeader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1272</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_output<span class="ansi-blue-fg">(</span>message_body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1273</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">_send_output</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1031</span>         <span class="ansi-green-fg">del</span> self<span class="ansi-blue-fg">.</span>_buffer<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 1032</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1033</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    971</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>auto_open<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 972</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    973</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    943</span>         self.sock = self._create_connection(
+<span class="ansi-green-fg">--&gt; 944</span><span class="ansi-red-fg">             (self.host,self.port), self.timeout, self.source_address)
+</span><span class="ansi-green-intense-fg ansi-bold">    945</span>         self<span class="ansi-blue-fg">.</span>sock<span class="ansi-blue-fg">.</span>setsockopt<span class="ansi-blue-fg">(</span>socket<span class="ansi-blue-fg">.</span>IPPROTO_TCP<span class="ansi-blue-fg">,</span> socket<span class="ansi-blue-fg">.</span>TCP_NODELAY<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/socket.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address)</span>
+<span class="ansi-green-intense-fg ansi-bold">    727</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 728</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> err
+<span class="ansi-green-intense-fg ansi-bold">    729</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/socket.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address)</span>
+<span class="ansi-green-intense-fg ansi-bold">    715</span>                 sock<span class="ansi-blue-fg">.</span>bind<span class="ansi-blue-fg">(</span>source_address<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 716</span><span class="ansi-red-fg">             </span>sock<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span>sa<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    717</span>             <span class="ansi-red-fg"># Break explicitly a reference cycle</span>
+
+<span class="ansi-red-fg">ConnectionRefusedError</span>: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ConnectionRefusedError</span>                    Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-86e8404e6c40&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>cmd_gui <span class="ansi-blue-fg">=</span> fd<span class="ansi-blue-fg">.</span>jupyter<span class="ansi-blue-fg">.</span>connect2pymol<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/mnt/c/Users/fsteffen/Github/fluordynamics/fluordynamics/jupyter.py</span> in <span class="ansi-cyan-fg">connect2pymol</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     18</span>         cmd<span class="ansi-blue-fg">.</span>cd<span class="ansi-blue-fg">(</span>curr_wd<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     19</span>     <span class="ansi-green-fg">except</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 20</span><span class="ansi-red-fg">         </span>cmd<span class="ansi-blue-fg">.</span>cd<span class="ansi-blue-fg">(</span>re<span class="ansi-blue-fg">.</span>sub<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">r&#39;/mnt/([a-z])&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">r&#39;\1:&#39;</span><span class="ansi-blue-fg">,</span> curr_wd<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span>     <span class="ansi-green-fg">return</span> cmd
+<span class="ansi-green-intense-fg ansi-bold">     22</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1110</span>         <span class="ansi-green-fg">return</span> _Method<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>__send<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;%s.%s&#34;</span> <span class="ansi-blue-fg">%</span> <span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>__name<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1111</span>     <span class="ansi-green-fg">def</span> __call__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1112</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__send<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>__name<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1113</span>
+<span class="ansi-green-intense-fg ansi-bold">   1114</span> <span class="ansi-red-fg">##</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">__request</span><span class="ansi-blue-fg">(self, methodname, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1450</span>             self<span class="ansi-blue-fg">.</span>__handler<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1451</span>             request<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 1452</span><span class="ansi-red-fg">             </span>verbose<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>__verbose
+<span class="ansi-green-intense-fg ansi-bold">   1453</span>             )
+<span class="ansi-green-intense-fg ansi-bold">   1454</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">request</span><span class="ansi-blue-fg">(self, host, handler, request_body, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1152</span>         <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1153</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1154</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>single_request<span class="ansi-blue-fg">(</span>host<span class="ansi-blue-fg">,</span> handler<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">,</span> verbose<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1155</span>             <span class="ansi-green-fg">except</span> http<span class="ansi-blue-fg">.</span>client<span class="ansi-blue-fg">.</span>RemoteDisconnected<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1156</span>                 <span class="ansi-green-fg">if</span> i<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">single_request</span><span class="ansi-blue-fg">(self, host, handler, request_body, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1164</span>         <span class="ansi-red-fg"># issue XML-RPC request</span>
+<span class="ansi-green-intense-fg ansi-bold">   1165</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1166</span><span class="ansi-red-fg">             </span>http_conn <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>send_request<span class="ansi-blue-fg">(</span>host<span class="ansi-blue-fg">,</span> handler<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">,</span> verbose<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1167</span>             resp <span class="ansi-blue-fg">=</span> http_conn<span class="ansi-blue-fg">.</span>getresponse<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1168</span>             <span class="ansi-green-fg">if</span> resp<span class="ansi-blue-fg">.</span>status <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">200</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">send_request</span><span class="ansi-blue-fg">(self, host, handler, request_body, debug)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1277</span>         headers<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;User-Agent&#34;</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>user_agent<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1278</span>         self<span class="ansi-blue-fg">.</span>send_headers<span class="ansi-blue-fg">(</span>connection<span class="ansi-blue-fg">,</span> headers<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1279</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send_content<span class="ansi-blue-fg">(</span>connection<span class="ansi-blue-fg">,</span> request_body<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1280</span>         <span class="ansi-green-fg">return</span> connection
+<span class="ansi-green-intense-fg ansi-bold">   1281</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/xmlrpc/client.py</span> in <span class="ansi-cyan-fg">send_content</span><span class="ansi-blue-fg">(self, connection, request_body)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1307</span>
+<span class="ansi-green-intense-fg ansi-bold">   1308</span>         connection<span class="ansi-blue-fg">.</span>putheader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Content-Length&#34;</span><span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span>request_body<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1309</span><span class="ansi-red-fg">         </span>connection<span class="ansi-blue-fg">.</span>endheaders<span class="ansi-blue-fg">(</span>request_body<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1310</span>
+<span class="ansi-green-intense-fg ansi-bold">   1311</span>     <span class="ansi-red-fg">##</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">endheaders</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1270</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1271</span>             <span class="ansi-green-fg">raise</span> CannotSendHeader<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1272</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>_send_output<span class="ansi-blue-fg">(</span>message_body<span class="ansi-blue-fg">,</span> encode_chunked<span class="ansi-blue-fg">=</span>encode_chunked<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1273</span>
+<span class="ansi-green-intense-fg ansi-bold">   1274</span>     def request(self, method, url, body=None, headers={}, *,
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">_send_output</span><span class="ansi-blue-fg">(self, message_body, encode_chunked)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1030</span>         msg <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">b&#34;\r\n&#34;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_buffer<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1031</span>         <span class="ansi-green-fg">del</span> self<span class="ansi-blue-fg">.</span>_buffer<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">-&gt; 1032</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>send<span class="ansi-blue-fg">(</span>msg<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1033</span>
+<span class="ansi-green-intense-fg ansi-bold">   1034</span>         <span class="ansi-green-fg">if</span> message_body <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">send</span><span class="ansi-blue-fg">(self, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    970</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>sock <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    971</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>auto_open<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 972</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    973</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    974</span>                 <span class="ansi-green-fg">raise</span> NotConnected<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/http/client.py</span> in <span class="ansi-cyan-fg">connect</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    942</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Connect to the host and port specified in __init__.&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    943</span>         self.sock = self._create_connection(
+<span class="ansi-green-fg">--&gt; 944</span><span class="ansi-red-fg">             (self.host,self.port), self.timeout, self.source_address)
+</span><span class="ansi-green-intense-fg ansi-bold">    945</span>         self<span class="ansi-blue-fg">.</span>sock<span class="ansi-blue-fg">.</span>setsockopt<span class="ansi-blue-fg">(</span>socket<span class="ansi-blue-fg">.</span>IPPROTO_TCP<span class="ansi-blue-fg">,</span> socket<span class="ansi-blue-fg">.</span>TCP_NODELAY<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    946</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/socket.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address)</span>
+<span class="ansi-green-intense-fg ansi-bold">    726</span>     <span class="ansi-green-fg">if</span> err <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    727</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 728</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> err
+<span class="ansi-green-intense-fg ansi-bold">    729</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    730</span>             <span class="ansi-red-fg"># Break explicitly a reference cycle</span>
+
+<span class="ansi-green-fg">~/miniconda3/envs/navis/lib/python3.7/socket.py</span> in <span class="ansi-cyan-fg">create_connection</span><span class="ansi-blue-fg">(address, timeout, source_address)</span>
+<span class="ansi-green-intense-fg ansi-bold">    714</span>             <span class="ansi-green-fg">if</span> source_address<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    715</span>                 sock<span class="ansi-blue-fg">.</span>bind<span class="ansi-blue-fg">(</span>source_address<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 716</span><span class="ansi-red-fg">             </span>sock<span class="ansi-blue-fg">.</span>connect<span class="ansi-blue-fg">(</span>sa<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    717</span>             <span class="ansi-red-fg"># Break explicitly a reference cycle</span>
+<span class="ansi-green-intense-fg ansi-bold">    718</span>             err <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
+
+<span class="ansi-red-fg">ConnectionRefusedError</span>: [Errno 111] Connection refused
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -522,37 +604,38 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Labeling-on-C5-of-deoxythymidine">
-<h2>Labeling on C5 of deoxythymidine<a class="headerlink" href="#Labeling-on-C5-of-deoxythymidine" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Geometry-optimization">
-<h3>Geometry optimization<a class="headerlink" href="#Geometry-optimization" title="Permalink to this headline">¶</a></h3>
+<section id="Labeling-on-C5-of-deoxythymidine">
+<h2>Labeling on C5 of deoxythymidine<a class="headerlink" href="#Labeling-on-C5-of-deoxythymidine" title="Permalink to this headline"></a></h2>
+<section id="Geometry-optimization">
+<h3>Geometry optimization<a class="headerlink" href="#Geometry-optimization" title="Permalink to this headline"></a></h3>
 <p>Create Gaussian input file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="n">MLE_capped</span>
-<span class="n">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
-<span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=MLE_capped
+input_folder=&#39;in/&#39;
+output_folder=&#39;out/&#39;
 
-<span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">-</span><span class="n">fo</span> <span class="n">gcrt</span> <span class="o">-</span><span class="n">gv</span> <span class="mi">1</span> <span class="o">-</span><span class="n">ge</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gesp</span> <span class="o">-</span><span class="n">ch</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span> <span class="o">-</span><span class="n">nc</span> <span class="mi">0</span>
+antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.gin -fo gcrt -gv 1 -ge &quot;$output_folder/$name&quot;.gesp -ch &quot;$output_folder/$name&quot;_opt -nc 0
 </pre></div>
 </div>
 <p>Gaussian geometry optimization and ESP calculation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nproc</span><span class="o">=</span><span class="mi">12</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nproc=12
 
-<span class="n">sed</span> <span class="s1">&#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/iop/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/.*gesp/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span>
+sed &#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39; &lt; &quot;$output_folder/$name&quot;.gin | sed &#39;/iop/d&#39; | sed &#39;/.*gesp/d&#39; | sed &quot;/--Link1--/ a %nproc=$nproc&quot; &gt; &quot;$output_folder/$name&quot;_b3lyp_opt.gin
 
-<span class="n">sed</span> <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/SCF/Geom=check SCF/g&#39;</span><span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/\(\</span><span class="si">%c</span><span class="s1">hk=.*\)opt/</span><span class="se">\1</span><span class="s1">esp/g&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span>
+sed &#39;/^[[:space:]]*[A-Z]/d&#39; &lt; &quot;$output_folder/$name&quot;.gin | sed &#39;s/SCF/Geom=check SCF/g&#39;| sed &#39;s/\(\%chk=.*\)opt/\1esp/g&#39; | sed &quot;/--Link1--/ a %nproc=$nproc&quot; &gt; &quot;$output_folder/$name&quot;_hf_esp.gin
 
-<span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gout</span> <span class="o">&amp;&amp;</span> <span class="n">cp</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span><span class="o">.</span><span class="n">chk</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_esp</span><span class="o">.</span><span class="n">chk</span>
-
-<span class="o">**</span><span class="n">Note</span><span class="p">:</span><span class="o">**</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">that</span> <span class="n">charge</span> <span class="ow">and</span> <span class="n">multiplicity</span> <span class="n">are</span> <span class="n">compatible</span> <span class="p">(</span><span class="n">check</span> <span class="n">log</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">of</span> <span class="n">segmentation</span> <span class="n">errors</span><span class="p">)</span> <span class="n">files</span>
+g09 &lt; &quot;$output_folder/$name&quot;_b3lyp_opt.gin &gt; &quot;$output_folder/$name&quot;_b3lyp_opt.gout &amp;&amp; cp &quot;$output_folder/$name&quot;_opt.chk &quot;$output_folder/$name&quot;_esp.chk
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gout</span>
+<blockquote>
+<div><p><strong>Note:</strong> Make sure that charge and multiplicity are compatible (check log files in case of segmentation errors) files</p>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>g09 &lt; &quot;$output_folder/$name&quot;_hf_esp.gin &gt; &quot;$output_folder/$name&quot;_hf_esp.gout
 </pre></div>
 </div>
-</div>
-<div class="section" id="Partial-charge-fitting-with-RESP">
-<h3>Partial charge fitting with RESP<a class="headerlink" href="#Partial-charge-fitting-with-RESP" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.ac -fo ac -pf yes -nc 0
+</section>
+<section id="Partial-charge-fitting-with-RESP">
+<h3>Partial charge fitting with RESP<a class="headerlink" href="#Partial-charge-fitting-with-RESP" title="Permalink to this headline"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.ac -fo ac -pf yes -nc 0
 
 capping_group=MLE_capping_groups.dat
 
@@ -580,12 +663,12 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 </pre></div>
 </div>
 <p><strong>Hint:</strong> The above two-stage RESP fitting protocol is wrapped in the following script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">MLE_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">MLE_capping_groups</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resp_fit.sh -n MLE_capped -i &#39;in/&#39; -o &#39;out/&#39; -g MLE_capping_groups.dat -c 0
 </pre></div>
 </div>
-</div>
-<div class="section" id="Coupling-to-base-and-dye">
-<h3>Coupling to base and dye<a class="headerlink" href="#Coupling-to-base-and-dye" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Coupling-to-base-and-dye">
+<h3>Coupling to base and dye<a class="headerlink" href="#Coupling-to-base-and-dye" title="Permalink to this headline"></a></h3>
 <p>First couple the deoxythymine base and the MLE linker</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -669,42 +752,43 @@ Check passed!
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Labeling-via-phosphate-at-5'-end">
-<h2>Labeling via phosphate at 5’-end<a class="headerlink" href="#Labeling-via-phosphate-at-5'-end" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Geometry optimization<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Labeling-via-phosphate-at-5’-end">
+<h2>Labeling via phosphate at 5’-end<a class="headerlink" href="#Labeling-via-phosphate-at-5’-end" title="Permalink to this headline"></a></h2>
+<section id="id1">
+<h3>Geometry optimization<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
 <p>Create Gaussian input file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="n">POS_capped</span>
-<span class="n">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
-<span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name=POS_capped
+input_folder=&#39;in/&#39;
+output_folder=&#39;out/&#39;
 </pre></div>
 </div>
 <p>Here, the net charge is -1</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">-</span><span class="n">fo</span> <span class="n">gcrt</span> <span class="o">-</span><span class="n">gv</span> <span class="mi">1</span> <span class="o">-</span><span class="n">ge</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gesp</span> <span class="o">-</span><span class="n">ch</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span> <span class="o">-</span><span class="n">nc</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.gin -fo gcrt -gv 1 -ge &quot;$output_folder/$name&quot;.gesp -ch &quot;$output_folder/$name&quot;_opt -nc -1
 </pre></div>
 </div>
 <p>Gaussian geometry optimization and ESP calculation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nproc</span><span class="o">=</span><span class="mi">12</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nproc=12
 
-<span class="n">sed</span> <span class="s1">&#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/iop/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/.*gesp/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span>
+sed &#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39; &lt; &quot;$output_folder/$name&quot;.gin | sed &#39;/iop/d&#39; | sed &#39;/.*gesp/d&#39; | sed &quot;/--Link1--/ a %nproc=$nproc&quot; &gt; &quot;$output_folder/$name&quot;_b3lyp_opt.gin
 
-<span class="n">sed</span> <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/SCF/Geom=check SCF/g&#39;</span><span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/\(\</span><span class="si">%c</span><span class="s1">hk=.*\)opt/</span><span class="se">\1</span><span class="s1">esp/g&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span>
+sed &#39;/^[[:space:]]*[A-Z]/d&#39; &lt; &quot;$output_folder/$name&quot;.gin | sed &#39;s/SCF/Geom=check SCF/g&#39;| sed &#39;s/\(\%chk=.*\)opt/\1esp/g&#39; | sed &quot;/--Link1--/ a %nproc=$nproc&quot; &gt; &quot;$output_folder/$name&quot;_hf_esp.gin
 
-<span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gout</span> <span class="o">&amp;&amp;</span> <span class="n">cp</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span><span class="o">.</span><span class="n">chk</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_esp</span><span class="o">.</span><span class="n">chk</span>
-
-<span class="o">**</span><span class="n">Note</span><span class="p">:</span><span class="o">**</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">that</span> <span class="n">charge</span> <span class="ow">and</span> <span class="n">multiplicity</span> <span class="n">are</span> <span class="n">compatible</span> <span class="p">(</span><span class="n">check</span> <span class="n">log</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">of</span> <span class="n">segmentation</span> <span class="n">errors</span><span class="p">)</span> <span class="n">files</span>
+g09 &lt; &quot;$output_folder/$name&quot;_b3lyp_opt.gin &gt; &quot;$output_folder/$name&quot;_b3lyp_opt.gout &amp;&amp; cp &quot;$output_folder/$name&quot;_opt.chk &quot;$output_folder/$name&quot;_esp.chk
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gout</span>
+<blockquote>
+<div><p><strong>Note:</strong> Make sure that charge and multiplicity are compatible (check log files in case of segmentation errors) files</p>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>g09 &lt; &quot;$output_folder/$name&quot;_hf_esp.gin &gt; &quot;$output_folder/$name&quot;_hf_esp.gout
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>Partial charge fitting with RESP<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3>Partial charge fitting with RESP<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
 <p>Run Antechamber with net charge -1</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.ac -fo ac -pf yes -nc -1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>antechamber -i &quot;$input_folder/$name&quot;.mol2 -fi mol2 -o &quot;$output_folder/$name&quot;.ac -fo ac -pf yes -nc -1
 
 capping_group=POS_capping_groups_5prime_DNA.dat
 
@@ -732,12 +816,12 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 </pre></div>
 </div>
 <p><strong>Hint:</strong> The above two-stage RESP fitting protocol is wrapped in the following script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">POS_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">POS_capping_groups_5prime_DNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resp_fit.sh -n POS_capped -i &#39;in/&#39; -o &#39;out/&#39; -g POS_capping_groups_5prime_DNA.dat -c -1
 </pre></div>
 </div>
-</div>
-<div class="section" id="Coupling-of-base-and-dye">
-<h3>Coupling of base and dye<a class="headerlink" href="#Coupling-of-base-and-dye" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Coupling-of-base-and-dye">
+<h3>Coupling of base and dye<a class="headerlink" href="#Coupling-of-base-and-dye" title="Permalink to this headline"></a></h3>
 <p>Again, first couple the bases and the POS linker</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[532]:
@@ -833,13 +917,13 @@ Check passed!
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Labeling-via-phosphate-at-3'-end">
-<h2>Labeling via phosphate at 3’-end<a class="headerlink" href="#Labeling-via-phosphate-at-3'-end" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Labeling-via-phosphate-at-3’-end">
+<h2>Labeling via phosphate at 3’-end<a class="headerlink" href="#Labeling-via-phosphate-at-3’-end" title="Permalink to this headline"></a></h2>
 <p>Same as for 5’-end. For RESP use instead:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">POS_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">POS_capping_groups_3prime_DNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">POS_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">POS_capping_groups_3prime_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resp_fit.sh -n POS_capped -i &#39;in/&#39; -o &#39;out/&#39; -g POS_capping_groups_3prime_DNA.dat -c -1
+resp_fit.sh -n POS_capped -i &#39;in/&#39; -o &#39;out/&#39; -g POS_capping_groups_3prime_RNA.dat -c -1
 </pre></div>
 </div>
 <p>First couple the bases and the POS linker, then add the dye.</p>
@@ -939,20 +1023,20 @@ Check passed!
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Internal-labeling-via-ethenoadenine-or-ethenocytosine">
-<h2>Internal labeling via ethenoadenine or ethenocytosine<a class="headerlink" href="#Internal-labeling-via-ethenoadenine-or-ethenocytosine" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Geometry optimization<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Internal-labeling-via-ethenoadenine-or-ethenocytosine">
+<h2>Internal labeling via ethenoadenine or ethenocytosine<a class="headerlink" href="#Internal-labeling-via-ethenoadenine-or-ethenocytosine" title="Permalink to this headline"></a></h2>
+<section id="id3">
+<h3>Geometry optimization<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
 <p>Same as for deoxythymine (MLE) but with <code class="docutils literal notranslate"><span class="pre">name=ETH_capped</span></code></p>
-</div>
-<div class="section" id="id4">
-<h3>Partial charge fitting with RESP<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h3>Partial charge fitting with RESP<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
 <p>In general the same as for deoxythymine (MLE). For RESP use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">ETH_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">ETH_capping_groups_adenine_DNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">ETH_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">ETH_capping_groups_cytosine_DNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">ETH_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">ETH_capping_groups_adenine_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">ETH_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">ETH_capping_groups_cytosine_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resp_fit.sh -n ETH_capped -i &#39;in/&#39; -o &#39;out/&#39; -g ETH_capping_groups_adenine_DNA.dat -c 0
+resp_fit.sh -n ETH_capped -i &#39;in/&#39; -o &#39;out/&#39; -g ETH_capping_groups_cytosine_DNA.dat -c 0
+resp_fit.sh -n ETH_capped -i &#39;in/&#39; -o &#39;out/&#39; -g ETH_capping_groups_adenine_RNA.dat -c 0
+resp_fit.sh -n ETH_capped -i &#39;in/&#39; -o &#39;out/&#39; -g ETH_capping_groups_cytosine_RNA.dat -c 0
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1060,21 +1144,21 @@ Check passed!
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Labeling-via-hydrazide-at-3'-end">
-<h2>Labeling via hydrazide at 3’-end<a class="headerlink" href="#Labeling-via-hydrazide-at-3'-end" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id5">
-<h3>Geometry optimization<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Labeling-via-hydrazide-at-3’-end">
+<h2>Labeling via hydrazide at 3’-end<a class="headerlink" href="#Labeling-via-hydrazide-at-3’-end" title="Permalink to this headline"></a></h2>
+<section id="id5">
+<h3>Geometry optimization<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
 <p>Same as for phosphate (POS) but with <code class="docutils literal notranslate"><span class="pre">name=HYD_capped</span></code></p>
-</div>
-<div class="section" id="id6">
-<h3>Partial charge fitting with RESP<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id6">
+<h3>Partial charge fitting with RESP<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
 <p>In general the same as for phosphate (POS). For RESP use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">HYD_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">HYD_capping_groups_adenine_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">HYD_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">HYD_capping_groups_guanine_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">HYD_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">HYD_capping_groups_cytosine_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">resp_fit</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">n</span> <span class="n">HYD_capped</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;in/&#39;</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;out/&#39;</span> <span class="o">-</span><span class="n">g</span> <span class="n">HYD_capping_groups_uracil_RNA</span><span class="o">.</span><span class="n">dat</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="mi">1</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resp_fit.sh -n HYD_capped -i &#39;in/&#39; -o &#39;out/&#39; -g HYD_capping_groups_adenine_RNA.dat -c -1
+resp_fit.sh -n HYD_capped -i &#39;in/&#39; -o &#39;out/&#39; -g HYD_capping_groups_guanine_RNA.dat -c -1
+resp_fit.sh -n HYD_capped -i &#39;in/&#39; -o &#39;out/&#39; -g HYD_capping_groups_cytosine_RNA.dat -c -1
+resp_fit.sh -n HYD_capped -i &#39;in/&#39; -o &#39;out/&#39; -g HYD_capping_groups_uracil_RNA.dat -c -1
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1167,37 +1251,46 @@ Check passed!
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Forcefield-parameterization">
-<h2>Forcefield parameterization<a class="headerlink" href="#Forcefield-parameterization" title="Permalink to this headline">¶</a></h2>
-<p>First, read in AMBERDYES force field (Graen et al. <em>JCTC</em>, <strong>2014</strong>)</p>
+</section>
+</section>
+<section id="Forcefield-parameterization">
+<h2>Forcefield parameterization<a class="headerlink" href="#Forcefield-parameterization" title="Permalink to this headline"></a></h2>
+<p>First, read in AMBERDYES force field (Graen et al. <em>JCTC</em>, <strong>2014</strong>)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[606]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">amberdyes_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_amberdyes</span><span class="p">([</span><span class="s1">&#39;../forcefields/amberdyes/ffbonded_amberdyes.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/ffnonbonded_amberdyes.itp&#39;</span><span class="p">])</span>
+<span></span><span class="n">amberdyes_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_amberdyes</span><span class="p">([</span><span class="s1">&#39;../../../fluordynamics/forcefields/amberdyes/ffbonded_amberdyes.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/amberdyes/ffnonbonded_amberdyes.itp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[607]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">aber14sb_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_ff</span><span class="p">([</span><span class="s1">&#39;ff14sb/ffbonded.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;ff14sb/ffnonbonded.itp&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <p>Run <strong>Acpype</strong> on the internal DTM fragment</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">fragments</span><span class="o">/</span><span class="n">acpype</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ../fragments/acpype
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">DTM</span>
-<span class="n">base</span><span class="o">=</span><span class="n">DT</span>
+base_linker=DTM
+base=DT
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">RUM</span>
-<span class="n">base</span><span class="o">=</span><span class="n">RU</span>
+base_linker=RUM
+base=RU
 
-<span class="n">linker</span><span class="o">=</span><span class="n">MLE</span>
-<span class="n">filename</span><span class="o">=../</span><span class="n">base_linkers</span><span class="o">/</span><span class="s2">&quot;$base_linker&quot;</span><span class="o">.</span><span class="n">mol2</span>
-<span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{base}</span><span class="s2">/$</span><span class="si">{base_linker}</span><span class="s2">/g&quot;</span> <span class="s2">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{linker}</span><span class="s2">/$</span><span class="si">{base_linker}</span><span class="s2">/g&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$base_linker&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span>
-<span class="n">acpype</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$base_linker&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="n">gmx</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">a</span> <span class="n">amber</span> <span class="o">-</span><span class="n">c</span> <span class="n">user</span>
+linker=MLE
+filename=../base_linkers/&quot;$base_linker&quot;.mol2
+sed &quot;s/${base}/${base_linker}/g&quot; &quot;$filename&quot; | sed &quot;s/${linker}/${base_linker}/g&quot; &gt; &quot;$base_linker&quot;_ff.mol2
+acpype -i &quot;$base_linker&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[608]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1208,138 +1301,104 @@ Check passed!
 </div>
 <p>Read the itp files into the <code class="docutils literal notranslate"><span class="pre">fd.ff.Molecule</span></code> class and the forcefield modification parameters into the <code class="docutils literal notranslate"><span class="pre">fd.ff.Parameters</span></code> class.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[609]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">moleculetypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;RUM&#39;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">moleculetypes</span><span class="p">:</span>
-    <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
+    <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
     <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span> <span class="c1"># residue is internal not terminal</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">]:</span>
         <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-        <span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
-        <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">])</span>
+    <span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
+    <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<p>Define the atoms for the specialbonds.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">atoms_amberdyes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
-                   <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
-                                  <span class="p">[</span><span class="s1">&#39;hng&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
-                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
-                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]],</span>
-                   <span class="s1">&#39;propertypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
-                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]]}</span>
-
-<span class="n">atoms_linker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
-                <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;CT&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
-                               <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
-                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
-                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]],</span>
-                <span class="s1">&#39;propertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
-                                <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
-                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
-                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
-                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
-                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">]]}</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">specialbond_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_specialbond</span><span class="p">(</span><span class="n">amberdyes_ff</span><span class="p">,</span> <span class="n">atoms_amberdyes</span><span class="p">,</span> <span class="n">atoms_linker</span><span class="p">)</span>
-<span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">specialbond_ff</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Rational-for-linker-RESP-charge-derivation-at-3'/5'-ends-via-phosphate">
-<h3>Rational for linker RESP charge derivation at 3’/5’-ends via phosphate<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-3'/5'-ends-via-phosphate" title="Permalink to this headline">¶</a></h3>
+<section id="Rational-for-linker-RESP-charge-derivation-at-3’/5’-ends-via-phosphate">
+<h3>Rational for linker RESP charge derivation at 3’/5’-ends via phosphate<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-3’/5’-ends-via-phosphate" title="Permalink to this headline"></a></h3>
 <p>Reference: <a class="reference external" href="https://ambermd.org/tutorials/advanced/tutorial1/section1.htm">https://ambermd.org/tutorials/advanced/tutorial1/section1.htm</a></p>
 <p>In the AMBER force fields (Cornell, <em>JACS</em>, <strong>1995</strong>) the <strong>DNA</strong> nucleotides the charges at the termini is as follows: - 5’-end nucleotide: -0.3079 - 3’-end nucleotide: -0.6921</p>
 <p>For <strong>RNA</strong> the charges are: - 5’-end nucleotide: -0.3081 - 3’-end nucleotide: -0.6919</p>
-<p><img alt="7400c696cd744ae9aa7fa403395c8764" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
-<div class="section" id="Labeled-DNA-5'-terminus">
-<h4>Labeled DNA 5’-terminus<a class="headerlink" href="#Labeled-DNA-5'-terminus" title="Permalink to this headline">¶</a></h4>
-<p>The 5’-end nucleotide will become an internal residue (DNA charge: -1; i.e. the phosphate of the linker will be transferred to this nucleotide). The linker will become the new 5’-terminus (DNA charge: -0.3079). For this purpose, the <strong>methylphosphate cap</strong> (<span class="math notranslate nohighlight">\(-PO_2-OCH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.3079)=**-0.6921** during the RESP fit.</p>
-</div>
-<div class="section" id="Labeled-DNA-3'-terminus">
-<h4>Labeled DNA 3’-terminus<a class="headerlink" href="#Labeled-DNA-3'-terminus" title="Permalink to this headline">¶</a></h4>
-<p>The 3’-end nucleotide will become an internal residue (DNA charge: -1). The linker will become the new 3’-terminus (DNA charge: -0.36921, i.e. <span class="math notranslate nohighlight">\(-PO_2-\)</span> will be retained). For this purpose, the <strong>methoxy cap</strong> (<span class="math notranslate nohighlight">\(-O-CH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.6021)=**-0.3079** during the RESP fit.</p>
-<p><img alt="6e602681216b4fc8845c87735f513256" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
-</div>
-</div>
-<div class="section" id="Rational-for-linker-RESP-charge-derivation-at-3'-end-via-hydrazide">
-<h3>Rational for linker RESP charge derivation at 3’-end via hydrazide<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-3'-end-via-hydrazide" title="Permalink to this headline">¶</a></h3>
-<p>Insertion of a hydrazide with sugar ring closure can only occur in riboses (RNA) because it requires a dialdehyde (O2’, O3’). The four RNA bases are parameterized such that the partial charges of the base + C1’ + H1’ = <strong>0.1160</strong>. The NH2 capping group of the linker (which is a placeholder for the base) + C1’ + H1’ are therefore constrained to <strong>0.1160</strong>. The charges of C1’ and H1’ are fixed to those of the respective nucleotide in the Amber force field (e.g. for adenosine: C1’=<strong>0.0394</strong> and
+<p><img alt="8f36fd804a664c1b9e7899b43dd39ac5" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
+<section id="Labeled-DNA-5’-terminus">
+<h4>Labeled DNA 5’-terminus<a class="headerlink" href="#Labeled-DNA-5’-terminus" title="Permalink to this headline"></a></h4>
+<p>The 5’-end nucleotide will become an internal residue (DNA charge: -1; i.e. the phosphate of the linker will be transferred to this nucleotide). The linker will become the new 5’-terminus (DNA charge: -0.3079). For this purpose, the <strong>methylphosphate cap</strong> (<span class="math notranslate nohighlight">\(-PO_2-OCH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.3079)=**-0.6921** during the RESP fit.</p>
+</section>
+<section id="Labeled-DNA-3’-terminus">
+<h4>Labeled DNA 3’-terminus<a class="headerlink" href="#Labeled-DNA-3’-terminus" title="Permalink to this headline"></a></h4>
+<p>The 3’-end nucleotide will become an internal residue (DNA charge: -1). The linker will become the new 3’-terminus (DNA charge: -0.36921, i.e. <span class="math notranslate nohighlight">\(-PO_2-\)</span> will be retained). For this purpose, the <strong>methoxy cap</strong> (<span class="math notranslate nohighlight">\(-O-CH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.6021)=**-0.3079** during the RESP fit.</p>
+<p><img alt="5b73b67da0f341e3b2f8ae81c2f0f2c7" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
+</section>
+</section>
+<section id="Rational-for-linker-RESP-charge-derivation-at-3’-end-via-hydrazide">
+<h3>Rational for linker RESP charge derivation at 3’-end via hydrazide<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-3’-end-via-hydrazide" title="Permalink to this headline"></a></h3>
+<p>Insertion of a hydrazide with sugar ring closure can only occur in riboses (RNA) because it requires a dialdehyde (O2’, O3’). The four RNA bases are parameterized such that the partial charges of the base + C1’ + H1’ = <strong>0.1160</strong>. The NH2 capping group of the linker (which is a placeholder for the base) + C1’ + H1’ are therefore constrained to <strong>0.1160</strong>. The charges of C1’ and H1’ are fixed to those of the respective nucleotide in the Amber force field (e.g. for adenosine: C1’=<strong>0.0394</strong> and
 H1’=<strong>0.2007</strong>)</p>
 <p>The methoxy cap (which will be removed) is constrained to -0.3081 such that the remaining fragment will sum up to <strong>-0.6919</strong>.</p>
-<p><img alt="685a430467594632ba468c04fa4fac07" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
-</div>
-<div class="section" id="Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine">
-<h3>Rational for linker RESP charge derivation at internal ethenoadenine / ethenocytosine<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine" title="Permalink to this headline">¶</a></h3>
-<p>The amino capping groups of the linker (which will be removed) are constrained to the partial charge of H61+H62 (adenosine/deoxyadenosine) or H41+H42 (cytidine/deoxycytidine) (e.g. for deoxyadenosine 2*(-0.4167)= <strong>-0.8334</strong>). Thus for deoxyadenosine the linker will be 0-(-0.8334)=<strong>0.8334</strong> which compensates the missing H61/N62 or H41/N42 in the ethenoadenosine / ethenocytidine.</p>
-<div class="section" id="3'/5'-end-phosphates">
-<h4>3’/5’-end phosphates<a class="headerlink" href="#3'/5'-end-phosphates" title="Permalink to this headline">¶</a></h4>
+<p><img alt="4ff61bbde23c404f856cb792344dee07" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
+</section>
+<section id="Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine">
+<h3>Rational for linker RESP charge derivation at internal ethenoadenine / ethenocytosine<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine" title="Permalink to this headline"></a></h3>
+<p>The amino capping groups of the linker (which will be removed) are constrained to the partial charge of H61+H62 (adenosine/deoxyadenosine) or H41+H42 (cytidine/deoxycytidine) (e.g. for deoxyadenosine 2*(-0.4167)= <strong>-0.8334</strong>). Thus for deoxyadenosine the linker will be 0-(-0.8334)=<strong>0.8334</strong> which compensates the missing H61/N62 or H41/N42 in the ethenoadenosine / ethenocytidine.</p>
+<section id="3’/5’-end-phosphates">
+<h4>3’/5’-end phosphates<a class="headerlink" href="#3’/5’-end-phosphates" title="Permalink to this headline"></a></h4>
 <p>Acpype requires a residue with integral charge (…,-1,0,1,…). Therefore, we will combine the 3’-end and 5’-end fragments into a dinucleotide (charge: -2) using PyMOL.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[501]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">end</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;base&#39;</span><span class="p">:</span><span class="s1">&#39;DA&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span><span class="s1">&#39;DAP&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span><span class="s1">&#39;DAO&#39;</span><span class="p">}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;DG&#39;, &#39;5&#39;:&#39;DGP&#39;, &#39;3&#39;:&#39;DGO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;DC&#39;, &#39;5&#39;:&#39;DCP&#39;, &#39;3&#39;:&#39;DCO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;DT&#39;, &#39;5&#39;:&#39;DTP&#39;, &#39;3&#39;:&#39;DTO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RA&#39;, &#39;5&#39;:&#39;RAP&#39;, &#39;3&#39;:&#39;RAO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RG&#39;, &#39;5&#39;:&#39;RGP&#39;, &#39;3&#39;:&#39;RGO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RC&#39;, &#39;5&#39;:&#39;RCP&#39;, &#39;3&#39;:&#39;RCO&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RU&#39;, &#39;5&#39;:&#39;RUP&#39;, &#39;3&#39;:&#39;RUO&#39;}</span>
+<span></span>end = {&#39;base&#39;:&#39;DA&#39;, &#39;5&#39;:&#39;DAP&#39;, &#39;3&#39;:&#39;DAO&#39;}
+# end = {&#39;base&#39;:&#39;DG&#39;, &#39;5&#39;:&#39;DGP&#39;, &#39;3&#39;:&#39;DGO&#39;}
+# end = {&#39;base&#39;:&#39;DC&#39;, &#39;5&#39;:&#39;DCP&#39;, &#39;3&#39;:&#39;DCO&#39;}
+# end = {&#39;base&#39;:&#39;DT&#39;, &#39;5&#39;:&#39;DTP&#39;, &#39;3&#39;:&#39;DTO&#39;}
+# end = {&#39;base&#39;:&#39;RA&#39;, &#39;5&#39;:&#39;RAP&#39;, &#39;3&#39;:&#39;RAO&#39;}
+# end = {&#39;base&#39;:&#39;RG&#39;, &#39;5&#39;:&#39;RGP&#39;, &#39;3&#39;:&#39;RGO&#39;}
+# end = {&#39;base&#39;:&#39;RC&#39;, &#39;5&#39;:&#39;RCP&#39;, &#39;3&#39;:&#39;RCO&#39;}
+# end = {&#39;base&#39;:&#39;RU&#39;, &#39;5&#39;:&#39;RUP&#39;, &#39;3&#39;:&#39;RUO&#39;}
 
-<span class="c1"># end = {&#39;base&#39;:&#39;RA&#39;, &#39;5&#39;:&#39;RAP&#39;, &#39;3&#39;:&#39;RAH&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RG&#39;, &#39;5&#39;:&#39;RGP&#39;, &#39;3&#39;:&#39;RGH&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RC&#39;, &#39;5&#39;:&#39;RCP&#39;, &#39;3&#39;:&#39;RCH&#39;}</span>
-<span class="c1"># end = {&#39;base&#39;:&#39;RU&#39;, &#39;5&#39;:&#39;RUP&#39;, &#39;3&#39;:&#39;RUH&#39;}</span>
+# end = {&#39;base&#39;:&#39;RA&#39;, &#39;5&#39;:&#39;RAP&#39;, &#39;3&#39;:&#39;RAH&#39;}
+# end = {&#39;base&#39;:&#39;RG&#39;, &#39;5&#39;:&#39;RGP&#39;, &#39;3&#39;:&#39;RGH&#39;}
+# end = {&#39;base&#39;:&#39;RC&#39;, &#39;5&#39;:&#39;RCP&#39;, &#39;3&#39;:&#39;RCH&#39;}
+# end = {&#39;base&#39;:&#39;RU&#39;, &#39;5&#39;:&#39;RUP&#39;, &#39;3&#39;:&#39;RUH&#39;}
+£
+cmd_gui.reinitialize()
+cmd_gui.load(&#39;../fragments/base_linkers/{}.mol2&#39;.format(end[&#39;5&#39;]))
+cmd_gui.load(&#39;../fragments/base_linkers/{}.mol2&#39;.format(end[&#39;3&#39;]))
 
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">reinitialize</span><span class="p">()</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../fragments/base_linkers/</span><span class="si">{}</span><span class="s1">.mol2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">]))</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;../fragments/base_linkers/</span><span class="si">{}</span><span class="s1">.mol2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
-
-<span class="c1"># reassigning residue numbers and segment ids preserves the atom numbering after running through acpype</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn POS and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">]),</span> <span class="s1">&#39;resi=&quot;1&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn POS and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">]),</span> <span class="s1">&#39;segi=&quot;1&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]),</span> <span class="s1">&#39;resi=&quot;2&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]),</span> <span class="s1">&#39;segi=&quot;2&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;(resn POS or resn HYD) and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="s1">&#39;resi=&quot;3&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;(resn POS or resn HYD) and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="s1">&#39;segi=&quot;3&quot;&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> and resn </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span> <span class="n">end</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]))</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> or </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">bond</span><span class="p">(</span><span class="s1">&#39;(resn </span><span class="si">{}</span><span class="s1"> or resn HYD) and name P&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]),</span> <span class="s1">&#39;resn POS and name O01 and resi 1&#39;</span><span class="p">)</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn POS&#39;</span><span class="p">,</span> <span class="s1">&#39;resn=&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
-<span class="n">cmd_gui</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;resn </span><span class="si">{}</span><span class="s1"> or resn HYD&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]),</span> <span class="s1">&#39;resn=&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
+# reassigning residue numbers and segment ids preserves the atom numbering after running through acpype
+cmd_gui.alter(&#39;resn POS and {}&#39;.format(end[&#39;5&#39;]), &#39;resi=&quot;1&quot;&#39;)
+cmd_gui.alter(&#39;resn POS and {}&#39;.format(end[&#39;5&#39;]), &#39;segi=&quot;1&quot;&#39;)
+cmd_gui.alter(&#39;resn {}&#39;.format(end[&#39;base&#39;]), &#39;resi=&quot;2&quot;&#39;)
+cmd_gui.alter(&#39;resn {}&#39;.format(end[&#39;base&#39;]), &#39;segi=&quot;2&quot;&#39;)
+cmd_gui.alter(&#39;(resn POS or resn HYD) and {}&#39;.format(end[&#39;3&#39;]), &#39;resi=&quot;3&quot;&#39;)
+cmd_gui.alter(&#39;(resn POS or resn HYD) and {}&#39;.format(end[&#39;3&#39;]), &#39;segi=&quot;3&quot;&#39;)
+cmd_gui.remove(&#39;{} and resn {}&#39;.format(end[&#39;5&#39;], end[&#39;base&#39;]))
+cmd_gui.create(&#39;{}_{}&#39;.format(end[&#39;5&#39;],end[&#39;3&#39;]), &#39;{} or {}&#39;.format(end[&#39;5&#39;],end[&#39;3&#39;]))
+cmd_gui.bond(&#39;(resn {} or resn HYD) and name P&#39;.format(end[&#39;base&#39;]), &#39;resn POS and name O01 and resi 1&#39;)
+cmd_gui.alter(&#39;resn POS&#39;, &#39;resn=&quot;{}&quot;&#39;.format(end[&#39;3&#39;]))
+cmd_gui.alter(&#39;resn {} or resn HYD&#39;.format(end[&#39;base&#39;]), &#39;resn=&quot;{}&quot;&#39;.format(end[&#39;3&#39;]))
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-64
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-501-b1111d14b5b5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span> <span class="ansi-red-fg"># end = {&#39;base&#39;:&#39;RU&#39;, &#39;5&#39;:&#39;RUP&#39;, &#39;3&#39;:&#39;RUH&#39;}</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span>
+<span class="ansi-green-fg">---&gt; 15</span><span class="ansi-red-fg"> </span>cmd_gui<span class="ansi-blue-fg">.</span>reinitialize<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span> cmd_gui<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;../fragments/base_linkers/{}.mol2&#39;</span><span class="ansi-blue-fg">.</span>format<span class="ansi-blue-fg">(</span>end<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;5&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span> cmd_gui<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;../fragments/base_linkers/{}.mol2&#39;</span><span class="ansi-blue-fg">.</span>format<span class="ansi-blue-fg">(</span>end<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;3&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;cmd_gui&#39; is not defined
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1352,26 +1411,26 @@ H1’=<strong>0.2007</strong>)</p>
 </div>
 </div>
 <p>Run <strong>Acpype</strong> on the dinucleotide fragments.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">fragments</span><span class="o">/</span><span class="n">acpype</span><span class="o">/</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">DAP_DAO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">DGP_DGO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">DCP_DCO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">DTP_DTO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RAP_RAO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RGP_RGO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RCP_RCO</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RUP_RUO</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ../fragments/acpype/
+fusion=DAP_DAO
+fusion=DGP_DGO
+fusion=DCP_DCO
+fusion=DTP_DTO
+fusion=RAP_RAO
+fusion=RGP_RGO
+fusion=RCP_RCO
+fusion=RUP_RUO
 
-<span class="n">fusion</span><span class="o">=</span><span class="n">RAP_RAH</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RGP_RGH</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RCP_RCH</span>
-<span class="n">fusion</span><span class="o">=</span><span class="n">RUP_RUH</span>
-<span class="n">acpype</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$fusion&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="n">gmx</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">a</span> <span class="n">amber</span> <span class="o">-</span><span class="n">c</span> <span class="n">user</span>
+fusion=RAP_RAH
+fusion=RGP_RGH
+fusion=RCP_RCH
+fusion=RUP_RUH
+acpype -i &quot;$fusion&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 </pre></div>
 </div>
 <p>Read the itp files into the <code class="docutils literal notranslate"><span class="pre">fd.ff.Molecule</span></code> class and the forcefield modification parameters into the <code class="docutils literal notranslate"><span class="pre">fd.ff.Parameters</span></code> class. &gt; The dinucleotides are differentiated by their <code class="docutils literal notranslate"><span class="pre">subst_id</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[610]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1389,12 +1448,13 @@ H1’=<strong>0.2007</strong>)</p>
        <span class="p">{</span><span class="s1">&#39;base&#39;</span><span class="p">:</span><span class="s1">&#39;RU&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span><span class="s1">&#39;RUP&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span><span class="s1">&#39;RUH&#39;</span><span class="p">}]</span>
 
 <span class="k">for</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">moleculetypes</span><span class="p">:</span>
-    <span class="n">fusion_itp</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
-    <span class="n">fusion_itp</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span> <span class="c1"># residue is internal not terminal</span>
-    <span class="n">baselinkers_ff</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">])]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
+    <span class="n">fusion_itp</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;H&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]:</span>
+        <span class="n">fusion_itp</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span> <span class="c1"># residue is internal not terminal</span>
+    <span class="n">baselinkers_ff</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">])]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]),</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
     <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">])])</span>
 
-    <span class="n">ff_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.mol2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
+    <span class="n">ff_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_ff.mol2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;5&#39;</span><span class="p">],</span><span class="n">end</span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]))</span>
     <span class="n">atoms5</span> <span class="o">=</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">atoms</span><span class="p">[(</span><span class="n">ff_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subst_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">ff_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subst_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">)]</span>
     <span class="n">atoms3</span> <span class="o">=</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">atoms</span><span class="p">[(</span><span class="n">ff_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subst_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">ff_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;subst_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">3</span><span class="p">)]</span>
     <span class="n">bonds5</span> <span class="o">=</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="n">fusion_itp</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">atoms5</span><span class="p">[</span><span class="s1">&#39;nr&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="n">fusion_itp</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">atoms5</span><span class="p">[</span><span class="s1">&#39;nr&#39;</span><span class="p">])]</span>
@@ -1410,86 +1470,159 @@ H1’=<strong>0.2007</strong>)</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Ethenoadenine-and-ethenocytosine">
-<h4>Ethenoadenine and ethenocytosine<a class="headerlink" href="#Ethenoadenine-and-ethenocytosine" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">fragments</span><span class="o">/</span><span class="n">acpype</span>
+</section>
+<section id="Ethenoadenine-and-ethenocytosine">
+<h4>Ethenoadenine and ethenocytosine<a class="headerlink" href="#Ethenoadenine-and-ethenocytosine" title="Permalink to this headline"></a></h4>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ../fragments/acpype
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">RAE</span>
-<span class="n">base</span><span class="o">=</span><span class="n">RA</span>
+base_linker=RAE
+base=RA
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">RCE</span>
-<span class="n">base</span><span class="o">=</span><span class="n">RC</span>
+base_linker=RCE
+base=RC
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">DAE</span>
-<span class="n">base</span><span class="o">=</span><span class="n">DA</span>
+base_linker=DAE
+base=DA
 
-<span class="n">base_linker</span><span class="o">=</span><span class="n">DCE</span>
-<span class="n">base</span><span class="o">=</span><span class="n">DC</span>
+base_linker=DCE
+base=DC
 
-<span class="n">linker</span><span class="o">=</span><span class="n">ETH</span>
-<span class="n">filename</span><span class="o">=../</span><span class="n">base_linkers</span><span class="o">/</span><span class="s2">&quot;$base_linker&quot;</span><span class="o">.</span><span class="n">mol2</span>
-<span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{base}</span><span class="s2">/$</span><span class="si">{base_linker}</span><span class="s2">/g&quot;</span> <span class="s2">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{linker}</span><span class="s2">/$</span><span class="si">{base_linker}</span><span class="s2">/g&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$base_linker&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span>
-<span class="n">acpype</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$base_linker&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="n">gmx</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">a</span> <span class="n">amber</span> <span class="o">-</span><span class="n">c</span> <span class="n">user</span>
+linker=ETH
+filename=../base_linkers/&quot;$base_linker&quot;.mol2
+sed &quot;s/${base}/${base_linker}/g&quot; &quot;$filename&quot; | sed &quot;s/${linker}/${base_linker}/g&quot; &gt; &quot;$base_linker&quot;_ff.mol2
+acpype -i &quot;$base_linker&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[611]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">moleculetypes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RAE&#39;</span><span class="p">,</span> <span class="s1">&#39;RCE&#39;</span><span class="p">,</span> <span class="s1">&#39;DAE&#39;</span><span class="p">,</span> <span class="s1">&#39;DCE&#39;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">moleculetypes</span><span class="p">:</span>
-    <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
+    <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_GMX.itp&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="s1">&#39;FLUOR-DYNAMICS&#39;</span><span class="p">)</span>
     <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span> <span class="c1"># residue is internal not terminal</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">]:</span>
         <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-        <span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
-        <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">])</span>
+    <span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/fragments/acpype/</span><span class="si">{}</span><span class="s1">_ff.acpype/</span><span class="si">{}</span><span class="s1">_ff_AC.frcmod&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span><span class="n">mol</span><span class="p">),</span> <span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
+    <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">[</span><span class="n">mol</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Define the atoms for the specialbonds.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[612]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">atoms_amberdyes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
+                   <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;hng&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">]],</span>
+                   <span class="s1">&#39;propertypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]],</span>
+                   <span class="s1">&#39;impropertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">],</span>
+                                     <span class="p">[</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;N*&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NC&#39;</span><span class="p">]]</span>
+                  <span class="p">}</span>
+
+<span class="n">atoms_linker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;CT&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;propertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">]],</span>
+               <span class="s1">&#39;impropertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">],</span>
+                                 <span class="p">[</span><span class="s1">&#39;NC&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;N*&#39;</span><span class="p">]]</span>
+               <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[613]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">atoms_amberdyes2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;propertypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]]</span>
+                   <span class="p">}</span>
+<span class="n">atoms_linker2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;propertypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;NT&#39;</span><span class="p">]]</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[614]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">specialbond_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_specialbond</span><span class="p">(</span><span class="n">amberdyes_ff</span><span class="p">,</span> <span class="n">atoms_amberdyes</span><span class="p">,</span> <span class="n">atoms_linker</span><span class="p">)</span>
+<span class="n">specialbond2_ff</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_specialbond</span><span class="p">(</span><span class="n">aber14sb_ff</span><span class="p">,</span> <span class="n">atoms_amberdyes2</span><span class="p">,</span> <span class="n">atoms_linker2</span><span class="p">,</span> <span class="s1">&#39;AMBER14sb&#39;</span><span class="p">)</span>
+
+<span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">specialbond_ff</span><span class="p">)</span>
+<span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">specialbond2_ff</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>Write new <strong>ffnonbonded.itp</strong> and <strong>ffbonded.itp</strong> files of the combined forcefield (ff14sb, amberdyes_ff, baselinkers_ff and specialbond_ff) into a directory fluordyes/.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[615]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">add2ff</span><span class="p">(</span><span class="s1">&#39;ff14sb&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/&#39;</span><span class="p">)</span>
+<span></span><span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">add2ff</span><span class="p">(</span><span class="s1">&#39;ff14sb&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>Export a residue topology (<strong>rtp</strong>) file with the new base-linkers.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[616]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_rtp</span><span class="p">(</span><span class="s1">&#39;../forcefields/fluordyes/fluordyes.rtp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">baselinkers_itp</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+<span></span><span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_rtp</span><span class="p">(</span><span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/fluordyes.rtp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">baselinkers_itp</span><span class="p">[</span><span class="n">mol</span><span class="p">]</span> <span class="k">for</span> <span class="n">mol</span> <span class="ow">in</span> <span class="n">baselinkers_itp</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
 </pre></div>
 </div>
 </div>
 <p>Update the <strong>residuetypes.dat</strong> file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">resi</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DAO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGO&#39;</span><span class="p">,</span> <span class="s1">&#39;DCO&#39;</span><span class="p">,</span> <span class="s1">&#39;DTO&#39;</span><span class="p">,</span> <span class="s1">&#39;DAP&#39;</span><span class="p">,</span> <span class="s1">&#39;DGP&#39;</span><span class="p">,</span> <span class="s1">&#39;DCP&#39;</span><span class="p">,</span> <span class="s1">&#39;DTP&#39;</span><span class="p">,</span> <span class="s1">&#39;DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;RUM&#39;</span><span class="p">,</span> <span class="s1">&#39;DAE&#39;</span><span class="p">,</span> <span class="s1">&#39;DCE&#39;</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> DNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../forcefields/amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> DNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> DNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> DNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">resi</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RAO&#39;</span><span class="p">,</span> <span class="s1">&#39;RGO&#39;</span><span class="p">,</span> <span class="s1">&#39;RCO&#39;</span><span class="p">,</span> <span class="s1">&#39;RUO&#39;</span><span class="p">,</span> <span class="s1">&#39;RAP&#39;</span><span class="p">,</span> <span class="s1">&#39;RGP&#39;</span><span class="p">,</span> <span class="s1">&#39;RCP&#39;</span><span class="p">,</span> <span class="s1">&#39;RUP&#39;</span><span class="p">,</span> <span class="s1">&#39;RAH&#39;</span><span class="p">,</span> <span class="s1">&#39;RGH&#39;</span><span class="p">,</span> <span class="s1">&#39;RCH&#39;</span><span class="p">,</span> <span class="s1">&#39;RUH&#39;</span><span class="p">,</span> <span class="s1">&#39;RAE&#39;</span><span class="p">,</span> <span class="s1">&#39;RCE&#39;</span><span class="p">]:</span>
-    <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> RNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> RNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">resi</span> <span class="ow">in</span> <span class="n">dyes</span><span class="p">:</span>
-    <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> RNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> RNA&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> new entries in residuetypes.dat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
@@ -1505,7 +1638,7 @@ H1’=<strong>0.2007</strong>)</p>
 </div>
 <p>Update the <strong>specbond.dat</strong> file.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1513,36 +1646,38 @@ H1’=<strong>0.2007</strong>)</p>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">resi1</span> <span class="ow">in</span> <span class="n">dyes</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DAO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGO&#39;</span><span class="p">,</span> <span class="s1">&#39;DCO&#39;</span><span class="p">,</span> <span class="s1">&#39;DTO&#39;</span><span class="p">,</span> <span class="s1">&#39;DAP&#39;</span><span class="p">,</span> <span class="s1">&#39;DGP&#39;</span><span class="p">,</span> <span class="s1">&#39;DCP&#39;</span><span class="p">,</span> <span class="s1">&#39;DTP&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;RAO&#39;</span><span class="p">,</span> <span class="s1">&#39;RGO&#39;</span><span class="p">,</span> <span class="s1">&#39;RCO&#39;</span><span class="p">,</span> <span class="s1">&#39;RUO&#39;</span><span class="p">,</span> <span class="s1">&#39;RAP&#39;</span><span class="p">,</span> <span class="s1">&#39;RGP&#39;</span><span class="p">,</span> <span class="s1">&#39;RCP&#39;</span><span class="p">,</span> <span class="s1">&#39;RUP&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;RUM&#39;</span><span class="p">,</span> <span class="s1">&#39;RAE&#39;</span><span class="p">,</span> <span class="s1">&#39;RCE&#39;</span><span class="p">,</span> <span class="s1">&#39;DAE&#39;</span><span class="p">,</span> <span class="s1">&#39;DCE&#39;</span><span class="p">,</span>
-                  <span class="s1">&#39;RAH&#39;</span><span class="p">,</span> <span class="s1">&#39;RGH&#39;</span><span class="p">,</span> <span class="s1">&#39;RCH&#39;</span><span class="p">,</span> <span class="s1">&#39;RUH&#39;</span><span class="p">]:</span>
+                  <span class="s1">&#39;DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;RUM&#39;</span><span class="p">,</span> <span class="s1">&#39;RAE&#39;</span><span class="p">,</span> <span class="s1">&#39;RCE&#39;</span><span class="p">,</span> <span class="s1">&#39;DAE&#39;</span><span class="p">,</span> <span class="s1">&#39;DCE&#39;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> C99 1 </span><span class="si">{}</span><span class="s1"> N99 1 0.132 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> C99 1 </span><span class="si">{}</span><span class="s1"> N99 1 0.132 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> C99 1 </span><span class="si">{}</span><span class="s1"> N99 1 0.132 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> C99 1 </span><span class="si">{}</span><span class="s1"> N99 1 0.132 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RAH&#39;</span><span class="p">,</span> <span class="s1">&#39;RGH&#39;</span><span class="p">,</span> <span class="s1">&#39;RCH&#39;</span><span class="p">,</span> <span class="s1">&#39;RUH&#39;</span><span class="p">]:</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> C99 1 </span><span class="si">{}</span><span class="s1"> N99 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">resi1</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DA&#39;</span><span class="p">,</span> <span class="s1">&#39;DG&#39;</span><span class="p">,</span> <span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;DT&#39;</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DAO&#39;</span><span class="p">,</span> <span class="s1">&#39;DGO&#39;</span><span class="p">,</span> <span class="s1">&#39;DCO&#39;</span><span class="p">,</span> <span class="s1">&#39;DTO&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DAP&#39;</span><span class="p">,</span> <span class="s1">&#39;DGP&#39;</span><span class="p">,</span> <span class="s1">&#39;DCP&#39;</span><span class="p">,</span> <span class="s1">&#39;DTP&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;DAE&#39;</span><span class="p">,</span> <span class="s1">&#39;DCE&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">resi1</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RA&#39;</span><span class="p">,</span> <span class="s1">&#39;RG&#39;</span><span class="p">,</span> <span class="s1">&#39;RC&#39;</span><span class="p">,</span> <span class="s1">&#39;RU&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RAO&#39;</span><span class="p">,</span> <span class="s1">&#39;RGO&#39;</span><span class="p">,</span> <span class="s1">&#39;RCO&#39;</span><span class="p">,</span> <span class="s1">&#39;RUO&#39;</span><span class="p">,</span> <span class="s1">&#39;RAH&#39;</span><span class="p">,</span> <span class="s1">&#39;RGH&#39;</span><span class="p">,</span> <span class="s1">&#39;RCH&#39;</span><span class="p">,</span> <span class="s1">&#39;RUH&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RAP&#39;</span><span class="p">,</span> <span class="s1">&#39;RGP&#39;</span><span class="p">,</span> <span class="s1">&#39;RCP&#39;</span><span class="p">,</span> <span class="s1">&#39;RUP&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">resi2</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;RUM&#39;</span><span class="p">,</span> <span class="s1">&#39;RAE&#39;</span><span class="p">,</span> <span class="s1">&#39;RCE&#39;</span><span class="p">]:</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1  </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">{}</span><span class="s1"> O3</span><span class="se">\&#39;</span><span class="s1"> 1 </span><span class="si">{}</span><span class="s1"> P 1 0.155 </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">,</span> <span class="n">resi1</span><span class="p">,</span> <span class="n">resi2</span><span class="p">),</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;../../../fluordynamics/forcefields/fluordyes/specbond.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> new entries in specbond.dat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
@@ -1565,57 +1700,40 @@ H1’=<strong>0.2007</strong>)</p>
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="partial_charges_to_mol2.html" class="btn btn-neutral float-right" title="Adding partial charges to mol2 files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="deoxythymidine_fragment_building.html" class="btn btn-neutral float-left" title="Deoxythymidine fragment building" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="partial_charges_to_mol2.html" class="btn btn-neutral float-right" title="Adding partial charges to mol2 files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Fabio D. Steffen, University of Zurich.
-
-    </p>
+    <p>&#169; Copyright 2020, Fabio D. Steffen, University of Zurich.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

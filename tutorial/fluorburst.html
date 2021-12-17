@@ -1,37 +1,20 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Fluorburst - FRET experiments in silico &mdash; fluordynamics 0.1.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -39,44 +22,23 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Utilities" href="../utilities.html" />
     <link rel="prev" title="Parameter file" href="../fluorburst_parameters.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #333" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> fluordynamics
-          
-
-          
-            
             <img src="../_static/fluordynamics_logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -84,105 +46,56 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Documentation</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../fluorlabel.html">FluorLabel</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../fluorburst.html">FluorBurst</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../fluorburst_parameters.html">Parameter file</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Fluorburst - FRET experiments <em>in silico</em></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fluorburst - FRET experiments <em>in silico</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Preparation---Extraction-of-R(t)-and-\kappa-^2(t)">Preparation - Extraction of <span class="math notranslate nohighlight">\(R(t)\)</span> and <span class="math notranslate nohighlight">\(\kappa ^2(t)\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#FRET-experiment-with-Fluorburst">FRET experiment with <em>Fluorburst</em></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Code</span></p>
+<p class="caption" role="heading"><span class="caption-text">Code</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../module_ff.html">Force field parameterization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../module_fluorbursts.html">Fluorburst</a></li>
 </ul>
-<p class="caption"><span class="caption-text">References</span></p>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">Publications and related projects</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #333" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">fluordynamics</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../fluorburst.html">FluorBurst</a> &raquo;</li>
-        
       <li>Fluorburst - FRET experiments <em>in silico</em></li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/tutorial/fluorburst.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -453,9 +366,34 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Fluorburst---FRET-experiments-in-silico">
-<h1>Fluorburst - FRET experiments <em>in silico</em><a class="headerlink" href="#Fluorburst---FRET-experiments-in-silico" title="Permalink to this headline">¶</a></h1>
-<p>Let’s import a few modules first</p>
+<section id="Fluorburst---FRET-experiments-in-silico">
+<h1>Fluorburst - FRET experiments <em>in silico</em><a class="headerlink" href="#Fluorburst---FRET-experiments-in-silico" title="Permalink to this headline"></a></h1>
+<p>This tutorial demonstrates how to perform an <em>in silico</em> FRET experiment on the basis of an MD simulation with a pair of donor and acceptor fluorophores.</p>
+<section id="Preparation---Extraction-of-R(t)-and-\kappa-^2(t)">
+<h2>Preparation - Extraction of <span class="math notranslate nohighlight">\(R(t)\)</span> and <span class="math notranslate nohighlight">\(\kappa ^2(t)\)</span><a class="headerlink" href="#Preparation---Extraction-of-R(t)-and-\kappa-^2(t)" title="Permalink to this headline"></a></h2>
+<p>Built-in GROMACS tools can be used to extract the interdye-distance <span class="math notranslate nohighlight">\(R_\text{DA}\)</span> and the orientation factor <span class="math notranslate nohighlight">\(\kappa ^2\)</span>.</p>
+<p>First, define the dipole vector by an atom pair for each of the two dyes. You may either select the atoms based on their indices with <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">make_ndx</span></code> or more expressively by reading in an atom selection with <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">select</span></code>.</p>
+<p>Save the following to a text file named <em>dye_selection.txt</em> (here atom names C2 and C14 define the dipole vector of the dye residues C3W and C5W)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;Cy3_C2C14&quot; resname C3W and (name C2 or name C14)
+&quot;Cy5_C2C14&quot; resname C5W and (name C2 or name C14)
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">select</span></code> on a reference pdb file to get a new index file called <em>dyes.ndx</em></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gmx select -s DNA.pdb -on dyes.ndx &lt; dye_selection.txt
+</pre></div>
+</div>
+<p>Now, extract <span class="math notranslate nohighlight">\(R_{DA}\)</span> and <span class="math notranslate nohighlight">\(\kappa ^2\)</span> using <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">dyecoupl</span></code> (Hoefling et al., <em>Comput. Phys. Commun.</em> <strong>2013</strong>) which is built into GROMACS.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gmx dyecoupl -f DNA.xtc -n dyes.ndx -o DNA_rkappa.dat
+</pre></div>
+</div>
+<p>To calculate <strong>anisotropy decays</strong> also extract the coordinates of the atoms defining the dipole vector</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gmx traj -f DNA.xtc -s DNA.pdb -n dyes.ndx -ox DNA_donor_coords.xvg
+gmx traj -f DNA.xtc -s DNA.pdb -n dyes.ndx -ox DNA_acceptor_coords.xvg
+</pre></div>
+</div>
+</section>
+<section id="FRET-experiment-with-Fluorburst">
+<h2>FRET experiment with <em>Fluorburst</em><a class="headerlink" href="#FRET-experiment-with-Fluorburst" title="Permalink to this headline"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -469,7 +407,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>Read in the parameters and initialize an experiment (including calculating the time-resolved anisotropy)</p>
+<p>The parameter file <em>DNA_parameters.json</em> defines bursts settings, the experimental inputs (fluorescence lifetime, quantum yields) and the file paths. Once defined, read in the parameters and initialize an experiment (including calculating the time-resolved anisotropy)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -547,7 +485,7 @@ M. Hoefling, H. Grubmüller, Comp. Phys. Commun. (2013)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#experiment.save(&#39;trajectory_examples/dna&#39;, remove_bursts=False)</span>
+<span></span><span class="n">experiment</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;trajectory_examples/dna&#39;</span><span class="p">,</span> <span class="n">remove_bursts</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -694,54 +632,38 @@ M. Hoefling, H. Grubmüller, Comp. Phys. Commun. (2013)
 </pre></div>
 </div>
 </div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../fluorburst_parameters.html" class="btn btn-neutral float-left" title="Parameter file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Fabio D. Steffen, University of Zurich.
-
-    </p>
+    <p>&#169; Copyright 2020, Fabio D. Steffen, University of Zurich.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
