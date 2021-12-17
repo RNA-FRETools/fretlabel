@@ -1322,7 +1322,7 @@ acpype -i &quot;$base_linker&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 <p>Reference: <a class="reference external" href="https://ambermd.org/tutorials/advanced/tutorial1/section1.htm">https://ambermd.org/tutorials/advanced/tutorial1/section1.htm</a></p>
 <p>In the AMBER force fields (Cornell, <em>JACS</em>, <strong>1995</strong>) the <strong>DNA</strong> nucleotides the charges at the termini is as follows: - 5’-end nucleotide: -0.3079 - 3’-end nucleotide: -0.6921</p>
 <p>For <strong>RNA</strong> the charges are: - 5’-end nucleotide: -0.3081 - 3’-end nucleotide: -0.6919</p>
-<p><img alt="8f36fd804a664c1b9e7899b43dd39ac5" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
+<p><img alt="1014599ed3a3443e971af14c4ef89cae" class="no-scaled-link" src="../_images/DNAparameters_Cornell1995.png" style="width: 800px;" /></p>
 <section id="Labeled-DNA-5’-terminus">
 <h4>Labeled DNA 5’-terminus<a class="headerlink" href="#Labeled-DNA-5’-terminus" title="Permalink to this headline"></a></h4>
 <p>The 5’-end nucleotide will become an internal residue (DNA charge: -1; i.e. the phosphate of the linker will be transferred to this nucleotide). The linker will become the new 5’-terminus (DNA charge: -0.3079). For this purpose, the <strong>methylphosphate cap</strong> (<span class="math notranslate nohighlight">\(-PO_2-OCH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.3079)=**-0.6921** during the RESP fit.</p>
@@ -1330,7 +1330,7 @@ acpype -i &quot;$base_linker&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 <section id="Labeled-DNA-3’-terminus">
 <h4>Labeled DNA 3’-terminus<a class="headerlink" href="#Labeled-DNA-3’-terminus" title="Permalink to this headline"></a></h4>
 <p>The 3’-end nucleotide will become an internal residue (DNA charge: -1). The linker will become the new 3’-terminus (DNA charge: -0.36921, i.e. <span class="math notranslate nohighlight">\(-PO_2-\)</span> will be retained). For this purpose, the <strong>methoxy cap</strong> (<span class="math notranslate nohighlight">\(-O-CH_3\)</span>) of the linker (which will be removed) should be constrained to a charge of -1-(-0.6021)=**-0.3079** during the RESP fit.</p>
-<p><img alt="5b73b67da0f341e3b2f8ae81c2f0f2c7" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
+<p><img alt="48abf1dea1cd4840be86d89310ef2313" class="no-scaled-link" src="../_images/POS_linker.png" style="width: 800px;" /></p>
 </section>
 </section>
 <section id="Rational-for-linker-RESP-charge-derivation-at-3’-end-via-hydrazide">
@@ -1338,7 +1338,7 @@ acpype -i &quot;$base_linker&quot;_ff.mol2 -o gmx -n -1 -a amber -c user
 <p>Insertion of a hydrazide with sugar ring closure can only occur in riboses (RNA) because it requires a dialdehyde (O2’, O3’). The four RNA bases are parameterized such that the partial charges of the base + C1’ + H1’ = <strong>0.1160</strong>. The NH2 capping group of the linker (which is a placeholder for the base) + C1’ + H1’ are therefore constrained to <strong>0.1160</strong>. The charges of C1’ and H1’ are fixed to those of the respective nucleotide in the Amber force field (e.g. for adenosine: C1’=<strong>0.0394</strong> and
 H1’=<strong>0.2007</strong>)</p>
 <p>The methoxy cap (which will be removed) is constrained to -0.3081 such that the remaining fragment will sum up to <strong>-0.6919</strong>.</p>
-<p><img alt="4ff61bbde23c404f856cb792344dee07" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
+<p><img alt="8d5f3bcc15e742f38f6948f70a410e6f" class="no-scaled-link" src="../_images/etheno_hydrazide_linker.png" style="width: 800px;" /></p>
 </section>
 <section id="Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine">
 <h3>Rational for linker RESP charge derivation at internal ethenoadenine / ethenocytosine<a class="headerlink" href="#Rational-for-linker-RESP-charge-derivation-at-internal-ethenoadenine-/-ethenocytosine" title="Permalink to this headline"></a></h3>
