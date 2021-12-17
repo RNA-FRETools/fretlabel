@@ -32,14 +32,12 @@ class App(QtWidgets.QWidget):
         self.textWindow = QtWidgets.QDialog(self)
         self.fileNamePath_pdb = None
         utils.loadUi(self.textUI, self.textWindow)
-        
 
         # activate / deactivate GUI elements
         self.push_addFragment.setEnabled(False)
         self.push_reloadPDB.setEnabled(False)
         self.push_savePDB.setEnabled(False)
         self.spinBox_atomID.setEnabled(False)
-
 
         # add fragments from dye library
         with open(os.path.join(os.path.dirname(__file__), 'dye_library.json'), 'r') as f:
@@ -76,16 +74,16 @@ class App(QtWidgets.QWidget):
             print('The selected dye fragment cannot be found')
         else:
             residue_names = self.get_residueNames(self.fragment['filename'])
-            
+
             # change the residue number of the fragment
             cmd.alter(self.fragment['filename'], "resi={:d}".format(self.resi))
             cmd.alter(self.fragment['filename'], 'chain="{}"'.format(self.chain))
             resin = 'chain {} and resn {}+{} and resi \{:d}'.format(self.chain, self.fragment['base'], self.fragment['linker'], self.resi)
-            #chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
-            
+            # chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
+
             # make selections of base and sugar backbone
             nucleic = 'resn RA+RG+RC+RU+DA+DG+DC+DT'
-            bases = '(name C*+N*+O*+H* and {} and not (name C*\'+O*\'+O*P*+H*\'*+P and {}))'.format(resin,resin)
+            bases = '(name C*+N*+O*+H* and {} and not (name C*\'+O*\'+O*P*+H*\'*+P and {}))'.format(resin, resin)
             sugar_backbone = '(name C*\'+O*\'+O*P*+H*\'*+P and {})'.format(resin)
             sele_frag_bases = '{} and {} and {}'.format(self.fragment['filename'], nucleic, bases)
             sele_pdb_bases = '{} and chain {} and resi \{:d} and {} and {}'.format(self.fileName_pdb[:-4], self.chain, self.resi, nucleic, bases)
@@ -97,15 +95,15 @@ class App(QtWidgets.QWidget):
             # cmd.select('pdb_sbb', sele_pdb_sbb)
 
             # check NA type of fragment
-            if cmd.select('{} and {} and name O2\''.format(self.fragment['filename'], nucleic)) > 0: # RNA
+            if cmd.select('{} and {} and name O2\''.format(self.fragment['filename'], nucleic)) > 0:  # RNA
                 self.NA_typefrag = 'RNA'
-            elif cmd.select('{} and {}'.format(self.fragment['filename'], nucleic)) > 0: # DNA
+            elif cmd.select('{} and {}'.format(self.fragment['filename'], nucleic)) > 0:  # DNA
                 self.NA_typefrag = 'DNA'
             else:
                 self.NA_typefrag = None
 
             if self.fragment['position'] == 'internal':
-                # (1) align fragment on base of PDB, (2) remove base of PDB, 
+                # (1) align fragment on base of PDB, (2) remove base of PDB,
                 # (3) remove sugar-backbone of fragment (4) remove O2' of PDB if NA_typefrag is DNA and alter PDB from RNA to DNA
                 # Note: (4) is useful for fragments like DTM which are DNA based but can be inserted at an internal DT or RU
                 cmd.align(sele_frag_bases, sele_pdb_bases)
@@ -116,7 +114,7 @@ class App(QtWidgets.QWidget):
                     resn = [r for r in self.fragment['base'].split('+') if 'D' in r][0]
                     cmd.alter('{} and chain {} and resi \{:d}'.format(self.fileName_pdb[:-4], self.chain, self.resi), 'resn="{}"'.format(resn))
             else:
-                # (1) align fragment on PDB sugar-backbone, (2) extract base from fragment, 
+                # (1) align fragment on PDB sugar-backbone, (2) extract base from fragment,
                 # (3) realign base of fragment on base of PDB, (4) remove entire residue of PDB
                 cmd.align(sele_frag_sbb, sele_pdb_sbb)
                 cmd.extract('temp_base', sele_frag_bases)
@@ -137,54 +135,52 @@ class App(QtWidgets.QWidget):
 
             # make bond between between consecutive residues at 5'-end/3'-end
             if self.fragment['position'] == "5'-end":
-                cmd.bond('{} and name O3\''.format(resin), 'chain {} and resi \{:d} and name P'.format(self.chain, self.resi+1))
+                cmd.bond('{} and name O3\''.format(resin), 'chain {} and resi \{:d} and name P'.format(self.chain, self.resi + 1))
             elif self.fragment['position'] == "3'-end":
-                cmd.bond('chain {} and resi \{:d} and name O3\''.format(self.chain, self.resi-1), '{} and name P'.format(resin))
+                cmd.bond('chain {} and resi \{:d} and name O3\''.format(self.chain, self.resi - 1), '{} and name P'.format(resin))
 
             self.add_H()
 
             # rename chain, residues and atoms
             cmd.alter('{} and name OP1'.format(resin), 'name="O1P"')
             cmd.alter('{} and name OP2'.format(resin), 'name="O2P"')
-            linkers = list(np.unique([entry['linker'] for entry in self.dye_lib]))+['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU']
+            linkers = list(np.unique([entry['linker'] for entry in self.dye_lib])) + ['DA', 'DG', 'DC', 'DT', 'RA', 'RG', 'RC', 'RU']
             for resn in residue_names:
-                #cmd.alter('resi \{:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(self.chain))
+                # cmd.alter('resi \{:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(self.chain))
                 if resn.strip() in linkers:
                     cmd.alter('chain {} and resi \{:d} and resn {}'.format(self.chain, self.resi, resn), 'resn="{}"'.format(self.fragment['filename'][-3:]))
-            
+
             # visualization settings
             cmd.show('sticks')
-            cmd.color('brightorange', 'chain {} and resi \{:d}'.format(self.chain, self.resi))       
+            cmd.color('brightorange', 'chain {} and resi \{:d}'.format(self.chain, self.resi))
             cmd.zoom(self.fileName_pdb[:-4])
-
 
     def add_H(self):
         """
         Add hydrogens to the labeled residue
         """
         if 'D' in self.fragment['base']:
-            carbons = ['C1\'','C2\'',None,'C3\'','C4\'','C5\'',None]
-            hydrogens = ['H1\'','H2\'1','H2\'2','H3\'','H4\'','H5\'1','H5\'2']
+            carbons = ['C1\'', 'C2\'', None, 'C3\'', 'C4\'', 'C5\'', None]
+            hydrogens = ['H1\'', 'H2\'1', 'H2\'2', 'H3\'', 'H4\'', 'H5\'1', 'H5\'2']
         else:
-            carbons = ['C1\'','C2\'','O2\'','C3\'','C4\'','C5\'',None]
-            hydrogens = ['H1\'','H2\'1','HO\'2', 'H3\'','H4\'','H5\'1','H5\'2']
-        for c,h in zip(carbons,hydrogens):
+            carbons = ['C1\'', 'C2\'', 'O2\'', 'C3\'', 'C4\'', 'C5\'', None]
+            hydrogens = ['H1\'', 'H2\'1', 'HO\'2', 'H3\'', 'H4\'', 'H5\'1', 'H5\'2']
+        for c, h in zip(carbons, hydrogens):
             if c is not None:
                 cmd.h_add('name {} and resi \{:d} and chain {} and polymer.nucleic'.format(c, self.resi, self.chain))
                 cmd.alter('name H01 and resi \{:d} and chain {} and polymer.nucleic'.format(self.resi, self.chain), 'name="{}"'.format(h))
             else:
                 cmd.alter('name H0* and resi \{:d} and chain {} and polymer.nucleic'.format(self.resi, self.chain), 'name="{}"'.format(h))
-        
-        
+
     def loadPDBinPyMOL(self):
         """
         Load a PDB file into PyMOL
         """
         cmd.reinitialize()
         cmd.load(self.fileNamePath_pdb)
-        if cmd.select('{} and polymer.nucleic and name O2\''.format(self.fileName_pdb[:-4])) > 0: # RNA
+        if cmd.select('{} and polymer.nucleic and name O2\''.format(self.fileName_pdb[:-4])) > 0:  # RNA
             self.NA_typePDB = 'RNA'
-        elif cmd.select('{} and polymer.nucleic'.format(self.fileName_pdb[:-4])) > 0: # DNA
+        elif cmd.select('{} and polymer.nucleic'.format(self.fileName_pdb[:-4])) > 0:  # DNA
             self.NA_typePDB = 'DNA'
         else:
             self.NA_typePDB = None
@@ -202,19 +198,20 @@ class App(QtWidgets.QWidget):
         for chain in cmd.get_chains(nucleic_protein):
             self.comboBox_chain.addItem(chain)
         self.comboBox_chain.setCurrentIndex(0)
-        
+
     def clean_pdb(self):
         """
         Clean up the PDB file for Gromacs
         """
-        cmd.remove('hydrogens and resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DU') # remove hydrogens on nucleic acids
+        cmd.remove('hydrogens and resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DU')  # remove hydrogens on nucleic acids
         cmd.remove('inorganic or solvent')
         atom_names = [atom.name for atom in cmd.get_model('resi 1').atom]
         if 'O5\'' not in atom_names:  # O5' is missing in Rosetta models
-            first_resi = int([a.resi for a in cmd.get_model().atom][0])
-            cmd.edit('resi {:d} and name C5\''.format(first_resi))
-            cmd.attach('O',2,2)
-            cmd.alter('resi 1 and name O01', 'name="O5\'"')
+            for chain in cmd.get_chains():
+                first_resi = int([a.resi for a in cmd.get_model("chain {}".format(chain)).atom][0])
+                cmd.edit('chain {} and resi {:d} and name C5\''.format(chain, first_resi))
+                cmd.attach('O', 2, 2)
+                cmd.alter('resi 1 and name O01', 'name="O5\'"')
 
     def alter_nucleic(self, direction='forward'):
         """
@@ -238,7 +235,6 @@ class App(QtWidgets.QWidget):
                     cmd.alter('{} and resn {}'.format(self.fileName_pdb[:-4], r), 'resn="{}"'.format(r[1]))
         cmd.deselect()
 
-
     def readPDB(self, fileNamePath_pdb=False):
         """
         Load PDB or CIF file
@@ -257,10 +253,10 @@ class App(QtWidgets.QWidget):
                 self.pdbText = f.read()
                 self.push_showText.setEnabled(True)
             self.loadPDBinPyMOL()
-            self.push_reloadPDB.setEnabled(True) 
-            self.push_savePDB.setEnabled(True)             
+            self.push_reloadPDB.setEnabled(True)
+            self.push_savePDB.setEnabled(True)
             self.lineEdit_pdbFile.setText(self.fileName_pdb)
-            
+
     def selectChemistry(self):
         """
         Update the chemistry dropdown menu
@@ -284,7 +280,6 @@ class App(QtWidgets.QWidget):
                 if self.comboBox_selectBase.findText(frag['base']) == -1:
                     self.comboBox_selectBase.addItem(frag['base'])
         self.selectDye()
-                
 
     def selectDye(self):
         """
@@ -298,7 +293,6 @@ class App(QtWidgets.QWidget):
                     self.comboBox_selectDye.addItem(frag['dye'])
         self.valid_residues()
 
-
     def valid_residues(self):
         """
         Make list of residues where the selected fragment can be attached to
@@ -310,7 +304,7 @@ class App(QtWidgets.QWidget):
             currBase = self.comboBox_selectBase.currentText()
             currDye = self.comboBox_selectDye.currentText()
             for frag in self.dye_lib:
-                if (frag['position']==currPos) and (frag['chemistry']==currChem) and (frag['base']==currBase) and (frag['dye']==currDye):
+                if (frag['position'] == currPos) and (frag['chemistry'] == currChem) and (frag['base'] == currBase) and (frag['dye'] == currDye):
                     self.fragment = frag
             if self.fileNamePath_pdb:
                 if self.fragment['position'] == "5'-end":
@@ -332,7 +326,7 @@ class App(QtWidgets.QWidget):
                             r = int(line[22:26])
                             if r not in self.resis[chain]:
                                 self.resis[chain].append(r)
-                            i+=1
+                            i += 1
                         except (IndexError, ValueError):
                             continue
                 if self.resis[currChain]:
@@ -348,9 +342,6 @@ class App(QtWidgets.QWidget):
                     self.lineEdit_pdbAtom.setText('no {} at {} in chain {}'.format(self.fragment['base'], self.fragment['position'], currChain))
                 self.update_atom()
 
-
-
-
     def update_atom(self):
         """
         Update the atom edit box and the color of the selected residue in PyMOL
@@ -361,20 +352,20 @@ class App(QtWidgets.QWidget):
         if self.resis[self.chain]:
             if new_resi > self.before_resi:
                 while new_resi <= max(self.resis[self.chain]):
-                    self.before_resi=new_resi
+                    self.before_resi = new_resi
                     if new_resi in self.resis[self.chain]:
                         self.spinBox_atomID.setValue(new_resi)
                         break
                     else:
-                        new_resi+=1
+                        new_resi += 1
             elif new_resi < self.before_resi:
                 while new_resi >= min(self.resis[self.chain]):
-                    self.before_resi=new_resi
+                    self.before_resi = new_resi
                     if new_resi in self.resis[self.chain]:
                         self.spinBox_atomID.setValue(new_resi)
                         break
                     else:
-                        new_resi-=1
+                        new_resi -= 1
             self.resi = new_resi
             resn = cmd.get_model('chain {} and resi \{:d}'.format(self.chain, new_resi)).atom[0].resn
             resi_str = '{}-{} {:d}'.format(self.chain, resn, new_resi)
@@ -395,7 +386,7 @@ class App(QtWidgets.QWidget):
         residue_names : list
         """
         ATOM_str = cmd.get_pdbstr(selection)
-        residue_names= []
+        residue_names = []
         for line in ATOM_str.split('\n'):
             r = line[17:20]
             if r and r not in residue_names:
@@ -434,7 +425,6 @@ class App(QtWidgets.QWidget):
             min_max_residue[chain] = (min(residue_index[chain]), max(residue_index[chain]))
         return min_max_residue
 
-
     def openPDBFile(self):
         """
         Show the PDB file as a text file
@@ -442,7 +432,6 @@ class App(QtWidgets.QWidget):
         self.textWindow.textBrowser_pdbFile.setText(self.pdbText)
         self.textWindow.setWindowTitle("FluorDynamics - {}".format(self.fileName_pdb))
         isOK = self.textWindow.exec_()
-
 
     def runDemo(self):
         """
@@ -461,7 +450,7 @@ class App(QtWidgets.QWidget):
                 message = 'Change RNA nucleotides A, G, C and U to RA, RG, RC and RU'
             elif self.NA_typePDB == 'DNA':
                 message = 'Change DNA nucleotides A, G, C and T to RA, RG, RC and RT'
-            alter_residues = msg.question(self,'Alter residues', message, msg.Yes | msg.No)
+            alter_residues = msg.question(self, 'Alter residues', message, msg.Yes | msg.No)
             if alter_residues == msg.No:
                 self.alter_nucleic(direction='backward')
         filename, filetype = QtWidgets.QFileDialog.getSaveFileName(self, "Save PDB", "", "PDB File (*.pdb);;CIF File (*.cif)")
@@ -494,7 +483,6 @@ class App(QtWidgets.QWidget):
             with open('{}/.fluorlabel_settings.conf'.format(package_directory), 'w') as f:
                 json.dump(self.settings, f, indent=2)
 
-
     def openDocumentation(self):
         """
         Open documentation in the browser
@@ -509,7 +497,7 @@ class App(QtWidgets.QWidget):
                 returnValue = msg.exec_()
                 if returnValue == QtWidgets.QMessageBox.Ok:
                     self.set_localdocsDir()
-                
+
         if not self.settings['browser']:
             msg = QtWidgets.QMessageBox()
             msg.setIcon(QtWidgets.QMessageBox.Information)
