@@ -1,0 +1,34 @@
+{
+"dyes":{
+    "tauD":0.75,
+    "tauA":1.5,
+    "QD":0.2,
+    "QA":0.3
+    },
+"sampling":{
+    "nbursts":2000,
+    "skipframesatstart":0,
+    "skipframesatend":1000,
+    "multiprocessing":true
+    },
+"fret":{
+    "R0":5.4,
+    "kappasquare":0.666666,
+    "no_gamma":false,
+    "quenching_radius":1.0
+    },
+"species":{
+    "name":["all"],
+    "unix_pattern_rkappa": ["*.dat"],
+    "unix_pattern_don_coords": ["*Cy3*.xvg"],
+    "unix_pattern_acc_coords": ["*Cy3*.xvg"],
+    "probability": [1]
+    },
+"bursts":{
+    "lower_limit":20,
+    "upper_limit":150,
+    "lambda":-2.3,
+    "QY_correction":false,
+    "averaging": "all"
+}
+}

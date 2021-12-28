@@ -28,7 +28,7 @@ The PyMOL plugin *FluorLabel* fuses a fragment that consists of a **modified nuc
 <img src='../images/dye-linker-base.png' width=500>
 
 ```{admonition} Pre-generated parameters in *FRETlabel*
-Geometries, partial charges and force field parameters of selected dyes, linkers and nucleobases are distributed with *FRETlabel*. These files are located in the `fragments/` and `forcefields/` directories and have been generated using the code available [here](../module/NA_coupling_chemistries.md). To learn more about the specific attachment chemistries, have a look [here](../background/labeling_chemistry.md).
+Geometries, partial charges and force field parameters of selected dyes, linkers and nucleobases are distributed with *FRETlabel*. These files are located in the `fragments/` and `forcefields/` directories and have been generated using the code available [here](../module/all_fragments.md). To learn more about the specific attachment chemistries, have a look [here](../background/labeling_chemistry.md).
 ```
 
 The purpose of this tutorial is to demonstrate the process of generating a new dye-linker-base fragment. We will use a sulfonated Cy3 dye attached to the C5 of deoxythymine (see above) as an example.

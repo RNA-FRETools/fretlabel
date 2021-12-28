@@ -5,9 +5,12 @@ logo: images/fretlabel_logo.png
 copyright: "2022"
 
 execute:
-  execute_notebooks: 'off'
-  #exclude_patterns:
-  #  - 'pattern1'
+  execute_notebooks: auto
+  exclude_patterns:
+    - "fragment_building.md"
+    - "all_fragments.md"
+    - "partial_charges_to_mol2.md"
+
 
 launch_buttons:
   binderhub_url: "https://mybinder.org"
