@@ -1,5 +1,0 @@
-numpy
-pandas
-biopandas
-tqdm
-pybind11

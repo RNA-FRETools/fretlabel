@@ -1,0 +1,21 @@
+format: jb-book
+root: intro
+parts:
+- caption: Getting started
+  chapters:
+  - file: getting_started/installation
+  - file: getting_started/pymol_plugin
+  - file: getting_started/deoxythymidine_fragment_building
+  - file: getting_started/fluorburst
+- caption: Background
+  chapters:
+  - file: background/labeling_strategies
+  - file: background/labeling_chemistry
+- caption: Code
+  chapters:
+  - file: module/ff
+  - file: module/partial_charges_to_mol2
+  - file: module/NA_coupling_chemistries
+- caption: References
+  chapters:
+  - file: references
