@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer partial charges to mol2</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deriving FRETlabel fragments" href="all_fragments.html" />
+    <link rel="prev" title="Force field" href="ff.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/fretlabel_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to FRETlabel
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/pymol_plugin.html">
+   Labeling with the PyMOL plugin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/fragment_building.html">
+   Fragment building
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/fret_prediction.html">
+   Predicting FRET
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_strategies.html">
+   Labeling strategies for RNA/DNA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_chemistry.html">
+   Coupling chemistries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Code
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ff.html">
+   Force field
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Transfer partial charges to mol2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="all_fragments.html">
+   Deriving FRETlabel fragments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/module/partial_charges_to_mol2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RNA-FRETools/fretlabel"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RNA-FRETools/fretlabel/issues/new?title=Issue%20on%20page%20%2Fmodule/partial_charges_to_mol2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Transfer partial charges to mol2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="transfer-partial-charges-to-mol2">
+<h1>Transfer partial charges to mol2<a class="headerlink" href="#transfer-partial-charges-to-mol2" title="Permalink to this headline">¶</a></h1>
+<p>Here we will add partial charges from the AMBER force field (GROMACS residue topology files, <strong>rtp</strong>) to the RNA and DNA mononucleotides (<strong>mol2</strong> files).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><em>input files</em>:</p>
+<ul>
+<li><p>DNA, RNA and aminoacid parameters from GROMACS <strong>rtp</strong> are located in <code class="docutils literal notranslate"><span class="pre">forcefields/1_amber_rtp/</span></code></p></li>
+<li><p>unprocessed (deoxy)nucleosides monophosphates in <strong>mol2</strong> format are located in <code class="docutils literal notranslate"><span class="pre">fragments/bases/original/</span></code></p></li>
+</ul>
+</li>
+<li><p><em>output files</em>:</p>
+<ul>
+<li><p>processed (deoxy)nucleosides monophosphates <strong>mol2</strong> files with updated partial charges will be located in <code class="docutils literal notranslate"><span class="pre">fragments/bases/processed/</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">biopandas.mol2</span> <span class="kn">import</span> <span class="n">PandasMol2</span>
+<span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
+</pre></div>
+</div>
+<p>Load the deoxyribonucleotides <strong>mol2</strong> files (with hydrogen names adapted to the AMBER ff) along with the corresponding <strong>rtp</strong> entries from the AMBER force field.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DA_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/deoxyadenosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">DT_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/deoxythymidine.mol2&#39;</span><span class="p">)</span>
+<span class="n">DG_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/deoxyguanosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">DC_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/deoxycytidine.mol2&#39;</span><span class="p">)</span>
+
+<span class="n">RA_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/adenosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">RU_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/uridine.mol2&#39;</span><span class="p">)</span>
+<span class="n">RG_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/guanosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">RC_mol2</span> <span class="o">=</span> <span class="n">PandasMol2</span><span class="p">()</span><span class="o">.</span><span class="n">read_mol2</span><span class="p">(</span><span class="s1">&#39;fragments/bases/in/cytidine.mol2&#39;</span><span class="p">)</span>
+
+<span class="n">DA_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/dna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">89</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">DT_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/dna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">393</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">DG_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/dna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">DC_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/dna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1007</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">RA_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/rna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">92</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">RU_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/rna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">397</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">RG_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/rna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">693</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">RC_rtp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;forcefields/amber_rtp/rna.rtp&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1009</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atom_name&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_type&#39;</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">,</span> <span class="s1">&#39;nr&#39;</span><span class="p">],</span> <span class="n">na_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/DA_DT.png"><img alt="../_images/DA_DT.png" src="../_images/DA_DT.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/DG_DC.png"><img alt="../_images/DG_DC.png" src="../_images/DG_DC.png" style="width: 400px;" /></a>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">fl.ff.pandasMol2_replace()</span></code> function to add the <code class="docutils literal notranslate"><span class="pre">charge</span></code> column of the rtp file into the mol2 file. The <code class="docutils literal notranslate"><span class="pre">atom_name</span></code> column is used as the comparing index.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">DA_rtp</span><span class="p">,</span> <span class="n">DA_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">DT_rtp</span><span class="p">,</span> <span class="n">DT_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">DG_rtp</span><span class="p">,</span> <span class="n">DG_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">DC_rtp</span><span class="p">,</span> <span class="n">DC_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">RA_rtp</span><span class="p">,</span> <span class="n">RA_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">RU_rtp</span><span class="p">,</span> <span class="n">RU_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">RG_rtp</span><span class="p">,</span> <span class="n">RG_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pandasMol2_replace</span><span class="p">(</span><span class="n">RC_rtp</span><span class="p">,</span> <span class="n">RC_mol2</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;charge&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, save the updated mol2 files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">DA_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/deoxyadenosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">DT_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/deoxythymidine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">DG_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/deoxyguanosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">DC_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/deoxycytidine.mol2&#39;</span><span class="p">)</span>
+
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">RA_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/adenosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">RU_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/uridine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">RG_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/guanosine.mol2&#39;</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_mol2</span><span class="p">(</span><span class="n">RC_mol2</span><span class="p">,</span> <span class="s1">&#39;fragments/bases/out/cytidine.mol2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./module"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ff.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Force field</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="all_fragments.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Deriving FRETlabel fragments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fabio D. Steffen<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

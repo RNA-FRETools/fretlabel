@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fragment building</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Predicting FRET" href="fret_prediction.html" />
+    <link rel="prev" title="Labeling with the PyMOL plugin" href="pymol_plugin.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/fretlabel_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to FRETlabel
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pymol_plugin.html">
+   Labeling with the PyMOL plugin
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Fragment building
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fret_prediction.html">
+   Predicting FRET
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_strategies.html">
+   Labeling strategies for RNA/DNA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_chemistry.html">
+   Coupling chemistries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Code
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/ff.html">
+   Force field
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/partial_charges_to_mol2.html">
+   Transfer partial charges to mol2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module/all_fragments.html">
+   Deriving FRETlabel fragments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/getting_started/fragment_building.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/getting_started/fragment_building.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RNA-FRETools/fretlabel"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RNA-FRETools/fretlabel/issues/new?title=Issue%20on%20page%20%2Fgetting_started/fragment_building.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/RNA-FRETools/fretlabel/master?urlpath=tree/docs/getting_started/fragment_building.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-and-paramerizing-the-linker">
+   Building and paramerizing the linker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-capped-linker-with-pymol">
+     Build the capped linker with PyMOL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry-optimization-and-esp-calculation-with-gaussian">
+     Geometry optimization and ESP calculation with Gaussian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-charge-fitting-with-resp">
+     Partial charge fitting with RESP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fusing-base-linker-and-fluorophore">
+     Fusing base, linker and fluorophore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-the-force-field">
+     Update the force field
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fragment building</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-and-paramerizing-the-linker">
+   Building and paramerizing the linker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-capped-linker-with-pymol">
+     Build the capped linker with PyMOL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry-optimization-and-esp-calculation-with-gaussian">
+     Geometry optimization and ESP calculation with Gaussian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-charge-fitting-with-resp">
+     Partial charge fitting with RESP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fusing-base-linker-and-fluorophore">
+     Fusing base, linker and fluorophore
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-the-force-field">
+     Update the force field
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fragment-building">
+<h1>Fragment building<a class="headerlink" href="#fragment-building" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we will create a new dye-linker-nucleotide fragment which can be referenced by the <strong>FluorLabel</strong> PyMOL plugin. Before starting, make sure you have the following components installed on your machine:</p>
+<ul class="simple">
+<li><p>FRETlabel</p></li>
+<li><p>PyMOL</p></li>
+<li><p>Antechamber (part of <a class="reference external" href="https://ambermd.org/GetAmber.php#ambertools">AmberTools19</a>)</p></li>
+<li><p><a class="reference external" href="https://alanwilter.github.io/acpype/">Acpype</a></p></li>
+</ul>
+<p>Refer to the <a class="reference internal" href="installation.html"><span class="doc std std-doc">installation</span></a> page for specific instructions.</p>
+<p>The PyMOL plugin <em>FluorLabel</em> fuses a fragment that consists of a <strong>modified nucleobase</strong> and a <strong>fluorophore</strong> connected by a flexible <strong>linker</strong>.</p>
+<a class="reference internal image-reference" href="../_images/dye-linker-base.png"><img alt="../_images/dye-linker-base.png" src="../_images/dye-linker-base.png" style="width: 500px;" /></a>
+<div class="admonition-pre-generated-parameters-in-fretlabel admonition">
+<p class="admonition-title">Pre-generated parameters in <em>FRETlabel</em></p>
+<p>Geometries, partial charges and force field parameters of selected dyes, linkers and nucleobases are distributed with <em>FRETlabel</em>. These files are located in the <code class="docutils literal notranslate"><span class="pre">fragments/</span></code> and <code class="docutils literal notranslate"><span class="pre">forcefields/</span></code> directories and have been generated using the code available <a class="reference internal" href="../module/all_fragments.html"><span class="doc std std-doc">here</span></a>. To learn more about the specific attachment chemistries, have a look <a class="reference internal" href="../background/labeling_chemistry.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+<p>The purpose of this tutorial is to demonstrate the process of generating a new dye-linker-base fragment. We will use a sulfonated Cy3 dye attached to the C5 of deoxythymine (see above) as an example.</p>
+<p>The job mainly consists of two subtasks:</p>
+<ol class="simple">
+<li><p>generating the geometries for the dye-linker-base fragment (i.e. a PDB file that can be referenced by <em>FRETlabel</em>)</p></li>
+<li><p>deriving force field parameters for the new linker and attachment atoms/bonds/dihedrals</p></li>
+</ol>
+<div class="admonition-amber-dyes admonition">
+<p class="admonition-title">AMBER-DYES</p>
+<p>A number of commonly used fluorophores has been previously parameterized in the AMBER force field for Gromacs by the Grubmüller lab (Graen et al. <em>JCTC</em>, <strong>2014</strong>). The parameters are distributed through the <a class="reference external" href="https://github.com/t-/amber-dyes">AMBER-DYES package</a> and are also included in <em>FRETlabel</em>.
+Dye parameters for the CHARMM package have also recently been released (Shaw, <em>JCTC</em>, <strong>2020</strong>). Here we focus on deriving parameters for the AMBER force field. Note, however that once a dye-linker fragment (step 1) with appropriate force-field parameters (step 2) is generated it can be used by <em>FRETlabel</em> independent of the type of force field.</p>
+</div>
+<div class="section" id="building-and-paramerizing-the-linker">
+<h2>Building and paramerizing the linker<a class="headerlink" href="#building-and-paramerizing-the-linker" title="Permalink to this headline">¶</a></h2>
+<p>The parameterization involves calculating <strong>partial charges</strong> as well as <strong>bond, angle and dihedral parameters</strong> for all the atomtypes. The parameters of the bases and the dyes are already available as part of the AMBER and AMBER-DYES force fields. However, those of the linker need to be generated from scratch or in analogy to existing parameters.</p>
+<p>We will start by calculating partial charges of the linker by doing a <strong>RESP (Restrained ElectroStatic Potential)</strong> fit. For this labeling chemistry we use the following 6-carbon linker capped at each both ends with either a methylene or an acetylene (ACE) group to fill the bond valencies and to make the net charge of the spacer equal zero. The capping groups are chosen to best mimic the actual charge distribution when the linker is fused to the dye and the nucleotide.</p>
+<a class="reference internal image-reference" href="../_images/MLE_linker.png"><img alt="../_images/MLE_linker.png" src="../_images/MLE_linker.png" style="width: 450px;" /></a>
+<p>The partial charges of the ACE group have been derived when the AMBER-95 force field was designed (Cornell et al. <em>JACS</em> <strong>1995</strong>) and are itself summing up to zero. The methylene charges will be determined as part of the charge fitting procedure with a group charge constraint of -0.15400. This group constraint equals the charge difference between a normal deoxythymine and one where two of the three methyl hydrogens on C5 are removed (partial charge of H71 and H72 is 0.77200 each).</p>
+<div class="math notranslate nohighlight">
+\[ 
+\Delta q = q(\text{DT}_\text{-H71,-H72})-q(\text{DT}_\text{normal}) = -1.15400-(-1) = -0.15400
+\]</div>
+<div class="section" id="build-the-capped-linker-with-pymol">
+<h3>Build the capped linker with PyMOL<a class="headerlink" href="#build-the-capped-linker-with-pymol" title="Permalink to this headline">¶</a></h3>
+<p>First, we create the linker with correct bond valencies using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> tool of PyMOL. Fragments can be added alltogether by <code class="docutils literal notranslate"><span class="pre">Build</span></code>→<code class="docutils literal notranslate"><span class="pre">Fragment</span></code>→<code class="docutils literal notranslate"><span class="pre">Acetylene</span></code>.</p>
+<a class="reference internal image-reference" href="images/PyMOL_builder.png"><img alt="images/PyMOL_builder.png" src="images/PyMOL_builder.png" style="width: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/MLE_linker_PyMOL.png"><img alt="../_images/MLE_linker_PyMOL.png" src="../_images/MLE_linker_PyMOL.png" style="width: 450px;" /></a>
+<div class="admonition-atom-naming admonition">
+<p class="admonition-title">Atom naming</p>
+<p>Rename the atoms in a logical way such that there is no overlap with the atom names of the nucleotide (atoms of the linker and the dye can have the same names because there residue name is different).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Mol2 files have the advantage that bond valencies are encoded in the format. You can emulate this behavior with PDB files by creating double CONECT entries, however this feature is not recognized by many programs and often leads to error messages instead.</p>
+</div>
+</div>
+<div class="section" id="geometry-optimization-and-esp-calculation-with-gaussian">
+<h3>Geometry optimization and ESP calculation with Gaussian<a class="headerlink" href="#geometry-optimization-and-esp-calculation-with-gaussian" title="Permalink to this headline">¶</a></h3>
+<p>Next, we will do a geometry optimization and calculate an electrostatic potential (ESP) using GAUSSIAN (or alternatively GAMESS). A Gaussian input file can be created via Antechamber:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="n">MLE_capped</span>
+<span class="n">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
+<span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
+
+<span class="n">cd</span> <span class="n">fragments</span><span class="o">/</span><span class="n">linkers</span><span class="o">/</span><span class="n">MLE</span><span class="o">/</span>
+<span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">-</span><span class="n">fo</span> <span class="n">gcrt</span> <span class="o">-</span><span class="n">gv</span> <span class="mi">1</span> <span class="o">-</span><span class="n">ge</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gesp</span> <span class="o">-</span><span class="n">ch</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span> <span class="o">-</span><span class="n">nc</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code> input filename</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-fi</span></code> input file format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> output filename</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-fo</span></code> output file format (gcrt = Gaussian Cartesian)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-gv</span></code> add keyword to generate gesp file (1 = yes, for Gaussian09)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ge</span></code> gaussian esp filename generated by iop(6/50=1), default is g09.gesp</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ch</span></code> check filename for Gaussian, default is ‘molecule’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-nc</span></code> net charge</p></li>
+</ul>
+<p>To speed up the calculation we will perform the geometry optimization at the B3LYP/6-31G* level of theory followed by the ESP calculation using Hartree Fock (HF/6-31G*). For this purpose, we will slightly modify the Gaussian input file and allow it to run on multiple cores (with the <code class="docutils literal notranslate"><span class="pre">nproc</span></code> keyword).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nproc</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">sed</span> <span class="s1">&#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/iop/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/.*gesp/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span>
+<span class="n">sed</span> <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/SCF/Geom=check SCF/g&#39;</span><span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/\(\</span><span class="si">%c</span><span class="s1">hk=.*\)opt/</span><span class="se">\1</span><span class="s1">esp/g&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span>
+</pre></div>
+</div>
+<p>Run the geometry optimization:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gout</span> <span class="o">&amp;&amp;</span> <span class="n">cp</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span><span class="o">.</span><span class="n">chk</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_esp</span><span class="o">.</span><span class="n">chk</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that charge and multiplicity are compatible (check log files in case of segmentation errors).</p>
+</div>
+<p>Calculate the electrostatic surface potential using the checkpoint file of the geometry optimization as start coordinates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gout</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remove the coordinates from the original file, in order to use the checkpoint file from the geometry optimization.</p>
+</div>
+</div>
+<div class="section" id="partial-charge-fitting-with-resp">
+<h3>Partial charge fitting with RESP<a class="headerlink" href="#partial-charge-fitting-with-resp" title="Permalink to this headline">¶</a></h3>
+<p>Use Antechamber to convert the mol2 file of the linker into an Antechamber file (.ac) which can be read by <strong>respgen</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">ac</span> <span class="o">-</span><span class="n">fo</span> <span class="n">ac</span> <span class="o">-</span><span class="n">pf</span> <span class="n">yes</span> <span class="o">-</span><span class="n">nc</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">DTM_capping_group.dat</span></code> file to define which atoms should be assigned a fixed charge and which atoms to group together with a constraint. As mentioned above, we will fix the charges of the ACE atoms according to the AMBER force field and apply a group contraint on the methylene cap.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">ACE</span> <span class="n">cap</span> <span class="n">fixed</span> <span class="n">to</span> <span class="n">the</span> <span class="n">charge</span> <span class="n">of</span> <span class="n">AMBER99ff</span> <span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="n">CHARGE</span> <span class="o">&lt;</span><span class="n">partial_charge</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">atom_ID</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">atom_name</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">CHARGE</span> <span class="mf">0.5972</span> <span class="mi">10</span> <span class="n">C16</span> 
+<span class="n">CHARGE</span> <span class="o">-</span><span class="mf">0.3662</span> <span class="mi">11</span> <span class="n">C17</span>
+<span class="n">CHARGE</span> <span class="o">-</span><span class="mf">0.5679</span> <span class="mi">13</span> <span class="n">O98</span> 
+<span class="n">CHARGE</span> <span class="mf">0.1123</span> <span class="mi">32</span> <span class="n">H97</span>
+<span class="n">CHARGE</span> <span class="mf">0.1123</span> <span class="mi">33</span> <span class="n">H96</span>
+<span class="n">CHARGE</span> <span class="mf">0.1123</span> <span class="mi">34</span> <span class="n">H95</span>
+
+<span class="o">//</span> <span class="n">Group</span> <span class="n">constraint</span> <span class="k">for</span> <span class="n">methylene</span> <span class="n">cap</span> <span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="n">GROUP</span> <span class="o">&lt;</span><span class="n">number_atoms</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">net_charge</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">GROUP</span> <span class="mi">3</span> <span class="o">-</span><span class="mf">0.15400</span>
+<span class="n">ATOM</span> <span class="mi">1</span> <span class="n">C7</span>
+<span class="n">ATOM</span> <span class="mi">16</span> <span class="n">H01</span>
+<span class="n">ATOM</span> <span class="mi">17</span> <span class="n">H02</span>
+</pre></div>
+</div>
+<p>Run the RESP fitting (see below for information on the individual steps):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>capping_group=MLE_capping_groups.dat
+
+n_atom=`awk &#39;$1 == &quot;GROUP&quot; {print $2}&#39; &quot;$input_folder/$capping_group&quot;`
+group_constraint=`awk &#39;$1 == &quot;GROUP&quot; {print $3}&#39; &quot;$input_folder/$capping_group&quot;`
+
+respgen -i &quot;$output_folder/$name&quot;.ac -o &quot;$output_folder/$name&quot;.respin1 -f resp1 -a &quot;$input_folder/$capping_group&quot;
+respgen -i &quot;$output_folder/$name&quot;.ac -o &quot;$output_folder/$name&quot;.respin2 -f resp2 -a &quot;$input_folder/$capping_group&quot;
+
+# since respgen rounds the group constraint to three decimals replace it with the value from the capping group
+sed -i &quot;s/$n_atom.*\..*/$n_atom  $group_constraint/g&quot; &quot;$output_folder/$name&quot;.respin1
+sed -i &quot;s/$n_atom.*\..*/$n_atom  $group_constraint/g&quot; &quot;$output_folder/$name&quot;.respin2
+
+espgen -i &quot;$output_folder/$name&quot;_hf_esp.gout -o &quot;$output_folder/$name&quot;_hf_esp.esp
+mv QIN &quot;$output_folder&quot;/
+
+resp -O -i &quot;$output_folder/$name&quot;.respin1 -o &quot;$output_folder/$name&quot;.respout1 -e &quot;$output_folder/$name&quot;_hf_esp.esp -q  &quot;$output_folder&quot;/QIN -t &quot;$output_folder&quot;/qout_stage1 -p &quot;$output_folder&quot;/punch1 -s &quot;$output_folder&quot;/esout1
+resp -O -i &quot;$output_folder/$name&quot;.respin2 -o &quot;$output_folder/$name&quot;.respout2 -e &quot;$output_folder/$name&quot;_hf_esp.esp -q &quot;$output_folder&quot;/qout_stage1 -t &quot;$output_folder&quot;/qout_stage2 -p &quot;$output_folder&quot;/punch2 -s &quot;$output_folder&quot;/esout2
+
+antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folder/$name&quot;_resp.mol2 -fo mol2 -c rc -cf &quot;$output_folder&quot;/qout_stage2 -pf yes -at amber
+</pre></div>
+</div>
+<p>In brief the above code block does the following:</p>
+<ul class="simple">
+<li><p><strong>Respgen</strong> generates the input files for <a class="reference external" href="https://upjv.q4md-forcefieldtools.org/RED/resp/">two-stage RESP fitting</a> (<code class="docutils literal notranslate"><span class="pre">-f</span></code> specifies the stage (resp1, resp2) and <code class="docutils literal notranslate"><span class="pre">-a</span></code> reads in the frozen and group charges) along with a <code class="docutils literal notranslate"><span class="pre">QIN</span></code> file for the charge constraints.</p></li>
+<li><p><strong>Espgen</strong> extracts the ESP from a Gaussian output file.</p></li>
+<li><p>The <strong>RESP</strong> fit is performed in two stages: in the first all atoms are allowed to vary, in the second degenerate hydrogens are constrained to have an equal charge. Apart from the input (<code class="docutils literal notranslate"><span class="pre">-i</span></code>) and output (<code class="docutils literal notranslate"><span class="pre">-o</span></code>), additional flags include:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-O</span></code> overwrite existing files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e</span></code> ESP file (input)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-q</span></code> charge constraints (input, QIN)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> current charges (output)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> synopsis of results (output)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> ESP for new charges (output)</p></li>
+</ul>
+</li>
+<li><p>Finally, <strong>Antechamber</strong> combines the RESP charges into a new mol2 file (<code class="docutils literal notranslate"><span class="pre">-c</span></code> charge method <em>rc = read in charge</em>, <code class="docutils literal notranslate"><span class="pre">-cf</span></code> charge filename, <code class="docutils literal notranslate"><span class="pre">-pf</span></code> remove intermediary files, <code class="docutils literal notranslate"><span class="pre">-at</span></code> atom type).</p></li>
+</ul>
+</div>
+<div class="section" id="fusing-base-linker-and-fluorophore">
+<h3>Fusing base, linker and fluorophore<a class="headerlink" href="#fusing-base-linker-and-fluorophore" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have all three components (the nucleobase, the linker and the dye all in mol2 format) we can fuse them together using PyMOL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we fuse the base and the linker together. Use the <strong>3-Button Editing mode</strong> of PyMOL to rotate the fragments with respect to each other to minimize sterical clashes.</p>
+<p>Execute the following code from the PyMOL shell</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names_methylene</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C7&#39;</span><span class="p">,</span><span class="s1">&#39;H01&#39;</span><span class="p">,</span><span class="s1">&#39;H02&#39;</span><span class="p">]</span>
+
+<span class="n">base_resn</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;deoxythymidine&#39;</span><span class="p">,</span> <span class="s1">&#39;DTM&#39;</span><span class="p">)</span>
+
+<span class="n">cmd</span><span class="o">.</span><span class="n">reinitialize</span><span class="p">()</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/1_bases/processed/deoxythymidine.mol2&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/2_linkers/MLE/processed/MLE_capped_resp.mol2&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;MLE_capped_resp and name </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names_methylene</span><span class="p">)))</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;deoxythymidine and (name H71 or name H72)&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="s1">&#39;deoxythymidine and name C7&#39;</span><span class="p">,</span> <span class="s1">&#39;MLE_capped_resp and name C8 and resn MLE&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;deoxythymidine&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;type=&quot;ATOM&quot;&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;elem=&quot;&quot;&#39;</span><span class="p">)</span> <span class="c1"># PyMOL struggles with atom type definitions in mol2 files, therfore let PyMOL guess the elements itself</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s1">&#39;MLE_capped_resp&#39;</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;MLE&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="images/PyMOL_threeButtonEditor.png"><img alt="images/PyMOL_threeButtonEditor.png" src="images/PyMOL_threeButtonEditor.png" style="width: 550px;" /></a>
+<p>Update the valency of the bond between the linker and the base.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmd</span><span class="o">.</span><span class="n">unbond</span><span class="p">(</span><span class="s1">&#39;resn MLE and name C8&#39;</span><span class="p">,</span> <span class="s1">&#39;resn DT and name C7&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">bond</span><span class="p">(</span><span class="s1">&#39;resn MLE and name C8&#39;</span><span class="p">,</span> <span class="s1">&#39;resn DT and name C7&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Save the base-linker as a <strong>mol2</strong> file under <code class="docutils literal notranslate"><span class="pre">fragments/base_linkers/</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;mol2&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Attach the dye to the base-linker and save the whole base-linker-dye fragment as a <strong>pdb</strong> file under <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dyes/</span></code> where it can be accessed by the PyMOL plugin <em>FRETlabel</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dye</span> <span class="o">=</span> <span class="s1">&#39;C3W&#39;</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">couple_dye2baselinker</span><span class="p">(</span><span class="n">dye</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O91&#39;</span><span class="p">,</span> <span class="s1">&#39;C99&#39;</span><span class="p">,</span> <span class="s1">&#39;C27&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">])</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;src/fretlabel/dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{dye}</span><span class="s1">_</span><span class="si">{base_resn[1]}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, add a new entry to <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dye_library.json</span></code> and indicate the filename of your fragment, the dye, the base, the position and the alignment method (base or backbone).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+   <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span><span class="s2">&quot;C3W_DTM&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;dye&quot;</span><span class="p">:</span><span class="s2">&quot;sCy3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;base&quot;</span><span class="p">:</span><span class="s2">&quot;DT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;position&quot;</span><span class="p">:</span><span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;alignment&quot;</span><span class="p">:</span><span class="s2">&quot;base&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-the-force-field">
+<h3>Update the force field<a class="headerlink" href="#update-the-force-field" title="Permalink to this headline">¶</a></h3>
+<p>We will now create a GROMACS topology (<code class="docutils literal notranslate"><span class="pre">-o</span></code>) of our new base-linker fragment using the AnteChamber PYthon Parser interfacE (Acpype). This time we will choose AMBER as the atom type (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) and read in the previously calculated RESP charges (<code class="docutils literal notranslate"><span class="pre">-c</span></code>). We first need to rename the base (DT) and the linker (MLE) to <strong>DTM</strong> with <code class="docutils literal notranslate"><span class="pre">sed</span></code> because Acpype only accepts one residue name per molecule.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">fragments</span><span class="o">/</span><span class="mi">5</span><span class="n">_acpype</span>
+<span class="n">filename</span><span class="o">=../</span><span class="mi">4</span><span class="n">_base_linkers</span><span class="o">/</span><span class="n">DTM</span><span class="o">.</span><span class="n">mol2</span>
+<span class="n">base</span><span class="o">=</span><span class="n">DT</span>
+<span class="n">linker</span><span class="o">=</span><span class="n">MLE</span>
+<span class="n">base_linker</span><span class="o">=</span><span class="n">DTM</span>
+
+<span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{base}</span><span class="s2">1/$</span><span class="si">{base_linker}</span><span class="s2">1/g&quot;</span> <span class="s2">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{linker}</span><span class="s2">1/$</span><span class="si">{base_linker}</span><span class="s2">1/g&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$</span><span class="si">{base_linker}</span><span class="s2">&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span>
+
+<span class="n">acpype</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$</span><span class="si">{base_linker}</span><span class="s2">&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="n">gmx</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">a</span> <span class="n">amber</span> <span class="o">-</span><span class="n">c</span> <span class="n">user</span>
+</pre></div>
+</div>
+<p>Acpype generates an <strong>itp</strong> file as well as force field modification (<strong>frcmod</strong>) file.</p>
+<ul class="simple">
+<li><p>The itp file lists all <em>atoms</em>, <em>bonds</em>, <em>angles</em> and <em>dihedrals</em> (both proper and improper) present in the molecule.</p></li>
+<li><p>The frcmod file lists any <em>atomtypes</em>, <em>bondtypes</em>, <em>angletypes</em> and <em>dihedraltypes</em> which are present in the molecule but missing in the force field (here AMBER because of the <code class="docutils literal notranslate"><span class="pre">-a</span></code> flag in the acpype call).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The frcmod file is formatted for use with the AMBER MD programs LEaP and Sander. The file and units are converted internally by <code class="docutils literal notranslate"><span class="pre">fl.ff.Parameter.read_frcmod()</span></code> to the GROMACS format in the next step.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fretlabel_itp</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_GMX.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;FRETLABEL&#39;</span><span class="p">)</span>
+<span class="c1"># change the atom type of O3&#39; from O to OS since this residue is internal and not terminal</span>
+<span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">]:</span>
+    <span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">fretlabel_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_AC.frcmod&#39;</span><span class="p">,</span> <span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we load in the force field parameters from AMBER-DYES</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_amberdyes</span><span class="p">([</span><span class="s1">&#39;forcefields/amberdyes/ffbonded_amberdyes.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/amberdyes/ffnonbonded_amberdyes.itp&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The atoms involved in the bond, angles and dihedrals between linker and fluorophore need to be manually specified because the atom types from AMBER-DYES (for dye) and AMBER (for custom linker) are slightly different. The parameters are defined by analogy to those already present in AMBER-DYES.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atoms_amberdyes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
+                   <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;hng&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]],</span>
+                   <span class="s1">&#39;propertypes&#39;</span> <span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;hng&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;ng&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]]}</span>
+
+<span class="n">atoms_linker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bondtypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;angletypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;CT&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;og&#39;</span><span class="p">],</span>
+                               <span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">]],</span>
+                <span class="s1">&#39;propertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;hcg&#39;</span><span class="p">,</span> <span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;c3g&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="s1">&#39;og&#39;</span><span class="p">,</span> <span class="s1">&#39;cg&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;CT&#39;</span><span class="p">]]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specialbond_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_specialbond</span><span class="p">(</span><span class="n">amberdyes_ff</span><span class="p">,</span> <span class="n">atoms_amberdyes</span><span class="p">,</span> <span class="n">atoms_linker</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The parameters for the dyes (in <code class="docutils literal notranslate"><span class="pre">amberdyes_ff</span></code>), the linker (in <code class="docutils literal notranslate"><span class="pre">fretlabel_ff</span></code>) and the bond linking the two (in <code class="docutils literal notranslate"><span class="pre">specialbond_ff</span></code>) can now be added to the force field of your choice (here: <code class="docutils literal notranslate"><span class="pre">amber14sb_OL15.ff</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_ff</span><span class="p">(</span><span class="s1">&#39;ff14sb&#39;</span><span class="p">,</span> <span class="n">amberdyes_ff</span><span class="p">,</span> <span class="n">fretlabel_ff</span><span class="p">,</span> <span class="n">specialbond_ff</span><span class="p">,</span> <span class="s1">&#39;out/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a residue topology file (<strong>rtp</strong>) for the linker atoms, bonds and proper dihedrals</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">write_rtp</span><span class="p">(</span><span class="s1">&#39;out/DTM.rtp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Update the <strong>specbond.dat</strong> file with the bond between the dye and the linker.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;C3W C99 1 DTM N99 1 0.160 C3W DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/specbond.dat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Update the <strong>residuetypes.dat</strong> file with the types of the the dye and the new fragment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;DTM DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./getting_started"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="pymol_plugin.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Labeling with the PyMOL plugin</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="fret_prediction.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Predicting FRET</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fabio D. Steffen<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

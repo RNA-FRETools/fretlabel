@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Force field</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Transfer partial charges to mol2" href="partial_charges_to_mol2.html" />
+    <link rel="prev" title="Coupling chemistries" href="../background/labeling_chemistry.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/fretlabel_logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to FRETlabel
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/pymol_plugin.html">
+   Labeling with the PyMOL plugin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/fragment_building.html">
+   Fragment building
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting_started/fret_prediction.html">
+   Predicting FRET
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Background
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_strategies.html">
+   Labeling strategies for RNA/DNA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/labeling_chemistry.html">
+   Coupling chemistries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Code
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Force field
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="partial_charges_to_mol2.html">
+   Transfer partial charges to mol2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="all_fragments.html">
+   Deriving FRETlabel fragments
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/module/ff.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RNA-FRETools/fretlabel"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RNA-FRETools/fretlabel/issues/new?title=Issue%20on%20page%20%2Fmodule/ff.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Force field</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="force-field">
+<h1>Force field<a class="headerlink" href="#force-field" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>ff</strong> submodule includes functions to patch an existing force field with fluorophore and linker parameters.</p>
+<span class="target" id="module-fretlabel.ff"></span><dl class="py class">
+<dt class="sig sig-object py" id="fretlabel.ff.Molecule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">Molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moleculetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impropers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atomtypes_molecule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Molecule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Molecule" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Molecule.change_type">
+<span class="sig-name descname"><span class="pre">change_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Molecule.change_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Molecule.change_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change atom type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>)</p></li>
+<li><p><strong>new_type</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Molecule.read_molecule">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Molecule.read_molecule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Molecule.read_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative constructor of the Molecule class which parses an molecule itp file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>)</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment string to be added at the end of each line</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Molecule.remove_atom">
+<span class="sig-name descname"><span class="pre">remove_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Molecule.remove_atom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Molecule.remove_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an atom from a molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Molecule.save_rtp">
+<span class="sig-name descname"><span class="pre">save_rtp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Molecule.save_rtp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Molecule.save_rtp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">Parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atomtypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bondtypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constrainttypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angletypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertypes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impropertypes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.add2ff">
+<span class="sig-name descname"><span class="pre">add2ff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ff_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.add2ff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.add2ff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the forcefield parameter files ffnonbonded.itp and ffbonded.itp with a new parameter set
+Writes a copy of the forcefield files with the updated parameters to the current working directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ff_folder</strong> (<em>str or path object</em>) – folder where the original ffnonbonded.itp and ffbonded.itp are located</p></li>
+<li><p><strong>outputdir</strong> (<em>str or path object</em>) – directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.read_amberdyes">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_amberdyes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.read_amberdyes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.read_amberdyes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.read_ff">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_ff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.read_ff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.read_ff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.read_frcmod">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_frcmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atomtypes_molecule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.read_frcmod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.read_frcmod" title="Permalink to this definition">¶</a></dt>
+<dd><p># Note: units in AMBER frcmod are different from those in Gromacs!
+# frcmod: A, kcal/mol
+# Gromacs: nm, kJ/mol</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.read_specialbond">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_specialbond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amberdyes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_amberdyes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms_other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AMBER-DYES'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.read_specialbond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.read_specialbond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative constructor of the Parameters class which creates bondtypes, angletypes and propertypes by similarity
+to existing parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amberdyes</strong> (<em>fluordynamics.ff.Parameters instance</em>)</p></li>
+<li><p><strong>atoms_amberdyes</strong> (<em>dict</em>) – dictionary with keys ‘bondtypes’, ‘angletypes’ and ‘propertypes’ and values defining the</p></li>
+<li><p><strong>comment</strong> (<em>str</em>) – comment string to be added at the end of each line</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fretlabel.ff.Parameters.write_atp">
+<span class="sig-name descname"><span class="pre">write_atp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#Parameters.write_atp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.Parameters.write_atp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a atomtype force field file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str, optional</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.check_charge">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">check_charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#check_charge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.check_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the net charge of a mol2 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>)</p></li>
+<li><p><strong>charge</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.pandasMol2_replace">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">pandasMol2_replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subst_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'atom_name'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#pandasMol2_replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.pandasMol2_replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace columns from one dataframe to another</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_df</strong> (<em>pandas.Dataframe</em>) – DataFrame to take values from</p></li>
+<li><p><strong>to_df</strong> (<em>pandas.Dataframe</em>) – DataFrame to replace with values</p></li>
+<li><p><strong>replace_name</strong> (<em>str</em>) – name of the column to be replaced</p></li>
+<li><p><strong>subst_value</strong> (<em>str</em>) – only replace rows having “subst_value” in the column “subst_name”</p></li>
+<li><p><strong>match_name</strong> (<em>str</em>) – column to be used as index for dataframe comparison</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.pymol_couple_dye2baselinker">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">pymol_couple_dye2baselinker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dye</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baselinker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">carbonylC_dye</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align_baselinker_atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_baselinker_atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_dye</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C99'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_baselinker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N99'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#pymol_couple_dye2baselinker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.pymol_couple_dye2baselinker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Couple a dye to an existing base-linker fragment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dye</strong> (<em>str</em>)</p></li>
+<li><p><strong>baselinker</strong> (<em>str</em>)</p></li>
+<li><p><strong>remove_names</strong> (<em>list</em>) – list of atom names to remove</p></li>
+<li><p><strong>align_baselinker_atoms</strong> (<em>list</em>) – list of atom names of the dye to be used for alignment</p></li>
+<li><p><strong>align_baselinker_atoms</strong> (<em>list</em>) – list of atom names of the base-linker to be used for alignment</p></li>
+<li><p><strong>remove_baselinker_atoms</strong> (<em>list</em>) – list of atom names of the base-linker to be removed (i.e. capping group)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.pymol_save_molecule">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">pymol_save_molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mol2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#pymol_save_molecule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.pymol_save_molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the molecule</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>)</p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – format of the file (pdb or mol2)</p></li>
+<li><p><strong>state</strong> (<em>int, optional</em>) – current state = -1</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.pymol_savemol2">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">pymol_savemol2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">molecule</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pc_decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#pymol_savemol2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.pymol_savemol2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export the selection to a mol2 file with user-defined partial charge precision.
+The PyMOL built-in save function truncates the string to 3 decimals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pc_decimals</strong> (<em>int</em>) – number of decimals for partial charge</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.update_dye_library">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">update_dye_library</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dye_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dye_library.json'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dye_library.json'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#update_dye_library"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.update_dye_library" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new dye-linker fragment to the FluorLabel library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dye_entry</strong> (<em>dict</em>) – dictionary of a dye entry such as:
+“filename”:”C3W_DTM”, “dye”:”sCy3”, “base”:”DT+RU”, “position”:”internal”</p></li>
+<li><p><strong>inputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.update_residuetypes">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">update_residuetypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">residuetypes_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'residuetypes.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'residuetypes.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#update_residuetypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.update_residuetypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new residue type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>residuetypes_string</strong> (<em>str</em>) – space-delimited string of following format: ‘residue  type’</p></li>
+<li><p><strong>inputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.update_specbond">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">update_specbond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">specbond_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'specbond.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'specbond.dat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#update_specbond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.update_specbond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new special bonds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>specbond_string</strong> (<em>str</em>) – space-delimited string of following format:
+‘resA  atomA  nbondsA  resB  atomB  nbondsB  length  newresA  newresB’</p></li>
+<li><p><strong>inputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>outputfile</strong> (<em>str or path object, optional</em>)</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.update_valency">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">update_valency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pandasMol2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bonds_atomNames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#update_valency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.update_valency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the valency of a set of bonds in a biopandas.mol2.pandas_mol2.PandasMol2 object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pandasMol2</strong> (<em>biopandas.mol2.pandas_mol2.PandasMol2 instance</em>)</p></li>
+<li><p><strong>bonds_atomNames</strong> (<em>pandas.DataFrame</em>) – Dataframe with columns ‘name1’, ‘resn1’, ‘name2’, ‘resn2’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pandasMol2</strong> (<em>biopandas.mol2.pandas_mol2.PandasMol2 instance</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.write_mol2">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">write_mol2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pandasMol2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#write_mol2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.write_mol2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a molecule in the TRIPOS mol2 format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pandasMol2</strong> (<em>biopandas.mol2.pandas_mol2.PandasMol2 instance</em>)</p></li>
+<li><p><strong>filename</strong> (<em>str, optional</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fretlabel.ff.write_rtp">
+<span class="sig-prename descclassname"><span class="pre">fretlabel.ff.</span></span><span class="sig-name descname"><span class="pre">write_rtp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">molecule</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/fretlabel/ff.html#write_rtp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fretlabel.ff.write_rtp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a residue topology parameter (rtp) file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>)</p></li>
+<li><p><strong>molecule</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./module"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../background/labeling_chemistry.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Coupling chemistries</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="partial_charges_to_mol2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Transfer partial charges to mol2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Fabio D. Steffen<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
