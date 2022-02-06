@@ -1,5 +1,5 @@
 # Welcome to FRETlabel
-*FRETlabel* is a **PyMOL plugin** to label nucleic acids with explicit fluorescent dyes. It aims to facilitate the workflow of setting up, running and evaluating **molecular dynamics simulations with explicit organic fluorophores** for *in silico* FRET calculations.
+*FRETlabel* is a **PyMOL plugin**[^PyMOL] to label nucleic acids with explicit fluorescent dyes. It aims to facilitate the workflow of setting up, running and evaluating **molecular dynamics simulations with explicit organic fluorophores** for *in silico* FRET calculations.
 
 ## Features
 
