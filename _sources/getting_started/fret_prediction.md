@@ -14,7 +14,7 @@ kernelspec:
 
 # Predicting FRET
 
-This tutorial demonstrates how to perform an *in silico* FRET experiment using [*FRETtraj*](https://rna-fretools.github.io/fretraj/intro.html) on the basis of an MD simulation with explicit fluorophores attached via *FRETlabel*. 
+This tutorial demonstrates how to perform an *in silico* FRET experiment using the external package [*FRETtraj*](https://rna-fretools.github.io/fretraj/intro.html) on the basis of an MD simulation with explicit fluorophores attached via *FRETlabel*.
 
 ## Extraction of $R(t)$ and $\kappa ^2(t)$
 Built-in GROMACS tools can be used to extract the interdye-distance $R_\text{DA}$ and the orientation factor $\kappa ^2$.

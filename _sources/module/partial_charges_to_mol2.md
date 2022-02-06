@@ -6,7 +6,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.10.3
+      jupytext_version: 1.11.5
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -17,12 +17,12 @@ jupyter:
 
 Here we will add partial charges from the AMBER force field (GROMACS residue topology files, **rtp**) to the RNA and DNA mononucleotides (**mol2** files).
 
-```{note}
+```{admonition} Processed nucleotide partial chages in *FRETlabel* on Github
 - *input files*:
   - DNA, RNA and aminoacid parameters from GROMACS **rtp** are located in `forcefields/1_amber_rtp/`
-  - unprocessed (deoxy)nucleosides monophosphates in **mol2** format are located in `fragments/bases/original/`
+  - unprocessed (deoxy)nucleosides monophosphates in **mol2** format are located in `fragments/bases/in/`
 - *output files*:
-  - processed (deoxy)nucleosides monophosphates **mol2** files with updated partial charges will be located in `fragments/bases/processed/`
+  - processed (deoxy)nucleosides monophosphates **mol2** files with updated partial charges will be located in `fragments/bases/out/`
 ```
 
 ```python

@@ -42,7 +42,7 @@ A number of commonly used fluorophores has been previously parameterized in the 
 Dye parameters for the CHARMM package have also recently been released (Shaw, *JCTC*, **2020**). Here we focus on deriving parameters for the AMBER force field. Note, however that once a dye-linker fragment (step 1) with appropriate force-field parameters (step 2) is generated it can be used by *FRETlabel* independent of the type of force field. 
 ```
 
-## Building and paramerizing the linker 
+## 1. Building and paramerizing the linker 
 
 The parameterization involves calculating **partial charges** as well as **bond, angle and dihedral parameters** for all the atomtypes. The parameters of the bases and the dyes are already available as part of the AMBER and AMBER-DYES force fields. However, those of the linker need to be generated from scratch or in analogy to existing parameters.
 
@@ -56,7 +56,7 @@ $$
 \Delta q = q(\text{DT}_\text{-H71,-H72})-q(\text{DT}_\text{normal}) = -1.15400-(-1) = -0.15400
 $$
 
-### Build the capped linker with PyMOL
+### 1.1 Build the capped linker with PyMOL
 
 First, we create the linker with correct bond valencies using the `Builder` tool of PyMOL. Fragments can be added alltogether by `Build`&rarr;`Fragment`&rarr;`Acetylene`.
 
@@ -71,10 +71,10 @@ Rename the atoms in a logical way such that there is no overlap with the atom na
 Mol2 files have the advantage that bond valencies are encoded in the format. You can emulate this behavior with PDB files by creating double CONECT entries, however this feature is not recognized by many programs and often leads to error messages instead.
 ```
 
-### Geometry optimization and ESP calculation with Gaussian
+### 1.2 Geometry optimization and ESP calculation with Gaussian
 
 Next, we will do a geometry optimization and calculate an electrostatic potential (ESP) using GAUSSIAN (or alternatively GAMESS). A Gaussian input file can be created via Antechamber:
-```
+```sh
 name=MLE_capped
 input_folder='in/'
 output_folder='out/'
@@ -94,7 +94,7 @@ antechamber -i "$input_folder/$name".mol2 -fi mol2 -o "$output_folder/$name".gin
 
 To speed up the calculation we will perform the geometry optimization at the B3LYP/6-31G* level of theory followed by the ESP calculation using Hartree Fock (HF/6-31G*). For this purpose, we will slightly modify the Gaussian input file and allow it to run on multiple cores (with the `nproc` keyword).
 
-```
+```sh
 nproc=12
 sed 's/#HF.*/\#P b3lyp\/6-31G\* Opt/g' < "$output_folder/$name".gin | sed '/iop/d' | sed '/.*gesp/d' | sed "/--Link1--/ a %nproc=$nproc" > "$output_folder/$name"_b3lyp_opt.gin
 sed '/^[[:space:]]*[A-Z]/d' < "$output_folder/$name".gin | sed 's/SCF/Geom=check SCF/g'| sed 's/\(\%chk=.*\)opt/\1esp/g' | sed "/--Link1--/ a %nproc=$nproc" > "$output_folder/$name"_hf_esp.gin
@@ -102,7 +102,7 @@ sed '/^[[:space:]]*[A-Z]/d' < "$output_folder/$name".gin | sed 's/SCF/Geom=check
 
 Run the geometry optimization:
 
-```
+```sh
 g09 < "$output_folder/$name"_b3lyp_opt.gin > "$output_folder/$name"_b3lyp_opt.gout && cp "$output_folder/$name"_opt.chk "$output_folder/$name"_esp.chk
 ```
 
@@ -112,7 +112,7 @@ Make sure that charge and multiplicity are compatible (check log files in case o
 
 Calculate the electrostatic surface potential using the checkpoint file of the geometry optimization as start coordinates.
 
-```
+```sh
 g09 < "$output_folder/$name"_hf_esp.gin > "$output_folder/$name"_hf_esp.gout
 ```
 
@@ -120,7 +120,7 @@ g09 < "$output_folder/$name"_hf_esp.gin > "$output_folder/$name"_hf_esp.gout
 Remove the coordinates from the original file, in order to use the checkpoint file from the geometry optimization.
 ```
 
-### Partial charge fitting with RESP
+### 1.3 Partial charge fitting with RESP
 
 Use Antechamber to convert the mol2 file of the linker into an Antechamber file (.ac) which can be read by **respgen**.
 
@@ -147,7 +147,7 @@ ATOM 17 H02
 
 Run the RESP fitting (see below for information on the individual steps):
 
-```
+```sh
 capping_group=MLE_capping_groups.dat
 
 n_atom=`awk '$1 == "GROUP" {print $2}' "$input_folder/$capping_group"`
@@ -181,27 +181,25 @@ In brief the above code block does the following:
     - `-s` ESP for new charges (output)
 - Finally, **Antechamber** combines the RESP charges into a new mol2 file (`-c` charge method *rc = read in charge*, `-cf` charge filename, `-pf` remove intermediary files, `-at` atom type).
 
++++
 
-### Fusing base, linker and fluorophore
+### 1.4 Fusing base, linker and fluorophore
 Now that we have all three components (the nucleobase, the linker and the dye all in mol2 format) we can fuse them together using PyMOL.
-
-```{code-cell} ipython3
-import fretlabel as fl
-```
 
 First, we fuse the base and the linker together. Use the **3-Button Editing mode** of PyMOL to rotate the fragments with respect to each other to minimize sterical clashes.
 
-+++
+Execute the following code from the **PyMOL shell**
 
-Execute the following code from the PyMOL shell
-```
+```python
+import fretlabel as fl
+
 names_methylene = ['C7','H01','H02']
 
 base_resn = ('deoxythymidine', 'DTM')
 
 cmd.reinitialize()
-cmd.load('fragments/1_bases/processed/deoxythymidine.mol2')
-cmd.load('fragments/2_linkers/MLE/processed/MLE_capped_resp.mol2')
+cmd.load('fragments/1_bases/out/deoxythymidine.mol2')
+cmd.load('fragments/2_linkers/MLE/out/MLE_capped_resp.mol2')
 cmd.remove('MLE_capped_resp and name {}'.format('+'.join(str(i) for i in names_methylene)))
 cmd.remove('deoxythymidine and (name H71 or name H72)')
 cmd.fuse('deoxythymidine and name C7', 'MLE_capped_resp and name C8 and resn MLE')
@@ -209,7 +207,7 @@ cmd.delete('deoxythymidine')
 cmd.alter('all', 'type="ATOM"')
 cmd.alter('all', 'elem=""') # PyMOL struggles with atom type definitions in mol2 files, therfore let PyMOL guess the elements itself
 cmd.set_name('MLE_capped_resp', base_resn[1])
-cmd.set_title('MLE',1,base_resn[1])
+cmd.set_title(base_resn[1],1,base_resn[1])
 ```
 
 +++
@@ -225,19 +223,23 @@ cmd.bond('resn MLE and name C8', 'resn DT and name C7', 2)
 
 +++
 
-Save the base-linker as a **mol2** file under `fragments/base_linkers/`
+Save the base-linker as a **mol2** file under `fragments/4_base_linkers/`
 
-```{code-cell} ipython3
-fl.ff.save_molecule(f'fragments/4_base_linkers/{base_resn[1]}.mol2', base_resn[1], 'mol2', overwrite=False)
+```python
+fl.ff.pymol_save_molecule(f'fragments/4_base_linkers/{base_resn[1]}.mol2', base_resn[1], 'mol2', overwrite=False)
 ```
+
++++
 
 Attach the dye to the base-linker and save the whole base-linker-dye fragment as a **pdb** file under `src/fretlabel/dyes/` where it can be accessed by the PyMOL plugin *FRETlabel*.
 
-```{code-cell} ipython3
+```python
 dye = 'C3W'
-fl.ff.couple_dye2baselinker(dye, base_resn[1], ['O91', 'C99', 'C27'], ['O98', 'C16', 'C17'], ['O98', 'C16', 'C17', 'H95', 'H96', 'H97'])
-fl.ff.save_molecule(f'src/fretlabel/dyes/{dye}_{base_resn[1]}.pdb', '{dye}_{base_resn[1]}', 'pdb', overwrite=False)
+fl.ff.pymol_couple_dye2baselinker(f'fragments/3_dyes/{dye}.mol2', f'fragments/4_base_linkers/{base_resn[1]}.mol2', 'C99', ['C17', 'O98', 'C16'],['O98', 'C16', 'C17', 'H95', 'H96', 'H97'])
+fl.ff.pymol_save_molecule(f'src/fretlabel/dyes/{dye}_{base_resn[1]}.pdb', '{dye}_{base_resn[1]}', 'pdb', overwrite=False)
 ```
+
++++
 
  Finally, add a new entry to `src/fretlabel/dye_library.json` and indicate the filename of your fragment, the dye, the base, the position and the alignment method (base or backbone).
 ```
@@ -252,11 +254,11 @@ fl.ff.save_molecule(f'src/fretlabel/dyes/{dye}_{base_resn[1]}.pdb', '{dye}_{base
 
 +++
 
-### Update the force field
+## 2. Update the force field
 
 We will now create a GROMACS topology (`-o`) of our new base-linker fragment using the AnteChamber PYthon Parser interfacE (Acpype). This time we will choose AMBER as the atom type (`-a`) and read in the previously calculated RESP charges (`-c`). We first need to rename the base (DT) and the linker (MLE) to **DTM** with `sed` because Acpype only accepts one residue name per molecule.
 
-```
+```sh
 cd fragments/5_acpype
 filename=../4_base_linkers/DTM.mol2
 base=DT

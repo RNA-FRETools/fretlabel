@@ -285,35 +285,35 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#building-and-paramerizing-the-linker">
-   Building and paramerizing the linker
+   1. Building and paramerizing the linker
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#build-the-capped-linker-with-pymol">
-     Build the capped linker with PyMOL
+     1.1 Build the capped linker with PyMOL
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geometry-optimization-and-esp-calculation-with-gaussian">
-     Geometry optimization and ESP calculation with Gaussian
+     1.2 Geometry optimization and ESP calculation with Gaussian
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#partial-charge-fitting-with-resp">
-     Partial charge fitting with RESP
+     1.3 Partial charge fitting with RESP
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fusing-base-linker-and-fluorophore">
-     Fusing base, linker and fluorophore
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-the-force-field">
-     Update the force field
+     1.4 Fusing base, linker and fluorophore
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#update-the-force-field">
+   2. Update the force field
+  </a>
  </li>
 </ul>
 
@@ -337,35 +337,35 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#building-and-paramerizing-the-linker">
-   Building and paramerizing the linker
+   1. Building and paramerizing the linker
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#build-the-capped-linker-with-pymol">
-     Build the capped linker with PyMOL
+     1.1 Build the capped linker with PyMOL
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geometry-optimization-and-esp-calculation-with-gaussian">
-     Geometry optimization and ESP calculation with Gaussian
+     1.2 Geometry optimization and ESP calculation with Gaussian
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#partial-charge-fitting-with-resp">
-     Partial charge fitting with RESP
+     1.3 Partial charge fitting with RESP
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fusing-base-linker-and-fluorophore">
-     Fusing base, linker and fluorophore
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-the-force-field">
-     Update the force field
+     1.4 Fusing base, linker and fluorophore
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#update-the-force-field">
+   2. Update the force field
+  </a>
  </li>
 </ul>
 
@@ -404,7 +404,7 @@
 Dye parameters for the CHARMM package have also recently been released (Shaw, <em>JCTC</em>, <strong>2020</strong>). Here we focus on deriving parameters for the AMBER force field. Note, however that once a dye-linker fragment (step 1) with appropriate force-field parameters (step 2) is generated it can be used by <em>FRETlabel</em> independent of the type of force field.</p>
 </div>
 <div class="section" id="building-and-paramerizing-the-linker">
-<h2>Building and paramerizing the linker<a class="headerlink" href="#building-and-paramerizing-the-linker" title="Permalink to this headline">¶</a></h2>
+<h2>1. Building and paramerizing the linker<a class="headerlink" href="#building-and-paramerizing-the-linker" title="Permalink to this headline">¶</a></h2>
 <p>The parameterization involves calculating <strong>partial charges</strong> as well as <strong>bond, angle and dihedral parameters</strong> for all the atomtypes. The parameters of the bases and the dyes are already available as part of the AMBER and AMBER-DYES force fields. However, those of the linker need to be generated from scratch or in analogy to existing parameters.</p>
 <p>We will start by calculating partial charges of the linker by doing a <strong>RESP (Restrained ElectroStatic Potential)</strong> fit. For this labeling chemistry we use the following 6-carbon linker capped at each both ends with either a methylene or an acetylene (ACE) group to fill the bond valencies and to make the net charge of the spacer equal zero. The capping groups are chosen to best mimic the actual charge distribution when the linker is fused to the dye and the nucleotide.</p>
 <a class="reference internal image-reference" href="../_images/MLE_linker.png"><img alt="../_images/MLE_linker.png" src="../_images/MLE_linker.png" style="width: 450px;" /></a>
@@ -414,7 +414,7 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 \Delta q = q(\text{DT}_\text{-H71,-H72})-q(\text{DT}_\text{normal}) = -1.15400-(-1) = -0.15400
 \]</div>
 <div class="section" id="build-the-capped-linker-with-pymol">
-<h3>Build the capped linker with PyMOL<a class="headerlink" href="#build-the-capped-linker-with-pymol" title="Permalink to this headline">¶</a></h3>
+<h3>1.1 Build the capped linker with PyMOL<a class="headerlink" href="#build-the-capped-linker-with-pymol" title="Permalink to this headline">¶</a></h3>
 <p>First, we create the linker with correct bond valencies using the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> tool of PyMOL. Fragments can be added alltogether by <code class="docutils literal notranslate"><span class="pre">Build</span></code>→<code class="docutils literal notranslate"><span class="pre">Fragment</span></code>→<code class="docutils literal notranslate"><span class="pre">Acetylene</span></code>.</p>
 <a class="reference internal image-reference" href="images/PyMOL_builder.png"><img alt="images/PyMOL_builder.png" src="images/PyMOL_builder.png" style="width: 350px;" /></a>
 <a class="reference internal image-reference" href="../_images/MLE_linker_PyMOL.png"><img alt="../_images/MLE_linker_PyMOL.png" src="../_images/MLE_linker_PyMOL.png" style="width: 450px;" /></a>
@@ -428,14 +428,14 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 </div>
 </div>
 <div class="section" id="geometry-optimization-and-esp-calculation-with-gaussian">
-<h3>Geometry optimization and ESP calculation with Gaussian<a class="headerlink" href="#geometry-optimization-and-esp-calculation-with-gaussian" title="Permalink to this headline">¶</a></h3>
+<h3>1.2 Geometry optimization and ESP calculation with Gaussian<a class="headerlink" href="#geometry-optimization-and-esp-calculation-with-gaussian" title="Permalink to this headline">¶</a></h3>
 <p>Next, we will do a geometry optimization and calculate an electrostatic potential (ESP) using GAUSSIAN (or alternatively GAMESS). A Gaussian input file can be created via Antechamber:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="n">MLE_capped</span>
-<span class="n">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
-<span class="n">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">name</span><span class="o">=</span>MLE_capped
+<span class="nv">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
+<span class="nv">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
 
-<span class="n">cd</span> <span class="n">fragments</span><span class="o">/</span><span class="n">linkers</span><span class="o">/</span><span class="n">MLE</span><span class="o">/</span>
-<span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">-</span><span class="n">fo</span> <span class="n">gcrt</span> <span class="o">-</span><span class="n">gv</span> <span class="mi">1</span> <span class="o">-</span><span class="n">ge</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gesp</span> <span class="o">-</span><span class="n">ch</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span> <span class="o">-</span><span class="n">nc</span> <span class="mi">0</span>
+<span class="nb">cd</span> fragments/linkers/MLE/
+antechamber -i <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.mol2 -fi mol2 -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gin -fo gcrt -gv <span class="m">1</span> -ge <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gesp -ch <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_opt -nc <span class="m">0</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -449,13 +449,13 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 <li><p><code class="docutils literal notranslate"><span class="pre">-nc</span></code> net charge</p></li>
 </ul>
 <p>To speed up the calculation we will perform the geometry optimization at the B3LYP/6-31G* level of theory followed by the ESP calculation using Hartree Fock (HF/6-31G*). For this purpose, we will slightly modify the Gaussian input file and allow it to run on multiple cores (with the <code class="docutils literal notranslate"><span class="pre">nproc</span></code> keyword).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nproc</span><span class="o">=</span><span class="mi">12</span>
-<span class="n">sed</span> <span class="s1">&#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/iop/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;/.*gesp/d&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span>
-<span class="n">sed</span> <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">gin</span> <span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/SCF/Geom=check SCF/g&#39;</span><span class="o">|</span> <span class="n">sed</span> <span class="s1">&#39;s/\(\</span><span class="si">%c</span><span class="s1">hk=.*\)opt/</span><span class="se">\1</span><span class="s1">esp/g&#39;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;/--Link1--/ a %nproc=$nproc&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">nproc</span><span class="o">=</span><span class="m">12</span>
+sed <span class="s1">&#39;s/#HF.*/\#P b3lyp\/6-31G\* Opt/g&#39;</span> &lt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gin <span class="p">|</span> sed <span class="s1">&#39;/iop/d&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;/.*gesp/d&#39;</span> <span class="p">|</span> sed <span class="s2">&quot;/--Link1--/ a %nproc=</span><span class="nv">$nproc</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_b3lyp_opt.gin
+sed <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> &lt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gin <span class="p">|</span> sed <span class="s1">&#39;s/SCF/Geom=check SCF/g&#39;</span><span class="p">|</span> sed <span class="s1">&#39;s/\(\%chk=.*\)opt/\1esp/g&#39;</span> <span class="p">|</span> sed <span class="s2">&quot;/--Link1--/ a %nproc=</span><span class="nv">$nproc</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.gin
 </pre></div>
 </div>
 <p>Run the geometry optimization:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_b3lyp_opt</span><span class="o">.</span><span class="n">gout</span> <span class="o">&amp;&amp;</span> <span class="n">cp</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_opt</span><span class="o">.</span><span class="n">chk</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_esp</span><span class="o">.</span><span class="n">chk</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>g09 &lt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_b3lyp_opt.gin &gt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_b3lyp_opt.gout <span class="o">&amp;&amp;</span> cp <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_opt.chk <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_esp.chk
 </pre></div>
 </div>
 <div class="admonition note">
@@ -463,7 +463,7 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 <p>Make sure that charge and multiplicity are compatible (check log files in case of segmentation errors).</p>
 </div>
 <p>Calculate the electrostatic surface potential using the checkpoint file of the geometry optimization as start coordinates.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g09</span> <span class="o">&lt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gin</span> <span class="o">&gt;</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="n">_hf_esp</span><span class="o">.</span><span class="n">gout</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>g09 &lt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.gin &gt; <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.gout
 </pre></div>
 </div>
 <div class="admonition note">
@@ -472,7 +472,7 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 </div>
 </div>
 <div class="section" id="partial-charge-fitting-with-resp">
-<h3>Partial charge fitting with RESP<a class="headerlink" href="#partial-charge-fitting-with-resp" title="Permalink to this headline">¶</a></h3>
+<h3>1.3 Partial charge fitting with RESP<a class="headerlink" href="#partial-charge-fitting-with-resp" title="Permalink to this headline">¶</a></h3>
 <p>Use Antechamber to convert the mol2 file of the linker into an Antechamber file (.ac) which can be read by <strong>respgen</strong>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">antechamber</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$input_folder/$name&quot;</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">fi</span> <span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="s2">&quot;$output_folder/$name&quot;</span><span class="o">.</span><span class="n">ac</span> <span class="o">-</span><span class="n">fo</span> <span class="n">ac</span> <span class="o">-</span><span class="n">pf</span> <span class="n">yes</span> <span class="o">-</span><span class="n">nc</span> <span class="mi">0</span>
 </pre></div>
@@ -494,25 +494,25 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 </pre></div>
 </div>
 <p>Run the RESP fitting (see below for information on the individual steps):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>capping_group=MLE_capping_groups.dat
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">capping_group</span><span class="o">=</span>MLE_capping_groups.dat
 
-n_atom=`awk &#39;$1 == &quot;GROUP&quot; {print $2}&#39; &quot;$input_folder/$capping_group&quot;`
-group_constraint=`awk &#39;$1 == &quot;GROUP&quot; {print $3}&#39; &quot;$input_folder/$capping_group&quot;`
+<span class="nv">n_atom</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;$1 == &quot;GROUP&quot; {print $2}&#39;</span> <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span><span class="sb">`</span>
+<span class="nv">group_constraint</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;$1 == &quot;GROUP&quot; {print $3}&#39;</span> <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span><span class="sb">`</span>
 
-respgen -i &quot;$output_folder/$name&quot;.ac -o &quot;$output_folder/$name&quot;.respin1 -f resp1 -a &quot;$input_folder/$capping_group&quot;
-respgen -i &quot;$output_folder/$name&quot;.ac -o &quot;$output_folder/$name&quot;.respin2 -f resp2 -a &quot;$input_folder/$capping_group&quot;
+respgen -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.ac -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin1 -f resp1 -a <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span>
+respgen -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.ac -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin2 -f resp2 -a <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span>
 
-# since respgen rounds the group constraint to three decimals replace it with the value from the capping group
-sed -i &quot;s/$n_atom.*\..*/$n_atom  $group_constraint/g&quot; &quot;$output_folder/$name&quot;.respin1
-sed -i &quot;s/$n_atom.*\..*/$n_atom  $group_constraint/g&quot; &quot;$output_folder/$name&quot;.respin2
+<span class="c1"># since respgen rounds the group constraint to three decimals replace it with the value from the capping group</span>
+sed -i <span class="s2">&quot;s/</span><span class="nv">$n_atom</span><span class="s2">.*\..*/</span><span class="nv">$n_atom</span><span class="s2">  </span><span class="nv">$group_constraint</span><span class="s2">/g&quot;</span> <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin1
+sed -i <span class="s2">&quot;s/</span><span class="nv">$n_atom</span><span class="s2">.*\..*/</span><span class="nv">$n_atom</span><span class="s2">  </span><span class="nv">$group_constraint</span><span class="s2">/g&quot;</span> <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin2
 
-espgen -i &quot;$output_folder/$name&quot;_hf_esp.gout -o &quot;$output_folder/$name&quot;_hf_esp.esp
-mv QIN &quot;$output_folder&quot;/
+espgen -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.gout -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.esp
+mv QIN <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/
 
-resp -O -i &quot;$output_folder/$name&quot;.respin1 -o &quot;$output_folder/$name&quot;.respout1 -e &quot;$output_folder/$name&quot;_hf_esp.esp -q  &quot;$output_folder&quot;/QIN -t &quot;$output_folder&quot;/qout_stage1 -p &quot;$output_folder&quot;/punch1 -s &quot;$output_folder&quot;/esout1
-resp -O -i &quot;$output_folder/$name&quot;.respin2 -o &quot;$output_folder/$name&quot;.respout2 -e &quot;$output_folder/$name&quot;_hf_esp.esp -q &quot;$output_folder&quot;/qout_stage1 -t &quot;$output_folder&quot;/qout_stage2 -p &quot;$output_folder&quot;/punch2 -s &quot;$output_folder&quot;/esout2
+resp -O -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin1 -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respout1 -e <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.esp -q  <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/QIN -t <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/qout_stage1 -p <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/punch1 -s <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/esout1
+resp -O -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin2 -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respout2 -e <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_hf_esp.esp -q <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/qout_stage1 -t <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/qout_stage2 -p <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/punch2 -s <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/esout2
 
-antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folder/$name&quot;_resp.mol2 -fo mol2 -c rc -cf &quot;$output_folder&quot;/qout_stage2 -pf yes -at amber
+antechamber -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.ac -fi ac -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_resp.mol2 -fo mol2 -c rc -cf <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">&quot;</span>/qout_stage2 -pf yes -at amber
 </pre></div>
 </div>
 <p>In brief the above code block does the following:</p>
@@ -533,24 +533,19 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 </ul>
 </div>
 <div class="section" id="fusing-base-linker-and-fluorophore">
-<h3>Fusing base, linker and fluorophore<a class="headerlink" href="#fusing-base-linker-and-fluorophore" title="Permalink to this headline">¶</a></h3>
+<h3>1.4 Fusing base, linker and fluorophore<a class="headerlink" href="#fusing-base-linker-and-fluorophore" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have all three components (the nucleobase, the linker and the dye all in mol2 format) we can fuse them together using PyMOL.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>First, we fuse the base and the linker together. Use the <strong>3-Button Editing mode</strong> of PyMOL to rotate the fragments with respect to each other to minimize sterical clashes.</p>
-<p>Execute the following code from the PyMOL shell</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names_methylene</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C7&#39;</span><span class="p">,</span><span class="s1">&#39;H01&#39;</span><span class="p">,</span><span class="s1">&#39;H02&#39;</span><span class="p">]</span>
+<p>Execute the following code from the <strong>PyMOL shell</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
+
+<span class="n">names_methylene</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C7&#39;</span><span class="p">,</span><span class="s1">&#39;H01&#39;</span><span class="p">,</span><span class="s1">&#39;H02&#39;</span><span class="p">]</span>
 
 <span class="n">base_resn</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;deoxythymidine&#39;</span><span class="p">,</span> <span class="s1">&#39;DTM&#39;</span><span class="p">)</span>
 
 <span class="n">cmd</span><span class="o">.</span><span class="n">reinitialize</span><span class="p">()</span>
-<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/1_bases/processed/deoxythymidine.mol2&#39;</span><span class="p">)</span>
-<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/2_linkers/MLE/processed/MLE_capped_resp.mol2&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/1_bases/out/deoxythymidine.mol2&#39;</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;fragments/2_linkers/MLE/out/MLE_capped_resp.mol2&#39;</span><span class="p">)</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;MLE_capped_resp and name </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">names_methylene</span><span class="p">)))</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;deoxythymidine and (name H71 or name H72)&#39;</span><span class="p">)</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="s1">&#39;deoxythymidine and name C7&#39;</span><span class="p">,</span> <span class="s1">&#39;MLE_capped_resp and name C8 and resn MLE&#39;</span><span class="p">)</span>
@@ -558,7 +553,7 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 <span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;type=&quot;ATOM&quot;&#39;</span><span class="p">)</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;elem=&quot;&quot;&#39;</span><span class="p">)</span> <span class="c1"># PyMOL struggles with atom type definitions in mol2 files, therfore let PyMOL guess the elements itself</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="s1">&#39;MLE_capped_resp&#39;</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">cmd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;MLE&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="images/PyMOL_threeButtonEditor.png"><img alt="images/PyMOL_threeButtonEditor.png" src="images/PyMOL_threeButtonEditor.png" style="width: 550px;" /></a>
@@ -567,23 +562,15 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 <span class="n">cmd</span><span class="o">.</span><span class="n">bond</span><span class="p">(</span><span class="s1">&#39;resn MLE and name C8&#39;</span><span class="p">,</span> <span class="s1">&#39;resn DT and name C7&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Save the base-linker as a <strong>mol2</strong> file under <code class="docutils literal notranslate"><span class="pre">fragments/base_linkers/</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;mol2&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<p>Save the base-linker as a <strong>mol2</strong> file under <code class="docutils literal notranslate"><span class="pre">fragments/4_base_linkers/</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;mol2&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Attach the dye to the base-linker and save the whole base-linker-dye fragment as a <strong>pdb</strong> file under <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dyes/</span></code> where it can be accessed by the PyMOL plugin <em>FRETlabel</em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dye</span> <span class="o">=</span> <span class="s1">&#39;C3W&#39;</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">couple_dye2baselinker</span><span class="p">(</span><span class="n">dye</span><span class="p">,</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O91&#39;</span><span class="p">,</span> <span class="s1">&#39;C99&#39;</span><span class="p">,</span> <span class="s1">&#39;C27&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">])</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;src/fretlabel/dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{dye}</span><span class="s1">_</span><span class="si">{base_resn[1]}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dye</span> <span class="o">=</span> <span class="s1">&#39;C3W&#39;</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_couple_dye2baselinker</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fragments/3_dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="s1">&#39;C99&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">],[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">])</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;src/fretlabel/dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{dye}</span><span class="s1">_</span><span class="si">{base_resn[1]}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Finally, add a new entry to <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dye_library.json</span></code> and indicate the filename of your fragment, the dye, the base, the position and the alignment method (base or backbone).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
@@ -596,18 +583,19 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="update-the-force-field">
-<h3>Update the force field<a class="headerlink" href="#update-the-force-field" title="Permalink to this headline">¶</a></h3>
+<h2>2. Update the force field<a class="headerlink" href="#update-the-force-field" title="Permalink to this headline">¶</a></h2>
 <p>We will now create a GROMACS topology (<code class="docutils literal notranslate"><span class="pre">-o</span></code>) of our new base-linker fragment using the AnteChamber PYthon Parser interfacE (Acpype). This time we will choose AMBER as the atom type (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) and read in the previously calculated RESP charges (<code class="docutils literal notranslate"><span class="pre">-c</span></code>). We first need to rename the base (DT) and the linker (MLE) to <strong>DTM</strong> with <code class="docutils literal notranslate"><span class="pre">sed</span></code> because Acpype only accepts one residue name per molecule.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">fragments</span><span class="o">/</span><span class="mi">5</span><span class="n">_acpype</span>
-<span class="n">filename</span><span class="o">=../</span><span class="mi">4</span><span class="n">_base_linkers</span><span class="o">/</span><span class="n">DTM</span><span class="o">.</span><span class="n">mol2</span>
-<span class="n">base</span><span class="o">=</span><span class="n">DT</span>
-<span class="n">linker</span><span class="o">=</span><span class="n">MLE</span>
-<span class="n">base_linker</span><span class="o">=</span><span class="n">DTM</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fragments/5_acpype
+<span class="nv">filename</span><span class="o">=</span>../4_base_linkers/DTM.mol2
+<span class="nv">base</span><span class="o">=</span>DT
+<span class="nv">linker</span><span class="o">=</span>MLE
+<span class="nv">base_linker</span><span class="o">=</span>DTM
 
-<span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{base}</span><span class="s2">1/$</span><span class="si">{base_linker}</span><span class="s2">1/g&quot;</span> <span class="s2">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="s2">&quot;s/$</span><span class="si">{linker}</span><span class="s2">1/$</span><span class="si">{base_linker}</span><span class="s2">1/g&quot;</span> <span class="o">&gt;</span> <span class="s2">&quot;$</span><span class="si">{base_linker}</span><span class="s2">&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span>
+sed <span class="s2">&quot;s/</span><span class="si">${</span><span class="nv">base</span><span class="si">}</span><span class="s2">1/</span><span class="si">${</span><span class="nv">base_linker</span><span class="si">}</span><span class="s2">1/g&quot;</span> <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> sed <span class="s2">&quot;s/</span><span class="si">${</span><span class="nv">linker</span><span class="si">}</span><span class="s2">1/</span><span class="si">${</span><span class="nv">base_linker</span><span class="si">}</span><span class="s2">1/g&quot;</span> &gt; <span class="s2">&quot;</span><span class="si">${</span><span class="nv">base_linker</span><span class="si">}</span><span class="s2">&quot;</span>_ff.mol2
 
-<span class="n">acpype</span> <span class="o">-</span><span class="n">i</span> <span class="s2">&quot;$</span><span class="si">{base_linker}</span><span class="s2">&quot;</span><span class="n">_ff</span><span class="o">.</span><span class="n">mol2</span> <span class="o">-</span><span class="n">o</span> <span class="n">gmx</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="n">a</span> <span class="n">amber</span> <span class="o">-</span><span class="n">c</span> <span class="n">user</span>
+acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="nv">base_linker</span><span class="si">}</span><span class="s2">&quot;</span>_ff.mol2 -o gmx -n -1 -a amber -c user
 </pre></div>
 </div>
 <p>Acpype generates an <strong>itp</strong> file as well as force field modification (<strong>frcmod</strong>) file.</p>
@@ -706,7 +694,6 @@ antechamber -i &quot;$output_folder/$name&quot;.ac -fi ac -o &quot;$output_folde
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;DTM DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
