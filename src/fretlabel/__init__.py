@@ -3,8 +3,11 @@ try:
 except ModuleNotFoundError:
     import importlib_metadata as meta  # Python 3.7
 
+import pathlib
 
 PACKAGE = "fretlabel"
+
+MODULE_DIR = pathlib.Path(__file__).parent
 
 try:
     metadata = meta.metadata(PACKAGE)

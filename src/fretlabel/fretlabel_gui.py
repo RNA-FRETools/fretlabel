@@ -11,15 +11,13 @@ import pathlib
 import json
 import numpy as np
 import webbrowser
-from pymol import cmd
-from pymol.Qt import QtWidgets, utils, QtCore
 
-import fretlabel as fl
-
-package_directory = pathlib.Path(fl.__file__).parent
+from fretlabel import MODULE_DIR
+from fretlabel import __urls__
 
 try:
     from pymol import cmd
+    from pymol.Qt import QtWidgets, utils, QtCore
 except ModuleNotFoundError:
     print("Pymol is not installed.")
 
@@ -48,23 +46,21 @@ def run_plugin_gui():
 class App(QtWidgets.QWidget):
     def __init__(self, _pymol_running=False, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.uiIcon = str(package_directory.joinpath("UI", "icon.png"))
-        fluorlabelUI = str(package_directory.joinpath("UI", "fluorlabel.ui"))
-        self.settingsUI = str(package_directory.joinpath("UI", "settings.ui"))
-        self.textUI = str(package_directory.joinpath("UI", "textpad.ui"))
-        utils.loadUi(fluorlabelUI, self)
-        self.setWindowTitle("FluorLabel")
+        self.uiIcon = str(MODULE_DIR.joinpath("UI", "icon.png"))
+        fretlabelUI = str(MODULE_DIR.joinpath("UI", "fretlabel.ui"))
+        self.settingsUI = str(MODULE_DIR.joinpath("UI", "settings.ui"))
+        self.textUI = str(MODULE_DIR.joinpath("UI", "textpad.ui"))
+        utils.loadUi(fretlabelUI, self)
+        self.setWindowTitle("FRETlabel")
         self.setWindowIcon(utils.QtGui.QIcon(self.uiIcon))
         self._pymol_running = _pymol_running
-        self.readTheDocsURL = None
+        self.docsURL = __urls__["Documentation"]
         self.settingsWindow = QtWidgets.QDialog(self)
         utils.loadUi(self.settingsUI, self.settingsWindow)
-        self.settingsWindow.setWindowTitle("FluorLabel - Settings")
+        self.settingsWindow.setWindowTitle("FRETlabel - Settings")
         self.settings = {"browser": None, "local_docs": None}
-        if package_directory.joinpath(".fluorlabel_settings.conf").is_file():
-            with open(
-                package_directory.joinpath(".fluorlabel_settings.conf"), "r"
-            ) as f:
+        if MODULE_DIR.joinpath(".fretlabel_settings.conf").is_file():
+            with open(MODULE_DIR.joinpath(".fretlabel_settings.conf"), "r") as f:
                 self.settings = json.load(f)
         self.textWindow = QtWidgets.QDialog(self)
         self.fileNamePath_pdb = None
@@ -77,7 +73,7 @@ class App(QtWidgets.QWidget):
         self.spinBox_atomID.setEnabled(False)
 
         # add fragments from dye library
-        with open(package_directory.joinpath("dye_library.json"), "r") as f:
+        with open(MODULE_DIR.joinpath("dye_library.json"), "r") as f:
             self.dye_lib = json.load(f)
         for frag in self.dye_lib:
             if self.comboBox_selectPosition.findText(frag["position"]) == -1:
@@ -107,7 +103,7 @@ class App(QtWidgets.QWidget):
         """
         try:
             cmd.load(
-                package_directory.joinpath(
+                MODULE_DIR.joinpath(
                     "dyes",
                     "{}.pdb".format(self.fragment["filename"]),
                 )
@@ -127,13 +123,9 @@ class App(QtWidgets.QWidget):
 
             # make selections of base and sugar backbone
             nucleic = "resn RA+RG+RC+RU+DA+DG+DC+DT"
-            bases = "(name C*+N*+O*+H* and {} and not (name C*'+O*'+O*P*+H*'*+P and {}))".format(
-                resin, resin
-            )
+            bases = "(name C*+N*+O*+H* and {} and not (name C*'+O*'+O*P*+H*'*+P and {}))".format(resin, resin)
             sugar_backbone = "(name C*'+O*'+O*P*+H*'*+P and {})".format(resin)
-            sele_frag_bases = "{} and {} and {}".format(
-                self.fragment["filename"], nucleic, bases
-            )
+            sele_frag_bases = "{} and {} and {}".format(self.fragment["filename"], nucleic, bases)
             sele_pdb_bases = "{} and chain {} and resi \{:d} and {} and {}".format(
                 self.fileName_pdb[:-4], self.chain, self.resi, nucleic, bases
             )
@@ -152,16 +144,9 @@ class App(QtWidgets.QWidget):
             # cmd.select('pdb_sbb', sele_pdb_sbb)
 
             # check NA type of fragment
-            if (
-                cmd.select(
-                    "{} and {} and name O2'".format(self.fragment["filename"], nucleic)
-                )
-                > 0
-            ):  # RNA
+            if cmd.select("{} and {} and name O2'".format(self.fragment["filename"], nucleic)) > 0:  # RNA
                 self.NA_typefrag = "RNA"
-            elif (
-                cmd.select("{} and {}".format(self.fragment["filename"], nucleic)) > 0
-            ):  # DNA
+            elif cmd.select("{} and {}".format(self.fragment["filename"], nucleic)) > 0:  # DNA
                 self.NA_typefrag = "DNA"
             else:
                 self.NA_typefrag = None
@@ -171,12 +156,8 @@ class App(QtWidgets.QWidget):
                 # (3) remove sugar-backbone of fragment (4) remove O2' of PDB if NA_typefrag is DNA and alter PDB from RNA to DNA
                 # Note: (4) is useful for fragments like DTM which are DNA based but can be inserted at an internal DT or RU
                 cmd.align(sele_frag_bases, sele_pdb_bases)
-                cmd.remove(
-                    "{} and {} and {}".format(self.fileName_pdb[:-4], resin, bases)
-                )
-                cmd.remove(
-                    "{} and {}".format(self.fragment["filename"], sugar_backbone)
-                )
+                cmd.remove("{} and {} and {}".format(self.fileName_pdb[:-4], resin, bases))
+                cmd.remove("{} and {}".format(self.fragment["filename"], sugar_backbone))
                 if self.NA_typefrag == "DNA":
                     cmd.remove(
                         "{} and chain {} and resi \{:d} and name O2'".format(
@@ -185,9 +166,7 @@ class App(QtWidgets.QWidget):
                     )
                     resn = [r for r in self.fragment["base"].split("+") if "D" in r][0]
                     cmd.alter(
-                        "{} and chain {} and resi \{:d}".format(
-                            self.fileName_pdb[:-4], self.chain, self.resi
-                        ),
+                        "{} and chain {} and resi \{:d}".format(self.fileName_pdb[:-4], self.chain, self.resi),
                         'resn="{}"'.format(resn),
                     )
             else:
@@ -212,27 +191,19 @@ class App(QtWidgets.QWidget):
 
             # make bond between base and sugar
             if ("A" in self.fragment["base"]) or ("G" in self.fragment["base"]):
-                cmd.bond(
-                    "{} and name N9".format(resin), "{} and name C1'".format(resin)
-                )
+                cmd.bond("{} and name N9".format(resin), "{} and name C1'".format(resin))
             else:
-                cmd.bond(
-                    "{} and name N1".format(resin), "{} and name C1'".format(resin)
-                )
+                cmd.bond("{} and name N1".format(resin), "{} and name C1'".format(resin))
 
             # make bond between between consecutive residues at 5'-end/3'-end
             if self.fragment["position"] == "5'-end":
                 cmd.bond(
                     "{} and name O3'".format(resin),
-                    "chain {} and resi \{:d} and name P".format(
-                        self.chain, self.resi + 1
-                    ),
+                    "chain {} and resi \{:d} and name P".format(self.chain, self.resi + 1),
                 )
             elif self.fragment["position"] == "3'-end":
                 cmd.bond(
-                    "chain {} and resi \{:d} and name O3'".format(
-                        self.chain, self.resi - 1
-                    ),
+                    "chain {} and resi \{:d} and name O3'".format(self.chain, self.resi - 1),
                     "{} and name P".format(resin),
                 )
 
@@ -255,17 +226,13 @@ class App(QtWidgets.QWidget):
                 # cmd.alter('resi \{:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(self.chain))
                 if resn.strip() in linkers:
                     cmd.alter(
-                        "chain {} and resi \{:d} and resn {}".format(
-                            self.chain, self.resi, resn
-                        ),
+                        "chain {} and resi \{:d} and resn {}".format(self.chain, self.resi, resn),
                         'resn="{}"'.format(self.fragment["filename"][-3:]),
                     )
 
             # visualization settings
             cmd.show("sticks")
-            cmd.color(
-                "brightorange", "chain {} and resi \{:d}".format(self.chain, self.resi)
-            )
+            cmd.color("brightorange", "chain {} and resi \{:d}".format(self.chain, self.resi))
             cmd.zoom(self.fileName_pdb[:-4])
 
     def add_H(self):
@@ -280,22 +247,14 @@ class App(QtWidgets.QWidget):
             hydrogens = ["H1'", "H2'1", "HO'2", "H3'", "H4'", "H5'1", "H5'2"]
         for c, h in zip(carbons, hydrogens):
             if c is not None:
-                cmd.h_add(
-                    "name {} and resi \{:d} and chain {} and polymer.nucleic".format(
-                        c, self.resi, self.chain
-                    )
-                )
+                cmd.h_add("name {} and resi \{:d} and chain {} and polymer.nucleic".format(c, self.resi, self.chain))
                 cmd.alter(
-                    "name H01 and resi \{:d} and chain {} and polymer.nucleic".format(
-                        self.resi, self.chain
-                    ),
+                    "name H01 and resi \{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
                     'name="{}"'.format(h),
                 )
             else:
                 cmd.alter(
-                    "name H0* and resi \{:d} and chain {} and polymer.nucleic".format(
-                        self.resi, self.chain
-                    ),
+                    "name H0* and resi \{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
                     'name="{}"'.format(h),
                 )
 
@@ -305,16 +264,9 @@ class App(QtWidgets.QWidget):
         """
         cmd.reinitialize()
         cmd.load(self.fileNamePath_pdb)
-        if (
-            cmd.select(
-                "{} and polymer.nucleic and name O2'".format(self.fileName_pdb[:-4])
-            )
-            > 0
-        ):  # RNA
+        if cmd.select("{} and polymer.nucleic and name O2'".format(self.fileName_pdb[:-4])) > 0:  # RNA
             self.NA_typePDB = "RNA"
-        elif (
-            cmd.select("{} and polymer.nucleic".format(self.fileName_pdb[:-4])) > 0
-        ):  # DNA
+        elif cmd.select("{} and polymer.nucleic".format(self.fileName_pdb[:-4])) > 0:  # DNA
             self.NA_typePDB = "DNA"
         else:
             self.NA_typePDB = None
@@ -325,9 +277,7 @@ class App(QtWidgets.QWidget):
         cmd.hide("cartoon")
         cmd.show("sticks")
         self.clean_pdb()
-        nucleic_protein = "{} and (polymer.nucleic or polymer.protein)".format(
-            self.fileName_pdb[:-4]
-        )
+        nucleic_protein = "{} and (polymer.nucleic or polymer.protein)".format(self.fileName_pdb[:-4])
         self.n_atoms = cmd.count_atoms(nucleic_protein)
         self.min_max_residue = self.residue_boundaries(nucleic_protein)
         self.comboBox_chain.clear()
@@ -339,19 +289,13 @@ class App(QtWidgets.QWidget):
         """
         Clean up the PDB file for Gromacs
         """
-        cmd.remove(
-            "hydrogens and resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DU"
-        )  # remove hydrogens on nucleic acids
+        cmd.remove("hydrogens and resn A+G+C+U+RA+RG+RC+RU+DA+DG+DC+DU")  # remove hydrogens on nucleic acids
         cmd.remove("inorganic or solvent")
         atom_names = [atom.name for atom in cmd.get_model("resi 1").atom]
         if "O5'" not in atom_names:  # O5' is missing in Rosetta models
             for chain in cmd.get_chains():
-                first_resi = int(
-                    [a.resi for a in cmd.get_model("chain {}".format(chain)).atom][0]
-                )
-                cmd.edit(
-                    "chain {} and resi {:d} and name C5'".format(chain, first_resi)
-                )
+                first_resi = int([a.resi for a in cmd.get_model("chain {}".format(chain)).atom][0])
+                cmd.edit("chain {} and resi {:d} and name C5'".format(chain, first_resi))
                 cmd.attach("O", 2, 2)
                 cmd.alter("resi 1 and name O01", 'name="O5\'"')
 
@@ -389,7 +333,7 @@ class App(QtWidgets.QWidget):
                     )
         cmd.deselect()
 
-    def readPDB(self, fileNamePath_pdb=False):
+    def readPDB(self, fileNamePath_pdb=None):
         """
         Load PDB or CIF file
 
@@ -397,14 +341,16 @@ class App(QtWidgets.QWidget):
         ----------
         fileNamePath_pdb : str
         """
-        if fileNamePath_pdb is False:
-            self.fileNamePath_pdb, _ = QtWidgets.QFileDialog.getOpenFileName(
-                self, "Load PDB / CIF", "", "PDB / CIF file (*.pdb *cif);;All Files (*)"
+        if fileNamePath_pdb is None:
+            self.fileNamePath_pdb, _ = pathlib.Path(
+                QtWidgets.QFileDialog.getOpenFileName(
+                    self, "Load PDB / CIF", "", "PDB / CIF file (*.pdb *cif);;All Files (*)"
+                )
             )
         else:
-            self.fileNamePath_pdb = fileNamePath_pdb
+            self.fileNamePath_pdb = pathlib.Path(fileNamePath_pdb)
         if self.fileNamePath_pdb:
-            self.fileName_pdb = self.fileNamePath_pdb.split("/")[-1]
+            self.fileName_pdb = self.fileNamePath_pdb.name
             with open(self.fileNamePath_pdb, "r") as f:
                 self.pdbText = f.read()
                 self.push_showText.setEnabled(True)
@@ -521,9 +467,7 @@ class App(QtWidgets.QWidget):
                     self.spinBox_atomID.setEnabled(False)
                     self.push_addFragment.setEnabled(False)
                     self.lineEdit_pdbAtom.setText(
-                        "no {} at {} in chain {}".format(
-                            self.fragment["base"], self.fragment["position"], currChain
-                        )
+                        "no {} at {} in chain {}".format(self.fragment["base"], self.fragment["position"], currChain)
                     )
                 self.update_atom()
 
@@ -552,16 +496,10 @@ class App(QtWidgets.QWidget):
                     else:
                         new_resi -= 1
             self.resi = new_resi
-            resn = (
-                cmd.get_model("chain {} and resi \{:d}".format(self.chain, new_resi))
-                .atom[0]
-                .resn
-            )
+            resn = cmd.get_model("chain {} and resi \{:d}".format(self.chain, new_resi)).atom[0].resn
             resi_str = "{}-{} {:d}".format(self.chain, resn, new_resi)
             self.lineEdit_pdbAtom.setText(resi_str)
-            selection = "{} and chain {} and resi \{}".format(
-                self.fileName_pdb[:-4], self.chain, new_resi
-            )
+            selection = "{} and chain {} and resi \{}".format(self.fileName_pdb[:-4], self.chain, new_resi)
             cmd.color("brightorange", selection)
 
     def get_residueNames(self, selection):
@@ -631,7 +569,7 @@ class App(QtWidgets.QWidget):
         """
         Display a demo file
         """
-        filename = package_directory.joinpath("demo", "DNA.pdb")
+        filename = MODULE_DIR.joinpath("demo", "DNA.pdb")
         self.readPDB(fileNamePath_pdb=filename)
 
     def savePDB(self):
@@ -644,9 +582,7 @@ class App(QtWidgets.QWidget):
                 message = "Change RNA nucleotides A, G, C and U to RA, RG, RC and RU"
             elif self.NA_typePDB == "DNA":
                 message = "Change DNA nucleotides A, G, C and T to RA, RG, RC and RT"
-            alter_residues = msg.question(
-                self, "Alter residues", message, msg.Yes | msg.No
-            )
+            alter_residues = msg.question(self, "Alter residues", message, msg.Yes | msg.No)
             if alter_residues == msg.No:
                 self.alter_nucleic(direction="backward")
         filename, filetype = QtWidgets.QFileDialog.getSaveFileName(
@@ -663,81 +599,68 @@ class App(QtWidgets.QWidget):
         """
         Define the path to a webbrowser executable (e.g. Firefox, Edge or Chrome)
         """
-        browser_path, _ = QtWidgets.QFileDialog.getOpenFileName(
-            self, "Search for default browser"
-        )
+        browser_path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Search for default browser")
         if browser_path:
             self.settingsWindow.lineEdit_browser.setText(browser_path)
             self.settings["browser"] = browser_path
-            with open(
-                "{}/.fluorlabel_settings.conf".format(package_directory), "w"
-            ) as f:
+            with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
                 json.dump(self.settings, f, indent=2)
 
     def set_localdocsDir(self):
         """
         Define path to local docs
         """
-        docs_path = QtWidgets.QFileDialog.getExistingDirectory(
-            self, "Select docs directory"
-        )
+        docs_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Select docs directory")
         if docs_path:
             self.settingsWindow.lineEdit_localdocs.setText(docs_path)
             self.settings["local_docs"] = docs_path
-            with open(
-                "{}/.fluorlabel_settings.conf".format(package_directory), "w"
-            ) as f:
+            with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
                 json.dump(self.settings, f, indent=2)
 
     def openDocumentation(self):
         """
         Open documentation in the browser
         """
-        if not self.readTheDocsURL:
-            if not self.settings["local_docs"]:
+        try:
+            webbrowser.open(self.docsURL)
+        except webbrowser.Error:
+            if not self.docsURL:
+                if not self.settings["local_docs"]:
+                    msg = QtWidgets.QMessageBox()
+                    msg.setIcon(QtWidgets.QMessageBox.Information)
+                    msg.setWindowTitle("Location of docs not configured")
+                    msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+                    msg.setText("Press <OK> and specify the path of the local docs.")
+                    returnValue = msg.exec_()
+                    if returnValue == QtWidgets.QMessageBox.Ok:
+                        self.set_localdocsDir()
+
+            if not self.settings["browser"]:
                 msg = QtWidgets.QMessageBox()
                 msg.setIcon(QtWidgets.QMessageBox.Information)
-                msg.setWindowTitle("Location of docs not configured")
-                msg.setStandardButtons(
-                    QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel
+                msg.setWindowTitle("Web browser not configured")
+                msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+                msg.setText(
+                    "For the documentation to be displayed, the path to a web browser needs to be configured. Press <OK> and search for the browser executable (Firefox, Chrome or Edge)."
                 )
-                msg.setText("Press <OK> and specify the path of the local docs.")
                 returnValue = msg.exec_()
                 if returnValue == QtWidgets.QMessageBox.Ok:
-                    self.set_localdocsDir()
+                    self.set_browser()
 
-        if not self.settings["browser"]:
-            msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.Information)
-            msg.setWindowTitle("Web browser not configured")
-            msg.setStandardButtons(
-                QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel
-            )
-            msg.setText(
-                "For the documentation to be displayed, the path to a web browser needs to be configured. Press <OK> and search for the browser executable (Firefox, Chrome or Edge)."
-            )
-            returnValue = msg.exec_()
-            if returnValue == QtWidgets.QMessageBox.Ok:
-                self.set_browser()
-
-        if self.settings["browser"]:
-            try:
-                browser = webbrowser.get("{} %s".format(self.settings["browser"]))
-                browser.open("file://{}/index.html".format(self.settings["local_docs"]))
-            except webbrowser.Error:
-                self.settings["browser"] = None
-                print("Browser not found!")
-                with open(
-                    "{}/.fluorlabel_settings.conf".format(package_directory), "w"
-                ) as f:
-                    json.dump(self.settings, f, indent=2)
-            except FileNotFoundError:
-                self.settings["local_docs"] = None
-                print("Local docs not found!")
-                with open(
-                    "{}/.fluorlabel_settings.conf".format(package_directory), "w"
-                ) as f:
-                    json.dump(self.settings, f, indent=2)
+            if self.settings["browser"]:
+                try:
+                    browser = webbrowser.get("{} %s".format(self.settings["browser"]))
+                    browser.open("file://{}/index.html".format(self.settings["local_docs"]))
+                except webbrowser.Error:
+                    self.settings["browser"] = None
+                    print("Browser not found!")
+                    with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
+                        json.dump(self.settings, f, indent=2)
+                except FileNotFoundError:
+                    self.settings["local_docs"] = None
+                    print("Local docs not found!")
+                    with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
+                        json.dump(self.settings, f, indent=2)
 
 
 if __name__ == "__main__":

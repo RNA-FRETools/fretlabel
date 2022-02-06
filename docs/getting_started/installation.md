@@ -1,15 +1,15 @@
 # Installation
 
 Depending on your operating system and preference there are multiple options to install PyMOL and *FRETlabel*
-- install PyMOL and add *FRETlabel* as a Plugin manually &rarr; [Install PyMOL and FRETraj](#install-manually)
-- install a Docker image with PyMOL and *FRETraj* preconfigured (see Docker image) &rarr; [Install with Docker](#install-docker)
+- install PyMOL and add *FRETlabel* as a Plugin manually &rarr; [Install PyMOL and FRETlabel](#install-manually)
+- install a Docker image with PyMOL and *FRETlabel* preconfigured (see Docker image) &rarr; [Install with Docker](#install-docker)
 
 
-## 1.1 Install PyMOL and FRETraj
+## 1.1 Install PyMOL and FRETlabel
 <a name="install-manually"></a>
 ````{tabbed} For Windows
 - Get PyMOL from [Schrödinger](https://pymol.org/) or follow the instructions [here](https://pymolwiki.org/index.php/Windows_Install).
-- Search for **Anaconda/Miniforge prompt** in the Windows start menu 
+- Open the **Anaconda/Miniforge prompt** which comes bundled with PyMOL
 ````
 
 ````{tabbed} For Linux
@@ -23,6 +23,7 @@ Depending on your operating system and preference there are multiple options to 
     cd fretlabel
     pip install fretlabel
     ```
+
 - Locate the installation directory by running
 
     ```
@@ -49,7 +50,7 @@ Binaries for Windows, Linux and macOS are distributed by Schrödinger under acad
 ```
 
 ```{tip} 
-To generate your own fragments you may further need:
+To generate your own fragments you further need:
 - the preprocessing toolbox [*Antechamber*](https://ambermd.org/GetAmber.php#ambertools) packaged with Ambertools
     ```
     conda install -c conda-forge ambertools=20
