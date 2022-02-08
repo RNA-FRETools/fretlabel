@@ -261,7 +261,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/RNA-FRETools/fretlabel/master?urlpath=tree/docs/getting_started/fragment_building.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/RNA-FRETools/fretlabel/master?urlpath=tree/docs/getting_started/fragment_building.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -502,7 +502,7 @@ sed <span class="s1">&#39;/^[[:space:]]*[A-Z]/d&#39;</span> &lt; <span class="s2
 respgen -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.ac -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin1 -f resp1 -a <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span>
 respgen -i <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.ac -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin2 -f resp2 -a <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$capping_group</span><span class="s2">&quot;</span>
 
-<span class="c1"># since respgen rounds the group constraint to three decimals replace it with the value from the capping group</span>
+<span class="c1">#since respgen rounds the group constraint to three decimals replace it with the value from the capping group</span>
 sed -i <span class="s2">&quot;s/</span><span class="nv">$n_atom</span><span class="s2">.*\..*/</span><span class="nv">$n_atom</span><span class="s2">  </span><span class="nv">$group_constraint</span><span class="s2">/g&quot;</span> <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin1
 sed -i <span class="s2">&quot;s/</span><span class="nv">$n_atom</span><span class="s2">.*\..*/</span><span class="nv">$n_atom</span><span class="s2">  </span><span class="nv">$group_constraint</span><span class="s2">/g&quot;</span> <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.respin2
 
@@ -622,7 +622,7 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Next, we load in the force field parameters from AMBER-DYES</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_amberdyes</span><span class="p">([</span><span class="s1">&#39;forcefields/amberdyes/ffbonded_amberdyes.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/amberdyes/ffnonbonded_amberdyes.itp&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_amberdyes</span><span class="p">([</span><span class="s1">&#39;forcefields/2_amberdyes/ffbonded_amberdyes.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/2_amberdyes/ffnonbonded_amberdyes.itp&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -683,7 +683,7 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Update the <strong>specbond.dat</strong> file with the bond between the dye and the linker.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;C3W C99 1 DTM N99 1 0.160 C3W DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/specbond.dat&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;C3W C99 1 DTM N99 1 0.160 C3W DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/2_amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/specbond.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +691,7 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Update the <strong>residuetypes.dat</strong> file with the types of the the dye and the new fragment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/2_amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;DTM DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>

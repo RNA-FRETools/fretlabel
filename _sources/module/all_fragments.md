@@ -51,7 +51,7 @@ name=MLE_capped
 input_folder='in/'
 output_folder='out/'
 
-cd fragments/linkers/MLE/
+cd fragments/2_linkers/MLE/
 antechamber -i "$input_folder/$name".mol2 -fi mol2 -o "$output_folder/$name".gin -fo gcrt -gv 1 -ge "$output_folder/$name".gesp -ch "$output_folder/$name"_opt -nc 0
 ```
 
@@ -160,14 +160,14 @@ for base_resn in base_resn_list:
                                           'C99', ['C17', 'O98', 'C16'],
                                           ['O98', 'C16', 'C17', 'H95', 'H96', 'H97'])
         cmd.alter('all', 'elem=""')
-        fl.ff.pymol_save_molecule('src/fretlabel/dyes/test/{}_{}.pdb'.format(dye, base_resn[1]), 
+        fl.ff.pymol_save_molecule('src/fretlabel/dyes/{}_{}.pdb'.format(dye, base_resn[1]), 
                                   '{}_{}'.format(dye, base_resn[1]), 'pdb', overwrite=True)
         fl.ff.update_dye_library({'filename':'{}_{}'.format(dye, base_resn[1]), 'dye':name, 
                                   'base':base_resn[1][0:2], 'linker':'MLE', 'chemistry':'U/dT-C5',
                                   'position':'internal'}, 
-                                 'src/fretlabel/dye_library.json',
-                                 'src/fretlabel/dye_library.json', 
-                                 overwrite=True)
+                                  'src/fretlabel/dye_library.json',
+                                  'src/fretlabel/dye_library.json', 
+                                  overwrite=True)
 python end
 ```
 <!-- #endregion -->
@@ -208,15 +208,15 @@ base_resn = ('deoxyadenosine', 'DAE')
 #base_resn = ('cytidine', 'RCE')
 
 cmd.reinitialize()
-cmd.load('fragments/bases/out/{}.mol2'.format(base_resn[0]))
+cmd.load('fragments/1_bases/out/{}.mol2'.format(base_resn[0]))
 
 if 'A' in base_resn[1]:
-    cmd.load('fragments/linkers/ETH/out/ETH_capped_resp_{}.mol2'.format(base_resn[0]))
+    cmd.load('fragments/2_linkers/ETH/out/ETH_capped_resp_{}.mol2'.format(base_resn[0]))
     cmd.pair_fit('ETH_capped_resp and name N1','{} and name N1'.format(base_resn[0]), 
                  'ETH_capped_resp and name N6', '{} and name N6'.format(base_resn[0]),
                  'ETH_capped_resp and name H11', '{} and name C2'.format(base_resn[0]))
 else:
-    cmd.load('fragments/linkers/ETH/out/ETH_capped_resp_{}.mol2'.format(base_resn[0]))
+    cmd.load('fragments/2_linkers/ETH/out/ETH_capped_resp_{}.mol2'.format(base_resn[0]))
     cmd.pair_fit('ETH_capped_resp and name N1','{} and name N3'.format(base_resn[0]), 
                  'ETH_capped_resp and name N6', '{} and name N4'.format(base_resn[0]),
                  'ETH_capped_resp and name H11', '{} and name C2'.format(base_resn[0]))
@@ -250,23 +250,21 @@ else:
 cmd.alter('all', 'type="ATOM"')
 cmd.alter('all', 'elem=""')
 cmd.set_title(base_resn[1],1,base_resn[1])
+
+fl.ff.pymol_savemol2('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
 ```
 <!-- #endregion -->
 
-```python
-fl.ff.pymol_savemol2('fragments/base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
-```
-
 Check the correct charge
 ```python
-fl.ff.check_charge('fragments/base_linkers/{}.mol2'.format(base_resn[1]), -1)
+fl.ff.check_charge('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), -1)
 ```
 
+Now, add the fluorophore in PyMOL
+
+<!-- #region -->
 ```python
-base_resn_list = [('deoxyadenosine', 'DAE'),
-                  ('deoxycytidine', 'DCE'),
-                  ('adenosine', 'RAE'),
-                  ('cytidine', 'RCE')]
+base_resn_list = [('deoxyadenosine', 'DAE'), ('deoxycytidine', 'DCE'), ('adenosine', 'RAE'), ('cytidine', 'RCE')]
 
 for base_resn in base_resn_list:
 
@@ -277,6 +275,7 @@ for base_resn in base_resn_list:
         for base in ['RA', 'RC', 'DA', 'DC']:    
             fl.ff.update_dye_library({'filename':'{}_{}E'.format(dye, base), 'dye':name, 'base':base, 'linker':'ETH', 'chemistry':'etheno', 'position':'internal'}, 'fluorlabel/dye_library.json', 'fluorlabel/dye_library.json', overwrite=True)
 ```
+<!-- #endregion -->
 
 <!-- #region -->
 ## 2. End labeling fragments
@@ -293,7 +292,7 @@ output_folder='out/'
 
 Here, the net charge is -1
 ```sh
-cd fragments/linkers/POS/
+cd fragments/2_linkers/POS/
 antechamber -i "$input_folder/$name".mol2 -fi mol2 -o "$output_folder/$name".gin -fo gcrt -gv 1 -ge "$output_folder/$name".gesp -ch "$output_folder/$name"_opt -nc -1
 ```
 
@@ -389,14 +388,14 @@ base_resn = ('deoxythymidine', 'DTP')
 # base_resn = ('cytidine', 'RCP')
 
 cmd.reinitialize()
-cmd.load('fragments/bases/out/{}.mol2'.format(base_resn[0]))
+cmd.load('fragments/1_bases/out/{}.mol2'.format(base_resn[0]))
 
 if 'D' in base_resn[1]:
     POS_capped_resp = 'POS_capped_resp_5prime_DNA'
 else:
     POS_capped_resp = 'POS_capped_resp_5prime_RNA'
     
-cmd.load('fragments/linkers/POS/out/{}.mol2'.format(POS_capped_resp))
+cmd.load('fragments/2_linkers/POS/out/{}.mol2'.format(POS_capped_resp))
 cmd.align('{} and name {}'.format(POS_capped_resp, '+'.join(str(i) for i in names_phosphate)), '{} and (name P or name O1P or name O2P or name O5\')'.format(base_resn[0]))
 cmd.remove('{} and name {}'.format(POS_capped_resp, '+'.join(str(i) for i in names_methyl+names_phosphate)))
 cmd.create(base_resn[1], '{} or {}'.format(POS_capped_resp, base_resn[0]))
@@ -408,7 +407,7 @@ cmd.alter('all', 'elem=""')
 cmd.set_title(base_resn[1],1,base_resn[1])
 
 import fretlabel as fl
-fl.ff.pymol_savemol2('fragments/base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
+fl.ff.pymol_savemol2('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
 ```
 <!-- #endregion -->
 
@@ -451,7 +450,7 @@ for base_resn in base_resn_list:
         fl.ff.pymol_save_molecule('fluorlabel/dyes/{}_{}.pdb'.format(dye, base_resn[1]), '{}_{}'.format(dye, base_resn[1]), 'pdb', overwrite=True)
         for base in ['RA', 'RG', 'RC', 'RU', 'DA', 'DG', 'DC', 'DT']:
             fl.ff.update_dye_library({'filename':'{}_{}P'.format(dye, base), 'dye':name, 'base':base, 'linker':'POS', 'chemistry':'phosphate', 'position':"5'-end"}, 'fluorlabel/dye_library.json', 'fluorlabel/dye_library.json', overwrite=True)
-end
+python end
 ```
 <!-- #endregion -->
 
@@ -484,14 +483,14 @@ base_resn = ('deoxythymidine', 'DTO')
 # base_resn = ('cytidine', 'RCO')
 
 cmd.reinitialize()
-cmd.load('fragments/bases/out/{}.mol2'.format(base_resn[0]))
+cmd.load('fragments/1_bases/out/{}.mol2'.format(base_resn[0]))
 
 if 'D' in base_resn[1]:
     POS_capped_resp = 'POS_capped_resp_3prime_DNA'
 else:
     POS_capped_resp = 'POS_capped_resp_3prime_RNA'
     
-cmd.load('fragments/linkers/POS/out/{}.mol2'.format(POS_capped_resp))
+cmd.load('fragments/2_linkers/POS/out/{}.mol2'.format(POS_capped_resp))
 cmd.alter('{} and name P'.format(POS_capped_resp),'name="P1"')
 cmd.alter('{} and name O1P'.format(POS_capped_resp),'name="O3P"')
 cmd.alter('{} and name O2P'.format(POS_capped_resp),'name="O4P"')
@@ -508,16 +507,25 @@ cmd.alter('all', 'elem=""')
 cmd.set_title(base_resn[1],1,base_resn[1])
 
 import fretlabel as fl
-fl.ff.pymol_savemol2('fragments/base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
+fl.ff.pymol_savemol2('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
 ```
 <!-- #endregion -->
 
 Check the correct charge
 ```python
+base_resn = ('deoxythymidine', 'DTO')
+# base_resn = ('deoxyadenosine', 'DAO')
+# base_resn = ('deoxyguanosine', 'DGO')
+# base_resn = ('deoxycytidine', 'DCO')
+# base_resn = ('uridine', 'RUO')
+# base_resn = ('adenosine', 'RAO')
+# base_resn = ('guanosine', 'RGO')
+# base_resn = ('cytidine', 'RCO')
+
 if 'D' in base_resn[1]:
-    fl.ff.check_charge('fragments/base_linkers/{}.mol2'.format(base_resn[1]), -1.6921)
+    fl.ff.check_charge('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), -1.6921)
 else:
-    fl.ff.check_charge('fragments/base_linkers/{}.mol2'.format(base_resn[1]), -1.6919)
+    fl.ff.check_charge('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), -1.6919)
 ```
 
 <!-- #region -->
@@ -542,7 +550,7 @@ for base_resn in base_resn_list:
         fl.ff.pymol_save_molecule('fluorlabel/dyes/{}_{}.pdb'.format(dye, base_resn[1]), '{}_{}'.format(dye, base_resn[1]), 'pdb', overwrite=True)
         for base in ['RA', 'RG', 'RC', 'RU', 'DA', 'DG', 'DC', 'DT']:
             fl.ff.update_dye_library({'filename':'{}_{}O'.format(dye, base), 'dye':name, 'base':base, 'linker':'POS', 'chemistry':'phosphate', 'position':"3'-end"}, 'fluorlabel/dye_library.json', 'fluorlabel/dye_library.json', overwrite=True)
-end           
+python end           
 ```
 <!-- #endregion -->
 
@@ -577,6 +585,7 @@ resp_fit.sh -n HYD_capped -i 'in/' -o 'out/' -g HYD_capping_groups_uracil_RNA.da
 First couple the bases and the POS linker, then add the dye.
 
 ```python
+python
 names_methoxyl = ['C01','H01','H02','H03', 'O01']
 names_amine = ['N97','H94','H93']
 
@@ -587,8 +596,8 @@ base_resn = ('guanosine', 'RGH')
 base_resn = ('cytidine', 'RCH')
 
 cmd.reinitialize()
-cmd.load('fragments/bases/out/{}.mol2'.format(base_resn[0]))
-cmd.load('fragments/linkers/HYD/out/HYD_capped_resp_{}_RNA.mol2'.format(base_resn[0]))
+cmd.load('fragments/1_bases/out/{}.mol2'.format(base_resn[0]))
+cmd.load('fragments/2_linkers/HYD/out/HYD_capped_resp_{}_RNA.mol2'.format(base_resn[0]))
 
 if ('A' in base_resn[1]) or ('G' in base_resn[1]):
     atm = 'N9'
@@ -610,16 +619,22 @@ cmd.delete('HYD_capped_resp')
 cmd.bond('{} and name {}'.format(base_resn[1], atm), '{} and name C1\''.format(base_resn[1]))
 cmd.set_title(base_resn[1],1,base_resn[1])
 
-fl.ff.pymol_savemol2('fragments/base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
+fl.ff.pymol_savemol2('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
+python end
 ```
 <!-- #endregion -->
 
 Check the correct charge
 ```python
+base_resn = ('uridine', 'RUH')
+#base_resn = ('adenosine', 'RAH')
+#base_resn = ('guanosine', 'RGH')
+#base_resn = ('cytidine', 'RCH')
+
 if 'D' in base_resn[1]:
-    fl.ff.check_charge('fragments/base_linkers/{}.mol2'.format(base_resn[1]), -0.6921)
+    fl.ff.check_charge('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), -0.6921)
 else:
-    fl.ff.check_charge('fragments/base_linkers/{}.mol2'.format(base_resn[1]), -0.6919)
+    fl.ff.check_charge('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), -0.6919)
 ```
 
 <!-- #region -->
@@ -640,7 +655,7 @@ for base_resn in base_resn_list:
         fl.ff.pymol_save_molecule('fluorlabel/dyes/{}_{}.pdb'.format(dye, base_resn[1]), '{}_{}'.format(dye, base_resn[1]), 'pdb', overwrite=True)
         for base in ['RA', 'RG', 'RC', 'RU']:    
             fl.ff.update_dye_library({'filename':'{}_{}H'.format(dye, base), 'dye':name, 'base':base, 'linker':'HYD', 'chemistry':'hydrazide', 'position':"3'-end"}, 'fluorlabel/dye_library.json', 'fluorlabel/dye_library.json', overwrite=True)
-end
+python end
 ```
 <!-- #endregion -->
 
@@ -649,12 +664,12 @@ end
 First, read in AMBER-DYES force field (Graen et al. *JCTC*, **2014**)
 
 ```python
-amberdyes_ff = fl.ff.Parameters.read_amberdyes(['fretlabel/forcefields/3_fretlabel/ffbonded_amberdyes.itp', 'fretlabel/forcefields/amberdyes/ffnonbonded_amberdyes.itp'])
+amberdyes_ff = fl.ff.Parameters.read_amberdyes(['forcefields/2_amberdyes/ffbonded_amberdyes.itp', 'forcefields/2_amberdyes/ffnonbonded_amberdyes.itp'])
 ```
 
 Read the force field of your choice (here AMBER-ff14sb shipped with FRETlabel) 
 ```python
-amber14sb_ff = fl.ff.Parameters.read_ff(['amber14sb/ffbonded.itp', 'amber14sb/ffnonbonded.itp'])
+amber14sb_ff = fl.ff.Parameters.read_ff(['forcefields/3_amber14sb/ffbonded.itp', 'forcefields/3_amber14sb/ffnonbonded.itp'])
 ```
 
 ### 3.1 Create force-field parameters with Acpype
@@ -690,11 +705,11 @@ Read the itp files into the `fl.ff.Molecule` class and the forcefield modificati
 moleculetypes = ['DTM', 'RUM']
 
 for mol in moleculetypes:
-    baselinkers_itp[mol] = fl.ff.Molecule.read_molecule('fragments/acpype/{}_ff.acpype/{}_ff_GMX.itp'.format(mol,mol), 'FLUOR-DYNAMICS')
+    baselinkers_itp[mol] = fl.ff.Molecule.read_molecule('fragments/5_acpype/{}_ff.acpype/{}_ff_GMX.itp'.format(mol,mol), 'FRETLABEL')
     baselinkers_itp[mol].change_type('O3\'', 'OS') # residue is internal not terminal
     for a in ['O98', 'C16', 'C17', 'H95', 'H96', 'H97']:
         baselinkers_itp[mol].remove_atom(a)
-    baselinkers_ff[mol] = fl.ff.Parameters.read_frcmod('fragments/acpype/{}_ff.acpype/{}_ff_AC.frcmod'.format(mol,mol), baselinkers_itp[mol].atomtypes_molecule)
+    baselinkers_ff[mol] = fl.ff.Parameters.read_frcmod('fragments/5_acpype/{}_ff.acpype/{}_ff_AC.frcmod'.format(mol,mol), baselinkers_itp[mol].atomtypes_molecule)
     amberdyes_ff.append(baselinkers_ff[mol])
 ```
 
@@ -702,6 +717,7 @@ for mol in moleculetypes:
 #### 3.1.2 3'/5'-end phosphates and 3'-end hydrazide
 Acpype requires a residue with integral charge (...,-1,0,1,...). Therefore, we will combine the 3'-end and 5'-end fragments into a dinucleotide (charge: -2) using PyMOL.
 
+<!-- #region -->
 ```python
 end = {'base':'DA', '5':'DAP', '3':'DAO'}
 # end = {'base':'DG', '5':'DGP', '3':'DGO'}
@@ -718,8 +734,8 @@ end = {'base':'DA', '5':'DAP', '3':'DAO'}
 # end = {'base':'RU', '5':'RUP', '3':'RUH'}
 
 cmd.reinitialize()
-cmd.load('fragments/base_linkers/{}.mol2'.format(end['5']))
-cmd.load('fragments/base_linkers/{}.mol2'.format(end['3']))
+cmd.load('fragments/4_base_linkers/{}.mol2'.format(end['5']))
+cmd.load('fragments/4_base_linkers/{}.mol2'.format(end['3']))
 
 # reassigning residue numbers and segment ids preserves the atom numbering after running through acpype
 cmd.alter('resn POS and {}'.format(end['5']), 'resi="1"')
@@ -733,11 +749,10 @@ cmd.create('{}_{}'.format(end['5'],end['3']), '{} or {}'.format(end['5'],end['3'
 cmd.bond('(resn {} or resn HYD) and name P'.format(end['base']), 'resn POS and name O01 and resi 1')
 cmd.alter('resn POS', 'resn="{}"'.format(end['3']))
 cmd.alter('resn {} or resn HYD'.format(end['base']), 'resn="{}"'.format(end['3']))
-```
 
-```python
-fl.ff.pymol_savemol2('fragments/acpype/{}_{}_ff.mol2'.format(end['5'], end['3']), '{}_{}'.format(end['5'], end['3']), overwrite=True)
+fl.ff.pymol_savemol2('fragments/5_acpype/{}_{}_ff.mol2'.format(end['5'], end['3']), '{}_{}'.format(end['5'], end['3']), overwrite=True)
 ```
+<!-- #endregion -->
 
 Run **Acpype** on the dinucleotide fragments.
 
@@ -767,35 +782,38 @@ The dinucleotides are differentiated by their `subst_id`.
 ```
 
 ```python
-moleculetypes = [{'base':'DA', '5':'DAP', '3':'DAO'},
-       {'base':'DG', '5':'DGP', '3':'DGO'},
-       {'base':'DC', '5':'DCP', '3':'DCO'},
-       {'base':'DT', '5':'DTP', '3':'DTO'},
-       {'base':'RA', '5':'RAP', '3':'RAO'},
-       {'base':'RG', '5':'RGP', '3':'RGO'},
-       {'base':'RC', '5':'RCP', '3':'RCO'},
-       {'base':'RU', '5':'RUP', '3':'RUO'},
-       {'base':'RU', '5':'RAP', '3':'RAH'},
-       {'base':'RU', '5':'RGP', '3':'RGH'},
-       {'base':'RU', '5':'RCP', '3':'RCH'},
-       {'base':'RU', '5':'RUP', '3':'RUH'}]
+moleculetypes = [{'base':'DA', '5':'DAP', '3':'DAO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DG', '5':'DGP', '3':'DGO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DC', '5':'DCP', '3':'DCO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DT', '5':'DTP', '3':'DTO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RA', '5':'RAP', '3':'RAO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RG', '5':'RGP', '3':'RGO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RC', '5':'RCP', '3':'RCO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RU', '5':'RUP', '3':'RUO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RA', '5':'RAP', '3':'RAH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RG', '5':'RGP', '3':'RGH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RC', '5':'RCP', '3':'RCH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RU', '5':'RUP', '3':'RUH', '5_substr':None, '3_substr':[2,3]}]
 
+#moleculetypes = [ {'base':'RA', '5':'RGP', '3':'RGO', '5_substr':[1,2], '3_substr':[2,3]}]
 for end in moleculetypes:
-    fusion_itp = fl.ff.Molecule.read_molecule('fragments/acpype/{}_{}_ff.acpype/{}_{}_ff_GMX.itp'.format(end['5'],end['3'],end['5'],end['3']), 'FLUOR-DYNAMICS')
+    fusion_itp = fl.ff.Molecule.read_molecule('fragments/5_acpype/{}_{}_ff.acpype/{}_{}_ff_GMX.itp'.format(end['5'],end['3'],end['5'],end['3']), 'FRETLABEL')
     if 'H' not in end['3']:
         fusion_itp.change_type('O3\'', 'OS') # residue is internal not terminal
-    baselinkers_ff['{}_{}'.format(end['5'],end['3'])] = fl.ff.Parameters.read_frcmod('fragments/acpype/{}_{}_ff.acpype/{}_{}_ff_AC.frcmod'.format(end['5'],end['3'],end['5'],end['3']), fusion_itp.atomtypes_molecule)
+    baselinkers_ff['{}_{}'.format(end['5'],end['3'])] = fl.ff.Parameters.read_frcmod('fragments/5_acpype/{}_{}_ff.acpype/{}_{}_ff_AC.frcmod'.format(end['5'],end['3'],end['5'],end['3']), fusion_itp.atomtypes_molecule)
     amberdyes_ff.append(baselinkers_ff['{}_{}'.format(end['5'],end['3'])])
         
-    ff_mol2 = PandasMol2().read_mol2('fragments/acpype/{}_{}_ff.mol2'.format(end['5'],end['3']))
-    atoms5 = fusion_itp.atoms[(ff_mol2.df['subst_id']==1) | (ff_mol2.df['subst_id']==2)]
-    atoms3 = fusion_itp.atoms[(ff_mol2.df['subst_id']==2) | (ff_mol2.df['subst_id']==3)]
-    bonds5 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms5['nr']) & fusion_itp.bonds['j'].isin(atoms5['nr'])]
+    ff_mol2 = PandasMol2().read_mol2('fragments/5_acpype/{}_{}_ff.mol2'.format(end['5'],end['3']))
+    if end['5_substr']:
+        atoms5 = fusion_itp.atoms[(ff_mol2.df['subst_id']==end['5_substr'][0]) | (ff_mol2.df['subst_id']==end['5_substr'][1])]
+        bonds5 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms5['nr']) & fusion_itp.bonds['j'].isin(atoms5['nr'])]
+        impropers5 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms5['nr']) & fusion_itp.impropers['j'].isin(atoms5['nr']) & fusion_itp.impropers['k'].isin(atoms5['nr']) & fusion_itp.impropers['l'].isin(atoms5['nr'])]
+    atoms3 = fusion_itp.atoms[(ff_mol2.df['subst_id']==end['3_substr'][0]) | (ff_mol2.df['subst_id']==end['3_substr'][1])]
     bonds3 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms3['nr']) & fusion_itp.bonds['j'].isin(atoms3['nr'])]
-    impropers5 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms5['nr']) & fusion_itp.impropers['j'].isin(atoms5['nr']) & fusion_itp.impropers['k'].isin(atoms5['nr']) & fusion_itp.impropers['l'].isin(atoms5['nr'])]
     impropers3 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms3['nr']) & fusion_itp.impropers['j'].isin(atoms3['nr']) & fusion_itp.impropers['k'].isin(atoms3['nr']) & fusion_itp.impropers['l'].isin(atoms3['nr'])]
     
-    baselinkers_itp[end['5']] = fl.ff.Molecule(end['5'], atoms5, bonds5, None, None, impropers5)
+    if end['5_substr']:
+        baselinkers_itp[end['5']] = fl.ff.Molecule(end['5'], atoms5, bonds5, None, None, impropers5)
     baselinkers_itp[end['3']] = fl.ff.Molecule(end['3'], atoms3, bonds3, None, None, impropers3)
     for a in ['O98', 'C16', 'C17', 'H95', 'H96', 'H97']:
         baselinkers_itp[end['5']].remove_atom(a)
@@ -829,11 +847,11 @@ acpype -i "$base_linker"_ff.mol2 -o gmx -n -1 -a amber -c user
 moleculetypes = ['RAE', 'RCE', 'DAE', 'DCE']
 
 for mol in moleculetypes:
-    baselinkers_itp[mol] = fl.ff.Molecule.read_molecule('fragments/acpype/{}_ff.acpype/{}_ff_GMX.itp'.format(mol,mol), 'FLUOR-DYNAMICS')
+    baselinkers_itp[mol] = fl.ff.Molecule.read_molecule('fragments/5_acpype/{}_ff.acpype/{}_ff_GMX.itp'.format(mol,mol), 'FRETLABEL')
     baselinkers_itp[mol].change_type('O3\'', 'OS') # residue is internal not terminal
     for a in ['O98', 'C16', 'C17', 'H95', 'H96', 'H97']:
         baselinkers_itp[mol].remove_atom(a)
-    baselinkers_ff[mol] = fl.ff.Parameters.read_frcmod('fragments/acpype/{}_ff.acpype/{}_ff_AC.frcmod'.format(mol,mol), baselinkers_itp[mol].atomtypes_molecule)
+    baselinkers_ff[mol] = fl.ff.Parameters.read_frcmod('fragments/5_acpype/{}_ff.acpype/{}_ff_AC.frcmod'.format(mol,mol), baselinkers_itp[mol].atomtypes_molecule)
     amberdyes_ff.append(baselinkers_ff[mol])
 ```
 
@@ -858,6 +876,7 @@ atoms_amberdyes = {'bondtypes' : [['ng', 'cg']],
                                     ['X', 'C', 'N', 'X'],
                                     ['X', 'C', 'N', 'X']],
                    'impropertypes': [['C', 'CB', 'CB', 'NB'],
+                                     ['C', 'CB', 'CB', 'NB']
                                      ['CB', 'N*', 'CB', 'NC']]
                   }
 
@@ -877,6 +896,7 @@ atoms_linker = {'bondtypes': [['N', 'cg']],
                                 ['c3g', 'cg', 'N', 'NT'],
                                 ['og', 'cg', 'N', 'NT']],
                'impropertypes': [['CB', 'CB', 'C', 'NB'],
+                                 ['CB', 'CB', 'CA', 'NB'],
                                  ['NC', 'CB', 'CB', 'N*']]
                }
 ```
@@ -891,8 +911,8 @@ atoms_linker2 = {'propertypes' : [['c3g', 'cg', 'N', 'NT'],
 ```
 
 ```python
-specialbond_ff = fl.ff.Parameters.read_specialbond(amberdyes_ff, atoms_amberdyes, atoms_linker)
-specialbond2_ff = fl.ff.Parameters.read_specialbond(aber14sb_ff, atoms_amberdyes2, atoms_linker2, 'AMBER14sb')
+specialbond_ff = fl.ff.Parameters.read_specialbond(amberdyes_ff, atoms_amberdyes, atoms_linker, "AMBER-DYES")
+specialbond2_ff = fl.ff.Parameters.read_specialbond(amber14sb_ff, atoms_amberdyes2, atoms_linker2, 'AMBER14sb')
 
 amberdyes_ff.append(specialbond_ff)
 amberdyes_ff.append(specialbond2_ff)
@@ -901,7 +921,7 @@ amberdyes_ff.append(specialbond2_ff)
 Write new **ffnonbonded.itp** and **ffbonded.itp** files of the combined forcefield (ff14sb, amberdyes_ff, baselinkers_ff and specialbond_ff) into a directory `4_fretlabel/`.
 
 ```python
-amberdyes_ff.add2ff('ff14sb', 'forcefields/4_fretlabel/')
+amberdyes_ff.add2ff('forcefields/3_amber14sb', 'forcefields/4_fretlabel/')
 ```
 
 Export a residue topology (**rtp**) file with the new base-linkers.
@@ -913,12 +933,18 @@ fl.ff.write_rtp('forcefields/4_fretlabel/fretlabel.rtp', [baselinkers_itp[mol] f
 Update the **residuetypes.dat** file.
 
 ```python
+dyes = [('sCy3', 'C3W'), ('sCy5', 'C5W'), ('Cy7', 'C7N'), ('Cy5.5', 'C55'), ('Cy7.5','C75'), 
+        ('Alexa350', 'A35'), ('Alexa488', 'A48'), ('Alexa532', 'A53'), ('Alexa568', 'A56'), 
+        ('Alexa594', 'A59'), ('Alexa647', 'A64'), ('Atto390', 'T39'), ('Atto425', 'T42'), 
+        ('Atto465', 'T46'), ('Atto488', 'T48'), ('Atto495', 'T49'), ('Atto514', 'T51'), 
+        ('Atto520', 'T52'), ('Atto610', 'T61')]
+
 i = 0
 for resi in ['DAO', 'DGO', 'DCO', 'DTO', 'DAP', 'DGP', 'DCP', 'DTP', 'DTM', 'RUM', 'DAE', 'DCE']:
     if i == 0:
-        fl.ff.update_residuetypes('{} DNA'.format(resi), 'forcefields/amberdyes/residuetypes_amberdyes.dat', 'forcefields/4_fretlabel/residuetypes.dat', overwrite=True)
+        fl.ff.update_residuetypes('{} DNA'.format(resi), 'forcefields/2_amberdyes/residuetypes_amberdyes.dat', 'forcefields/4_fretlabel/residuetypes.dat', overwrite=True)
     else:
-        fl.ff.update_residuetypes('{} DNA'.format(resi), 'forcefields/4_fretlabel/residuetypes.dat', '.forcefields/4_fretlabel/residuetypes.dat', overwrite=True)
+        fl.ff.update_residuetypes('{} DNA'.format(resi), 'forcefields/4_fretlabel/residuetypes.dat', 'forcefields/4_fretlabel/residuetypes.dat', overwrite=True)
     i += 1
     
 for resi in ['RAO', 'RGO', 'RCO', 'RUO', 'RAP', 'RGP', 'RCP', 'RUP', 'RAH', 'RGH', 'RCH', 'RUH', 'RAE', 'RCE']:
@@ -940,7 +966,7 @@ for name, resi1 in dyes:
                   'RAO', 'RGO', 'RCO', 'RUO', 'RAP', 'RGP', 'RCP', 'RUP', 
                   'DTM', 'RUM', 'RAE', 'RCE', 'DAE', 'DCE']:
         if i == 0:
-            fl.ff.update_specbond('{} C99 1 {} N99 1 0.132 {} {}'.format(resi1, resi2, resi1, resi2), 'forcefields/amberdyes/specbond_amberdyes.dat', 'forcefields/4_fretlabel/specbond.dat', overwrite=True)
+            fl.ff.update_specbond('{} C99 1 {} N99 1 0.132 {} {}'.format(resi1, resi2, resi1, resi2), 'forcefields/2_amberdyes/specbond_amberdyes.dat', 'forcefields/4_fretlabel/specbond.dat', overwrite=True)
         else:
             fl.ff.update_specbond('{} C99 1 {} N99 1 0.132 {} {}'.format(resi1, resi2, resi1, resi2), 'forcefields/4_fretlabel/specbond.dat', 'forcefields/4_fretlabel/specbond.dat', overwrite=True)
         i += 1

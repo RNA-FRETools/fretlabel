@@ -676,7 +676,7 @@
     <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Add new dye-linker fragment to the FluorLabel library</span>
+<span class="sd">    Add new dye-linker fragment to the FRETlabel library</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -958,7 +958,7 @@
                                 <span class="mi">1</span><span class="p">,</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="mf">4.1868</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
-                                <span class="s2">&quot;; FLUOR-DYNAMICS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;; FRETLABEL&quot;</span><span class="p">,</span>
                             <span class="p">]</span>
                         <span class="p">)</span>
                 <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="s2">&quot;angletype&quot;</span><span class="p">:</span>
@@ -975,7 +975,7 @@
                                 <span class="mi">1</span><span class="p">,</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="o">*</span> <span class="mf">4.1868</span><span class="p">,</span>
-                                <span class="s2">&quot;; FLUOR-DYNAMICS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;; FRETLABEL&quot;</span><span class="p">,</span>
                             <span class="p">]</span>
                         <span class="p">)</span>
                 <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="s2">&quot;propertype&quot;</span><span class="p">:</span>
@@ -994,7 +994,7 @@
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">7</span><span class="p">)),</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span> <span class="o">*</span> <span class="mf">4.1868</span><span class="p">,</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">8</span><span class="p">)),</span>
-                                <span class="s2">&quot;; FLUOR-DYNAMICS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;; FRETLABEL&quot;</span><span class="p">,</span>
                             <span class="p">]</span>
                         <span class="p">)</span>
                 <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="s2">&quot;impropertype&quot;</span><span class="p">:</span>
@@ -1013,7 +1013,7 @@
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">*</span> <span class="mf">4.1868</span><span class="p">,</span>
                                 <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">7</span><span class="p">)),</span>
-                                <span class="s2">&quot;; FLUOR-DYNAMICS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;; FRETLABEL&quot;</span><span class="p">,</span>
                             <span class="p">]</span>
                         <span class="p">)</span>
 
@@ -1051,7 +1051,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        amberdyes : fluordynamics.ff.Parameters instance</span>
+<span class="sd">        amberdyes : fretlabel.ff.Parameters instance</span>
 <span class="sd">        atoms_amberdyes : dict</span>
 <span class="sd">            dictionary with keys &#39;bondtypes&#39;, &#39;angletypes&#39; and &#39;propertypes&#39; and values defining the</span>
 <span class="sd">        comment : str</span>

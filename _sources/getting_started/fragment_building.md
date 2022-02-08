@@ -156,7 +156,7 @@ group_constraint=`awk '$1 == "GROUP" {print $3}' "$input_folder/$capping_group"`
 respgen -i "$output_folder/$name".ac -o "$output_folder/$name".respin1 -f resp1 -a "$input_folder/$capping_group"
 respgen -i "$output_folder/$name".ac -o "$output_folder/$name".respin2 -f resp2 -a "$input_folder/$capping_group"
 
-# since respgen rounds the group constraint to three decimals replace it with the value from the capping group
+#since respgen rounds the group constraint to three decimals replace it with the value from the capping group
 sed -i "s/$n_atom.*\..*/$n_atom  $group_constraint/g" "$output_folder/$name".respin1
 sed -i "s/$n_atom.*\..*/$n_atom  $group_constraint/g" "$output_folder/$name".respin2
 
@@ -292,7 +292,7 @@ fretlabel_ff = fl.ff.Parameters.read_frcmod('fragments/5_acpype/DTM_ff.acpype/DT
 Next, we load in the force field parameters from AMBER-DYES
 
 ```{code-cell} ipython3
-amberdyes_ff = fl.ff.Parameters.read_amberdyes(['forcefields/amberdyes/ffbonded_amberdyes.itp', 'forcefields/amberdyes/ffnonbonded_amberdyes.itp'])
+amberdyes_ff = fl.ff.Parameters.read_amberdyes(['forcefields/2_amberdyes/ffbonded_amberdyes.itp', 'forcefields/2_amberdyes/ffnonbonded_amberdyes.itp'])
 ```
 
 The atoms involved in the bond, angles and dihedrals between linker and fluorophore need to be manually specified because the atom types from AMBER-DYES (for dye) and AMBER (for custom linker) are slightly different. The parameters are defined by analogy to those already present in AMBER-DYES.
@@ -342,12 +342,12 @@ fretlabel_itp.write_rtp('out/DTM.rtp')
 Update the **specbond.dat** file with the bond between the dye and the linker.
 
 ```{code-cell} ipython3
-fl.ff.update_specbond('C3W C99 1 DTM N99 1 0.160 C3W DTM', '../forcefields/amberdyes/specbond_amberdyes.dat', 'out/specbond.dat')
+fl.ff.update_specbond('C3W C99 1 DTM N99 1 0.160 C3W DTM', '../forcefields/2_amberdyes/specbond_amberdyes.dat', 'out/specbond.dat')
 ```
 
 Update the **residuetypes.dat** file with the types of the the dye and the new fragment.
 
 ```{code-cell} ipython3
-fl.ff.update_residuetypes('C3W DNA', '../forcefields/amberdyes/residuetypes_amberdyes.dat', 'out/residuetypes.dat', overwrite=True)
+fl.ff.update_residuetypes('C3W DNA', '../forcefields/2_amberdyes/residuetypes_amberdyes.dat', 'out/residuetypes.dat', overwrite=True)
 fl.ff.update_residuetypes('DTM DNA', 'out/residuetypes.dat', 'out/residuetypes.dat', overwrite=True)
 ```
