@@ -425,7 +425,7 @@ def update_dye_library(
     overwrite=False,
 ):
     """
-    Add new dye-linker fragment to the FluorLabel library
+    Add new dye-linker fragment to the FRETlabel library
 
     Parameters
     ----------
@@ -707,7 +707,7 @@ class Parameters:
                                 1,
                                 float(match.group(4)) / 10,
                                 float(match.group(3)) * 4.1868 * 100,
-                                "; FLUOR-DYNAMICS",
+                                "; FRETLABEL",
                             ]
                         )
                 if flag == "angletype":
@@ -724,7 +724,7 @@ class Parameters:
                                 1,
                                 float(match.group(5)),
                                 float(match.group(4)) * 4.1868,
-                                "; FLUOR-DYNAMICS",
+                                "; FRETLABEL",
                             ]
                         )
                 if flag == "propertype":
@@ -743,7 +743,7 @@ class Parameters:
                                 float(match.group(7)),
                                 float(match.group(6)) * 4.1868,
                                 float(match.group(8)),
-                                "; FLUOR-DYNAMICS",
+                                "; FRETLABEL",
                             ]
                         )
                 if flag == "impropertype":
@@ -762,7 +762,7 @@ class Parameters:
                                 float(match.group(6)),
                                 float(match.group(5)) * 4.1868,
                                 float(match.group(7)),
-                                "; FLUOR-DYNAMICS",
+                                "; FRETLABEL",
                             ]
                         )
 
@@ -800,7 +800,7 @@ class Parameters:
 
         Parameters
         ----------
-        amberdyes : fluordynamics.ff.Parameters instance
+        amberdyes : fretlabel.ff.Parameters instance
         atoms_amberdyes : dict
             dictionary with keys 'bondtypes', 'angletypes' and 'propertypes' and values defining the
         comment : str

@@ -1,829 +1,829 @@
 828
- CYS   SG  1   CYS   SG  1    0.2  CYS2  CYS2
- CYS   SG  1   HEM   FE  2   0.25  CYS2  HEME
- CYS   SG  1   HEM  CAB  1   0.18  CYS2  HEME
- CYS   SG  1   HEM  CAC  1   0.18  CYS2  HEME
- HIS  NE2  1   HEM   FE  1    0.2  HIS1  HEME
- MET   SD  1   HEM   FE  1   0.24   MET  HEME
-  CO    C  1  HEME   FE  1   0.19    CO  HEME
- CYM   SG  1   CYM   SG  1    0.2  CYS2  CYS2
- A35  C99  1   C1C  N99  1  0.133   A35   C1C
- A35  C99  1   C1R  N99  1  0.134   A35   C1R
- A35  C99  1   E1N  N99  1  0.134   A35   E1N
- A35  C99  1   L1C  N99  1  0.135   A35   L1C
- A35  C99  1   L1N  N99  1  0.133   A35   L1N
- A35  C99  1   L1R  N99  1  0.134   A35   L1R
- A48  C99  1   B1C  N99  1  0.135   A48   B1C
- A48  C99  1   B1N  N99  1  0.134   A48   B1N
- A48  C99  1   B1R  N99  1  0.134   A48   B1R
- A48  C99  1   C1C  N99  1  0.135   A48   C1C
- A48  C99  1   C1R  N99  1  0.134   A48   C1R
- A48  C99  1   E1N  N99  1  0.134   A48   E1N
- A48  C99  1   L1C  N99  1  0.135   A48   L1C
- A48  C99  1   L1N  N99  1  0.134   A48   L1N
- A48  C99  1   L1R  N99  1  0.135   A48   L1R
- A53  C99  1   C1C  N99  1  0.133   A53   C1C
- A53  C99  1   C1R  N99  1  0.132   A53   C1R
- A53  C99  1   E1N  N99  1  0.134   A53   E1N
- A53  C99  1   L1C  N99  1  0.134   A53   L1C
- A53  C99  1   L1N  N99  1  0.133   A53   L1N
- A53  C99  1   L1R  N99  1  0.133   A53   L1R
- A56  C99  1   C1C  N99  1  0.134   A56   C1C
- A56  C99  1   C1R  N99  1  0.135   A56   C1R
- A56  C99  1   E1N  N99  1  0.134   A56   E1N
- A56  C99  1   L1C  N99  1  0.135   A56   L1C
- A56  C99  1   L1N  N99  1  0.135   A56   L1N
- A56  C99  1   L1R  N99  1  0.134   A56   L1R
- A59  C99  1   C1C  N99  1  0.133   A59   C1C
- A59  C99  1   C1R  N99  1  0.134   A59   C1R
- A59  C99  1   E1N  N99  1  0.134   A59   E1N
- A59  C99  1   L1C  N99  1  0.133   A59   L1C
- A59  C99  1   L1N  N99  1  0.138   A59   L1N
- A59  C99  1   L1R  N99  1  0.135   A59   L1R
- A64  C99  1   B1C  N99  1  0.133   A64   B1C
- A64  C99  1   B1N  N99  1  0.133   A64   B1N
- A64  C99  1   B1R  N99  1  0.133   A64   B1R
- A64  C99  1   C2C  N99  1  0.134   A64   C2C
- A64  C99  1   C2R  N99  1  0.133   A64   C2R
- A64  C99  1   E2N  N99  1  0.134   A64   E2N
- A64  C99  1   L1C  N99  1  0.134   A64   L1C
- A64  C99  1   L1N  N99  1  0.134   A64   L1N
- A64  C99  1   L1R  N99  1  0.134   A64   L1R
- T39  C99  1   C2C  N99  1  0.133   T39   C2C
- T39  C99  1   C2R  N99  1  0.134   T39   C2R
- T39  C99  1   E2N  N99  1  0.133   T39   E2N
- T39  C99  1   L1C  N99  1  0.134   T39   L1C
- T39  C99  1   L1N  N99  1  0.134   T39   L1N
- T39  C99  1   L1R  N99  1  0.134   T39   L1R
- T42  C99  1   C2C  N99  1  0.134   T42   C2C
- T42  C99  1   C2R  N99  1  0.131   T42   C2R
- T42  C99  1   E2N  N99  1  0.134   T42   E2N
- T42  C99  1   L1C  N99  1  0.134   T42   L1C
- T42  C99  1   L1N  N99  1  0.133   T42   L1N
- T42  C99  1   L1R  N99  1  0.132   T42   L1R
- T46  C99  1   C2C  N99  1  0.134   T46   C2C
- T46  C99  1   C2R  N99  1  0.134   T46   C2R
- T46  C99  1   E2N  N99  1  0.134   T46   E2N
- T46  C99  1   L1C  N99  1  0.136   T46   L1C
- T46  C99  1   L1N  N99  1  0.134   T46   L1N
- T46  C99  1   L1R  N99  1  0.134   T46   L1R
- T48  C99  1   C3C  N99  1  0.136   T48   C3C
- T48  C99  1   C3R  N99  1  0.137   T48   C3R
- T48  C99  1   E3N  N99  1  0.136   T48   E3N
- T48  C99  1   L2C  N99  1  0.136   T48   L2C
- T48  C99  1   L2N  N99  1  0.137   T48   L2N
- T48  C99  1   L2R  N99  1  0.135   T48   L2R
- T49  C99  1   C2C  N99  1  0.135   T49   C2C
- T49  C99  1   C2R  N99  1  0.134   T49   C2R
- T49  C99  1   E2N  N99  1  0.134   T49   E2N
- T49  C99  1   L1C  N99  1  0.135   T49   L1C
- T49  C99  1   L1N  N99  1  0.134   T49   L1N
- T49  C99  1   L1R  N99  1  0.134   T49   L1R
- T51  C99  1   C3C  N99  1  0.137   T51   C3C
- T51  C99  1   C3R  N99  1  0.136   T51   C3R
- T51  C99  1   E3N  N99  1  0.137   T51   E3N
- T51  C99  1   L2C  N99  1  0.137   T51   L2C
- T51  C99  1   L2N  N99  1  0.136   T51   L2N
- T51  C99  1   L2R  N99  1  0.137   T51   L2R
- T52  C99  1   C2C  N99  1  0.134   T52   C2C
- T52  C99  1   C2R  N99  1  0.135   T52   C2R
- T52  C99  1   E2N  N99  1  0.134   T52   E2N
- T52  C99  1   L1C  N99  1  0.134   T52   L1C
- T52  C99  1   L1N  N99  1  0.135   T52   L1N
- T52  C99  1   L1R  N99  1  0.133   T52   L1R
- T61  C99  1   C2C  N99  1  0.133   T61   C2C
- T61  C99  1   C2R  N99  1  0.134   T61   C2R
- T61  C99  1   E2N  N99  1  0.134   T61   E2N
- T61  C99  1   L1C  N99  1  0.134   T61   L1C
- T61  C99  1   L1N  N99  1  0.134   T61   L1N
- T61  C99  1   L1R  N99  1  0.134   T61   L1R
- Tth  C99  1   C3C  N99  1  0.137   Tth   C3C
- Tth  C99  1   C3R  N99  1  0.135   Tth   C3R
- Tth  C99  1   E3N  N99  1  0.136   Tth   E3N
- Tth  C99  1   L2C  N99  1  0.137   Tth   L2C
- Tth  C99  1   L2N  N99  1  0.134   Tth   L2N
- Tth  C99  1   L2R  N99  1  0.137   Tth   L2R
- C3N  C99  1   C2C  N99  1  0.133   C3N   C2C
- C3N  C99  1   C2R  N99  1  0.134   C3N   C2R
- C3N  C99  1   E2N  N99  1  0.134   C3N   E2N
- C3N  C99  1   L1C  N99  1  0.134   C3N   L1C
- C3N  C99  1   L1N  N99  1  0.134   C3N   L1N
- C3N  C99  1   L1R  N99  1  0.134   C3N   L1R
- C3W  C99  1   L1C  N99  1  0.133   C3W   L1C
- C3W  C99  1   L1N  N99  1  0.133   C3W   L1N
- C3W  C99  1   L1R  N99  1  0.133   C3W   L1R
- C55  C99  1   C2C  N99  1  0.135   C55   C2C
- C55  C99  1   C2R  N99  1  0.135   C55   C2R
- C55  C99  1   E2N  N99  1  0.135   C55   E2N
- C55  C99  1   L1C  N99  1  0.134   C55   L1C
- C55  C99  1   L1N  N99  1  0.134   C55   L1N
- C55  C99  1   L1R  N99  1  0.134   C55   L1R
- C5N  C99  1   C2C  N99  1  0.133   C5N   C2C
- C5N  C99  1   C2R  N99  1  0.134   C5N   C2R
- C5N  C99  1   E2N  N99  1  0.134   C5N   E2N
- C5N  C99  1   L1C  N99  1  0.134   C5N   L1C
- C5N  C99  1   L1N  N99  1  0.134   C5N   L1N
- C5N  C99  1   L1R  N99  1  0.134   C5N   L1R
- C5W  C99  1   L1C  N99  1  0.134   C5W   L1C
- C5W  C99  1   L1N  N99  1  0.135   C5W   L1N
- C5W  C99  1   L1R  N99  1  0.134   C5W   L1R
- C75  C99  1   L1C  N99  1  0.133   C75   L1C
- C75  C99  1   L1N  N99  1  0.133   C75   L1N
- C75  C99  1   L1R  N99  1  0.134   C75   L1R
- C7N  C99  1   L1C  N99  1  0.133   C7N   L1C
- C7N  C99  1   L1N  N99  1  0.134   C7N   L1N
- C7N  C99  1   L1R  N99  1  0.133   C7N   L1R
- C3W  C99  1   DAO  N99  1  0.132   C3W   DAO
- C3W  C99  1   DGO  N99  1  0.132   C3W   DGO
- C3W  C99  1   DCO  N99  1  0.132   C3W   DCO
- C3W  C99  1   DTO  N99  1  0.132   C3W   DTO
- C3W  C99  1   DAP  N99  1  0.132   C3W   DAP
- C3W  C99  1   DGP  N99  1  0.132   C3W   DGP
- C3W  C99  1   DCP  N99  1  0.132   C3W   DCP
- C3W  C99  1   DTP  N99  1  0.132   C3W   DTP
- C3W  C99  1   RAO  N99  1  0.132   C3W   RAO
- C3W  C99  1   RGO  N99  1  0.132   C3W   RGO
- C3W  C99  1   RCO  N99  1  0.132   C3W   RCO
- C3W  C99  1   RUO  N99  1  0.132   C3W   RUO
- C3W  C99  1   RAP  N99  1  0.132   C3W   RAP
- C3W  C99  1   RGP  N99  1  0.132   C3W   RGP
- C3W  C99  1   RCP  N99  1  0.132   C3W   RCP
- C3W  C99  1   RUP  N99  1  0.132   C3W   RUP
- C3W  C99  1   DTM  N99  1  0.132   C3W   DTM
- C3W  C99  1   RUM  N99  1  0.132   C3W   RUM
- C3W  C99  1   RAE  N99  1  0.132   C3W   RAE
- C3W  C99  1   RCE  N99  1  0.132   C3W   RCE
- C3W  C99  1   DAE  N99  1  0.132   C3W   DAE
- C3W  C99  1   DCE  N99  1  0.132   C3W   DCE
- C3W  C99  1   RAH  N99  1  0.155   C3W   RAH
- C3W  C99  1   RGH  N99  1  0.155   C3W   RGH
- C3W  C99  1   RCH  N99  1  0.155   C3W   RCH
- C3W  C99  1   RUH  N99  1  0.155   C3W   RUH
- C5W  C99  1   DAO  N99  1  0.132   C5W   DAO
- C5W  C99  1   DGO  N99  1  0.132   C5W   DGO
- C5W  C99  1   DCO  N99  1  0.132   C5W   DCO
- C5W  C99  1   DTO  N99  1  0.132   C5W   DTO
- C5W  C99  1   DAP  N99  1  0.132   C5W   DAP
- C5W  C99  1   DGP  N99  1  0.132   C5W   DGP
- C5W  C99  1   DCP  N99  1  0.132   C5W   DCP
- C5W  C99  1   DTP  N99  1  0.132   C5W   DTP
- C5W  C99  1   RAO  N99  1  0.132   C5W   RAO
- C5W  C99  1   RGO  N99  1  0.132   C5W   RGO
- C5W  C99  1   RCO  N99  1  0.132   C5W   RCO
- C5W  C99  1   RUO  N99  1  0.132   C5W   RUO
- C5W  C99  1   RAP  N99  1  0.132   C5W   RAP
- C5W  C99  1   RGP  N99  1  0.132   C5W   RGP
- C5W  C99  1   RCP  N99  1  0.132   C5W   RCP
- C5W  C99  1   RUP  N99  1  0.132   C5W   RUP
- C5W  C99  1   DTM  N99  1  0.132   C5W   DTM
- C5W  C99  1   RUM  N99  1  0.132   C5W   RUM
- C5W  C99  1   RAE  N99  1  0.132   C5W   RAE
- C5W  C99  1   RCE  N99  1  0.132   C5W   RCE
- C5W  C99  1   DAE  N99  1  0.132   C5W   DAE
- C5W  C99  1   DCE  N99  1  0.132   C5W   DCE
- C5W  C99  1   RAH  N99  1  0.155   C5W   RAH
- C5W  C99  1   RGH  N99  1  0.155   C5W   RGH
- C5W  C99  1   RCH  N99  1  0.155   C5W   RCH
- C5W  C99  1   RUH  N99  1  0.155   C5W   RUH
- C7N  C99  1   DAO  N99  1  0.132   C7N   DAO
- C7N  C99  1   DGO  N99  1  0.132   C7N   DGO
- C7N  C99  1   DCO  N99  1  0.132   C7N   DCO
- C7N  C99  1   DTO  N99  1  0.132   C7N   DTO
- C7N  C99  1   DAP  N99  1  0.132   C7N   DAP
- C7N  C99  1   DGP  N99  1  0.132   C7N   DGP
- C7N  C99  1   DCP  N99  1  0.132   C7N   DCP
- C7N  C99  1   DTP  N99  1  0.132   C7N   DTP
- C7N  C99  1   RAO  N99  1  0.132   C7N   RAO
- C7N  C99  1   RGO  N99  1  0.132   C7N   RGO
- C7N  C99  1   RCO  N99  1  0.132   C7N   RCO
- C7N  C99  1   RUO  N99  1  0.132   C7N   RUO
- C7N  C99  1   RAP  N99  1  0.132   C7N   RAP
- C7N  C99  1   RGP  N99  1  0.132   C7N   RGP
- C7N  C99  1   RCP  N99  1  0.132   C7N   RCP
- C7N  C99  1   RUP  N99  1  0.132   C7N   RUP
- C7N  C99  1   DTM  N99  1  0.132   C7N   DTM
- C7N  C99  1   RUM  N99  1  0.132   C7N   RUM
- C7N  C99  1   RAE  N99  1  0.132   C7N   RAE
- C7N  C99  1   RCE  N99  1  0.132   C7N   RCE
- C7N  C99  1   DAE  N99  1  0.132   C7N   DAE
- C7N  C99  1   DCE  N99  1  0.132   C7N   DCE
- C7N  C99  1   RAH  N99  1  0.155   C7N   RAH
- C7N  C99  1   RGH  N99  1  0.155   C7N   RGH
- C7N  C99  1   RCH  N99  1  0.155   C7N   RCH
- C7N  C99  1   RUH  N99  1  0.155   C7N   RUH
- C55  C99  1   DAO  N99  1  0.132   C55   DAO
- C55  C99  1   DGO  N99  1  0.132   C55   DGO
- C55  C99  1   DCO  N99  1  0.132   C55   DCO
- C55  C99  1   DTO  N99  1  0.132   C55   DTO
- C55  C99  1   DAP  N99  1  0.132   C55   DAP
- C55  C99  1   DGP  N99  1  0.132   C55   DGP
- C55  C99  1   DCP  N99  1  0.132   C55   DCP
- C55  C99  1   DTP  N99  1  0.132   C55   DTP
- C55  C99  1   RAO  N99  1  0.132   C55   RAO
- C55  C99  1   RGO  N99  1  0.132   C55   RGO
- C55  C99  1   RCO  N99  1  0.132   C55   RCO
- C55  C99  1   RUO  N99  1  0.132   C55   RUO
- C55  C99  1   RAP  N99  1  0.132   C55   RAP
- C55  C99  1   RGP  N99  1  0.132   C55   RGP
- C55  C99  1   RCP  N99  1  0.132   C55   RCP
- C55  C99  1   RUP  N99  1  0.132   C55   RUP
- C55  C99  1   DTM  N99  1  0.132   C55   DTM
- C55  C99  1   RUM  N99  1  0.132   C55   RUM
- C55  C99  1   RAE  N99  1  0.132   C55   RAE
- C55  C99  1   RCE  N99  1  0.132   C55   RCE
- C55  C99  1   DAE  N99  1  0.132   C55   DAE
- C55  C99  1   DCE  N99  1  0.132   C55   DCE
- C55  C99  1   RAH  N99  1  0.155   C55   RAH
- C55  C99  1   RGH  N99  1  0.155   C55   RGH
- C55  C99  1   RCH  N99  1  0.155   C55   RCH
- C55  C99  1   RUH  N99  1  0.155   C55   RUH
- C75  C99  1   DAO  N99  1  0.132   C75   DAO
- C75  C99  1   DGO  N99  1  0.132   C75   DGO
- C75  C99  1   DCO  N99  1  0.132   C75   DCO
- C75  C99  1   DTO  N99  1  0.132   C75   DTO
- C75  C99  1   DAP  N99  1  0.132   C75   DAP
- C75  C99  1   DGP  N99  1  0.132   C75   DGP
- C75  C99  1   DCP  N99  1  0.132   C75   DCP
- C75  C99  1   DTP  N99  1  0.132   C75   DTP
- C75  C99  1   RAO  N99  1  0.132   C75   RAO
- C75  C99  1   RGO  N99  1  0.132   C75   RGO
- C75  C99  1   RCO  N99  1  0.132   C75   RCO
- C75  C99  1   RUO  N99  1  0.132   C75   RUO
- C75  C99  1   RAP  N99  1  0.132   C75   RAP
- C75  C99  1   RGP  N99  1  0.132   C75   RGP
- C75  C99  1   RCP  N99  1  0.132   C75   RCP
- C75  C99  1   RUP  N99  1  0.132   C75   RUP
- C75  C99  1   DTM  N99  1  0.132   C75   DTM
- C75  C99  1   RUM  N99  1  0.132   C75   RUM
- C75  C99  1   RAE  N99  1  0.132   C75   RAE
- C75  C99  1   RCE  N99  1  0.132   C75   RCE
- C75  C99  1   DAE  N99  1  0.132   C75   DAE
- C75  C99  1   DCE  N99  1  0.132   C75   DCE
- C75  C99  1   RAH  N99  1  0.155   C75   RAH
- C75  C99  1   RGH  N99  1  0.155   C75   RGH
- C75  C99  1   RCH  N99  1  0.155   C75   RCH
- C75  C99  1   RUH  N99  1  0.155   C75   RUH
- A35  C99  1   DAO  N99  1  0.132   A35   DAO
- A35  C99  1   DGO  N99  1  0.132   A35   DGO
- A35  C99  1   DCO  N99  1  0.132   A35   DCO
- A35  C99  1   DTO  N99  1  0.132   A35   DTO
- A35  C99  1   DAP  N99  1  0.132   A35   DAP
- A35  C99  1   DGP  N99  1  0.132   A35   DGP
- A35  C99  1   DCP  N99  1  0.132   A35   DCP
- A35  C99  1   DTP  N99  1  0.132   A35   DTP
- A35  C99  1   RAO  N99  1  0.132   A35   RAO
- A35  C99  1   RGO  N99  1  0.132   A35   RGO
- A35  C99  1   RCO  N99  1  0.132   A35   RCO
- A35  C99  1   RUO  N99  1  0.132   A35   RUO
- A35  C99  1   RAP  N99  1  0.132   A35   RAP
- A35  C99  1   RGP  N99  1  0.132   A35   RGP
- A35  C99  1   RCP  N99  1  0.132   A35   RCP
- A35  C99  1   RUP  N99  1  0.132   A35   RUP
- A35  C99  1   DTM  N99  1  0.132   A35   DTM
- A35  C99  1   RUM  N99  1  0.132   A35   RUM
- A35  C99  1   RAE  N99  1  0.132   A35   RAE
- A35  C99  1   RCE  N99  1  0.132   A35   RCE
- A35  C99  1   DAE  N99  1  0.132   A35   DAE
- A35  C99  1   DCE  N99  1  0.132   A35   DCE
- A35  C99  1   RAH  N99  1  0.155   A35   RAH
- A35  C99  1   RGH  N99  1  0.155   A35   RGH
- A35  C99  1   RCH  N99  1  0.155   A35   RCH
- A35  C99  1   RUH  N99  1  0.155   A35   RUH
- A48  C99  1   DAO  N99  1  0.132   A48   DAO
- A48  C99  1   DGO  N99  1  0.132   A48   DGO
- A48  C99  1   DCO  N99  1  0.132   A48   DCO
- A48  C99  1   DTO  N99  1  0.132   A48   DTO
- A48  C99  1   DAP  N99  1  0.132   A48   DAP
- A48  C99  1   DGP  N99  1  0.132   A48   DGP
- A48  C99  1   DCP  N99  1  0.132   A48   DCP
- A48  C99  1   DTP  N99  1  0.132   A48   DTP
- A48  C99  1   RAO  N99  1  0.132   A48   RAO
- A48  C99  1   RGO  N99  1  0.132   A48   RGO
- A48  C99  1   RCO  N99  1  0.132   A48   RCO
- A48  C99  1   RUO  N99  1  0.132   A48   RUO
- A48  C99  1   RAP  N99  1  0.132   A48   RAP
- A48  C99  1   RGP  N99  1  0.132   A48   RGP
- A48  C99  1   RCP  N99  1  0.132   A48   RCP
- A48  C99  1   RUP  N99  1  0.132   A48   RUP
- A48  C99  1   DTM  N99  1  0.132   A48   DTM
- A48  C99  1   RUM  N99  1  0.132   A48   RUM
- A48  C99  1   RAE  N99  1  0.132   A48   RAE
- A48  C99  1   RCE  N99  1  0.132   A48   RCE
- A48  C99  1   DAE  N99  1  0.132   A48   DAE
- A48  C99  1   DCE  N99  1  0.132   A48   DCE
- A48  C99  1   RAH  N99  1  0.155   A48   RAH
- A48  C99  1   RGH  N99  1  0.155   A48   RGH
- A48  C99  1   RCH  N99  1  0.155   A48   RCH
- A48  C99  1   RUH  N99  1  0.155   A48   RUH
- A53  C99  1   DAO  N99  1  0.132   A53   DAO
- A53  C99  1   DGO  N99  1  0.132   A53   DGO
- A53  C99  1   DCO  N99  1  0.132   A53   DCO
- A53  C99  1   DTO  N99  1  0.132   A53   DTO
- A53  C99  1   DAP  N99  1  0.132   A53   DAP
- A53  C99  1   DGP  N99  1  0.132   A53   DGP
- A53  C99  1   DCP  N99  1  0.132   A53   DCP
- A53  C99  1   DTP  N99  1  0.132   A53   DTP
- A53  C99  1   RAO  N99  1  0.132   A53   RAO
- A53  C99  1   RGO  N99  1  0.132   A53   RGO
- A53  C99  1   RCO  N99  1  0.132   A53   RCO
- A53  C99  1   RUO  N99  1  0.132   A53   RUO
- A53  C99  1   RAP  N99  1  0.132   A53   RAP
- A53  C99  1   RGP  N99  1  0.132   A53   RGP
- A53  C99  1   RCP  N99  1  0.132   A53   RCP
- A53  C99  1   RUP  N99  1  0.132   A53   RUP
- A53  C99  1   DTM  N99  1  0.132   A53   DTM
- A53  C99  1   RUM  N99  1  0.132   A53   RUM
- A53  C99  1   RAE  N99  1  0.132   A53   RAE
- A53  C99  1   RCE  N99  1  0.132   A53   RCE
- A53  C99  1   DAE  N99  1  0.132   A53   DAE
- A53  C99  1   DCE  N99  1  0.132   A53   DCE
- A53  C99  1   RAH  N99  1  0.155   A53   RAH
- A53  C99  1   RGH  N99  1  0.155   A53   RGH
- A53  C99  1   RCH  N99  1  0.155   A53   RCH
- A53  C99  1   RUH  N99  1  0.155   A53   RUH
- A56  C99  1   DAO  N99  1  0.132   A56   DAO
- A56  C99  1   DGO  N99  1  0.132   A56   DGO
- A56  C99  1   DCO  N99  1  0.132   A56   DCO
- A56  C99  1   DTO  N99  1  0.132   A56   DTO
- A56  C99  1   DAP  N99  1  0.132   A56   DAP
- A56  C99  1   DGP  N99  1  0.132   A56   DGP
- A56  C99  1   DCP  N99  1  0.132   A56   DCP
- A56  C99  1   DTP  N99  1  0.132   A56   DTP
- A56  C99  1   RAO  N99  1  0.132   A56   RAO
- A56  C99  1   RGO  N99  1  0.132   A56   RGO
- A56  C99  1   RCO  N99  1  0.132   A56   RCO
- A56  C99  1   RUO  N99  1  0.132   A56   RUO
- A56  C99  1   RAP  N99  1  0.132   A56   RAP
- A56  C99  1   RGP  N99  1  0.132   A56   RGP
- A56  C99  1   RCP  N99  1  0.132   A56   RCP
- A56  C99  1   RUP  N99  1  0.132   A56   RUP
- A56  C99  1   DTM  N99  1  0.132   A56   DTM
- A56  C99  1   RUM  N99  1  0.132   A56   RUM
- A56  C99  1   RAE  N99  1  0.132   A56   RAE
- A56  C99  1   RCE  N99  1  0.132   A56   RCE
- A56  C99  1   DAE  N99  1  0.132   A56   DAE
- A56  C99  1   DCE  N99  1  0.132   A56   DCE
- A56  C99  1   RAH  N99  1  0.155   A56   RAH
- A56  C99  1   RGH  N99  1  0.155   A56   RGH
- A56  C99  1   RCH  N99  1  0.155   A56   RCH
- A56  C99  1   RUH  N99  1  0.155   A56   RUH
- A59  C99  1   DAO  N99  1  0.132   A59   DAO
- A59  C99  1   DGO  N99  1  0.132   A59   DGO
- A59  C99  1   DCO  N99  1  0.132   A59   DCO
- A59  C99  1   DTO  N99  1  0.132   A59   DTO
- A59  C99  1   DAP  N99  1  0.132   A59   DAP
- A59  C99  1   DGP  N99  1  0.132   A59   DGP
- A59  C99  1   DCP  N99  1  0.132   A59   DCP
- A59  C99  1   DTP  N99  1  0.132   A59   DTP
- A59  C99  1   RAO  N99  1  0.132   A59   RAO
- A59  C99  1   RGO  N99  1  0.132   A59   RGO
- A59  C99  1   RCO  N99  1  0.132   A59   RCO
- A59  C99  1   RUO  N99  1  0.132   A59   RUO
- A59  C99  1   RAP  N99  1  0.132   A59   RAP
- A59  C99  1   RGP  N99  1  0.132   A59   RGP
- A59  C99  1   RCP  N99  1  0.132   A59   RCP
- A59  C99  1   RUP  N99  1  0.132   A59   RUP
- A59  C99  1   DTM  N99  1  0.132   A59   DTM
- A59  C99  1   RUM  N99  1  0.132   A59   RUM
- A59  C99  1   RAE  N99  1  0.132   A59   RAE
- A59  C99  1   RCE  N99  1  0.132   A59   RCE
- A59  C99  1   DAE  N99  1  0.132   A59   DAE
- A59  C99  1   DCE  N99  1  0.132   A59   DCE
- A59  C99  1   RAH  N99  1  0.155   A59   RAH
- A59  C99  1   RGH  N99  1  0.155   A59   RGH
- A59  C99  1   RCH  N99  1  0.155   A59   RCH
- A59  C99  1   RUH  N99  1  0.155   A59   RUH
- A64  C99  1   DAO  N99  1  0.132   A64   DAO
- A64  C99  1   DGO  N99  1  0.132   A64   DGO
- A64  C99  1   DCO  N99  1  0.132   A64   DCO
- A64  C99  1   DTO  N99  1  0.132   A64   DTO
- A64  C99  1   DAP  N99  1  0.132   A64   DAP
- A64  C99  1   DGP  N99  1  0.132   A64   DGP
- A64  C99  1   DCP  N99  1  0.132   A64   DCP
- A64  C99  1   DTP  N99  1  0.132   A64   DTP
- A64  C99  1   RAO  N99  1  0.132   A64   RAO
- A64  C99  1   RGO  N99  1  0.132   A64   RGO
- A64  C99  1   RCO  N99  1  0.132   A64   RCO
- A64  C99  1   RUO  N99  1  0.132   A64   RUO
- A64  C99  1   RAP  N99  1  0.132   A64   RAP
- A64  C99  1   RGP  N99  1  0.132   A64   RGP
- A64  C99  1   RCP  N99  1  0.132   A64   RCP
- A64  C99  1   RUP  N99  1  0.132   A64   RUP
- A64  C99  1   DTM  N99  1  0.132   A64   DTM
- A64  C99  1   RUM  N99  1  0.132   A64   RUM
- A64  C99  1   RAE  N99  1  0.132   A64   RAE
- A64  C99  1   RCE  N99  1  0.132   A64   RCE
- A64  C99  1   DAE  N99  1  0.132   A64   DAE
- A64  C99  1   DCE  N99  1  0.132   A64   DCE
- A64  C99  1   RAH  N99  1  0.155   A64   RAH
- A64  C99  1   RGH  N99  1  0.155   A64   RGH
- A64  C99  1   RCH  N99  1  0.155   A64   RCH
- A64  C99  1   RUH  N99  1  0.155   A64   RUH
- T39  C99  1   DAO  N99  1  0.132   T39   DAO
- T39  C99  1   DGO  N99  1  0.132   T39   DGO
- T39  C99  1   DCO  N99  1  0.132   T39   DCO
- T39  C99  1   DTO  N99  1  0.132   T39   DTO
- T39  C99  1   DAP  N99  1  0.132   T39   DAP
- T39  C99  1   DGP  N99  1  0.132   T39   DGP
- T39  C99  1   DCP  N99  1  0.132   T39   DCP
- T39  C99  1   DTP  N99  1  0.132   T39   DTP
- T39  C99  1   RAO  N99  1  0.132   T39   RAO
- T39  C99  1   RGO  N99  1  0.132   T39   RGO
- T39  C99  1   RCO  N99  1  0.132   T39   RCO
- T39  C99  1   RUO  N99  1  0.132   T39   RUO
- T39  C99  1   RAP  N99  1  0.132   T39   RAP
- T39  C99  1   RGP  N99  1  0.132   T39   RGP
- T39  C99  1   RCP  N99  1  0.132   T39   RCP
- T39  C99  1   RUP  N99  1  0.132   T39   RUP
- T39  C99  1   DTM  N99  1  0.132   T39   DTM
- T39  C99  1   RUM  N99  1  0.132   T39   RUM
- T39  C99  1   RAE  N99  1  0.132   T39   RAE
- T39  C99  1   RCE  N99  1  0.132   T39   RCE
- T39  C99  1   DAE  N99  1  0.132   T39   DAE
- T39  C99  1   DCE  N99  1  0.132   T39   DCE
- T39  C99  1   RAH  N99  1  0.155   T39   RAH
- T39  C99  1   RGH  N99  1  0.155   T39   RGH
- T39  C99  1   RCH  N99  1  0.155   T39   RCH
- T39  C99  1   RUH  N99  1  0.155   T39   RUH
- T42  C99  1   DAO  N99  1  0.132   T42   DAO
- T42  C99  1   DGO  N99  1  0.132   T42   DGO
- T42  C99  1   DCO  N99  1  0.132   T42   DCO
- T42  C99  1   DTO  N99  1  0.132   T42   DTO
- T42  C99  1   DAP  N99  1  0.132   T42   DAP
- T42  C99  1   DGP  N99  1  0.132   T42   DGP
- T42  C99  1   DCP  N99  1  0.132   T42   DCP
- T42  C99  1   DTP  N99  1  0.132   T42   DTP
- T42  C99  1   RAO  N99  1  0.132   T42   RAO
- T42  C99  1   RGO  N99  1  0.132   T42   RGO
- T42  C99  1   RCO  N99  1  0.132   T42   RCO
- T42  C99  1   RUO  N99  1  0.132   T42   RUO
- T42  C99  1   RAP  N99  1  0.132   T42   RAP
- T42  C99  1   RGP  N99  1  0.132   T42   RGP
- T42  C99  1   RCP  N99  1  0.132   T42   RCP
- T42  C99  1   RUP  N99  1  0.132   T42   RUP
- T42  C99  1   DTM  N99  1  0.132   T42   DTM
- T42  C99  1   RUM  N99  1  0.132   T42   RUM
- T42  C99  1   RAE  N99  1  0.132   T42   RAE
- T42  C99  1   RCE  N99  1  0.132   T42   RCE
- T42  C99  1   DAE  N99  1  0.132   T42   DAE
- T42  C99  1   DCE  N99  1  0.132   T42   DCE
- T42  C99  1   RAH  N99  1  0.155   T42   RAH
- T42  C99  1   RGH  N99  1  0.155   T42   RGH
- T42  C99  1   RCH  N99  1  0.155   T42   RCH
- T42  C99  1   RUH  N99  1  0.155   T42   RUH
- T46  C99  1   DAO  N99  1  0.132   T46   DAO
- T46  C99  1   DGO  N99  1  0.132   T46   DGO
- T46  C99  1   DCO  N99  1  0.132   T46   DCO
- T46  C99  1   DTO  N99  1  0.132   T46   DTO
- T46  C99  1   DAP  N99  1  0.132   T46   DAP
- T46  C99  1   DGP  N99  1  0.132   T46   DGP
- T46  C99  1   DCP  N99  1  0.132   T46   DCP
- T46  C99  1   DTP  N99  1  0.132   T46   DTP
- T46  C99  1   RAO  N99  1  0.132   T46   RAO
- T46  C99  1   RGO  N99  1  0.132   T46   RGO
- T46  C99  1   RCO  N99  1  0.132   T46   RCO
- T46  C99  1   RUO  N99  1  0.132   T46   RUO
- T46  C99  1   RAP  N99  1  0.132   T46   RAP
- T46  C99  1   RGP  N99  1  0.132   T46   RGP
- T46  C99  1   RCP  N99  1  0.132   T46   RCP
- T46  C99  1   RUP  N99  1  0.132   T46   RUP
- T46  C99  1   DTM  N99  1  0.132   T46   DTM
- T46  C99  1   RUM  N99  1  0.132   T46   RUM
- T46  C99  1   RAE  N99  1  0.132   T46   RAE
- T46  C99  1   RCE  N99  1  0.132   T46   RCE
- T46  C99  1   DAE  N99  1  0.132   T46   DAE
- T46  C99  1   DCE  N99  1  0.132   T46   DCE
- T46  C99  1   RAH  N99  1  0.155   T46   RAH
- T46  C99  1   RGH  N99  1  0.155   T46   RGH
- T46  C99  1   RCH  N99  1  0.155   T46   RCH
- T46  C99  1   RUH  N99  1  0.155   T46   RUH
- T48  C99  1   DAO  N99  1  0.132   T48   DAO
- T48  C99  1   DGO  N99  1  0.132   T48   DGO
- T48  C99  1   DCO  N99  1  0.132   T48   DCO
- T48  C99  1   DTO  N99  1  0.132   T48   DTO
- T48  C99  1   DAP  N99  1  0.132   T48   DAP
- T48  C99  1   DGP  N99  1  0.132   T48   DGP
- T48  C99  1   DCP  N99  1  0.132   T48   DCP
- T48  C99  1   DTP  N99  1  0.132   T48   DTP
- T48  C99  1   RAO  N99  1  0.132   T48   RAO
- T48  C99  1   RGO  N99  1  0.132   T48   RGO
- T48  C99  1   RCO  N99  1  0.132   T48   RCO
- T48  C99  1   RUO  N99  1  0.132   T48   RUO
- T48  C99  1   RAP  N99  1  0.132   T48   RAP
- T48  C99  1   RGP  N99  1  0.132   T48   RGP
- T48  C99  1   RCP  N99  1  0.132   T48   RCP
- T48  C99  1   RUP  N99  1  0.132   T48   RUP
- T48  C99  1   DTM  N99  1  0.132   T48   DTM
- T48  C99  1   RUM  N99  1  0.132   T48   RUM
- T48  C99  1   RAE  N99  1  0.132   T48   RAE
- T48  C99  1   RCE  N99  1  0.132   T48   RCE
- T48  C99  1   DAE  N99  1  0.132   T48   DAE
- T48  C99  1   DCE  N99  1  0.132   T48   DCE
- T48  C99  1   RAH  N99  1  0.155   T48   RAH
- T48  C99  1   RGH  N99  1  0.155   T48   RGH
- T48  C99  1   RCH  N99  1  0.155   T48   RCH
- T48  C99  1   RUH  N99  1  0.155   T48   RUH
- T49  C99  1   DAO  N99  1  0.132   T49   DAO
- T49  C99  1   DGO  N99  1  0.132   T49   DGO
- T49  C99  1   DCO  N99  1  0.132   T49   DCO
- T49  C99  1   DTO  N99  1  0.132   T49   DTO
- T49  C99  1   DAP  N99  1  0.132   T49   DAP
- T49  C99  1   DGP  N99  1  0.132   T49   DGP
- T49  C99  1   DCP  N99  1  0.132   T49   DCP
- T49  C99  1   DTP  N99  1  0.132   T49   DTP
- T49  C99  1   RAO  N99  1  0.132   T49   RAO
- T49  C99  1   RGO  N99  1  0.132   T49   RGO
- T49  C99  1   RCO  N99  1  0.132   T49   RCO
- T49  C99  1   RUO  N99  1  0.132   T49   RUO
- T49  C99  1   RAP  N99  1  0.132   T49   RAP
- T49  C99  1   RGP  N99  1  0.132   T49   RGP
- T49  C99  1   RCP  N99  1  0.132   T49   RCP
- T49  C99  1   RUP  N99  1  0.132   T49   RUP
- T49  C99  1   DTM  N99  1  0.132   T49   DTM
- T49  C99  1   RUM  N99  1  0.132   T49   RUM
- T49  C99  1   RAE  N99  1  0.132   T49   RAE
- T49  C99  1   RCE  N99  1  0.132   T49   RCE
- T49  C99  1   DAE  N99  1  0.132   T49   DAE
- T49  C99  1   DCE  N99  1  0.132   T49   DCE
- T49  C99  1   RAH  N99  1  0.155   T49   RAH
- T49  C99  1   RGH  N99  1  0.155   T49   RGH
- T49  C99  1   RCH  N99  1  0.155   T49   RCH
- T49  C99  1   RUH  N99  1  0.155   T49   RUH
- T51  C99  1   DAO  N99  1  0.132   T51   DAO
- T51  C99  1   DGO  N99  1  0.132   T51   DGO
- T51  C99  1   DCO  N99  1  0.132   T51   DCO
- T51  C99  1   DTO  N99  1  0.132   T51   DTO
- T51  C99  1   DAP  N99  1  0.132   T51   DAP
- T51  C99  1   DGP  N99  1  0.132   T51   DGP
- T51  C99  1   DCP  N99  1  0.132   T51   DCP
- T51  C99  1   DTP  N99  1  0.132   T51   DTP
- T51  C99  1   RAO  N99  1  0.132   T51   RAO
- T51  C99  1   RGO  N99  1  0.132   T51   RGO
- T51  C99  1   RCO  N99  1  0.132   T51   RCO
- T51  C99  1   RUO  N99  1  0.132   T51   RUO
- T51  C99  1   RAP  N99  1  0.132   T51   RAP
- T51  C99  1   RGP  N99  1  0.132   T51   RGP
- T51  C99  1   RCP  N99  1  0.132   T51   RCP
- T51  C99  1   RUP  N99  1  0.132   T51   RUP
- T51  C99  1   DTM  N99  1  0.132   T51   DTM
- T51  C99  1   RUM  N99  1  0.132   T51   RUM
- T51  C99  1   RAE  N99  1  0.132   T51   RAE
- T51  C99  1   RCE  N99  1  0.132   T51   RCE
- T51  C99  1   DAE  N99  1  0.132   T51   DAE
- T51  C99  1   DCE  N99  1  0.132   T51   DCE
- T51  C99  1   RAH  N99  1  0.155   T51   RAH
- T51  C99  1   RGH  N99  1  0.155   T51   RGH
- T51  C99  1   RCH  N99  1  0.155   T51   RCH
- T51  C99  1   RUH  N99  1  0.155   T51   RUH
- T52  C99  1   DAO  N99  1  0.132   T52   DAO
- T52  C99  1   DGO  N99  1  0.132   T52   DGO
- T52  C99  1   DCO  N99  1  0.132   T52   DCO
- T52  C99  1   DTO  N99  1  0.132   T52   DTO
- T52  C99  1   DAP  N99  1  0.132   T52   DAP
- T52  C99  1   DGP  N99  1  0.132   T52   DGP
- T52  C99  1   DCP  N99  1  0.132   T52   DCP
- T52  C99  1   DTP  N99  1  0.132   T52   DTP
- T52  C99  1   RAO  N99  1  0.132   T52   RAO
- T52  C99  1   RGO  N99  1  0.132   T52   RGO
- T52  C99  1   RCO  N99  1  0.132   T52   RCO
- T52  C99  1   RUO  N99  1  0.132   T52   RUO
- T52  C99  1   RAP  N99  1  0.132   T52   RAP
- T52  C99  1   RGP  N99  1  0.132   T52   RGP
- T52  C99  1   RCP  N99  1  0.132   T52   RCP
- T52  C99  1   RUP  N99  1  0.132   T52   RUP
- T52  C99  1   DTM  N99  1  0.132   T52   DTM
- T52  C99  1   RUM  N99  1  0.132   T52   RUM
- T52  C99  1   RAE  N99  1  0.132   T52   RAE
- T52  C99  1   RCE  N99  1  0.132   T52   RCE
- T52  C99  1   DAE  N99  1  0.132   T52   DAE
- T52  C99  1   DCE  N99  1  0.132   T52   DCE
- T52  C99  1   RAH  N99  1  0.155   T52   RAH
- T52  C99  1   RGH  N99  1  0.155   T52   RGH
- T52  C99  1   RCH  N99  1  0.155   T52   RCH
- T52  C99  1   RUH  N99  1  0.155   T52   RUH
- T61  C99  1   DAO  N99  1  0.132   T61   DAO
- T61  C99  1   DGO  N99  1  0.132   T61   DGO
- T61  C99  1   DCO  N99  1  0.132   T61   DCO
- T61  C99  1   DTO  N99  1  0.132   T61   DTO
- T61  C99  1   DAP  N99  1  0.132   T61   DAP
- T61  C99  1   DGP  N99  1  0.132   T61   DGP
- T61  C99  1   DCP  N99  1  0.132   T61   DCP
- T61  C99  1   DTP  N99  1  0.132   T61   DTP
- T61  C99  1   RAO  N99  1  0.132   T61   RAO
- T61  C99  1   RGO  N99  1  0.132   T61   RGO
- T61  C99  1   RCO  N99  1  0.132   T61   RCO
- T61  C99  1   RUO  N99  1  0.132   T61   RUO
- T61  C99  1   RAP  N99  1  0.132   T61   RAP
- T61  C99  1   RGP  N99  1  0.132   T61   RGP
- T61  C99  1   RCP  N99  1  0.132   T61   RCP
- T61  C99  1   RUP  N99  1  0.132   T61   RUP
- T61  C99  1   DTM  N99  1  0.132   T61   DTM
- T61  C99  1   RUM  N99  1  0.132   T61   RUM
- T61  C99  1   RAE  N99  1  0.132   T61   RAE
- T61  C99  1   RCE  N99  1  0.132   T61   RCE
- T61  C99  1   DAE  N99  1  0.132   T61   DAE
- T61  C99  1   DCE  N99  1  0.132   T61   DCE
- T61  C99  1   RAH  N99  1  0.155   T61   RAH
- T61  C99  1   RGH  N99  1  0.155   T61   RGH
- T61  C99  1   RCH  N99  1  0.155   T61   RCH
- T61  C99  1   RUH  N99  1  0.155   T61   RUH
-  DA  O3'  1   DAO    P  1  0.155    DA   DAO
-  DA  O3'  1   DGO    P  1  0.155    DA   DGO
-  DA  O3'  1   DCO    P  1  0.155    DA   DCO
-  DA  O3'  1   DTO    P  1  0.155    DA   DTO
- DAP  O3'  1    DA    P  1  0.155   DAP    DA
- DGP  O3'  1    DA    P  1  0.155   DGP    DA
- DCP  O3'  1    DA    P  1  0.155   DCP    DA
- DTP  O3'  1    DA    P  1  0.155   DTP    DA
- DTM  O3'  1    DA    P  1  0.155   DTM    DA
-  DA  O3'  1   DTM    P  1  0.155    DA   DTM
- DAE  O3'  1    DA    P  1  0.155   DAE    DA
-  DA  O3'  1   DAE    P  1  0.155    DA   DAE
- DCE  O3'  1    DA    P  1  0.155   DCE    DA
-  DA  O3'  1   DCE    P  1  0.155    DA   DCE
-  DG  O3'  1   DAO    P  1  0.155    DG   DAO
-  DG  O3'  1   DGO    P  1  0.155    DG   DGO
-  DG  O3'  1   DCO    P  1  0.155    DG   DCO
-  DG  O3'  1   DTO    P  1  0.155    DG   DTO
- DAP  O3'  1    DG    P  1  0.155   DAP    DG
- DGP  O3'  1    DG    P  1  0.155   DGP    DG
- DCP  O3'  1    DG    P  1  0.155   DCP    DG
- DTP  O3'  1    DG    P  1  0.155   DTP    DG
- DTM  O3'  1    DG    P  1  0.155   DTM    DG
-  DG  O3'  1   DTM    P  1  0.155    DG   DTM
- DAE  O3'  1    DG    P  1  0.155   DAE    DG
-  DG  O3'  1   DAE    P  1  0.155    DG   DAE
- DCE  O3'  1    DG    P  1  0.155   DCE    DG
-  DG  O3'  1   DCE    P  1  0.155    DG   DCE
-  DC  O3'  1   DAO    P  1  0.155    DC   DAO
-  DC  O3'  1   DGO    P  1  0.155    DC   DGO
-  DC  O3'  1   DCO    P  1  0.155    DC   DCO
-  DC  O3'  1   DTO    P  1  0.155    DC   DTO
- DAP  O3'  1    DC    P  1  0.155   DAP    DC
- DGP  O3'  1    DC    P  1  0.155   DGP    DC
- DCP  O3'  1    DC    P  1  0.155   DCP    DC
- DTP  O3'  1    DC    P  1  0.155   DTP    DC
- DTM  O3'  1    DC    P  1  0.155   DTM    DC
-  DC  O3'  1   DTM    P  1  0.155    DC   DTM
- DAE  O3'  1    DC    P  1  0.155   DAE    DC
-  DC  O3'  1   DAE    P  1  0.155    DC   DAE
- DCE  O3'  1    DC    P  1  0.155   DCE    DC
-  DC  O3'  1   DCE    P  1  0.155    DC   DCE
-  DT  O3'  1   DAO    P  1  0.155    DT   DAO
-  DT  O3'  1   DGO    P  1  0.155    DT   DGO
-  DT  O3'  1   DCO    P  1  0.155    DT   DCO
-  DT  O3'  1   DTO    P  1  0.155    DT   DTO
- DAP  O3'  1    DT    P  1  0.155   DAP    DT
- DGP  O3'  1    DT    P  1  0.155   DGP    DT
- DCP  O3'  1    DT    P  1  0.155   DCP    DT
- DTP  O3'  1    DT    P  1  0.155   DTP    DT
- DTM  O3'  1    DT    P  1  0.155   DTM    DT
-  DT  O3'  1   DTM    P  1  0.155    DT   DTM
- DAE  O3'  1    DT    P  1  0.155   DAE    DT
-  DT  O3'  1   DAE    P  1  0.155    DT   DAE
- DCE  O3'  1    DT    P  1  0.155   DCE    DT
-  DT  O3'  1   DCE    P  1  0.155    DT   DCE
-  RA  O3'  1   RAO    P  1  0.155    RA   RAO
-  RA  O3'  1   RGO    P  1  0.155    RA   RGO
-  RA  O3'  1   RCO    P  1  0.155    RA   RCO
-  RA  O3'  1   RUO    P  1  0.155    RA   RUO
-  RA  O3'  1   RAH    P  1  0.155    RA   RAH
-  RA  O3'  1   RGH    P  1  0.155    RA   RGH
-  RA  O3'  1   RCH    P  1  0.155    RA   RCH
-  RA  O3'  1   RUH    P  1  0.155    RA   RUH
- RAP  O3'  1    RA    P  1  0.155   RAP    RA
- RGP  O3'  1    RA    P  1  0.155   RGP    RA
- RCP  O3'  1    RA    P  1  0.155   RCP    RA
- RUP  O3'  1    RA    P  1  0.155   RUP    RA
- RUM  O3'  1    RA    P  1  0.155   RUM    RA
-  RA  O3'  1   RUM    P  1  0.155    RA   RUM
- RAE  O3'  1    RA    P  1  0.155   RAE    RA
-  RA  O3'  1   RAE    P  1  0.155    RA   RAE
- RCE  O3'  1    RA    P  1  0.155   RCE    RA
-  RA  O3'  1   RCE    P  1  0.155    RA   RCE
-  RG  O3'  1   RAO    P  1  0.155    RG   RAO
-  RG  O3'  1   RGO    P  1  0.155    RG   RGO
-  RG  O3'  1   RCO    P  1  0.155    RG   RCO
-  RG  O3'  1   RUO    P  1  0.155    RG   RUO
-  RG  O3'  1   RAH    P  1  0.155    RG   RAH
-  RG  O3'  1   RGH    P  1  0.155    RG   RGH
-  RG  O3'  1   RCH    P  1  0.155    RG   RCH
-  RG  O3'  1   RUH    P  1  0.155    RG   RUH
- RAP  O3'  1    RG    P  1  0.155   RAP    RG
- RGP  O3'  1    RG    P  1  0.155   RGP    RG
- RCP  O3'  1    RG    P  1  0.155   RCP    RG
- RUP  O3'  1    RG    P  1  0.155   RUP    RG
- RUM  O3'  1    RG    P  1  0.155   RUM    RG
-  RG  O3'  1   RUM    P  1  0.155    RG   RUM
- RAE  O3'  1    RG    P  1  0.155   RAE    RG
-  RG  O3'  1   RAE    P  1  0.155    RG   RAE
- RCE  O3'  1    RG    P  1  0.155   RCE    RG
-  RG  O3'  1   RCE    P  1  0.155    RG   RCE
-  RC  O3'  1   RAO    P  1  0.155    RC   RAO
-  RC  O3'  1   RGO    P  1  0.155    RC   RGO
-  RC  O3'  1   RCO    P  1  0.155    RC   RCO
-  RC  O3'  1   RUO    P  1  0.155    RC   RUO
-  RC  O3'  1   RAH    P  1  0.155    RC   RAH
-  RC  O3'  1   RGH    P  1  0.155    RC   RGH
-  RC  O3'  1   RCH    P  1  0.155    RC   RCH
-  RC  O3'  1   RUH    P  1  0.155    RC   RUH
- RAP  O3'  1    RC    P  1  0.155   RAP    RC
- RGP  O3'  1    RC    P  1  0.155   RGP    RC
- RCP  O3'  1    RC    P  1  0.155   RCP    RC
- RUP  O3'  1    RC    P  1  0.155   RUP    RC
- RUM  O3'  1    RC    P  1  0.155   RUM    RC
-  RC  O3'  1   RUM    P  1  0.155    RC   RUM
- RAE  O3'  1    RC    P  1  0.155   RAE    RC
-  RC  O3'  1   RAE    P  1  0.155    RC   RAE
- RCE  O3'  1    RC    P  1  0.155   RCE    RC
-  RC  O3'  1   RCE    P  1  0.155    RC   RCE
-  RU  O3'  1   RAO    P  1  0.155    RU   RAO
-  RU  O3'  1   RGO    P  1  0.155    RU   RGO
-  RU  O3'  1   RCO    P  1  0.155    RU   RCO
-  RU  O3'  1   RUO    P  1  0.155    RU   RUO
-  RU  O3'  1   RAH    P  1  0.155    RU   RAH
-  RU  O3'  1   RGH    P  1  0.155    RU   RGH
-  RU  O3'  1   RCH    P  1  0.155    RU   RCH
-  RU  O3'  1   RUH    P  1  0.155    RU   RUH
- RAP  O3'  1    RU    P  1  0.155   RAP    RU
- RGP  O3'  1    RU    P  1  0.155   RGP    RU
- RCP  O3'  1    RU    P  1  0.155   RCP    RU
- RUP  O3'  1    RU    P  1  0.155   RUP    RU
- RUM  O3'  1    RU    P  1  0.155   RUM    RU
-  RU  O3'  1   RUM    P  1  0.155    RU   RUM
- RAE  O3'  1    RU    P  1  0.155   RAE    RU
-  RU  O3'  1   RAE    P  1  0.155    RU   RAE
- RCE  O3'  1    RU    P  1  0.155   RCE    RU
-  RU  O3'  1   RCE    P  1  0.155    RU   RCE
-   A  O3'  1   RAO    P  1  0.155     A   RAO
-   A  O3'  1   RGO    P  1  0.155     A   RGO
-   A  O3'  1   RCO    P  1  0.155     A   RCO
-   A  O3'  1   RUO    P  1  0.155     A   RUO
-   A  O3'  1   RAH    P  1  0.155     A   RAH
-   A  O3'  1   RGH    P  1  0.155     A   RGH
-   A  O3'  1   RCH    P  1  0.155     A   RCH
-   A  O3'  1   RUH    P  1  0.155     A   RUH
- RAP  O3'  1     A    P  1  0.155   RAP     A
- RGP  O3'  1     A    P  1  0.155   RGP     A
- RCP  O3'  1     A    P  1  0.155   RCP     A
- RUP  O3'  1     A    P  1  0.155   RUP     A
- RUM  O3'  1     A    P  1  0.155   RUM     A
-   A  O3'  1   RUM    P  1  0.155     A   RUM
- RAE  O3'  1     A    P  1  0.155   RAE     A
-   A  O3'  1   RAE    P  1  0.155     A   RAE
- RCE  O3'  1     A    P  1  0.155   RCE     A
-   A  O3'  1   RCE    P  1  0.155     A   RCE
-   G  O3'  1   RAO    P  1  0.155     G   RAO
-   G  O3'  1   RGO    P  1  0.155     G   RGO
-   G  O3'  1   RCO    P  1  0.155     G   RCO
-   G  O3'  1   RUO    P  1  0.155     G   RUO
-   G  O3'  1   RAH    P  1  0.155     G   RAH
-   G  O3'  1   RGH    P  1  0.155     G   RGH
-   G  O3'  1   RCH    P  1  0.155     G   RCH
-   G  O3'  1   RUH    P  1  0.155     G   RUH
- RAP  O3'  1     G    P  1  0.155   RAP     G
- RGP  O3'  1     G    P  1  0.155   RGP     G
- RCP  O3'  1     G    P  1  0.155   RCP     G
- RUP  O3'  1     G    P  1  0.155   RUP     G
- RUM  O3'  1     G    P  1  0.155   RUM     G
-   G  O3'  1   RUM    P  1  0.155     G   RUM
- RAE  O3'  1     G    P  1  0.155   RAE     G
-   G  O3'  1   RAE    P  1  0.155     G   RAE
- RCE  O3'  1     G    P  1  0.155   RCE     G
-   G  O3'  1   RCE    P  1  0.155     G   RCE
-   C  O3'  1   RAO    P  1  0.155     C   RAO
-   C  O3'  1   RGO    P  1  0.155     C   RGO
-   C  O3'  1   RCO    P  1  0.155     C   RCO
-   C  O3'  1   RUO    P  1  0.155     C   RUO
-   C  O3'  1   RAH    P  1  0.155     C   RAH
-   C  O3'  1   RGH    P  1  0.155     C   RGH
-   C  O3'  1   RCH    P  1  0.155     C   RCH
-   C  O3'  1   RUH    P  1  0.155     C   RUH
- RAP  O3'  1     C    P  1  0.155   RAP     C
- RGP  O3'  1     C    P  1  0.155   RGP     C
- RCP  O3'  1     C    P  1  0.155   RCP     C
- RUP  O3'  1     C    P  1  0.155   RUP     C
- RUM  O3'  1     C    P  1  0.155   RUM     C
-   C  O3'  1   RUM    P  1  0.155     C   RUM
- RAE  O3'  1     C    P  1  0.155   RAE     C
-   C  O3'  1   RAE    P  1  0.155     C   RAE
- RCE  O3'  1     C    P  1  0.155   RCE     C
-   C  O3'  1   RCE    P  1  0.155     C   RCE
-   U  O3'  1   RAO    P  1  0.155     U   RAO
-   U  O3'  1   RGO    P  1  0.155     U   RGO
-   U  O3'  1   RCO    P  1  0.155     U   RCO
-   U  O3'  1   RUO    P  1  0.155     U   RUO
-   U  O3'  1   RAH    P  1  0.155     U   RAH
-   U  O3'  1   RGH    P  1  0.155     U   RGH
-   U  O3'  1   RCH    P  1  0.155     U   RCH
-   U  O3'  1   RUH    P  1  0.155     U   RUH
- RAP  O3'  1     U    P  1  0.155   RAP     U
- RGP  O3'  1     U    P  1  0.155   RGP     U
- RCP  O3'  1     U    P  1  0.155   RCP     U
- RUP  O3'  1     U    P  1  0.155   RUP     U
- RUM  O3'  1     U    P  1  0.155   RUM     U
-   U  O3'  1   RUM    P  1  0.155     U   RUM
- RAE  O3'  1     U    P  1  0.155   RAE     U
-   U  O3'  1   RAE    P  1  0.155     U   RAE
- RCE  O3'  1     U    P  1  0.155   RCE     U
-   U  O3'  1   RCE    P  1  0.155     U   RCE
+CYS  SG 1  CYS  SG 1    0.2 CYS2 CYS2
+CYS  SG 1  HEM  FE 2   0.25 CYS2 HEME
+CYS  SG 1  HEM CAB 1   0.18 CYS2 HEME
+CYS  SG 1  HEM CAC 1   0.18 CYS2 HEME
+HIS NE2 1  HEM  FE 1    0.2 HIS1 HEME
+MET  SD 1  HEM  FE 1   0.24  MET HEME
+ CO   C 1 HEME  FE 1   0.19   CO HEME
+CYM  SG 1  CYM  SG 1    0.2 CYS2 CYS2
+A35 C99 1  C1C N99 1  0.133  A35  C1C
+A35 C99 1  C1R N99 1  0.134  A35  C1R
+A35 C99 1  E1N N99 1  0.134  A35  E1N
+A35 C99 1  L1C N99 1  0.135  A35  L1C
+A35 C99 1  L1N N99 1  0.133  A35  L1N
+A35 C99 1  L1R N99 1  0.134  A35  L1R
+A48 C99 1  B1C N99 1  0.135  A48  B1C
+A48 C99 1  B1N N99 1  0.134  A48  B1N
+A48 C99 1  B1R N99 1  0.134  A48  B1R
+A48 C99 1  C1C N99 1  0.135  A48  C1C
+A48 C99 1  C1R N99 1  0.134  A48  C1R
+A48 C99 1  E1N N99 1  0.134  A48  E1N
+A48 C99 1  L1C N99 1  0.135  A48  L1C
+A48 C99 1  L1N N99 1  0.134  A48  L1N
+A48 C99 1  L1R N99 1  0.135  A48  L1R
+A53 C99 1  C1C N99 1  0.133  A53  C1C
+A53 C99 1  C1R N99 1  0.132  A53  C1R
+A53 C99 1  E1N N99 1  0.134  A53  E1N
+A53 C99 1  L1C N99 1  0.134  A53  L1C
+A53 C99 1  L1N N99 1  0.133  A53  L1N
+A53 C99 1  L1R N99 1  0.133  A53  L1R
+A56 C99 1  C1C N99 1  0.134  A56  C1C
+A56 C99 1  C1R N99 1  0.135  A56  C1R
+A56 C99 1  E1N N99 1  0.134  A56  E1N
+A56 C99 1  L1C N99 1  0.135  A56  L1C
+A56 C99 1  L1N N99 1  0.135  A56  L1N
+A56 C99 1  L1R N99 1  0.134  A56  L1R
+A59 C99 1  C1C N99 1  0.133  A59  C1C
+A59 C99 1  C1R N99 1  0.134  A59  C1R
+A59 C99 1  E1N N99 1  0.134  A59  E1N
+A59 C99 1  L1C N99 1  0.133  A59  L1C
+A59 C99 1  L1N N99 1  0.138  A59  L1N
+A59 C99 1  L1R N99 1  0.135  A59  L1R
+A64 C99 1  B1C N99 1  0.133  A64  B1C
+A64 C99 1  B1N N99 1  0.133  A64  B1N
+A64 C99 1  B1R N99 1  0.133  A64  B1R
+A64 C99 1  C2C N99 1  0.134  A64  C2C
+A64 C99 1  C2R N99 1  0.133  A64  C2R
+A64 C99 1  E2N N99 1  0.134  A64  E2N
+A64 C99 1  L1C N99 1  0.134  A64  L1C
+A64 C99 1  L1N N99 1  0.134  A64  L1N
+A64 C99 1  L1R N99 1  0.134  A64  L1R
+T39 C99 1  C2C N99 1  0.133  T39  C2C
+T39 C99 1  C2R N99 1  0.134  T39  C2R
+T39 C99 1  E2N N99 1  0.133  T39  E2N
+T39 C99 1  L1C N99 1  0.134  T39  L1C
+T39 C99 1  L1N N99 1  0.134  T39  L1N
+T39 C99 1  L1R N99 1  0.134  T39  L1R
+T42 C99 1  C2C N99 1  0.134  T42  C2C
+T42 C99 1  C2R N99 1  0.131  T42  C2R
+T42 C99 1  E2N N99 1  0.134  T42  E2N
+T42 C99 1  L1C N99 1  0.134  T42  L1C
+T42 C99 1  L1N N99 1  0.133  T42  L1N
+T42 C99 1  L1R N99 1  0.132  T42  L1R
+T46 C99 1  C2C N99 1  0.134  T46  C2C
+T46 C99 1  C2R N99 1  0.134  T46  C2R
+T46 C99 1  E2N N99 1  0.134  T46  E2N
+T46 C99 1  L1C N99 1  0.136  T46  L1C
+T46 C99 1  L1N N99 1  0.134  T46  L1N
+T46 C99 1  L1R N99 1  0.134  T46  L1R
+T48 C99 1  C3C N99 1  0.136  T48  C3C
+T48 C99 1  C3R N99 1  0.137  T48  C3R
+T48 C99 1  E3N N99 1  0.136  T48  E3N
+T48 C99 1  L2C N99 1  0.136  T48  L2C
+T48 C99 1  L2N N99 1  0.137  T48  L2N
+T48 C99 1  L2R N99 1  0.135  T48  L2R
+T49 C99 1  C2C N99 1  0.135  T49  C2C
+T49 C99 1  C2R N99 1  0.134  T49  C2R
+T49 C99 1  E2N N99 1  0.134  T49  E2N
+T49 C99 1  L1C N99 1  0.135  T49  L1C
+T49 C99 1  L1N N99 1  0.134  T49  L1N
+T49 C99 1  L1R N99 1  0.134  T49  L1R
+T51 C99 1  C3C N99 1  0.137  T51  C3C
+T51 C99 1  C3R N99 1  0.136  T51  C3R
+T51 C99 1  E3N N99 1  0.137  T51  E3N
+T51 C99 1  L2C N99 1  0.137  T51  L2C
+T51 C99 1  L2N N99 1  0.136  T51  L2N
+T51 C99 1  L2R N99 1  0.137  T51  L2R
+T52 C99 1  C2C N99 1  0.134  T52  C2C
+T52 C99 1  C2R N99 1  0.135  T52  C2R
+T52 C99 1  E2N N99 1  0.134  T52  E2N
+T52 C99 1  L1C N99 1  0.134  T52  L1C
+T52 C99 1  L1N N99 1  0.135  T52  L1N
+T52 C99 1  L1R N99 1  0.133  T52  L1R
+T61 C99 1  C2C N99 1  0.133  T61  C2C
+T61 C99 1  C2R N99 1  0.134  T61  C2R
+T61 C99 1  E2N N99 1  0.134  T61  E2N
+T61 C99 1  L1C N99 1  0.134  T61  L1C
+T61 C99 1  L1N N99 1  0.134  T61  L1N
+T61 C99 1  L1R N99 1  0.134  T61  L1R
+Tth C99 1  C3C N99 1  0.137  Tth  C3C
+Tth C99 1  C3R N99 1  0.135  Tth  C3R
+Tth C99 1  E3N N99 1  0.136  Tth  E3N
+Tth C99 1  L2C N99 1  0.137  Tth  L2C
+Tth C99 1  L2N N99 1  0.134  Tth  L2N
+Tth C99 1  L2R N99 1  0.137  Tth  L2R
+C3N C99 1  C2C N99 1  0.133  C3N  C2C
+C3N C99 1  C2R N99 1  0.134  C3N  C2R
+C3N C99 1  E2N N99 1  0.134  C3N  E2N
+C3N C99 1  L1C N99 1  0.134  C3N  L1C
+C3N C99 1  L1N N99 1  0.134  C3N  L1N
+C3N C99 1  L1R N99 1  0.134  C3N  L1R
+C3W C99 1  L1C N99 1  0.133  C3W  L1C
+C3W C99 1  L1N N99 1  0.133  C3W  L1N
+C3W C99 1  L1R N99 1  0.133  C3W  L1R
+C55 C99 1  C2C N99 1  0.135  C55  C2C
+C55 C99 1  C2R N99 1  0.135  C55  C2R
+C55 C99 1  E2N N99 1  0.135  C55  E2N
+C55 C99 1  L1C N99 1  0.134  C55  L1C
+C55 C99 1  L1N N99 1  0.134  C55  L1N
+C55 C99 1  L1R N99 1  0.134  C55  L1R
+C5N C99 1  C2C N99 1  0.133  C5N  C2C
+C5N C99 1  C2R N99 1  0.134  C5N  C2R
+C5N C99 1  E2N N99 1  0.134  C5N  E2N
+C5N C99 1  L1C N99 1  0.134  C5N  L1C
+C5N C99 1  L1N N99 1  0.134  C5N  L1N
+C5N C99 1  L1R N99 1  0.134  C5N  L1R
+C5W C99 1  L1C N99 1  0.134  C5W  L1C
+C5W C99 1  L1N N99 1  0.135  C5W  L1N
+C5W C99 1  L1R N99 1  0.134  C5W  L1R
+C75 C99 1  L1C N99 1  0.133  C75  L1C
+C75 C99 1  L1N N99 1  0.133  C75  L1N
+C75 C99 1  L1R N99 1  0.134  C75  L1R
+C7N C99 1  L1C N99 1  0.133  C7N  L1C
+C7N C99 1  L1N N99 1  0.134  C7N  L1N
+C7N C99 1  L1R N99 1  0.133  C7N  L1R
+C3W C99 1  DAO N99 1  0.132  C3W  DAO
+C3W C99 1  DGO N99 1  0.132  C3W  DGO
+C3W C99 1  DCO N99 1  0.132  C3W  DCO
+C3W C99 1  DTO N99 1  0.132  C3W  DTO
+C3W C99 1  DAP N99 1  0.132  C3W  DAP
+C3W C99 1  DGP N99 1  0.132  C3W  DGP
+C3W C99 1  DCP N99 1  0.132  C3W  DCP
+C3W C99 1  DTP N99 1  0.132  C3W  DTP
+C3W C99 1  RAO N99 1  0.132  C3W  RAO
+C3W C99 1  RGO N99 1  0.132  C3W  RGO
+C3W C99 1  RCO N99 1  0.132  C3W  RCO
+C3W C99 1  RUO N99 1  0.132  C3W  RUO
+C3W C99 1  RAP N99 1  0.132  C3W  RAP
+C3W C99 1  RGP N99 1  0.132  C3W  RGP
+C3W C99 1  RCP N99 1  0.132  C3W  RCP
+C3W C99 1  RUP N99 1  0.132  C3W  RUP
+C3W C99 1  DTM N99 1  0.132  C3W  DTM
+C3W C99 1  RUM N99 1  0.132  C3W  RUM
+C3W C99 1  RAE N99 1  0.132  C3W  RAE
+C3W C99 1  RCE N99 1  0.132  C3W  RCE
+C3W C99 1  DAE N99 1  0.132  C3W  DAE
+C3W C99 1  DCE N99 1  0.132  C3W  DCE
+C3W C99 1  RAH N99 1  0.155  C3W  RAH
+C3W C99 1  RGH N99 1  0.155  C3W  RGH
+C3W C99 1  RCH N99 1  0.155  C3W  RCH
+C3W C99 1  RUH N99 1  0.155  C3W  RUH
+C5W C99 1  DAO N99 1  0.132  C5W  DAO
+C5W C99 1  DGO N99 1  0.132  C5W  DGO
+C5W C99 1  DCO N99 1  0.132  C5W  DCO
+C5W C99 1  DTO N99 1  0.132  C5W  DTO
+C5W C99 1  DAP N99 1  0.132  C5W  DAP
+C5W C99 1  DGP N99 1  0.132  C5W  DGP
+C5W C99 1  DCP N99 1  0.132  C5W  DCP
+C5W C99 1  DTP N99 1  0.132  C5W  DTP
+C5W C99 1  RAO N99 1  0.132  C5W  RAO
+C5W C99 1  RGO N99 1  0.132  C5W  RGO
+C5W C99 1  RCO N99 1  0.132  C5W  RCO
+C5W C99 1  RUO N99 1  0.132  C5W  RUO
+C5W C99 1  RAP N99 1  0.132  C5W  RAP
+C5W C99 1  RGP N99 1  0.132  C5W  RGP
+C5W C99 1  RCP N99 1  0.132  C5W  RCP
+C5W C99 1  RUP N99 1  0.132  C5W  RUP
+C5W C99 1  DTM N99 1  0.132  C5W  DTM
+C5W C99 1  RUM N99 1  0.132  C5W  RUM
+C5W C99 1  RAE N99 1  0.132  C5W  RAE
+C5W C99 1  RCE N99 1  0.132  C5W  RCE
+C5W C99 1  DAE N99 1  0.132  C5W  DAE
+C5W C99 1  DCE N99 1  0.132  C5W  DCE
+C5W C99 1  RAH N99 1  0.155  C5W  RAH
+C5W C99 1  RGH N99 1  0.155  C5W  RGH
+C5W C99 1  RCH N99 1  0.155  C5W  RCH
+C5W C99 1  RUH N99 1  0.155  C5W  RUH
+C7N C99 1  DAO N99 1  0.132  C7N  DAO
+C7N C99 1  DGO N99 1  0.132  C7N  DGO
+C7N C99 1  DCO N99 1  0.132  C7N  DCO
+C7N C99 1  DTO N99 1  0.132  C7N  DTO
+C7N C99 1  DAP N99 1  0.132  C7N  DAP
+C7N C99 1  DGP N99 1  0.132  C7N  DGP
+C7N C99 1  DCP N99 1  0.132  C7N  DCP
+C7N C99 1  DTP N99 1  0.132  C7N  DTP
+C7N C99 1  RAO N99 1  0.132  C7N  RAO
+C7N C99 1  RGO N99 1  0.132  C7N  RGO
+C7N C99 1  RCO N99 1  0.132  C7N  RCO
+C7N C99 1  RUO N99 1  0.132  C7N  RUO
+C7N C99 1  RAP N99 1  0.132  C7N  RAP
+C7N C99 1  RGP N99 1  0.132  C7N  RGP
+C7N C99 1  RCP N99 1  0.132  C7N  RCP
+C7N C99 1  RUP N99 1  0.132  C7N  RUP
+C7N C99 1  DTM N99 1  0.132  C7N  DTM
+C7N C99 1  RUM N99 1  0.132  C7N  RUM
+C7N C99 1  RAE N99 1  0.132  C7N  RAE
+C7N C99 1  RCE N99 1  0.132  C7N  RCE
+C7N C99 1  DAE N99 1  0.132  C7N  DAE
+C7N C99 1  DCE N99 1  0.132  C7N  DCE
+C7N C99 1  RAH N99 1  0.155  C7N  RAH
+C7N C99 1  RGH N99 1  0.155  C7N  RGH
+C7N C99 1  RCH N99 1  0.155  C7N  RCH
+C7N C99 1  RUH N99 1  0.155  C7N  RUH
+C55 C99 1  DAO N99 1  0.132  C55  DAO
+C55 C99 1  DGO N99 1  0.132  C55  DGO
+C55 C99 1  DCO N99 1  0.132  C55  DCO
+C55 C99 1  DTO N99 1  0.132  C55  DTO
+C55 C99 1  DAP N99 1  0.132  C55  DAP
+C55 C99 1  DGP N99 1  0.132  C55  DGP
+C55 C99 1  DCP N99 1  0.132  C55  DCP
+C55 C99 1  DTP N99 1  0.132  C55  DTP
+C55 C99 1  RAO N99 1  0.132  C55  RAO
+C55 C99 1  RGO N99 1  0.132  C55  RGO
+C55 C99 1  RCO N99 1  0.132  C55  RCO
+C55 C99 1  RUO N99 1  0.132  C55  RUO
+C55 C99 1  RAP N99 1  0.132  C55  RAP
+C55 C99 1  RGP N99 1  0.132  C55  RGP
+C55 C99 1  RCP N99 1  0.132  C55  RCP
+C55 C99 1  RUP N99 1  0.132  C55  RUP
+C55 C99 1  DTM N99 1  0.132  C55  DTM
+C55 C99 1  RUM N99 1  0.132  C55  RUM
+C55 C99 1  RAE N99 1  0.132  C55  RAE
+C55 C99 1  RCE N99 1  0.132  C55  RCE
+C55 C99 1  DAE N99 1  0.132  C55  DAE
+C55 C99 1  DCE N99 1  0.132  C55  DCE
+C55 C99 1  RAH N99 1  0.155  C55  RAH
+C55 C99 1  RGH N99 1  0.155  C55  RGH
+C55 C99 1  RCH N99 1  0.155  C55  RCH
+C55 C99 1  RUH N99 1  0.155  C55  RUH
+C75 C99 1  DAO N99 1  0.132  C75  DAO
+C75 C99 1  DGO N99 1  0.132  C75  DGO
+C75 C99 1  DCO N99 1  0.132  C75  DCO
+C75 C99 1  DTO N99 1  0.132  C75  DTO
+C75 C99 1  DAP N99 1  0.132  C75  DAP
+C75 C99 1  DGP N99 1  0.132  C75  DGP
+C75 C99 1  DCP N99 1  0.132  C75  DCP
+C75 C99 1  DTP N99 1  0.132  C75  DTP
+C75 C99 1  RAO N99 1  0.132  C75  RAO
+C75 C99 1  RGO N99 1  0.132  C75  RGO
+C75 C99 1  RCO N99 1  0.132  C75  RCO
+C75 C99 1  RUO N99 1  0.132  C75  RUO
+C75 C99 1  RAP N99 1  0.132  C75  RAP
+C75 C99 1  RGP N99 1  0.132  C75  RGP
+C75 C99 1  RCP N99 1  0.132  C75  RCP
+C75 C99 1  RUP N99 1  0.132  C75  RUP
+C75 C99 1  DTM N99 1  0.132  C75  DTM
+C75 C99 1  RUM N99 1  0.132  C75  RUM
+C75 C99 1  RAE N99 1  0.132  C75  RAE
+C75 C99 1  RCE N99 1  0.132  C75  RCE
+C75 C99 1  DAE N99 1  0.132  C75  DAE
+C75 C99 1  DCE N99 1  0.132  C75  DCE
+C75 C99 1  RAH N99 1  0.155  C75  RAH
+C75 C99 1  RGH N99 1  0.155  C75  RGH
+C75 C99 1  RCH N99 1  0.155  C75  RCH
+C75 C99 1  RUH N99 1  0.155  C75  RUH
+A35 C99 1  DAO N99 1  0.132  A35  DAO
+A35 C99 1  DGO N99 1  0.132  A35  DGO
+A35 C99 1  DCO N99 1  0.132  A35  DCO
+A35 C99 1  DTO N99 1  0.132  A35  DTO
+A35 C99 1  DAP N99 1  0.132  A35  DAP
+A35 C99 1  DGP N99 1  0.132  A35  DGP
+A35 C99 1  DCP N99 1  0.132  A35  DCP
+A35 C99 1  DTP N99 1  0.132  A35  DTP
+A35 C99 1  RAO N99 1  0.132  A35  RAO
+A35 C99 1  RGO N99 1  0.132  A35  RGO
+A35 C99 1  RCO N99 1  0.132  A35  RCO
+A35 C99 1  RUO N99 1  0.132  A35  RUO
+A35 C99 1  RAP N99 1  0.132  A35  RAP
+A35 C99 1  RGP N99 1  0.132  A35  RGP
+A35 C99 1  RCP N99 1  0.132  A35  RCP
+A35 C99 1  RUP N99 1  0.132  A35  RUP
+A35 C99 1  DTM N99 1  0.132  A35  DTM
+A35 C99 1  RUM N99 1  0.132  A35  RUM
+A35 C99 1  RAE N99 1  0.132  A35  RAE
+A35 C99 1  RCE N99 1  0.132  A35  RCE
+A35 C99 1  DAE N99 1  0.132  A35  DAE
+A35 C99 1  DCE N99 1  0.132  A35  DCE
+A35 C99 1  RAH N99 1  0.155  A35  RAH
+A35 C99 1  RGH N99 1  0.155  A35  RGH
+A35 C99 1  RCH N99 1  0.155  A35  RCH
+A35 C99 1  RUH N99 1  0.155  A35  RUH
+A48 C99 1  DAO N99 1  0.132  A48  DAO
+A48 C99 1  DGO N99 1  0.132  A48  DGO
+A48 C99 1  DCO N99 1  0.132  A48  DCO
+A48 C99 1  DTO N99 1  0.132  A48  DTO
+A48 C99 1  DAP N99 1  0.132  A48  DAP
+A48 C99 1  DGP N99 1  0.132  A48  DGP
+A48 C99 1  DCP N99 1  0.132  A48  DCP
+A48 C99 1  DTP N99 1  0.132  A48  DTP
+A48 C99 1  RAO N99 1  0.132  A48  RAO
+A48 C99 1  RGO N99 1  0.132  A48  RGO
+A48 C99 1  RCO N99 1  0.132  A48  RCO
+A48 C99 1  RUO N99 1  0.132  A48  RUO
+A48 C99 1  RAP N99 1  0.132  A48  RAP
+A48 C99 1  RGP N99 1  0.132  A48  RGP
+A48 C99 1  RCP N99 1  0.132  A48  RCP
+A48 C99 1  RUP N99 1  0.132  A48  RUP
+A48 C99 1  DTM N99 1  0.132  A48  DTM
+A48 C99 1  RUM N99 1  0.132  A48  RUM
+A48 C99 1  RAE N99 1  0.132  A48  RAE
+A48 C99 1  RCE N99 1  0.132  A48  RCE
+A48 C99 1  DAE N99 1  0.132  A48  DAE
+A48 C99 1  DCE N99 1  0.132  A48  DCE
+A48 C99 1  RAH N99 1  0.155  A48  RAH
+A48 C99 1  RGH N99 1  0.155  A48  RGH
+A48 C99 1  RCH N99 1  0.155  A48  RCH
+A48 C99 1  RUH N99 1  0.155  A48  RUH
+A53 C99 1  DAO N99 1  0.132  A53  DAO
+A53 C99 1  DGO N99 1  0.132  A53  DGO
+A53 C99 1  DCO N99 1  0.132  A53  DCO
+A53 C99 1  DTO N99 1  0.132  A53  DTO
+A53 C99 1  DAP N99 1  0.132  A53  DAP
+A53 C99 1  DGP N99 1  0.132  A53  DGP
+A53 C99 1  DCP N99 1  0.132  A53  DCP
+A53 C99 1  DTP N99 1  0.132  A53  DTP
+A53 C99 1  RAO N99 1  0.132  A53  RAO
+A53 C99 1  RGO N99 1  0.132  A53  RGO
+A53 C99 1  RCO N99 1  0.132  A53  RCO
+A53 C99 1  RUO N99 1  0.132  A53  RUO
+A53 C99 1  RAP N99 1  0.132  A53  RAP
+A53 C99 1  RGP N99 1  0.132  A53  RGP
+A53 C99 1  RCP N99 1  0.132  A53  RCP
+A53 C99 1  RUP N99 1  0.132  A53  RUP
+A53 C99 1  DTM N99 1  0.132  A53  DTM
+A53 C99 1  RUM N99 1  0.132  A53  RUM
+A53 C99 1  RAE N99 1  0.132  A53  RAE
+A53 C99 1  RCE N99 1  0.132  A53  RCE
+A53 C99 1  DAE N99 1  0.132  A53  DAE
+A53 C99 1  DCE N99 1  0.132  A53  DCE
+A53 C99 1  RAH N99 1  0.155  A53  RAH
+A53 C99 1  RGH N99 1  0.155  A53  RGH
+A53 C99 1  RCH N99 1  0.155  A53  RCH
+A53 C99 1  RUH N99 1  0.155  A53  RUH
+A56 C99 1  DAO N99 1  0.132  A56  DAO
+A56 C99 1  DGO N99 1  0.132  A56  DGO
+A56 C99 1  DCO N99 1  0.132  A56  DCO
+A56 C99 1  DTO N99 1  0.132  A56  DTO
+A56 C99 1  DAP N99 1  0.132  A56  DAP
+A56 C99 1  DGP N99 1  0.132  A56  DGP
+A56 C99 1  DCP N99 1  0.132  A56  DCP
+A56 C99 1  DTP N99 1  0.132  A56  DTP
+A56 C99 1  RAO N99 1  0.132  A56  RAO
+A56 C99 1  RGO N99 1  0.132  A56  RGO
+A56 C99 1  RCO N99 1  0.132  A56  RCO
+A56 C99 1  RUO N99 1  0.132  A56  RUO
+A56 C99 1  RAP N99 1  0.132  A56  RAP
+A56 C99 1  RGP N99 1  0.132  A56  RGP
+A56 C99 1  RCP N99 1  0.132  A56  RCP
+A56 C99 1  RUP N99 1  0.132  A56  RUP
+A56 C99 1  DTM N99 1  0.132  A56  DTM
+A56 C99 1  RUM N99 1  0.132  A56  RUM
+A56 C99 1  RAE N99 1  0.132  A56  RAE
+A56 C99 1  RCE N99 1  0.132  A56  RCE
+A56 C99 1  DAE N99 1  0.132  A56  DAE
+A56 C99 1  DCE N99 1  0.132  A56  DCE
+A56 C99 1  RAH N99 1  0.155  A56  RAH
+A56 C99 1  RGH N99 1  0.155  A56  RGH
+A56 C99 1  RCH N99 1  0.155  A56  RCH
+A56 C99 1  RUH N99 1  0.155  A56  RUH
+A59 C99 1  DAO N99 1  0.132  A59  DAO
+A59 C99 1  DGO N99 1  0.132  A59  DGO
+A59 C99 1  DCO N99 1  0.132  A59  DCO
+A59 C99 1  DTO N99 1  0.132  A59  DTO
+A59 C99 1  DAP N99 1  0.132  A59  DAP
+A59 C99 1  DGP N99 1  0.132  A59  DGP
+A59 C99 1  DCP N99 1  0.132  A59  DCP
+A59 C99 1  DTP N99 1  0.132  A59  DTP
+A59 C99 1  RAO N99 1  0.132  A59  RAO
+A59 C99 1  RGO N99 1  0.132  A59  RGO
+A59 C99 1  RCO N99 1  0.132  A59  RCO
+A59 C99 1  RUO N99 1  0.132  A59  RUO
+A59 C99 1  RAP N99 1  0.132  A59  RAP
+A59 C99 1  RGP N99 1  0.132  A59  RGP
+A59 C99 1  RCP N99 1  0.132  A59  RCP
+A59 C99 1  RUP N99 1  0.132  A59  RUP
+A59 C99 1  DTM N99 1  0.132  A59  DTM
+A59 C99 1  RUM N99 1  0.132  A59  RUM
+A59 C99 1  RAE N99 1  0.132  A59  RAE
+A59 C99 1  RCE N99 1  0.132  A59  RCE
+A59 C99 1  DAE N99 1  0.132  A59  DAE
+A59 C99 1  DCE N99 1  0.132  A59  DCE
+A59 C99 1  RAH N99 1  0.155  A59  RAH
+A59 C99 1  RGH N99 1  0.155  A59  RGH
+A59 C99 1  RCH N99 1  0.155  A59  RCH
+A59 C99 1  RUH N99 1  0.155  A59  RUH
+A64 C99 1  DAO N99 1  0.132  A64  DAO
+A64 C99 1  DGO N99 1  0.132  A64  DGO
+A64 C99 1  DCO N99 1  0.132  A64  DCO
+A64 C99 1  DTO N99 1  0.132  A64  DTO
+A64 C99 1  DAP N99 1  0.132  A64  DAP
+A64 C99 1  DGP N99 1  0.132  A64  DGP
+A64 C99 1  DCP N99 1  0.132  A64  DCP
+A64 C99 1  DTP N99 1  0.132  A64  DTP
+A64 C99 1  RAO N99 1  0.132  A64  RAO
+A64 C99 1  RGO N99 1  0.132  A64  RGO
+A64 C99 1  RCO N99 1  0.132  A64  RCO
+A64 C99 1  RUO N99 1  0.132  A64  RUO
+A64 C99 1  RAP N99 1  0.132  A64  RAP
+A64 C99 1  RGP N99 1  0.132  A64  RGP
+A64 C99 1  RCP N99 1  0.132  A64  RCP
+A64 C99 1  RUP N99 1  0.132  A64  RUP
+A64 C99 1  DTM N99 1  0.132  A64  DTM
+A64 C99 1  RUM N99 1  0.132  A64  RUM
+A64 C99 1  RAE N99 1  0.132  A64  RAE
+A64 C99 1  RCE N99 1  0.132  A64  RCE
+A64 C99 1  DAE N99 1  0.132  A64  DAE
+A64 C99 1  DCE N99 1  0.132  A64  DCE
+A64 C99 1  RAH N99 1  0.155  A64  RAH
+A64 C99 1  RGH N99 1  0.155  A64  RGH
+A64 C99 1  RCH N99 1  0.155  A64  RCH
+A64 C99 1  RUH N99 1  0.155  A64  RUH
+T39 C99 1  DAO N99 1  0.132  T39  DAO
+T39 C99 1  DGO N99 1  0.132  T39  DGO
+T39 C99 1  DCO N99 1  0.132  T39  DCO
+T39 C99 1  DTO N99 1  0.132  T39  DTO
+T39 C99 1  DAP N99 1  0.132  T39  DAP
+T39 C99 1  DGP N99 1  0.132  T39  DGP
+T39 C99 1  DCP N99 1  0.132  T39  DCP
+T39 C99 1  DTP N99 1  0.132  T39  DTP
+T39 C99 1  RAO N99 1  0.132  T39  RAO
+T39 C99 1  RGO N99 1  0.132  T39  RGO
+T39 C99 1  RCO N99 1  0.132  T39  RCO
+T39 C99 1  RUO N99 1  0.132  T39  RUO
+T39 C99 1  RAP N99 1  0.132  T39  RAP
+T39 C99 1  RGP N99 1  0.132  T39  RGP
+T39 C99 1  RCP N99 1  0.132  T39  RCP
+T39 C99 1  RUP N99 1  0.132  T39  RUP
+T39 C99 1  DTM N99 1  0.132  T39  DTM
+T39 C99 1  RUM N99 1  0.132  T39  RUM
+T39 C99 1  RAE N99 1  0.132  T39  RAE
+T39 C99 1  RCE N99 1  0.132  T39  RCE
+T39 C99 1  DAE N99 1  0.132  T39  DAE
+T39 C99 1  DCE N99 1  0.132  T39  DCE
+T39 C99 1  RAH N99 1  0.155  T39  RAH
+T39 C99 1  RGH N99 1  0.155  T39  RGH
+T39 C99 1  RCH N99 1  0.155  T39  RCH
+T39 C99 1  RUH N99 1  0.155  T39  RUH
+T42 C99 1  DAO N99 1  0.132  T42  DAO
+T42 C99 1  DGO N99 1  0.132  T42  DGO
+T42 C99 1  DCO N99 1  0.132  T42  DCO
+T42 C99 1  DTO N99 1  0.132  T42  DTO
+T42 C99 1  DAP N99 1  0.132  T42  DAP
+T42 C99 1  DGP N99 1  0.132  T42  DGP
+T42 C99 1  DCP N99 1  0.132  T42  DCP
+T42 C99 1  DTP N99 1  0.132  T42  DTP
+T42 C99 1  RAO N99 1  0.132  T42  RAO
+T42 C99 1  RGO N99 1  0.132  T42  RGO
+T42 C99 1  RCO N99 1  0.132  T42  RCO
+T42 C99 1  RUO N99 1  0.132  T42  RUO
+T42 C99 1  RAP N99 1  0.132  T42  RAP
+T42 C99 1  RGP N99 1  0.132  T42  RGP
+T42 C99 1  RCP N99 1  0.132  T42  RCP
+T42 C99 1  RUP N99 1  0.132  T42  RUP
+T42 C99 1  DTM N99 1  0.132  T42  DTM
+T42 C99 1  RUM N99 1  0.132  T42  RUM
+T42 C99 1  RAE N99 1  0.132  T42  RAE
+T42 C99 1  RCE N99 1  0.132  T42  RCE
+T42 C99 1  DAE N99 1  0.132  T42  DAE
+T42 C99 1  DCE N99 1  0.132  T42  DCE
+T42 C99 1  RAH N99 1  0.155  T42  RAH
+T42 C99 1  RGH N99 1  0.155  T42  RGH
+T42 C99 1  RCH N99 1  0.155  T42  RCH
+T42 C99 1  RUH N99 1  0.155  T42  RUH
+T46 C99 1  DAO N99 1  0.132  T46  DAO
+T46 C99 1  DGO N99 1  0.132  T46  DGO
+T46 C99 1  DCO N99 1  0.132  T46  DCO
+T46 C99 1  DTO N99 1  0.132  T46  DTO
+T46 C99 1  DAP N99 1  0.132  T46  DAP
+T46 C99 1  DGP N99 1  0.132  T46  DGP
+T46 C99 1  DCP N99 1  0.132  T46  DCP
+T46 C99 1  DTP N99 1  0.132  T46  DTP
+T46 C99 1  RAO N99 1  0.132  T46  RAO
+T46 C99 1  RGO N99 1  0.132  T46  RGO
+T46 C99 1  RCO N99 1  0.132  T46  RCO
+T46 C99 1  RUO N99 1  0.132  T46  RUO
+T46 C99 1  RAP N99 1  0.132  T46  RAP
+T46 C99 1  RGP N99 1  0.132  T46  RGP
+T46 C99 1  RCP N99 1  0.132  T46  RCP
+T46 C99 1  RUP N99 1  0.132  T46  RUP
+T46 C99 1  DTM N99 1  0.132  T46  DTM
+T46 C99 1  RUM N99 1  0.132  T46  RUM
+T46 C99 1  RAE N99 1  0.132  T46  RAE
+T46 C99 1  RCE N99 1  0.132  T46  RCE
+T46 C99 1  DAE N99 1  0.132  T46  DAE
+T46 C99 1  DCE N99 1  0.132  T46  DCE
+T46 C99 1  RAH N99 1  0.155  T46  RAH
+T46 C99 1  RGH N99 1  0.155  T46  RGH
+T46 C99 1  RCH N99 1  0.155  T46  RCH
+T46 C99 1  RUH N99 1  0.155  T46  RUH
+T48 C99 1  DAO N99 1  0.132  T48  DAO
+T48 C99 1  DGO N99 1  0.132  T48  DGO
+T48 C99 1  DCO N99 1  0.132  T48  DCO
+T48 C99 1  DTO N99 1  0.132  T48  DTO
+T48 C99 1  DAP N99 1  0.132  T48  DAP
+T48 C99 1  DGP N99 1  0.132  T48  DGP
+T48 C99 1  DCP N99 1  0.132  T48  DCP
+T48 C99 1  DTP N99 1  0.132  T48  DTP
+T48 C99 1  RAO N99 1  0.132  T48  RAO
+T48 C99 1  RGO N99 1  0.132  T48  RGO
+T48 C99 1  RCO N99 1  0.132  T48  RCO
+T48 C99 1  RUO N99 1  0.132  T48  RUO
+T48 C99 1  RAP N99 1  0.132  T48  RAP
+T48 C99 1  RGP N99 1  0.132  T48  RGP
+T48 C99 1  RCP N99 1  0.132  T48  RCP
+T48 C99 1  RUP N99 1  0.132  T48  RUP
+T48 C99 1  DTM N99 1  0.132  T48  DTM
+T48 C99 1  RUM N99 1  0.132  T48  RUM
+T48 C99 1  RAE N99 1  0.132  T48  RAE
+T48 C99 1  RCE N99 1  0.132  T48  RCE
+T48 C99 1  DAE N99 1  0.132  T48  DAE
+T48 C99 1  DCE N99 1  0.132  T48  DCE
+T48 C99 1  RAH N99 1  0.155  T48  RAH
+T48 C99 1  RGH N99 1  0.155  T48  RGH
+T48 C99 1  RCH N99 1  0.155  T48  RCH
+T48 C99 1  RUH N99 1  0.155  T48  RUH
+T49 C99 1  DAO N99 1  0.132  T49  DAO
+T49 C99 1  DGO N99 1  0.132  T49  DGO
+T49 C99 1  DCO N99 1  0.132  T49  DCO
+T49 C99 1  DTO N99 1  0.132  T49  DTO
+T49 C99 1  DAP N99 1  0.132  T49  DAP
+T49 C99 1  DGP N99 1  0.132  T49  DGP
+T49 C99 1  DCP N99 1  0.132  T49  DCP
+T49 C99 1  DTP N99 1  0.132  T49  DTP
+T49 C99 1  RAO N99 1  0.132  T49  RAO
+T49 C99 1  RGO N99 1  0.132  T49  RGO
+T49 C99 1  RCO N99 1  0.132  T49  RCO
+T49 C99 1  RUO N99 1  0.132  T49  RUO
+T49 C99 1  RAP N99 1  0.132  T49  RAP
+T49 C99 1  RGP N99 1  0.132  T49  RGP
+T49 C99 1  RCP N99 1  0.132  T49  RCP
+T49 C99 1  RUP N99 1  0.132  T49  RUP
+T49 C99 1  DTM N99 1  0.132  T49  DTM
+T49 C99 1  RUM N99 1  0.132  T49  RUM
+T49 C99 1  RAE N99 1  0.132  T49  RAE
+T49 C99 1  RCE N99 1  0.132  T49  RCE
+T49 C99 1  DAE N99 1  0.132  T49  DAE
+T49 C99 1  DCE N99 1  0.132  T49  DCE
+T49 C99 1  RAH N99 1  0.155  T49  RAH
+T49 C99 1  RGH N99 1  0.155  T49  RGH
+T49 C99 1  RCH N99 1  0.155  T49  RCH
+T49 C99 1  RUH N99 1  0.155  T49  RUH
+T51 C99 1  DAO N99 1  0.132  T51  DAO
+T51 C99 1  DGO N99 1  0.132  T51  DGO
+T51 C99 1  DCO N99 1  0.132  T51  DCO
+T51 C99 1  DTO N99 1  0.132  T51  DTO
+T51 C99 1  DAP N99 1  0.132  T51  DAP
+T51 C99 1  DGP N99 1  0.132  T51  DGP
+T51 C99 1  DCP N99 1  0.132  T51  DCP
+T51 C99 1  DTP N99 1  0.132  T51  DTP
+T51 C99 1  RAO N99 1  0.132  T51  RAO
+T51 C99 1  RGO N99 1  0.132  T51  RGO
+T51 C99 1  RCO N99 1  0.132  T51  RCO
+T51 C99 1  RUO N99 1  0.132  T51  RUO
+T51 C99 1  RAP N99 1  0.132  T51  RAP
+T51 C99 1  RGP N99 1  0.132  T51  RGP
+T51 C99 1  RCP N99 1  0.132  T51  RCP
+T51 C99 1  RUP N99 1  0.132  T51  RUP
+T51 C99 1  DTM N99 1  0.132  T51  DTM
+T51 C99 1  RUM N99 1  0.132  T51  RUM
+T51 C99 1  RAE N99 1  0.132  T51  RAE
+T51 C99 1  RCE N99 1  0.132  T51  RCE
+T51 C99 1  DAE N99 1  0.132  T51  DAE
+T51 C99 1  DCE N99 1  0.132  T51  DCE
+T51 C99 1  RAH N99 1  0.155  T51  RAH
+T51 C99 1  RGH N99 1  0.155  T51  RGH
+T51 C99 1  RCH N99 1  0.155  T51  RCH
+T51 C99 1  RUH N99 1  0.155  T51  RUH
+T52 C99 1  DAO N99 1  0.132  T52  DAO
+T52 C99 1  DGO N99 1  0.132  T52  DGO
+T52 C99 1  DCO N99 1  0.132  T52  DCO
+T52 C99 1  DTO N99 1  0.132  T52  DTO
+T52 C99 1  DAP N99 1  0.132  T52  DAP
+T52 C99 1  DGP N99 1  0.132  T52  DGP
+T52 C99 1  DCP N99 1  0.132  T52  DCP
+T52 C99 1  DTP N99 1  0.132  T52  DTP
+T52 C99 1  RAO N99 1  0.132  T52  RAO
+T52 C99 1  RGO N99 1  0.132  T52  RGO
+T52 C99 1  RCO N99 1  0.132  T52  RCO
+T52 C99 1  RUO N99 1  0.132  T52  RUO
+T52 C99 1  RAP N99 1  0.132  T52  RAP
+T52 C99 1  RGP N99 1  0.132  T52  RGP
+T52 C99 1  RCP N99 1  0.132  T52  RCP
+T52 C99 1  RUP N99 1  0.132  T52  RUP
+T52 C99 1  DTM N99 1  0.132  T52  DTM
+T52 C99 1  RUM N99 1  0.132  T52  RUM
+T52 C99 1  RAE N99 1  0.132  T52  RAE
+T52 C99 1  RCE N99 1  0.132  T52  RCE
+T52 C99 1  DAE N99 1  0.132  T52  DAE
+T52 C99 1  DCE N99 1  0.132  T52  DCE
+T52 C99 1  RAH N99 1  0.155  T52  RAH
+T52 C99 1  RGH N99 1  0.155  T52  RGH
+T52 C99 1  RCH N99 1  0.155  T52  RCH
+T52 C99 1  RUH N99 1  0.155  T52  RUH
+T61 C99 1  DAO N99 1  0.132  T61  DAO
+T61 C99 1  DGO N99 1  0.132  T61  DGO
+T61 C99 1  DCO N99 1  0.132  T61  DCO
+T61 C99 1  DTO N99 1  0.132  T61  DTO
+T61 C99 1  DAP N99 1  0.132  T61  DAP
+T61 C99 1  DGP N99 1  0.132  T61  DGP
+T61 C99 1  DCP N99 1  0.132  T61  DCP
+T61 C99 1  DTP N99 1  0.132  T61  DTP
+T61 C99 1  RAO N99 1  0.132  T61  RAO
+T61 C99 1  RGO N99 1  0.132  T61  RGO
+T61 C99 1  RCO N99 1  0.132  T61  RCO
+T61 C99 1  RUO N99 1  0.132  T61  RUO
+T61 C99 1  RAP N99 1  0.132  T61  RAP
+T61 C99 1  RGP N99 1  0.132  T61  RGP
+T61 C99 1  RCP N99 1  0.132  T61  RCP
+T61 C99 1  RUP N99 1  0.132  T61  RUP
+T61 C99 1  DTM N99 1  0.132  T61  DTM
+T61 C99 1  RUM N99 1  0.132  T61  RUM
+T61 C99 1  RAE N99 1  0.132  T61  RAE
+T61 C99 1  RCE N99 1  0.132  T61  RCE
+T61 C99 1  DAE N99 1  0.132  T61  DAE
+T61 C99 1  DCE N99 1  0.132  T61  DCE
+T61 C99 1  RAH N99 1  0.155  T61  RAH
+T61 C99 1  RGH N99 1  0.155  T61  RGH
+T61 C99 1  RCH N99 1  0.155  T61  RCH
+T61 C99 1  RUH N99 1  0.155  T61  RUH
+ DA O3' 1  DAO   P 1  0.155   DA  DAO
+ DA O3' 1  DGO   P 1  0.155   DA  DGO
+ DA O3' 1  DCO   P 1  0.155   DA  DCO
+ DA O3' 1  DTO   P 1  0.155   DA  DTO
+DAP O3' 1   DA   P 1  0.155  DAP   DA
+DGP O3' 1   DA   P 1  0.155  DGP   DA
+DCP O3' 1   DA   P 1  0.155  DCP   DA
+DTP O3' 1   DA   P 1  0.155  DTP   DA
+DTM O3' 1   DA   P 1  0.155  DTM   DA
+ DA O3' 1  DTM   P 1  0.155   DA  DTM
+DAE O3' 1   DA   P 1  0.155  DAE   DA
+ DA O3' 1  DAE   P 1  0.155   DA  DAE
+DCE O3' 1   DA   P 1  0.155  DCE   DA
+ DA O3' 1  DCE   P 1  0.155   DA  DCE
+ DG O3' 1  DAO   P 1  0.155   DG  DAO
+ DG O3' 1  DGO   P 1  0.155   DG  DGO
+ DG O3' 1  DCO   P 1  0.155   DG  DCO
+ DG O3' 1  DTO   P 1  0.155   DG  DTO
+DAP O3' 1   DG   P 1  0.155  DAP   DG
+DGP O3' 1   DG   P 1  0.155  DGP   DG
+DCP O3' 1   DG   P 1  0.155  DCP   DG
+DTP O3' 1   DG   P 1  0.155  DTP   DG
+DTM O3' 1   DG   P 1  0.155  DTM   DG
+ DG O3' 1  DTM   P 1  0.155   DG  DTM
+DAE O3' 1   DG   P 1  0.155  DAE   DG
+ DG O3' 1  DAE   P 1  0.155   DG  DAE
+DCE O3' 1   DG   P 1  0.155  DCE   DG
+ DG O3' 1  DCE   P 1  0.155   DG  DCE
+ DC O3' 1  DAO   P 1  0.155   DC  DAO
+ DC O3' 1  DGO   P 1  0.155   DC  DGO
+ DC O3' 1  DCO   P 1  0.155   DC  DCO
+ DC O3' 1  DTO   P 1  0.155   DC  DTO
+DAP O3' 1   DC   P 1  0.155  DAP   DC
+DGP O3' 1   DC   P 1  0.155  DGP   DC
+DCP O3' 1   DC   P 1  0.155  DCP   DC
+DTP O3' 1   DC   P 1  0.155  DTP   DC
+DTM O3' 1   DC   P 1  0.155  DTM   DC
+ DC O3' 1  DTM   P 1  0.155   DC  DTM
+DAE O3' 1   DC   P 1  0.155  DAE   DC
+ DC O3' 1  DAE   P 1  0.155   DC  DAE
+DCE O3' 1   DC   P 1  0.155  DCE   DC
+ DC O3' 1  DCE   P 1  0.155   DC  DCE
+ DT O3' 1  DAO   P 1  0.155   DT  DAO
+ DT O3' 1  DGO   P 1  0.155   DT  DGO
+ DT O3' 1  DCO   P 1  0.155   DT  DCO
+ DT O3' 1  DTO   P 1  0.155   DT  DTO
+DAP O3' 1   DT   P 1  0.155  DAP   DT
+DGP O3' 1   DT   P 1  0.155  DGP   DT
+DCP O3' 1   DT   P 1  0.155  DCP   DT
+DTP O3' 1   DT   P 1  0.155  DTP   DT
+DTM O3' 1   DT   P 1  0.155  DTM   DT
+ DT O3' 1  DTM   P 1  0.155   DT  DTM
+DAE O3' 1   DT   P 1  0.155  DAE   DT
+ DT O3' 1  DAE   P 1  0.155   DT  DAE
+DCE O3' 1   DT   P 1  0.155  DCE   DT
+ DT O3' 1  DCE   P 1  0.155   DT  DCE
+ RA O3' 1  RAO   P 1  0.155   RA  RAO
+ RA O3' 1  RGO   P 1  0.155   RA  RGO
+ RA O3' 1  RCO   P 1  0.155   RA  RCO
+ RA O3' 1  RUO   P 1  0.155   RA  RUO
+ RA O3' 1  RAH   P 1  0.155   RA  RAH
+ RA O3' 1  RGH   P 1  0.155   RA  RGH
+ RA O3' 1  RCH   P 1  0.155   RA  RCH
+ RA O3' 1  RUH   P 1  0.155   RA  RUH
+RAP O3' 1   RA   P 1  0.155  RAP   RA
+RGP O3' 1   RA   P 1  0.155  RGP   RA
+RCP O3' 1   RA   P 1  0.155  RCP   RA
+RUP O3' 1   RA   P 1  0.155  RUP   RA
+RUM O3' 1   RA   P 1  0.155  RUM   RA
+ RA O3' 1  RUM   P 1  0.155   RA  RUM
+RAE O3' 1   RA   P 1  0.155  RAE   RA
+ RA O3' 1  RAE   P 1  0.155   RA  RAE
+RCE O3' 1   RA   P 1  0.155  RCE   RA
+ RA O3' 1  RCE   P 1  0.155   RA  RCE
+ RG O3' 1  RAO   P 1  0.155   RG  RAO
+ RG O3' 1  RGO   P 1  0.155   RG  RGO
+ RG O3' 1  RCO   P 1  0.155   RG  RCO
+ RG O3' 1  RUO   P 1  0.155   RG  RUO
+ RG O3' 1  RAH   P 1  0.155   RG  RAH
+ RG O3' 1  RGH   P 1  0.155   RG  RGH
+ RG O3' 1  RCH   P 1  0.155   RG  RCH
+ RG O3' 1  RUH   P 1  0.155   RG  RUH
+RAP O3' 1   RG   P 1  0.155  RAP   RG
+RGP O3' 1   RG   P 1  0.155  RGP   RG
+RCP O3' 1   RG   P 1  0.155  RCP   RG
+RUP O3' 1   RG   P 1  0.155  RUP   RG
+RUM O3' 1   RG   P 1  0.155  RUM   RG
+ RG O3' 1  RUM   P 1  0.155   RG  RUM
+RAE O3' 1   RG   P 1  0.155  RAE   RG
+ RG O3' 1  RAE   P 1  0.155   RG  RAE
+RCE O3' 1   RG   P 1  0.155  RCE   RG
+ RG O3' 1  RCE   P 1  0.155   RG  RCE
+ RC O3' 1  RAO   P 1  0.155   RC  RAO
+ RC O3' 1  RGO   P 1  0.155   RC  RGO
+ RC O3' 1  RCO   P 1  0.155   RC  RCO
+ RC O3' 1  RUO   P 1  0.155   RC  RUO
+ RC O3' 1  RAH   P 1  0.155   RC  RAH
+ RC O3' 1  RGH   P 1  0.155   RC  RGH
+ RC O3' 1  RCH   P 1  0.155   RC  RCH
+ RC O3' 1  RUH   P 1  0.155   RC  RUH
+RAP O3' 1   RC   P 1  0.155  RAP   RC
+RGP O3' 1   RC   P 1  0.155  RGP   RC
+RCP O3' 1   RC   P 1  0.155  RCP   RC
+RUP O3' 1   RC   P 1  0.155  RUP   RC
+RUM O3' 1   RC   P 1  0.155  RUM   RC
+ RC O3' 1  RUM   P 1  0.155   RC  RUM
+RAE O3' 1   RC   P 1  0.155  RAE   RC
+ RC O3' 1  RAE   P 1  0.155   RC  RAE
+RCE O3' 1   RC   P 1  0.155  RCE   RC
+ RC O3' 1  RCE   P 1  0.155   RC  RCE
+ RU O3' 1  RAO   P 1  0.155   RU  RAO
+ RU O3' 1  RGO   P 1  0.155   RU  RGO
+ RU O3' 1  RCO   P 1  0.155   RU  RCO
+ RU O3' 1  RUO   P 1  0.155   RU  RUO
+ RU O3' 1  RAH   P 1  0.155   RU  RAH
+ RU O3' 1  RGH   P 1  0.155   RU  RGH
+ RU O3' 1  RCH   P 1  0.155   RU  RCH
+ RU O3' 1  RUH   P 1  0.155   RU  RUH
+RAP O3' 1   RU   P 1  0.155  RAP   RU
+RGP O3' 1   RU   P 1  0.155  RGP   RU
+RCP O3' 1   RU   P 1  0.155  RCP   RU
+RUP O3' 1   RU   P 1  0.155  RUP   RU
+RUM O3' 1   RU   P 1  0.155  RUM   RU
+ RU O3' 1  RUM   P 1  0.155   RU  RUM
+RAE O3' 1   RU   P 1  0.155  RAE   RU
+ RU O3' 1  RAE   P 1  0.155   RU  RAE
+RCE O3' 1   RU   P 1  0.155  RCE   RU
+ RU O3' 1  RCE   P 1  0.155   RU  RCE
+  A O3' 1  RAO   P 1  0.155    A  RAO
+  A O3' 1  RGO   P 1  0.155    A  RGO
+  A O3' 1  RCO   P 1  0.155    A  RCO
+  A O3' 1  RUO   P 1  0.155    A  RUO
+  A O3' 1  RAH   P 1  0.155    A  RAH
+  A O3' 1  RGH   P 1  0.155    A  RGH
+  A O3' 1  RCH   P 1  0.155    A  RCH
+  A O3' 1  RUH   P 1  0.155    A  RUH
+RAP O3' 1    A   P 1  0.155  RAP    A
+RGP O3' 1    A   P 1  0.155  RGP    A
+RCP O3' 1    A   P 1  0.155  RCP    A
+RUP O3' 1    A   P 1  0.155  RUP    A
+RUM O3' 1    A   P 1  0.155  RUM    A
+  A O3' 1  RUM   P 1  0.155    A  RUM
+RAE O3' 1    A   P 1  0.155  RAE    A
+  A O3' 1  RAE   P 1  0.155    A  RAE
+RCE O3' 1    A   P 1  0.155  RCE    A
+  A O3' 1  RCE   P 1  0.155    A  RCE
+  G O3' 1  RAO   P 1  0.155    G  RAO
+  G O3' 1  RGO   P 1  0.155    G  RGO
+  G O3' 1  RCO   P 1  0.155    G  RCO
+  G O3' 1  RUO   P 1  0.155    G  RUO
+  G O3' 1  RAH   P 1  0.155    G  RAH
+  G O3' 1  RGH   P 1  0.155    G  RGH
+  G O3' 1  RCH   P 1  0.155    G  RCH
+  G O3' 1  RUH   P 1  0.155    G  RUH
+RAP O3' 1    G   P 1  0.155  RAP    G
+RGP O3' 1    G   P 1  0.155  RGP    G
+RCP O3' 1    G   P 1  0.155  RCP    G
+RUP O3' 1    G   P 1  0.155  RUP    G
+RUM O3' 1    G   P 1  0.155  RUM    G
+  G O3' 1  RUM   P 1  0.155    G  RUM
+RAE O3' 1    G   P 1  0.155  RAE    G
+  G O3' 1  RAE   P 1  0.155    G  RAE
+RCE O3' 1    G   P 1  0.155  RCE    G
+  G O3' 1  RCE   P 1  0.155    G  RCE
+  C O3' 1  RAO   P 1  0.155    C  RAO
+  C O3' 1  RGO   P 1  0.155    C  RGO
+  C O3' 1  RCO   P 1  0.155    C  RCO
+  C O3' 1  RUO   P 1  0.155    C  RUO
+  C O3' 1  RAH   P 1  0.155    C  RAH
+  C O3' 1  RGH   P 1  0.155    C  RGH
+  C O3' 1  RCH   P 1  0.155    C  RCH
+  C O3' 1  RUH   P 1  0.155    C  RUH
+RAP O3' 1    C   P 1  0.155  RAP    C
+RGP O3' 1    C   P 1  0.155  RGP    C
+RCP O3' 1    C   P 1  0.155  RCP    C
+RUP O3' 1    C   P 1  0.155  RUP    C
+RUM O3' 1    C   P 1  0.155  RUM    C
+  C O3' 1  RUM   P 1  0.155    C  RUM
+RAE O3' 1    C   P 1  0.155  RAE    C
+  C O3' 1  RAE   P 1  0.155    C  RAE
+RCE O3' 1    C   P 1  0.155  RCE    C
+  C O3' 1  RCE   P 1  0.155    C  RCE
+  U O3' 1  RAO   P 1  0.155    U  RAO
+  U O3' 1  RGO   P 1  0.155    U  RGO
+  U O3' 1  RCO   P 1  0.155    U  RCO
+  U O3' 1  RUO   P 1  0.155    U  RUO
+  U O3' 1  RAH   P 1  0.155    U  RAH
+  U O3' 1  RGH   P 1  0.155    U  RGH
+  U O3' 1  RCH   P 1  0.155    U  RCH
+  U O3' 1  RUH   P 1  0.155    U  RUH
+RAP O3' 1    U   P 1  0.155  RAP    U
+RGP O3' 1    U   P 1  0.155  RGP    U
+RCP O3' 1    U   P 1  0.155  RCP    U
+RUP O3' 1    U   P 1  0.155  RUP    U
+RUM O3' 1    U   P 1  0.155  RUM    U
+  U O3' 1  RUM   P 1  0.155    U  RUM
+RAE O3' 1    U   P 1  0.155  RAE    U
+  U O3' 1  RAE   P 1  0.155    U  RAE
+RCE O3' 1    U   P 1  0.155  RCE    U
+  U O3' 1  RCE   P 1  0.155    U  RCE
