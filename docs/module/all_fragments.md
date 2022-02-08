@@ -782,19 +782,20 @@ The dinucleotides are differentiated by their `subst_id`.
 ```
 
 ```python
-moleculetypes = [{'base':'DA', '5':'DAP', '3':'DAO'},
-       {'base':'DG', '5':'DGP', '3':'DGO'},
-       {'base':'DC', '5':'DCP', '3':'DCO'},
-       {'base':'DT', '5':'DTP', '3':'DTO'},
-       {'base':'RA', '5':'RAP', '3':'RAO'},
-       {'base':'RG', '5':'RGP', '3':'RGO'},
-       {'base':'RC', '5':'RCP', '3':'RCO'},
-       {'base':'RU', '5':'RUP', '3':'RUO'},
-       {'base':'RU', '5':'RAP', '3':'RAH'},
-       {'base':'RU', '5':'RGP', '3':'RGH'},
-       {'base':'RU', '5':'RCP', '3':'RCH'},
-       {'base':'RU', '5':'RUP', '3':'RUH'}]
+moleculetypes = [{'base':'DA', '5':'DAP', '3':'DAO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DG', '5':'DGP', '3':'DGO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DC', '5':'DCP', '3':'DCO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'DT', '5':'DTP', '3':'DTO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RA', '5':'RAP', '3':'RAO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RG', '5':'RGP', '3':'RGO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RC', '5':'RCP', '3':'RCO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RU', '5':'RUP', '3':'RUO', '5_substr':[1,2], '3_substr':[2,3]},
+       {'base':'RA', '5':'RAP', '3':'RAH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RG', '5':'RGP', '3':'RGH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RC', '5':'RCP', '3':'RCH', '5_substr':None, '3_substr':[2,3]},
+       {'base':'RU', '5':'RUP', '3':'RUH', '5_substr':None, '3_substr':[2,3]}]
 
+#moleculetypes = [ {'base':'RA', '5':'RGP', '3':'RGO', '5_substr':[1,2], '3_substr':[2,3]}]
 for end in moleculetypes:
     fusion_itp = fl.ff.Molecule.read_molecule('fragments/5_acpype/{}_{}_ff.acpype/{}_{}_ff_GMX.itp'.format(end['5'],end['3'],end['5'],end['3']), 'FRETLABEL')
     if 'H' not in end['3']:
@@ -803,14 +804,16 @@ for end in moleculetypes:
     amberdyes_ff.append(baselinkers_ff['{}_{}'.format(end['5'],end['3'])])
         
     ff_mol2 = PandasMol2().read_mol2('fragments/5_acpype/{}_{}_ff.mol2'.format(end['5'],end['3']))
-    atoms5 = fusion_itp.atoms[(ff_mol2.df['subst_id']==1) | (ff_mol2.df['subst_id']==2)]
-    atoms3 = fusion_itp.atoms[(ff_mol2.df['subst_id']==2) | (ff_mol2.df['subst_id']==3)]
-    bonds5 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms5['nr']) & fusion_itp.bonds['j'].isin(atoms5['nr'])]
+    if end['5_substr']:
+        atoms5 = fusion_itp.atoms[(ff_mol2.df['subst_id']==end['5_substr'][0]) | (ff_mol2.df['subst_id']==end['5_substr'][1])]
+        bonds5 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms5['nr']) & fusion_itp.bonds['j'].isin(atoms5['nr'])]
+        impropers5 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms5['nr']) & fusion_itp.impropers['j'].isin(atoms5['nr']) & fusion_itp.impropers['k'].isin(atoms5['nr']) & fusion_itp.impropers['l'].isin(atoms5['nr'])]
+    atoms3 = fusion_itp.atoms[(ff_mol2.df['subst_id']==end['3_substr'][0]) | (ff_mol2.df['subst_id']==end['3_substr'][1])]
     bonds3 = fusion_itp.bonds[fusion_itp.bonds['i'].isin(atoms3['nr']) & fusion_itp.bonds['j'].isin(atoms3['nr'])]
-    impropers5 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms5['nr']) & fusion_itp.impropers['j'].isin(atoms5['nr']) & fusion_itp.impropers['k'].isin(atoms5['nr']) & fusion_itp.impropers['l'].isin(atoms5['nr'])]
     impropers3 = fusion_itp.impropers[fusion_itp.impropers['i'].isin(atoms3['nr']) & fusion_itp.impropers['j'].isin(atoms3['nr']) & fusion_itp.impropers['k'].isin(atoms3['nr']) & fusion_itp.impropers['l'].isin(atoms3['nr'])]
     
-    baselinkers_itp[end['5']] = fl.ff.Molecule(end['5'], atoms5, bonds5, None, None, impropers5)
+    if end['5_substr']:
+        baselinkers_itp[end['5']] = fl.ff.Molecule(end['5'], atoms5, bonds5, None, None, impropers5)
     baselinkers_itp[end['3']] = fl.ff.Molecule(end['3'], atoms3, bonds3, None, None, impropers3)
     for a in ['O98', 'C16', 'C17', 'H95', 'H96', 'H97']:
         baselinkers_itp[end['5']].remove_atom(a)
@@ -873,6 +876,7 @@ atoms_amberdyes = {'bondtypes' : [['ng', 'cg']],
                                     ['X', 'C', 'N', 'X'],
                                     ['X', 'C', 'N', 'X']],
                    'impropertypes': [['C', 'CB', 'CB', 'NB'],
+                                     ['C', 'CB', 'CB', 'NB']
                                      ['CB', 'N*', 'CB', 'NC']]
                   }
 
@@ -892,6 +896,7 @@ atoms_linker = {'bondtypes': [['N', 'cg']],
                                 ['c3g', 'cg', 'N', 'NT'],
                                 ['og', 'cg', 'N', 'NT']],
                'impropertypes': [['CB', 'CB', 'C', 'NB'],
+                                 ['CB', 'CB', 'CA', 'NB'],
                                  ['NC', 'CB', 'CB', 'N*']]
                }
 ```
@@ -906,7 +911,7 @@ atoms_linker2 = {'propertypes' : [['c3g', 'cg', 'N', 'NT'],
 ```
 
 ```python
-specialbond_ff = fl.ff.Parameters.read_specialbond(amberdyes_ff, atoms_amberdyes, atoms_linker)
+specialbond_ff = fl.ff.Parameters.read_specialbond(amberdyes_ff, atoms_amberdyes, atoms_linker, "AMBER-DYES")
 specialbond2_ff = fl.ff.Parameters.read_specialbond(amber14sb_ff, atoms_amberdyes2, atoms_linker2, 'AMBER14sb')
 
 amberdyes_ff.append(specialbond_ff)
