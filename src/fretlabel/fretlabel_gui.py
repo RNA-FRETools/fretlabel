@@ -333,7 +333,7 @@ class App(QtWidgets.QWidget):
                     )
         cmd.deselect()
 
-    def readPDB(self, fileNamePath_pdb=None):
+    def readPDB(self, fileNamePath_pdb=False):
         """
         Load PDB or CIF file
 
@@ -341,14 +341,13 @@ class App(QtWidgets.QWidget):
         ----------
         fileNamePath_pdb : str
         """
-        if fileNamePath_pdb is None:
-            self.fileNamePath_pdb, _ = pathlib.Path(
-                QtWidgets.QFileDialog.getOpenFileName(
-                    self, "Load PDB / CIF", "", "PDB / CIF file (*.pdb *cif);;All Files (*)"
-                )
+        if not fileNamePath_pdb:
+            self.fileNamePath_pdb, _ = QtWidgets.QFileDialog.getOpenFileName(
+                self, "Load PDB / CIF", "", "PDB / CIF file (*.pdb *cif);;All Files (*)"
             )
         else:
-            self.fileNamePath_pdb = pathlib.Path(fileNamePath_pdb)
+            self.fileNamePath_pdb = fileNamePath_pdb
+        self.fileNamePath_pdb = pathlib.Path(self.fileNamePath_pdb)
         if self.fileNamePath_pdb:
             self.fileName_pdb = self.fileNamePath_pdb.name
             with open(self.fileNamePath_pdb, "r") as f:
@@ -588,12 +587,13 @@ class App(QtWidgets.QWidget):
         filename, filetype = QtWidgets.QFileDialog.getSaveFileName(
             self, "Save PDB", "", "PDB File (*.pdb);;CIF File (*.cif)"
         )
-        cmd.set("pdb_use_ter_records", 0)
-        cmd.set("pdb_conect_all", 1)
-        cmd.sort(self.fileName_pdb[:-4])
-        cmd.save(filename, self.fileName_pdb[:-4], -1, filetype[0:3].lower())
-        if self.pdb_altered == True:
-            self.alter_nucleic(direction="forward")
+        if filename:
+            cmd.set("pdb_use_ter_records", 0)
+            cmd.set("pdb_conect_all", 1)
+            cmd.sort(self.fileName_pdb[:-4])
+            cmd.save(filename, self.fileName_pdb[:-4], -1, filetype[0:3].lower())
+            if self.pdb_altered == True:
+                self.alter_nucleic(direction="forward")
 
     def set_browser(self):
         """

@@ -12,8 +12,8 @@ jobs:
     runs-on: ${{ matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: [3.7,3.8,3.9]
+        os: [ubuntu-latest]
+        python-version: [3.9]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -21,46 +21,12 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Get Poetry for Linux/macOS
-      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
       env:
         POETRY_HOME: ${{ github.workspace }}
       run: |
         curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
         echo "$POETRY_HOME/bin" >> $GITHUB_PATH
-    - name: Get Poetry for Windows
-      if: matrix.os == 'windows-latest'
-      env:
-        POETRY_HOME: ${{ github.workspace }}
-      run: |
-        (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
-        echo "$env:POETRY_HOME\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-    - name: Build package  
+    - name: Build package for all platforms 
       run: |
         poetry build
-    - name: Upload build artefact
-      uses: actions/upload-artifact@v2
-      with:
-        name: fretlabel-dist
-        path: dist
-        retention-days: 1
-
-  publish:
-    needs: build
-    if: github.repository == 'fdsteffen/fretlabel' 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Download build artefacts
-      uses: actions/download-artifact@v2
-      with:
-        name: fretlabel-dist
-        path: dist
-    - name: Publish to PyPI
-      env:
-        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-      run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-        source $HOME/.poetry/env
         poetry publish
-        
-
