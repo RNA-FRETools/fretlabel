@@ -26,7 +26,9 @@ jobs:
       run: |
         curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
         echo "$POETRY_HOME/bin" >> $GITHUB_PATH
-    - name: Build package for all platforms 
+    - name: Build package for all platforms
+      env:
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
       run: |
         poetry build
         poetry publish
