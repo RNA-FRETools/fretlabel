@@ -17,7 +17,7 @@ kernelspec:
 In this tutorial we will create a new dye-linker-nucleotide fragment which can be referenced by the **FluorLabel** PyMOL plugin. Before starting, make sure you have the following components installed on your machine:
 
 - FRETlabel
-- PyMOL
+- PyMOL 2.3 (PyMOL 2.4/2.5 crash upon `cmd.pair_fit`)
 - Antechamber (part of [AmberTools19](https://ambermd.org/GetAmber.php#ambertools))
 - [Acpype](https://alanwilter.github.io/acpype/)
 
@@ -79,7 +79,7 @@ name=MLE_capped
 input_folder='in/'
 output_folder='out/'
 
-cd fragments/linkers/MLE/
+cd fragments/2_linkers/MLE/
 antechamber -i "$input_folder/$name".mol2 -fi mol2 -o "$output_folder/$name".gin -fo gcrt -gv 1 -ge "$output_folder/$name".gesp -ch "$output_folder/$name"_opt -nc 0
 ```
 
@@ -236,7 +236,7 @@ Attach the dye to the base-linker and save the whole base-linker-dye fragment as
 ```python
 dye = 'C3W'
 fl.ff.pymol_couple_dye2baselinker(f'fragments/3_dyes/{dye}.mol2', f'fragments/4_base_linkers/{base_resn[1]}.mol2', 'C99', ['C17', 'O98', 'C16'],['O98', 'C16', 'C17', 'H95', 'H96', 'H97'])
-fl.ff.pymol_save_molecule(f'src/fretlabel/dyes/{dye}_{base_resn[1]}.pdb', '{dye}_{base_resn[1]}', 'pdb', overwrite=False)
+fl.ff.pymol_save_molecule(f'src/fretlabel/dyes/{dye}_{base_resn[1]}.pdb', f'{dye}_{base_resn[1]}', 'pdb', overwrite=False)
 ```
 
 +++
@@ -281,12 +281,20 @@ The frcmod file is formatted for use with the AMBER MD programs LEaP and Sander.
 ```
 
 ```{code-cell} ipython3
-fretlabel_itp = fl.ff.Molecule.read_molecule('fragments/5_acpype/DTM_ff.acpype/DTM_ff_GMX.itp', 'FRETLABEL')
+import fretlabel as fl
+```
+
+```{code-cell} ipython3
+%cd ../../
+```
+
+```{code-cell} ipython3
+baselinker_itp = fl.ff.Molecule.read_molecule('fragments/5_acpype/DTM_ff.acpype/DTM_ff_GMX.itp', 'FRETLABEL')
 # change the atom type of O3' from O to OS since this residue is internal and not terminal
-fretlabel_itp.change_type('O3\'', 'OS')
+baselinker_itp.change_type('O3\'', 'OS')
 for a in ['O98', 'C16', 'C17', 'H95', 'H96', 'H97']:
-    fretlabel_itp.remove_atom(a)
-fretlabel_ff = fl.ff.Parameters.read_frcmod('fragments/5_acpype/DTM_ff.acpype/DTM_ff_AC.frcmod', fretlabel_itp.atomtypes_molecule)
+    baselinker_itp.remove_atom(a)
+baselinkers_ff = fl.ff.Parameters.read_frcmod('fragments/5_acpype/DTM_ff.acpype/DTM_ff_AC.frcmod', fretlabel_itp.atomtypes_molecule)
 ```
 
 Next, we load in the force field parameters from AMBER-DYES
@@ -327,27 +335,34 @@ atoms_linker = {'bondtypes': [['N', 'cg']],
 specialbond_ff = fl.ff.Parameters.read_specialbond(amberdyes_ff, atoms_amberdyes, atoms_linker)
 ```
 
-The parameters for the dyes (in `amberdyes_ff`), the linker (in `fretlabel_ff`) and the bond linking the two (in `specialbond_ff`) can now be added to the force field of your choice (here: `amber14sb_OL15.ff`)
+Append the parameters of the linker (in `baselinkers_ff`) and the bond linking the dye and the linker (in `specialbond_ff`) to the dye parameters (in `amberdyes_ff`) 
 
 ```{code-cell} ipython3
-fl.ff.write_ff('ff14sb', amberdyes_ff, fretlabel_ff, specialbond_ff, 'out/')
+amberdyes_ff.append(baselinkers_ff)
+amberdyes_ff.append(specialbond_ff)
+```
+
+Write new `ffnonbonded.itp` and `ffbonded.itp` files of the combined forcefield (`amber14sb`, `amberdyes_ff`, `baselinkers_ff` and `specialbond_ff`) into a directory 4_fretlabel/.
+
+```{code-cell} ipython3
+amberdyes_ff.add2ff('forcefields/3_amber14sb_DTM', 'forcefields/4_fretlabel/')
 ```
 
 Write a residue topology file (**rtp**) for the linker atoms, bonds and proper dihedrals
 
 ```{code-cell} ipython3
-fretlabel_itp.write_rtp('out/DTM.rtp')
+fl.ff.write_rtp('forcefields/4_fretlabel/fretlabel_DTM.rtp', [baselinker_itp])
 ```
 
 Update the **specbond.dat** file with the bond between the dye and the linker.
 
 ```{code-cell} ipython3
-fl.ff.update_specbond('C3W C99 1 DTM N99 1 0.160 C3W DTM', '../forcefields/2_amberdyes/specbond_amberdyes.dat', 'out/specbond.dat')
+fl.ff.update_specbond('C3W C99 1 DTM N99 1 0.160 C3W DTM', 'forcefields/2_amberdyes/specbond_amberdyes.dat', 'forcefields/4_fretlabel/specbond_DTM.dat')
 ```
 
 Update the **residuetypes.dat** file with the types of the the dye and the new fragment.
 
 ```{code-cell} ipython3
-fl.ff.update_residuetypes('C3W DNA', '../forcefields/2_amberdyes/residuetypes_amberdyes.dat', 'out/residuetypes.dat', overwrite=True)
-fl.ff.update_residuetypes('DTM DNA', 'out/residuetypes.dat', 'out/residuetypes.dat', overwrite=True)
+fl.ff.update_residuetypes('C3W DNA', 'forcefields/2_amberdyes/residuetypes_amberdyes.dat', 'forcefields/4_fretlabel/residuetypes_DTM.dat', overwrite=True)
+fl.ff.update_residuetypes('DTM DNA', 'forcefields/4_fretlabel/residuetypes_DTM.dat', 'forcefields/4_fretlabel/residuetypes_DTM.dat', overwrite=True)
 ```

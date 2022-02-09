@@ -200,17 +200,17 @@ def write_mol2(pandasMol2, filename=None, overwrite=False):
             f.write(mol2filestr)
 
 
-def write_rtp(filename, molecule):
+def write_rtp(filename, molecules):
     """
     Write a residue topology parameter (rtp) file
 
     Parameters
     ----------
     filename : str
-    molecule : str
+    molecule : list of ff.Molecule instances
     """
-    if type(molecule) is not list:
-        molecule = [molecule]
+    if type(molecules) is not list:
+        molecules = [molecules]
 
     with open(filename, "w") as f:
         f.write(
@@ -226,7 +226,7 @@ def write_rtp(filename, molecule):
     ; bonds  angles  dihedrals  impropers all_dihedrals nrexcl HH14 RemoveDih
     1       1          9          4        1         3      1     0\n\n"""
         )
-        for mol in molecule:
+        for mol in molecules:
             f.write("[ {} ]\n".format(mol.moleculetype))
             f.write("[ atoms ]\n")
             f.write(mol.atoms[["atom", "type", "charge", "nr"]].to_string(header=False, index=False))

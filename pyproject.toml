@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fretlabel"
-version = "0.1.0"
+version = "0.2.0-alpha.0"
 description = "PyMOL plugin to interactively label nucleic acids with fluorophores in silico"
 authors = [
     "Fabio Steffen <fabio.steffen@chem.uzh.ch>", 

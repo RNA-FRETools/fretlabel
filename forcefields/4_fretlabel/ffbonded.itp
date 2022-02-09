@@ -1189,8 +1189,8 @@ cwg cag cag hag 4 180.00  4.60240    2                     ; AMBER-DYES
  CM  N*  CB  NB 4  180.0  4.60548  2.0                      ; FRETLABEL
  CB  CM  CM  HA 4  180.0  4.60548  2.0                      ; FRETLABEL
  CB  CB   C  NB 4  180.0  4.60548  2.0  ; same as AMBER-DYES C-CB-CB-NB
- NC  CB  CB  N* 4  180.0  4.60548  2.0 ; same as AMBER-DYES CB-N*-CB-NC
  CB  CB  CA  NB 4  180.0  4.60548  2.0  ; same as AMBER-DYES C-CB-CB-NB
+ NC  CB  CB  N* 4  180.0  4.60548  2.0 ; same as AMBER-DYES CB-N*-CB-NC
 Br  CA  CA  CA       4      180.00     4.60240     2
 C4  N2  CA  NC       4      180.00     4.60240     2
 C1  N2  CA  NC       4      180.00     4.60240     2
