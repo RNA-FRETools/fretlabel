@@ -40,20 +40,20 @@ jobs:
     - name: Upload build artefact
       uses: actions/upload-artifact@v2
       with:
-        name: fretraj-dist
+        name: fretlabel-dist
         path: dist
         retention-days: 1
 
   publish:
     needs: build
-    if: github.repository == 'fdsteffen/fretraj' 
+    if: github.repository == 'fdsteffen/fretlabel' 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Download build artefacts
       uses: actions/download-artifact@v2
       with:
-        name: fretraj-dist
+        name: fretlabel-dist
         path: dist
     - name: Publish to PyPI
       env:
