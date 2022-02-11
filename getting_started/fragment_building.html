@@ -381,7 +381,7 @@
 <p>In this tutorial we will create a new dye-linker-nucleotide fragment which can be referenced by the <strong>FluorLabel</strong> PyMOL plugin. Before starting, make sure you have the following components installed on your machine:</p>
 <ul class="simple">
 <li><p>FRETlabel</p></li>
-<li><p>PyMOL</p></li>
+<li><p>PyMOL 2.3 (PyMOL 2.4/2.5 crash upon <code class="docutils literal notranslate"><span class="pre">cmd.pair_fit</span></code>)</p></li>
 <li><p>Antechamber (part of <a class="reference external" href="https://ambermd.org/GetAmber.php#ambertools">AmberTools19</a>)</p></li>
 <li><p><a class="reference external" href="https://alanwilter.github.io/acpype/">Acpype</a></p></li>
 </ul>
@@ -434,7 +434,7 @@ Dye parameters for the CHARMM package have also recently been released (Shaw, <e
 <span class="nv">input_folder</span><span class="o">=</span><span class="s1">&#39;in/&#39;</span>
 <span class="nv">output_folder</span><span class="o">=</span><span class="s1">&#39;out/&#39;</span>
 
-<span class="nb">cd</span> fragments/linkers/MLE/
+<span class="nb">cd</span> fragments/2_linkers/MLE/
 antechamber -i <span class="s2">&quot;</span><span class="nv">$input_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.mol2 -fi mol2 -o <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gin -fo gcrt -gv <span class="m">1</span> -ge <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>.gesp -ch <span class="s2">&quot;</span><span class="nv">$output_folder</span><span class="s2">/</span><span class="nv">$name</span><span class="s2">&quot;</span>_opt -nc <span class="m">0</span>
 </pre></div>
 </div>
@@ -569,7 +569,7 @@ antechamber -i <span class="s2">&quot;</span><span class="nv">$output_folder</sp
 <p>Attach the dye to the base-linker and save the whole base-linker-dye fragment as a <strong>pdb</strong> file under <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dyes/</span></code> where it can be accessed by the PyMOL plugin <em>FRETlabel</em>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dye</span> <span class="o">=</span> <span class="s1">&#39;C3W&#39;</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_couple_dye2baselinker</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fragments/3_dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.mol2&#39;</span><span class="p">,</span> <span class="s1">&#39;C99&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">],[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">])</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;src/fretlabel/dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{dye}</span><span class="s1">_</span><span class="si">{base_resn[1]}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_save_molecule</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;src/fretlabel/dyes/</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">.pdb&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dye</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Finally, add a new entry to <code class="docutils literal notranslate"><span class="pre">src/fretlabel/dye_library.json</span></code> and indicate the filename of your fragment, the dye, the base, the position and the alignment method (base or backbone).</p>
@@ -609,12 +609,26 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fretlabel_itp</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_GMX.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;FRETLABEL&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">../../</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">baselinker_itp</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Molecule</span><span class="o">.</span><span class="n">read_molecule</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_GMX.itp&#39;</span><span class="p">,</span> <span class="s1">&#39;FRETLABEL&#39;</span><span class="p">)</span>
 <span class="c1"># change the atom type of O3&#39; from O to OS since this residue is internal and not terminal</span>
-<span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span>
+<span class="n">baselinker_itp</span><span class="o">.</span><span class="n">change_type</span><span class="p">(</span><span class="s1">&#39;O3</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OS&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;O98&#39;</span><span class="p">,</span> <span class="s1">&#39;C16&#39;</span><span class="p">,</span> <span class="s1">&#39;C17&#39;</span><span class="p">,</span> <span class="s1">&#39;H95&#39;</span><span class="p">,</span> <span class="s1">&#39;H96&#39;</span><span class="p">,</span> <span class="s1">&#39;H97&#39;</span><span class="p">]:</span>
-    <span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">fretlabel_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_AC.frcmod&#39;</span><span class="p">,</span> <span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
+    <span class="n">baselinker_itp</span><span class="o">.</span><span class="n">remove_atom</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">baselinkers_ff</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">Parameters</span><span class="o">.</span><span class="n">read_frcmod</span><span class="p">(</span><span class="s1">&#39;fragments/5_acpype/DTM_ff.acpype/DTM_ff_AC.frcmod&#39;</span><span class="p">,</span> <span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">atomtypes_molecule</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,10 +678,19 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 </div>
 </div>
 </div>
-<p>The parameters for the dyes (in <code class="docutils literal notranslate"><span class="pre">amberdyes_ff</span></code>), the linker (in <code class="docutils literal notranslate"><span class="pre">fretlabel_ff</span></code>) and the bond linking the two (in <code class="docutils literal notranslate"><span class="pre">specialbond_ff</span></code>) can now be added to the force field of your choice (here: <code class="docutils literal notranslate"><span class="pre">amber14sb_OL15.ff</span></code>)</p>
+<p>Append the parameters of the linker (in <code class="docutils literal notranslate"><span class="pre">baselinkers_ff</span></code>) and the bond linking the dye and the linker (in <code class="docutils literal notranslate"><span class="pre">specialbond_ff</span></code>) to the dye parameters (in <code class="docutils literal notranslate"><span class="pre">amberdyes_ff</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_ff</span><span class="p">(</span><span class="s1">&#39;ff14sb&#39;</span><span class="p">,</span> <span class="n">amberdyes_ff</span><span class="p">,</span> <span class="n">fretlabel_ff</span><span class="p">,</span> <span class="n">specialbond_ff</span><span class="p">,</span> <span class="s1">&#39;out/&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baselinkers_ff</span><span class="p">)</span>
+<span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">specialbond_ff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write new <code class="docutils literal notranslate"><span class="pre">ffnonbonded.itp</span></code> and <code class="docutils literal notranslate"><span class="pre">ffbonded.itp</span></code> files of the combined forcefield (<code class="docutils literal notranslate"><span class="pre">amber14sb</span></code>, <code class="docutils literal notranslate"><span class="pre">amberdyes_ff</span></code>, <code class="docutils literal notranslate"><span class="pre">baselinkers_ff</span></code> and <code class="docutils literal notranslate"><span class="pre">specialbond_ff</span></code>) into a directory 4_fretlabel/.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">add2ff</span><span class="p">(</span><span class="s1">&#39;forcefields/3_amber14sb_DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -675,7 +698,7 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Write a residue topology file (<strong>rtp</strong>) for the linker atoms, bonds and proper dihedrals</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fretlabel_itp</span><span class="o">.</span><span class="n">write_rtp</span><span class="p">(</span><span class="s1">&#39;out/DTM.rtp&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">write_rtp</span><span class="p">(</span><span class="s1">&#39;forcefields/4_fretlabel/fretlabel_DTM.rtp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">baselinker_itp</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -683,7 +706,7 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Update the <strong>specbond.dat</strong> file with the bond between the dye and the linker.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;C3W C99 1 DTM N99 1 0.160 C3W DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/2_amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/specbond.dat&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_specbond</span><span class="p">(</span><span class="s1">&#39;C3W C99 1 DTM N99 1 0.160 C3W DTM&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/2_amberdyes/specbond_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/specbond_DTM.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -691,8 +714,8 @@ acpype -i <span class="s2">&quot;</span><span class="si">${</span><span class="n
 <p>Update the <strong>residuetypes.dat</strong> file with the types of the the dye and the new fragment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;../forcefields/2_amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;DTM DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;out/residuetypes.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;C3W DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/2_amberdyes/residuetypes_amberdyes.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/residuetypes_DTM.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">update_residuetypes</span><span class="p">(</span><span class="s1">&#39;DTM DNA&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/residuetypes_DTM.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/residuetypes_DTM.dat&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -40,8 +40,8 @@ Depending on your operating system and preference there are multiple options to 
 As an alternative to the native installation outlined above, you may also use a Docker image with PyMOL and *FRETlabel* preinstalled. Make sure you have [Docker](https://www.docker.com/products/docker-desktop) and an X11 server installed (e.g. [VcXsrv](https://sourceforge.net/projects/vcxsrv/) for Windows, configured with `Wgl="False"` and `DisableAC="True"`). Then pull and run the image from DockerHub (replace `hostdir` with a directory on your host system that you would like to mount into the image)
 
 ```
-docker pull fdsteffen/fretlabel-pymol
-docker run -e DISPLAY=host.docker.internal:0 fdsteffen/fretlabel-pymol -v hostdir:/mnt
+docker pull fdsteffen/fretlabel-pymol:latest
+docker run -e DISPLAY=host.docker.internal:0 -v hostdir:/mnt fdsteffen/fretlabel-pymol
 ```
 
 ```{admonition} Incentive or open-source PyMOL

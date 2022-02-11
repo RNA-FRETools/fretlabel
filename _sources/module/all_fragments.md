@@ -471,6 +471,7 @@ resp_fit.sh -n POS_capped -i 'in/' -o 'out/' -g POS_capping_groups_3prime_RNA.da
 First couple the bases and the POS linker, then add the dye.
 
 ```python
+python
 names_methyl = ['C01','H01','H02','H03']
 
 base_resn = ('deoxythymidine', 'DTO')
@@ -505,6 +506,7 @@ cmd.bond('{} and name P1 and resn POS'.format(base_resn[1]), '{} and name O3\''.
 cmd.alter('all', 'type="ATOM"')
 cmd.alter('all', 'elem=""')
 cmd.set_title(base_resn[1],1,base_resn[1])
+python end
 
 import fretlabel as fl
 fl.ff.pymol_savemol2('fragments/4_base_linkers/{}.mol2'.format(base_resn[1]), base_resn[1], overwrite=True)
@@ -876,7 +878,7 @@ atoms_amberdyes = {'bondtypes' : [['ng', 'cg']],
                                     ['X', 'C', 'N', 'X'],
                                     ['X', 'C', 'N', 'X']],
                    'impropertypes': [['C', 'CB', 'CB', 'NB'],
-                                     ['C', 'CB', 'CB', 'NB']
+                                     ['C', 'CB', 'CB', 'NB'],
                                      ['CB', 'N*', 'CB', 'NC']]
                   }
 
@@ -918,7 +920,7 @@ amberdyes_ff.append(specialbond_ff)
 amberdyes_ff.append(specialbond2_ff)
 ```
 
-Write new **ffnonbonded.itp** and **ffbonded.itp** files of the combined forcefield (ff14sb, amberdyes_ff, baselinkers_ff and specialbond_ff) into a directory `4_fretlabel/`.
+Write new **ffnonbonded.itp** and **ffbonded.itp** files of the combined forcefield (`3_amber14sb`, `amberdyes_ff`, `baselinkers_ff` and `specialbond_ff`) into a directory `4_fretlabel/`.
 
 ```python
 amberdyes_ff.add2ff('forcefields/3_amber14sb', 'forcefields/4_fretlabel/')

@@ -331,16 +331,16 @@
 <h2>1.1 Install PyMOL and FRETlabel<a class="headerlink" href="#install-pymol-and-fretlabel" title="Permalink to this headline">¶</a></h2>
 <p><a name="install-manually"></a></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="45383736-67dc-4b1a-9466-bfc525a07118" name="099b092e-4a00-4f9e-b1b0-fabee49824e0" type="radio">
-</input><label class="tabbed-label" for="45383736-67dc-4b1a-9466-bfc525a07118">
+<input checked="checked" id="51fa2a51-398e-4e12-9e13-eadcbb9d63b9" name="a3feed2e-605f-4679-9a04-5f95b43df4b1" type="radio">
+</input><label class="tabbed-label" for="51fa2a51-398e-4e12-9e13-eadcbb9d63b9">
 For Windows</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Get PyMOL from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or follow the instructions <a class="reference external" href="https://pymolwiki.org/index.php/Windows_Install">here</a>.</p></li>
 <li><p>Open the <strong>Anaconda/Miniforge prompt</strong> which comes bundled with PyMOL</p></li>
 </ul>
 </div>
-<input id="f102dce6-4ab1-4ca4-9306-389a9492e95c" name="099b092e-4a00-4f9e-b1b0-fabee49824e0" type="radio">
-</input><label class="tabbed-label" for="f102dce6-4ab1-4ca4-9306-389a9492e95c">
+<input id="1d128c26-c84f-4aa1-be7d-fc6165f7b2bc" name="a3feed2e-605f-4679-9a04-5f95b43df4b1" type="radio">
+</input><label class="tabbed-label" for="1d128c26-c84f-4aa1-be7d-fc6165f7b2bc">
 For Linux</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Get PyMOL either from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or from your package manager (e.g. on Ubuntu <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">pymol</span></code>). Alternatively, you can compile PyMOL yourself from the source code on <a class="reference external" href="https://github.com/schrodinger/pymol-open-source">Github</a>.</p></li>
@@ -372,8 +372,8 @@ For Linux</label><div class="tabbed-content docutils">
 <h2>1.3 Install with Docker<a class="headerlink" href="#install-with-docker" title="Permalink to this headline">¶</a></h2>
 <p><a name="install-docker"></a>
 As an alternative to the native installation outlined above, you may also use a Docker image with PyMOL and <em>FRETlabel</em> preinstalled. Make sure you have <a class="reference external" href="https://www.docker.com/products/docker-desktop">Docker</a> and an X11 server installed (e.g. <a class="reference external" href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> for Windows, configured with <code class="docutils literal notranslate"><span class="pre">Wgl=&quot;False&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">DisableAC=&quot;True&quot;</span></code>). Then pull and run the image from DockerHub (replace <code class="docutils literal notranslate"><span class="pre">hostdir</span></code> with a directory on your host system that you would like to mount into the image)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">fdsteffen</span><span class="o">/</span><span class="n">fretlabel</span><span class="o">-</span><span class="n">pymol</span>
-<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">DISPLAY</span><span class="o">=</span><span class="n">host</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">internal</span><span class="p">:</span><span class="mi">0</span> <span class="n">fdsteffen</span><span class="o">/</span><span class="n">fretlabel</span><span class="o">-</span><span class="n">pymol</span> <span class="o">-</span><span class="n">v</span> <span class="n">hostdir</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">fdsteffen</span><span class="o">/</span><span class="n">fretlabel</span><span class="o">-</span><span class="n">pymol</span><span class="p">:</span><span class="n">latest</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">e</span> <span class="n">DISPLAY</span><span class="o">=</span><span class="n">host</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">internal</span><span class="p">:</span><span class="mi">0</span> <span class="o">-</span><span class="n">v</span> <span class="n">hostdir</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span> <span class="n">fdsteffen</span><span class="o">/</span><span class="n">fretlabel</span><span class="o">-</span><span class="n">pymol</span>
 </pre></div>
 </div>
 <div class="admonition-incentive-or-open-source-pymol admonition">

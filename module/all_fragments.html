@@ -1051,7 +1051,8 @@ resp_fit.sh -n POS_capped -i <span class="s1">&#39;in/&#39;</span> -o <span clas
 <div class="section" id="id8">
 <h4>2.1.3 Coupling of base and dye<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>First couple the bases and the POS linker, then add the dye.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names_methyl</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C01&#39;</span><span class="p">,</span><span class="s1">&#39;H01&#39;</span><span class="p">,</span><span class="s1">&#39;H02&#39;</span><span class="p">,</span><span class="s1">&#39;H03&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
+<span class="n">names_methyl</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C01&#39;</span><span class="p">,</span><span class="s1">&#39;H01&#39;</span><span class="p">,</span><span class="s1">&#39;H02&#39;</span><span class="p">,</span><span class="s1">&#39;H03&#39;</span><span class="p">]</span>
 
 <span class="n">base_resn</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;deoxythymidine&#39;</span><span class="p">,</span> <span class="s1">&#39;DTO&#39;</span><span class="p">)</span>
 <span class="c1"># base_resn = (&#39;deoxyadenosine&#39;, &#39;DAO&#39;)</span>
@@ -1085,6 +1086,7 @@ resp_fit.sh -n POS_capped -i <span class="s1">&#39;in/&#39;</span> -o <span clas
 <span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;type=&quot;ATOM&quot;&#39;</span><span class="p">)</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">alter</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;elem=&quot;&quot;&#39;</span><span class="p">)</span>
 <span class="n">cmd</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">python</span> <span class="n">end</span>
 
 <span class="kn">import</span> <span class="nn">fretlabel</span> <span class="k">as</span> <span class="nn">fl</span>
 <span class="n">fl</span><span class="o">.</span><span class="n">ff</span><span class="o">.</span><span class="n">pymol_savemol2</span><span class="p">(</span><span class="s1">&#39;fragments/4_base_linkers/</span><span class="si">{}</span><span class="s1">.mol2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">base_resn</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1438,7 +1440,7 @@ acpype -i <span class="s2">&quot;</span><span class="nv">$base_linker</span><spa
                                     <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">],</span>
                                     <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]],</span>
                    <span class="s1">&#39;impropertypes&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">],</span>
-                                     <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">]</span>
+                                     <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NB&#39;</span><span class="p">],</span>
                                      <span class="p">[</span><span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;N*&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;NC&#39;</span><span class="p">]]</span>
                   <span class="p">}</span>
 
@@ -1478,7 +1480,7 @@ acpype -i <span class="s2">&quot;</span><span class="nv">$base_linker</span><spa
 <span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">specialbond2_ff</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Write new <strong>ffnonbonded.itp</strong> and <strong>ffbonded.itp</strong> files of the combined forcefield (ff14sb, amberdyes_ff, baselinkers_ff and specialbond_ff) into a directory <code class="docutils literal notranslate"><span class="pre">4_fretlabel/</span></code>.</p>
+<p>Write new <strong>ffnonbonded.itp</strong> and <strong>ffbonded.itp</strong> files of the combined forcefield (<code class="docutils literal notranslate"><span class="pre">3_amber14sb</span></code>, <code class="docutils literal notranslate"><span class="pre">amberdyes_ff</span></code>, <code class="docutils literal notranslate"><span class="pre">baselinkers_ff</span></code> and <code class="docutils literal notranslate"><span class="pre">specialbond_ff</span></code>) into a directory <code class="docutils literal notranslate"><span class="pre">4_fretlabel/</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amberdyes_ff</span><span class="o">.</span><span class="n">add2ff</span><span class="p">(</span><span class="s1">&#39;forcefields/3_amber14sb&#39;</span><span class="p">,</span> <span class="s1">&#39;forcefields/4_fretlabel/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
