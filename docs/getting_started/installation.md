@@ -19,8 +19,6 @@ Depending on your operating system and preference there are multiple options to 
 - Install *FRETlabel* by running the following commands
 
     ```
-    git clone https://github.com/RNA-FRETools/fretlabel.git
-    cd fretlabel
     pip install fretlabel
     ```
 
