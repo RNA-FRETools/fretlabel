@@ -37,20 +37,22 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -312,21 +314,21 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="coupling-chemistries">
 <h1>Coupling chemistries<a class="headerlink" href="#coupling-chemistries" title="Permalink to this headline">¶</a></h1>
-<p>The design principles of <em>FRETlabel</em> for <em>in silico</em> labeling closely follow the building blocks involved when labeling a nucleic acid <em>in vitro</em>. <em>FRETlabel</em> treats the base, a carbon linker (currently only C6) and the dye moiety as individual fragments to achieve modularity. The PyMOL plugin readily implements various attachement chemistries described in the literature <span id="id1">[<a class="reference internal" href="../references.html#id21">3</a>, <a class="reference internal" href="../references.html#id11">8</a>, <a class="reference internal" href="../references.html#id10">12</a>]</span>. It comes with a preconfigured set of fluorophores (cyanines, Alexa and Atto dyes). Additional base-linkers fragments and fluorophores can be added by the user. A step-by-step procedure is described in the section <a class="reference internal" href="../getting_started/fragment_building.html"><span class="doc std std-doc">Fragment building</span></a>.</p>
+<p>The design principles of <em>FRETlabel</em> for <em>in silico</em> labeling closely follow the building blocks involved when labeling a nucleic acid <em>in vitro</em>. <em>FRETlabel</em> treats the base, a carbon linker (currently only C6) and the dye moiety as individual fragments to achieve modularity. The PyMOL plugin readily implements various attachement chemistries described in the literature <span id="id1">[<a class="reference internal" href="../references.html#id21" title="Meng Zhao, Fabio D. Steffen, Richard Börner, Michelle F. Schaffer, Roland K. O. Sigel, and Eva Freisinger. Site-specific dual-color labeling of long RNAs for single-molecule spectroscopy. Nucleic Acids Research, 46(3):e13, 2018. doi:10.1093/nar/gkx1100.">3</a>, <a class="reference internal" href="../references.html#id11" title="D. Proudnikov and A. Mirzabekov. Chemical Methods of DNA and RNA Fluorescent Labeling. Nucleic Acids Research, 24(22):4535–4542, 1996. doi:10.1093/nar/24.22.4535.">8</a>, <a class="reference internal" href="../references.html#id10" title="P. Z. Qin and A. M. Pyle. Site-specific labeling of RNA with fluorophores and other structural probes. Methods, 18(1):60–70, 1999. doi:10.1006/meth.1999.0757.">12</a>]</span>. It comes with a preconfigured set of fluorophores (cyanines, Alexa and Atto dyes). Additional base-linkers fragments and fluorophores can be added by the user. A step-by-step procedure is described in the section <a class="reference internal" href="../getting_started/fragment_building.html"><span class="doc std std-doc">Fragment building</span></a>.</p>
 <div class="figure align-default" id="dye-linker-base">
 <a class="reference internal image-reference" href="../_images/dye-linker-base.png"><img alt="../_images/dye-linker-base.png" src="../_images/dye-linker-base.png" style="width: 450px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">A Cy3 fluorophore covalently attached to a deoxythimidine. The construct is composed of (i) a base, (ii) a linker and (iii) a dye fragment.</span><a class="headerlink" href="#dye-linker-base" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="end-labeling">
 <h2>End-labeling<a class="headerlink" href="#end-labeling" title="Permalink to this headline">¶</a></h2>
-<p>Nucleic acids can be labeled at the 3’- or 5’-ribose via a bridging phosphate. Additionally, insertion of a hydrazide-functionalized dye linker into the 3’-terminal sugar has been described as a way to post-transcriptionally label long RNAs <span id="id2">[<a class="reference internal" href="../references.html#id21">3</a>, <a class="reference internal" href="../references.html#id10">12</a>]</span>.</p>
+<p>Nucleic acids can be labeled at the 3’- or 5’-ribose via a bridging phosphate. Additionally, insertion of a hydrazide-functionalized dye linker into the 3’-terminal sugar has been described as a way to post-transcriptionally label long RNAs <span id="id2">[<a class="reference internal" href="../references.html#id21" title="Meng Zhao, Fabio D. Steffen, Richard Börner, Michelle F. Schaffer, Roland K. O. Sigel, and Eva Freisinger. Site-specific dual-color labeling of long RNAs for single-molecule spectroscopy. Nucleic Acids Research, 46(3):e13, 2018. doi:10.1093/nar/gkx1100.">3</a>, <a class="reference internal" href="../references.html#id10" title="P. Z. Qin and A. M. Pyle. Site-specific labeling of RNA with fluorophores and other structural probes. Methods, 18(1):60–70, 1999. doi:10.1006/meth.1999.0757.">12</a>]</span>.</p>
 </div>
 <div class="section" id="internal-labeling">
 <h2>Internal labeling<a class="headerlink" href="#internal-labeling" title="Permalink to this headline">¶</a></h2>
-<p>Internal labeling of chemically synthesized RNA and DNA fragments typically use a C5-modified deoxythimidine residue. For long RNAs ethenoadducts can be post-transcriptionally incorporated on adenosine or cytidine residues <span id="id3">[<a class="reference internal" href="../references.html#id21">3</a>, <a class="reference internal" href="../references.html#id18">13</a>, <a class="reference internal" href="../references.html#id17">14</a>]</span>.</p>
+<p>Internal labeling of chemically synthesized RNA and DNA fragments typically use a C5-modified deoxythimidine residue. For long RNAs ethenoadducts can be post-transcriptionally incorporated on adenosine or cytidine residues <span id="id3">[<a class="reference internal" href="../references.html#id21" title="Meng Zhao, Fabio D. Steffen, Richard Börner, Michelle F. Schaffer, Roland K. O. Sigel, and Eva Freisinger. Site-specific dual-color labeling of long RNAs for single-molecule spectroscopy. Nucleic Acids Research, 46(3):e13, 2018. doi:10.1093/nar/gkx1100.">3</a>, <a class="reference internal" href="../references.html#id18" title="David Egloff, Igor A. Oleinich, and Eva Freisinger. Sequence-specific generation of 1,N(6)-ethenoadenine and 3,N(4)-ethenocytosine in single-stranded unmodified DNA. ACS Chemical Biology, 10(2):547–553, 2015. doi:10.1021/cb500497p.">13</a>, <a class="reference internal" href="../references.html#id17" title="David Egloff, Igor A. Oleinich, Meng Zhao, Sebastian L. B. König, Roland K. O. Sigel, and Eva Freisinger. Sequence-Specific Post-Synthetic Oligonucleotide Labeling for Single-Molecule Fluorescence Applications. ACS Chemical Biology, 11(9):2558–2567, 2016. doi:10.1021/acschembio.6b00343.">14</a>]</span>.</p>
 <div class="figure align-default" id="labeling-chemistries">
 <a class="reference internal image-reference" href="../_images/labeling_chemistries.png"><img alt="../_images/labeling_chemistries.png" src="../_images/labeling_chemistries.png" style="width: 700px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Schematic of different terminal and internal coupling chemistries for labeling nucleic acids (adapted from Steffen, <em>Bioinformatics</em> <strong>2021</strong> <span id="id4">[<a class="reference internal" href="../references.html#id3">15</a>]</span>).</span><a class="headerlink" href="#labeling-chemistries" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Schematic of different terminal and internal coupling chemistries for labeling nucleic acids (adapted from Steffen, <em>Bioinformatics</em> <strong>2021</strong> <span id="id4">[<a class="reference internal" href="../references.html#id3" title="Fabio D. Steffen, Roland K. O. Sigel, and Richard Börner. FRETraj: Integrating single-molecule spectroscopy with molecular dynamics. Bioinformatics, 2021. doi:10.1093/bioinformatics/btab615.">15</a>]</span>).</span><a class="headerlink" href="#labeling-chemistries" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

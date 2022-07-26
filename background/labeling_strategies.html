@@ -37,20 +37,22 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -276,10 +278,10 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="labeling-strategies-for-rna-dna">
 <h1>Labeling strategies for RNA/DNA<a class="headerlink" href="#labeling-strategies-for-rna-dna" title="Permalink to this headline">¶</a></h1>
-<p>Nucleic acids are routinely labeled at either of the two termini using both chemical and enzymatic approaches. Internal labeling is more challenging since the chemical diversity of the four building blocks of RNA and DNA is more restricted than the amino acids in proteins. Several strategies have been developed to site-specifically targeting a nucleotide of interest <span id="id1">[<a class="reference internal" href="../references.html#id21">3</a>, <a class="reference internal" href="../references.html#id14">4</a>, <a class="reference internal" href="../references.html#id12">5</a>, <a class="reference internal" href="../references.html#id2">6</a>, <a class="reference internal" href="../references.html#id20">7</a>, <a class="reference internal" href="../references.html#id11">8</a>]</span>. The various methods have been extensively reviewed <span id="id2">[<a class="reference internal" href="../references.html#id5">9</a>, <a class="reference internal" href="../references.html#id16">10</a>, <a class="reference internal" href="../references.html#id13">11</a>]</span> and can generally be categorized into co- and postsynthetic methods. As such, modified or pre-labeled nucleotides are incorporated into the strand during solid phase synthesis while ethenoadducts, for instance, are inserted on selected adenine or cytosine residues only after <em>in vitro</em> transcription (<a class="reference internal" href="#chimia-labeling-strategies"><span class="std std-numref">Fig. 3</span></a>).</p>
+<p>Nucleic acids are routinely labeled at either of the two termini using both chemical and enzymatic approaches. Internal labeling is more challenging since the chemical diversity of the four building blocks of RNA and DNA is more restricted than the amino acids in proteins. Several strategies have been developed to site-specifically targeting a nucleotide of interest <span id="id1">[<a class="reference internal" href="../references.html#id21" title="Meng Zhao, Fabio D. Steffen, Richard Börner, Michelle F. Schaffer, Roland K. O. Sigel, and Eva Freisinger. Site-specific dual-color labeling of long RNAs for single-molecule spectroscopy. Nucleic Acids Research, 46(3):e13, 2018. doi:10.1093/nar/gkx1100.">3</a>, <a class="reference internal" href="../references.html#id14" title="Kasper Jahn, Eva Maria Olsen, Morten Muhlig Nielsen, Thomas Tørring, Reza Mohammad Zadegan, Ebbe Sloth Andersen, Kurt Vesterager Gothelf, and Jørgen Kjems. Site-specific chemical labeling of long RNA molecules. Bioconjugate Chemistry, 22(1):95–100, 2011. doi:10.1021/bc100422k.">4</a>, <a class="reference internal" href="../references.html#id12" title="Kathrin Lang and Ronald Micura. The preparation of site-specifically modified riboswitch domains as an example for enzymatic ligation of chemically synthesized RNA fragments. Nature Protocols, 3(9):1457–1466, 2008. doi:10.1038/nprot.2008.135.">5</a>, <a class="reference internal" href="../references.html#id2" title="Dana A. Baum and Scott K. Silverman. Deoxyribozyme-catalyzed labeling of RNA. Angewandte Chemie International Edition, 46(19):3502–3504, 2007. doi:10.1002/anie.200700357.">6</a>, <a class="reference internal" href="../references.html#id20" title="N. Ruth Zearfoss and Sean P. Ryder. End-labeling oligonucleotides with chemical tags after synthesis. Methods in Molecular Biology, 941:181–193, 2012. doi:10.1007/978-1-62703-113-4{\textunderscore }14.">7</a>, <a class="reference internal" href="../references.html#id11" title="D. Proudnikov and A. Mirzabekov. Chemical Methods of DNA and RNA Fluorescent Labeling. Nucleic Acids Research, 24(22):4535–4542, 1996. doi:10.1093/nar/24.22.4535.">8</a>]</span>. The various methods have been extensively reviewed <span id="id2">[<a class="reference internal" href="../references.html#id5" title="Fabio D. Steffen, Richard Börner, Eva Freisinger, and Roland K. O. Sigel. Stick, Flick, Click: DNA-guided Fluorescent Labeling of Long RNA for Single-molecule FRET. Chimia, 73(4):257–261, 2019. doi:10.2533/chimia.2019.257.">9</a>, <a class="reference internal" href="../references.html#id16" title="Gerd Hanspach, Sven Trucks, and Martin Hengesbach. Strategic labelling approaches for RNA single-molecule spectroscopy. RNA Biology, 16(9):1119–1132, 2019. doi:10.1080/15476286.2019.1593093.">10</a>, <a class="reference internal" href="../references.html#id13" title="Nils Klöcker, Florian P. Weissenboeck, and Andrea Rentmeister. Covalent labeling of nucleic acids. Chemical Society Reviews, 2020. doi:10.1039/d0cs00600a.">11</a>]</span> and can generally be categorized into co- and postsynthetic methods. As such, modified or pre-labeled nucleotides are incorporated into the strand during solid phase synthesis while ethenoadducts, for instance, are inserted on selected adenine or cytosine residues only after <em>in vitro</em> transcription (<a class="reference internal" href="#chimia-labeling-strategies"><span class="std std-numref">Fig. 3</span></a>).</p>
 <div class="figure align-default" id="chimia-labeling-strategies">
 <a class="reference internal image-reference" href="../_images/Chimia_labeling_strategies.png"><img alt="../_images/Chimia_labeling_strategies.png" src="../_images/Chimia_labeling_strategies.png" style="width: 550px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Strategies for internal labeling of RNA (from Steffen, <em>Chimia</em> <strong>2019</strong> <span id="id3">[<a class="reference internal" href="../references.html#id5">9</a>]</span>).</span><a class="headerlink" href="#chimia-labeling-strategies" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Strategies for internal labeling of RNA (from Steffen, <em>Chimia</em> <strong>2019</strong> <span id="id3">[<a class="reference internal" href="../references.html#id5" title="Fabio D. Steffen, Richard Börner, Eva Freisinger, and Roland K. O. Sigel. Stick, Flick, Click: DNA-guided Fluorescent Labeling of Long RNA for Single-molecule FRET. Chimia, 73(4):257–261, 2019. doi:10.2533/chimia.2019.257.">9</a>]</span>).</span><a class="headerlink" href="#chimia-labeling-strategies" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 

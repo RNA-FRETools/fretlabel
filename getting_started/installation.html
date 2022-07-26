@@ -37,20 +37,22 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../_static/fretlabel_logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -331,16 +333,16 @@
 <h2>1.1 Install PyMOL and FRETlabel<a class="headerlink" href="#install-pymol-and-fretlabel" title="Permalink to this headline">¶</a></h2>
 <p><a name="install-manually"></a></p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="6be49dc5-5902-4255-b731-d68c3742a803" name="56efda11-96b8-40c2-adf1-b0b19432b268" type="radio">
-</input><label class="tabbed-label" for="6be49dc5-5902-4255-b731-d68c3742a803">
+<input checked="checked" id="19e8bdb9-f979-463b-966e-ede6e1be63e9" name="12829a07-acb0-471b-81de-5c3b30d4d297" type="radio">
+</input><label class="tabbed-label" for="19e8bdb9-f979-463b-966e-ede6e1be63e9">
 For Windows</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Get PyMOL from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or follow the instructions <a class="reference external" href="https://pymolwiki.org/index.php/Windows_Install">here</a>.</p></li>
 <li><p>Open the <strong>Anaconda/Miniforge prompt</strong> which comes bundled with PyMOL</p></li>
 </ul>
 </div>
-<input id="ad034ea0-94ac-47b0-aa43-12c26dac9f16" name="56efda11-96b8-40c2-adf1-b0b19432b268" type="radio">
-</input><label class="tabbed-label" for="ad034ea0-94ac-47b0-aa43-12c26dac9f16">
+<input id="fc411802-2d81-4c5b-be98-9eceb3bb4084" name="12829a07-acb0-471b-81de-5c3b30d4d297" type="radio">
+</input><label class="tabbed-label" for="fc411802-2d81-4c5b-be98-9eceb3bb4084">
 For Linux</label><div class="tabbed-content docutils">
 <ul class="simple">
 <li><p>Get PyMOL either from <a class="reference external" href="https://pymol.org/">Schrödinger</a> or from your package manager (e.g. on Ubuntu <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">pymol</span></code>). Alternatively, you can compile PyMOL yourself from the source code on <a class="reference external" href="https://github.com/schrodinger/pymol-open-source">Github</a>.</p></li>
@@ -349,9 +351,7 @@ For Linux</label><div class="tabbed-content docutils">
 </div>
 <ul>
 <li><p>Install <em>FRETlabel</em> by running the following commands</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">RNA</span><span class="o">-</span><span class="n">FRETools</span><span class="o">/</span><span class="n">fretlabel</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">fretlabel</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">fretlabel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fretlabel</span>
 </pre></div>
 </div>
 </li>
@@ -378,7 +378,7 @@ As an alternative to the native installation outlined above, you may also use a 
 </div>
 <div class="admonition-incentive-or-open-source-pymol admonition">
 <p class="admonition-title">Incentive or open-source PyMOL</p>
-<p>PyMOL was developed by Warren DeLano <span id="id1">[<a class="reference internal" href="../references.html#id19">1</a>]</span> and is currently maintained by <a class="reference external" href="https://pymol.org/">Schrödinger</a>.
+<p>PyMOL was developed by Warren DeLano <span id="id1">[<a class="reference internal" href="../references.html#id19" title="Warren L. DeLano. Pymol: An open-source molecular graphics tool. CCP4 Newsletter on protein crystallography, 40(1):82–92, 2002.">1</a>]</span> and is currently maintained by <a class="reference external" href="https://pymol.org/">Schrödinger</a>.
 Binaries for Windows, Linux and macOS are distributed by Schrödinger under academic and commercial licensing options. The source-code is available on <a class="reference external" href="https://github.com/schrodinger/pymol-open-source">Github</a>.</p>
 </div>
 <div class="admonition tip">
