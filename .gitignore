@@ -131,3 +131,4 @@ dmypy.json
 */tutorial/out/*
 *.acpype
 *.ipynb
+.DS_Store
