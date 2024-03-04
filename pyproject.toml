@@ -23,7 +23,7 @@ classifiers = [
 include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.8,<3.12"
 pandas = "^1.4.3"
 biopandas = "^0.4.1"
 pytest = "^7.1.2"
