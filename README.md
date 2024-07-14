@@ -1,4 +1,4 @@
-[![Docs Status](https://github.com/fdsteffen/fretlabel/workflows/FRETlabel%20docs/badge.svg)](https://github.com/fdsteffen/fretlabel/actions)
+[![Docs Status](https://github.com/RNA-FRETools/fretlabel/workflows/FRETlabel%20docs/badge.svg)](https://github.com/RNA-FRETools/fretlabel/actions)
 [![PyPI](https://img.shields.io/pypi/v/fretlabel)](https://pypi.org/project/fretlabel/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10963145.svg)](https://doi.org/10.5281/zenodo.10963145)
