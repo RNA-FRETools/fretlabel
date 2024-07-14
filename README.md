@@ -3,7 +3,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10963145.svg)](https://doi.org/10.5281/zenodo.10963145)
 
-<img src="https://raw.githubusercontent.com/fdsteffen/fretlabel/master/docs/images/fretlabel_banner.png" width=750px>
+<img src="https://raw.githubusercontent.com/RNA-FRETools/fretlabel/master/docs/images/fretlabel_banner.png" width=750px>
 
 *FRETlabel* is a **PyMOL plugin** to label nucleic acids with explicit fluorescent dyes. It aims to facilitate the workflow of setting up, running and evaluating **molecular dynamics simulations with explicit organic fluorophores** for *in silico* FRET calculations.
 
@@ -12,7 +12,7 @@ Specifically, *FRETlabel* includes the following features:
 - **Build new fragments interactively**: Tutorials guide you step-by-step through the process of creating new base, linker and dye fragments by integrating with established pipelines for topology generation such as *Antechamber* and *Acpype*.
 - **FRET prediction**: Calculate FRET distributions from MD simulation with all-atom organic dyes. *FRETlabel* integrates with *FRETraj* to compute photon bursts based on distance *R*<sub>DA</sub>(*t*) and orientation trajectories *κ*<sup>2</sup>(*t*) of the fluorophores. 
 
-<img src="https://raw.githubusercontent.com/fdsteffen/fretlabel/master/docs/images/graphical_abstract.png" width=700px>
+<img src="https://raw.githubusercontent.com/RNA-FRETools/fretlabel/master/docs/images/graphical_abstract.png" width=700px>
 
 **Fig.** Schematic of *FRETlabel*: (i) A fluorescent dye (here Cy3) is coupled to a nucleic acid via a PyMOL plugin. (ii) An existing force field (e.g. AMBERDYES) is patched with parameters for linker fragments to enable MD simulations with explicit fluorophores (dots represent the spatial distribution of the dye).
 
