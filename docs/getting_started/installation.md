@@ -1,40 +1,43 @@
 # Installation
 
 Depending on your operating system and preference there are multiple options to install PyMOL and *FRETlabel*
-- install PyMOL and add *FRETlabel* as a Plugin manually &rarr; [Install PyMOL and FRETlabel](#install-manually)
-- install a Docker image with PyMOL and *FRETlabel* preconfigured (see Docker image) &rarr; [Install with Docker](#install-docker)
+- install PyMOL and add *FRETlabel* as a Plugin manually &rarr; [Install PyMOL and FRETraj](install-manually)
+- install a Docker image with PyMOL and *FRETlabel* preconfigured (see Docker image) &rarr; [Install with Docker](install-docker)
 
 
 ## 1.1 Install PyMOL and FRETlabel
-<a name="install-manually"></a>
-````{tabbed} For Windows
-- Get PyMOL from [Schrödinger](https://pymol.org/) or install the [open-source version](https://github.com/schrodinger/pymol-open-source), e.g. via conda-forge `conda install conda-forge::pymol-open-source`.
-- Open the PyMOL via the **Anaconda/Miniforge shell**
-````
+(install-manually)=
+`````{tab-set}
 
-````{tabbed} For Linux
+    ````{tab-item} For Windows
+    - Get PyMOL from [Schrödinger](https://pymol.org/) or install the [open-source version](https://github.com/schrodinger/pymol-open-source), e.g. via conda-forge `conda install conda-forge::pymol-open-source`.
+    - Open the PyMOL via the **Anaconda/Miniforge shell**
+    ````
 
-- Get PyMOL either from [Schrödinger](https://pymol.org/), from your package manager (e.g. on Ubuntu `apt-get install pymol`) or via conda-forge `conda install conda-forge::pymol-open-source`. Alternatively, you can compile PyMOL yourself from the source code on [Github](https://github.com/schrodinger/pymol-open-source). 
-````
-- Install *FRETlabel* by running the following commands
+    ````{tab-item} For Linux
 
-    ```
-    pip install fretlabel
-    ```
+    - Get PyMOL either from [Schrödinger](https://pymol.org/), from your package manager (e.g. on Ubuntu `apt-get install pymol`) or via conda-forge `conda install conda-forge::pymol-open-source`. Alternatively, you can compile PyMOL yourself from the source code on [Github](https://github.com/schrodinger/pymol-open-source). 
+    ````
+    - Install *FRETlabel* by running the following commands
 
-- Locate the installation directory by running
+        ```
+        pip install fretlabel
+        ```
 
-    ```
-    fretlabel --path
-    ```
+    - Locate the installation directory by running
 
+        ```
+        fretlabel --path
+        ```
+    ````
+`````
 
 ## 1.2 Register the Plugin
 - Start PyMOL and install the *FRETlabel* GUI with PyMOL's Plugin manager: `Plugin` &rarr; `Plugin manager` &rarr; `Install New Plugin` &rarr; `Choose file...` and select the `fretlabel_gui.py` file located in the directory that was issued by `fretlabel --path`. In the popup window select where you would like to install the plugin (default: `<PyMOL_path>/site-packages/pmg_tk/startup/`). Confirm with OK.
 
 
 ## 1.3 Install with Docker
-<a name="install-docker"></a>
+(install-docker)=
 As an alternative to the native installation outlined above, you may also use a Docker image with PyMOL and *FRETlabel* preinstalled. Make sure you have [Docker](https://www.docker.com/products/docker-desktop) and an X11 server installed (e.g. [VcXsrv](https://sourceforge.net/projects/vcxsrv/) for Windows, configured with `Wgl="False"` and `DisableAC="True"`). Then pull and run the image from DockerHub (replace `hostdir` with a directory on your host system that you would like to mount into the image)
 
 ```
