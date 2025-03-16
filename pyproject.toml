@@ -62,7 +62,7 @@ push = true
     'version = "{version}"$',
 ]
 
-[tool.poetry.scripts]
+[project.scripts]
 fretlabel = "fretlabel.console:fretlabel"
 solvate = "fretlabel.console:solvate"
 single_run = "fretlabel.console:single_run"
