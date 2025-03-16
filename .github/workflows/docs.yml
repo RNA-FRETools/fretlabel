@@ -9,6 +9,8 @@ on:
 
 jobs:
   build-docs:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
     permissions:
       pages: write
