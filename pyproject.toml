@@ -1,17 +1,14 @@
-[tool.poetry]
+[project]
 name = "fretlabel"
 version = "0.2.0"
 description = "PyMOL plugin to interactively label nucleic acids with fluorophores in silico"
 authors = [
-    "Fabio Steffen <fabio.steffen@chem.uzh.ch>", 
-    "Roland K.O. Sigel <roland.sigel@chem.uzh.ch>", 
-    "Richard Börner <richard.boerner@hs-mittweida.de>"]
-maintainers = ["Fabio Steffen <fabio.steffen@chem.uzh.ch>"]
-license = "GPL-3.0-or-later"
+    { name = "Fabio Steffen", email = "fabio.steffen@chem.uzh.ch" }, 
+    { name = "Roland K.O. Sigel", email = "roland.sigel@chem.uzh.ch" }, 
+    { name = "Richard Börner", email = "richard.boerner@hs-mittweida.de" }
+    ]
+license = { text ="GPL-3.0-or-later" }
 readme = "README.md"
-homepage = "https://rna-fretools.github.io/"
-repository = "https://github.com/RNA-FRETools/fretlabel"
-documentation = "https://rna-fretools.github.io/fretlabel/"
 keywords = ["FRET", "single-molecule", "molecular dynamics", "PDB", "fluorescence labeling", "AMBERDYES"]
 classifiers = [
     "Programming Language :: Python",
@@ -20,43 +17,37 @@ classifiers = [
     "Framework :: Jupyter",
     "Topic :: Scientific/Engineering :: Bio-Informatics"
 ]
-include = ["CHANGELOG.md"]
 
-[tool.poetry.dependencies]
-python = ">=3.10"
-pandas = "^2.2.3"
-biopandas = "^0.5.1"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "biopandas"
+    ]
 
+[project.optional-dependencies]
+dev = [
+    "bumpver",
+    "pytest"
+    ]
+docs = [
+    "lmfit",
+    "fretraj",
+    "jupyter-book",
+    "matplotlib",
+    "seaborn"
+    ]
 
-[tool.poetry.scripts]
-fretlabel = "fretlabel.console:fretlabel"
-solvate = "fretlabel.console:solvate"
-single_run = "fretlabel.console:single_run"
-continue_run = "fretlabel.console:continue_run"
-multi_run = "fretlabel.console:multi_run"
-resp_fit = "fretlabel.console:resp_fit"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.5"
-bumpver = "^2024.1130"
-
-
-[tool.poetry.group.docs.dependencies]
-lmfit = "^1.3.3"
-fretraj = "^0.2.10"
-jupyter-book = "^1.0.4.post1"
-matplotlib = "^3.10.1"
-seaborn = "^0.13.2"
-
+[project.urls]
+Repository = "https://github.com/RNA-FRETools/fretlabel"
+Documentation = "https://rna-fretools.github.io/fretlabel/"
+Issues = "https://rna-fretools.github.io/fretlabel/issues"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 120
-
 
 [tool.bumpver]
 current_version = "0.2.0"
@@ -70,3 +61,11 @@ push = true
 "pyproject.toml" = [
     'version = "{version}"$',
 ]
+
+[tool.poetry.scripts]
+fretlabel = "fretlabel.console:fretlabel"
+solvate = "fretlabel.console:solvate"
+single_run = "fretlabel.console:single_run"
+continue_run = "fretlabel.console:continue_run"
+multi_run = "fretlabel.console:multi_run"
+resp_fit = "fretlabel.console:resp_fit"
