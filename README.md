@@ -1,5 +1,5 @@
 [![Build and deploy](https://github.com/RNA-FRETools/fretlabel/actions/workflows/build.yml/badge.svg)](https://github.com/RNA-FRETools/fretlabel/actions/workflows/build.yml)
-[![Documentation](https://github.com/RNA-FRETools/fretlabel/actions/workflows/docs.yml/badge.svg)](https://github.com/RNA-FRETools/fretlabel/actions/workflows/docs.yml)[![PyPI](https://img.shields.io/pypi/v/fretlabel)](https://pypi.org/project/fretlabel/)
+[![Documentation](https://github.com/RNA-FRETools/fretlabel/actions/workflows/docs.yml/badge.svg)](https://github.com/RNA-FRETools/fretlabel/actions/workflows/docs.yml)
 [![PyPI](https://img.shields.io/pypi/v/fretlabel)](https://pypi.org/project/fretlabel/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10963145.svg)](https://doi.org/10.5281/zenodo.10963145)

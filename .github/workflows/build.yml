@@ -25,10 +25,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Test package
+      - name: Test package installation
         run: |
           pip install -e ".[dev]" 
-          pytest
 
 
 

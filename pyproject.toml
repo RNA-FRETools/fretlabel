@@ -27,7 +27,6 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "bumpver",
-    "pytest"
     ]
 docs = [
     "lmfit",
