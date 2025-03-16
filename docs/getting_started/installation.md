@@ -18,19 +18,19 @@ Depending on your operating system and preference there are multiple options to 
 
     - Get PyMOL either from [Schrödinger](https://pymol.org/), from your package manager (e.g. on Ubuntu `apt-get install pymol`) or via conda-forge `conda install conda-forge::pymol-open-source`. Alternatively, you can compile PyMOL yourself from the source code on [Github](https://github.com/schrodinger/pymol-open-source). 
     ````
-    - Install *FRETlabel* by running the following commands
-
-        ```
-        pip install fretlabel
-        ```
-
-    - Locate the installation directory by running
-
-        ```
-        fretlabel --path
-        ```
-    ````
 `````
+- Install *FRETlabel* by running the following commands
+
+    ```
+    pip install fretlabel
+    ```
+
+- Locate the installation directory by running
+
+    ```
+    fretlabel --path
+    ```
+
 
 ## 1.2 Register the Plugin
 - Start PyMOL and install the *FRETlabel* GUI with PyMOL's Plugin manager: `Plugin` &rarr; `Plugin manager` &rarr; `Install New Plugin` &rarr; `Choose file...` and select the `fretlabel_gui.py` file located in the directory that was issued by `fretlabel --path`. In the popup window select where you would like to install the plugin (default: `<PyMOL_path>/site-packages/pmg_tk/startup/`). Confirm with OK.
