@@ -1,7 +1,7 @@
 """
-FRETlabel PyMOL Plugin 
+FRETlabel PyMOL Plugin
 
-Label nucleic acids with a fluorophores 
+Label nucleic acids with a fluorophores
 
 (C) Fabio Steffen, University of Zurich
 """
@@ -11,15 +11,18 @@ import pathlib
 import json
 import numpy as np
 import webbrowser
+import logging
 
 from fretlabel import MODULE_DIR
 from fretlabel import __urls__
+
+logger = logging.getLogger(__name__)
 
 try:
     from pymol import cmd
     from pymol.Qt import QtWidgets, utils, QtCore
 except ModuleNotFoundError:
-    print("Pymol is not installed.")
+    logger.info("Pymol is not installed.")
 
 dialog = None
 
@@ -109,14 +112,14 @@ class App(QtWidgets.QWidget):
                 )
             )
         except cmd.pymol.CmdException:
-            print("The selected dye fragment cannot be found")
+            logger.error("The selected dye fragment cannot be found")
         else:
             residue_names = self.get_residueNames(self.fragment["filename"])
 
             # change the residue number of the fragment
             cmd.alter(self.fragment["filename"], "resi={:d}".format(self.resi))
             cmd.alter(self.fragment["filename"], 'chain="{}"'.format(self.chain))
-            resin = "chain {} and resn {}+{} and resi \{:d}".format(
+            resin = "chain {} and resn {}+{} and resi \\{:d}".format(
                 self.chain, self.fragment["base"], self.fragment["linker"], self.resi
             )
             # chain = cmd.get_pdbstr('{} and name C1\''.format(resin))[21]
@@ -126,7 +129,7 @@ class App(QtWidgets.QWidget):
             bases = "(name C*+N*+O*+H* and {} and not (name C*'+O*'+O*P*+H*'*+P and {}))".format(resin, resin)
             sugar_backbone = "(name C*'+O*'+O*P*+H*'*+P and {})".format(resin)
             sele_frag_bases = "{} and {} and {}".format(self.fragment["filename"], nucleic, bases)
-            sele_pdb_bases = "{} and chain {} and resi \{:d} and {} and {}".format(
+            sele_pdb_bases = "{} and chain {} and resi \\{:d} and {} and {}".format(
                 self.fileName_pdb[:-4], self.chain, self.resi, nucleic, bases
             )
             sele_frag_sbb = "{} and {}+{} and {}".format(
@@ -135,7 +138,7 @@ class App(QtWidgets.QWidget):
                 self.fragment["linker"],
                 sugar_backbone,
             )
-            sele_pdb_sbb = "{} and chain {} and resi \{:d} and {} and {}".format(
+            sele_pdb_sbb = "{} and chain {} and resi \\{:d} and {} and {}".format(
                 self.fileName_pdb[:-4], self.chain, self.resi, nucleic, sugar_backbone
             )
             # cmd.select('frag_base', sele_frag_bases)
@@ -160,13 +163,13 @@ class App(QtWidgets.QWidget):
                 cmd.remove("{} and {}".format(self.fragment["filename"], sugar_backbone))
                 if self.NA_typefrag == "DNA":
                     cmd.remove(
-                        "{} and chain {} and resi \{:d} and name O2'".format(
+                        "{} and chain {} and resi \\{:d} and name O2'".format(
                             self.fileName_pdb[:-4], self.chain, self.resi
                         )
                     )
                     resn = [r for r in self.fragment["base"].split("+") if "D" in r][0]
                     cmd.alter(
-                        "{} and chain {} and resi \{:d}".format(self.fileName_pdb[:-4], self.chain, self.resi),
+                        "{} and chain {} and resi \\{:d}".format(self.fileName_pdb[:-4], self.chain, self.resi),
                         'resn="{}"'.format(resn),
                     )
             else:
@@ -199,11 +202,11 @@ class App(QtWidgets.QWidget):
             if self.fragment["position"] == "5'-end":
                 cmd.bond(
                     "{} and name O3'".format(resin),
-                    "chain {} and resi \{:d} and name P".format(self.chain, self.resi + 1),
+                    "chain {} and resi \\{:d} and name P".format(self.chain, self.resi + 1),
                 )
             elif self.fragment["position"] == "3'-end":
                 cmd.bond(
-                    "chain {} and resi \{:d} and name O3'".format(self.chain, self.resi - 1),
+                    "chain {} and resi \\{:d} and name O3'".format(self.chain, self.resi - 1),
                     "{} and name P".format(resin),
                 )
 
@@ -223,17 +226,19 @@ class App(QtWidgets.QWidget):
                 "RU",
             ]
             for resn in residue_names:
-                # cmd.alter('resi \{:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(self.chain))
+                # cmd.alter('resi \\{:d} and resn {}'.format(self.resi, resn), 'chain="{}"'.format(self.chain))
                 if resn.strip() in linkers:
                     cmd.alter(
-                        "chain {} and resi \{:d} and resn {}".format(self.chain, self.resi, resn),
+                        "chain {} and resi \\{:d} and resn {}".format(self.chain, self.resi, resn),
                         'resn="{}"'.format(self.fragment["filename"][-3:]),
                     )
 
             # visualization settings
             cmd.show("sticks")
-            cmd.color("brightorange", "chain {} and resi \{:d}".format(self.chain, self.resi))
+            cmd.color("brightorange", "chain {} and resi \\{:d}".format(self.chain, self.resi))
             cmd.zoom(self.fileName_pdb[:-4])
+            self.push_addFragment.setEnabled(False)
+            self.resis.remove(self.resi)
 
     def add_H(self):
         """
@@ -247,14 +252,14 @@ class App(QtWidgets.QWidget):
             hydrogens = ["H1'", "H2'1", "HO'2", "H3'", "H4'", "H5'1", "H5'2"]
         for c, h in zip(carbons, hydrogens):
             if c is not None:
-                cmd.h_add("name {} and resi \{:d} and chain {} and polymer.nucleic".format(c, self.resi, self.chain))
+                cmd.h_add("name {} and resi \\{:d} and chain {} and polymer.nucleic".format(c, self.resi, self.chain))
                 cmd.alter(
-                    "name H01 and resi \{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
+                    "name H01 and resi \\{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
                     'name="{}"'.format(h),
                 )
             else:
                 cmd.alter(
-                    "name H0* and resi \{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
+                    "name H0* and resi \\{:d} and chain {} and polymer.nucleic".format(self.resi, self.chain),
                     'name="{}"'.format(h),
                 )
 
@@ -333,7 +338,7 @@ class App(QtWidgets.QWidget):
                     )
         cmd.deselect()
 
-    def readPDB(self, fileNamePath_pdb=False):
+    def readPDB(self, fileNamePath_pdb=None):
         """
         Load PDB or CIF file
 
@@ -348,7 +353,7 @@ class App(QtWidgets.QWidget):
         else:
             self.fileNamePath_pdb = fileNamePath_pdb
         self.fileNamePath_pdb = pathlib.Path(self.fileNamePath_pdb)
-        if self.fileNamePath_pdb:
+        if self.fileNamePath_pdb.is_file():
             self.fileName_pdb = self.fileNamePath_pdb.name
             with open(self.fileNamePath_pdb, "r") as f:
                 self.pdbText = f.read()
@@ -416,21 +421,21 @@ class App(QtWidgets.QWidget):
                 if self.fragment["position"] == "5'-end":
                     allowed_resis = " or ".join(
                         [
-                            "(chain {} and resi \{})".format(chain, min_max[0])
+                            "(chain {} and resi \\{:d})".format(chain, min_max[0])
                             for chain, min_max in self.min_max_residue.items()
                         ]
                     )
                 elif self.fragment["position"] == "3'-end":
                     allowed_resis = " or ".join(
                         [
-                            "(chain {} and resi \{})".format(chain, min_max[1])
+                            "(chain {} and resi \\{:d})".format(chain, min_max[1])
                             for chain, min_max in self.min_max_residue.items()
                         ]
                     )
                 else:
                     allowed_resis = " or ".join(
                         [
-                            "(chain {} and resi \{}-\{})".format(chain, *min_max)
+                            "(chain {} and resi \\{:d}-\\{:d})".format(chain, *min_max)
                             for chain, min_max in self.min_max_residue.items()
                         ]
                     )
@@ -442,24 +447,22 @@ class App(QtWidgets.QWidget):
                 )
                 pdb_str = cmd.get_pdbstr(selection)
                 i = 0
-                self.resis = {}
-                for chain in self.min_max_residue.keys():
-                    self.resis[chain] = []
-                    for line in pdb_str.split("\n"):
-                        if "CONECT" in line:
-                            break
-                        try:
-                            r = int(line[22:26])
-                            if r not in self.resis[chain]:
-                                self.resis[chain].append(r)
-                            i += 1
-                        except (IndexError, ValueError):
-                            continue
-                if self.resis[currChain]:
-                    self.before_resi = min(self.resis[currChain])
+                self.resis = []
+                for line in pdb_str.split("\n"):
+                    if "CONECT" in line:
+                        break
+                    try:
+                        r = int(line[22:26])
+                        if r not in self.resis:
+                            self.resis.append(r)
+                        i += 1
+                    except (IndexError, ValueError):
+                        continue
+                if self.resis:
+                    self.before_resi = min(self.resis)
                     self.spinBox_atomID.setValue(self.before_resi)
-                    self.spinBox_atomID.setMaximum(max(self.resis[currChain]))
-                    self.spinBox_atomID.setMinimum(min(self.resis[currChain]))
+                    self.spinBox_atomID.setMaximum(max(self.resis))
+                    self.spinBox_atomID.setMinimum(min(self.resis))
                     self.spinBox_atomID.setEnabled(True)
                     self.push_addFragment.setEnabled(True)
                 else:
@@ -474,32 +477,36 @@ class App(QtWidgets.QWidget):
         """
         Update the atom edit box and the color of the selected residue in PyMOL
         """
+        if self.resis:
+            self.spinBox_atomID.setMaximum(max(self.resis))
+            self.spinBox_atomID.setMinimum(min(self.resis))
         cmd.color("gray80")
         self.chain = self.comboBox_chain.currentText()
         new_resi = self.spinBox_atomID.value()
-        if self.resis[self.chain]:
+        if self.resis:
             if new_resi > self.before_resi:
-                while new_resi <= max(self.resis[self.chain]):
+                while new_resi <= max(self.resis):
                     self.before_resi = new_resi
-                    if new_resi in self.resis[self.chain]:
+                    if new_resi in self.resis:
                         self.spinBox_atomID.setValue(new_resi)
                         break
                     else:
                         new_resi += 1
             elif new_resi < self.before_resi:
-                while new_resi >= min(self.resis[self.chain]):
+                while new_resi >= min(self.resis):
                     self.before_resi = new_resi
-                    if new_resi in self.resis[self.chain]:
+                    if new_resi in self.resis:
                         self.spinBox_atomID.setValue(new_resi)
                         break
                     else:
                         new_resi -= 1
             self.resi = new_resi
-            resn = cmd.get_model("chain {} and resi \{:d}".format(self.chain, new_resi)).atom[0].resn
+            resn = cmd.get_model("chain {} and resi \\{:d}".format(self.chain, new_resi)).atom[0].resn
             resi_str = "{}-{} {:d}".format(self.chain, resn, new_resi)
             self.lineEdit_pdbAtom.setText(resi_str)
-            selection = "{} and chain {} and resi \{}".format(self.fileName_pdb[:-4], self.chain, new_resi)
+            selection = "{} and chain {} and resi \\{:d}".format(self.fileName_pdb[:-4], self.chain, new_resi)
             cmd.color("brightorange", selection)
+            self.push_addFragment.setEnabled(True)
 
     def get_residueNames(self, selection):
         """
@@ -653,12 +660,12 @@ class App(QtWidgets.QWidget):
                     browser.open("file://{}/index.html".format(self.settings["local_docs"]))
                 except webbrowser.Error:
                     self.settings["browser"] = None
-                    print("Browser not found!")
+                    logger.error("Browser not found!")
                     with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
                         json.dump(self.settings, f, indent=2)
                 except FileNotFoundError:
                     self.settings["local_docs"] = None
-                    print("Local docs not found!")
+                    logger.error("Local docs not found!")
                     with open("{}/.fretlabel_settings.conf".format(MODULE_DIR), "w") as f:
                         json.dump(self.settings, f, indent=2)
 
