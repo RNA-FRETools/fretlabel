@@ -23,13 +23,9 @@ classifiers = [
 include = ["CHANGELOG.md"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
-pandas = "^1.4.3"
-biopandas = "^0.4.1"
-pytest = "^7.1.2"
-
-
-[tool.poetry.dev-dependencies]
+python = ">=3.10"
+pandas = "^2.2.3"
+biopandas = "^0.5.1"
 
 
 [tool.poetry.scripts]
@@ -40,9 +36,37 @@ continue_run = "fretlabel.console:continue_run"
 multi_run = "fretlabel.console:multi_run"
 resp_fit = "fretlabel.console:resp_fit"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+bumpver = "^2024.1130"
+
+
+[tool.poetry.group.docs.dependencies]
+lmfit = "^1.3.3"
+fretraj = "^0.2.10"
+jupyter-book = "^1.0.4.post1"
+matplotlib = "^3.10.1"
+seaborn = "^0.13.2"
+
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+
 [tool.black]
 line-length = 120
+
+
+[tool.bumpver]
+current_version = "0.2.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"$',
+]
