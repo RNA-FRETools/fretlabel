@@ -32,6 +32,7 @@ docs = [
     "lmfit",
     "fretraj",
     "jupyter-book",
+    "ipywidgets",
     "matplotlib",
     "seaborn"
     ]
