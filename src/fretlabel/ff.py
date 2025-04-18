@@ -346,7 +346,7 @@ def update_specbond(
     specbonds_df = pd.read_csv(
         inputfile,
         skiprows=1,
-        sep="\s+",
+        sep=r"\s+",
         nrows=n_specbonds,
         names=specbond_format,
         na_filter=False,
@@ -397,7 +397,7 @@ def update_residuetypes(
     inputfile = pathlib.Path(inputfile)
     outputfile = pathlib.Path(outputfile)
     residuetype_format = ["residue", "type"]
-    residuetypes_df = pd.read_csv(inputfile, sep="\s+", names=residuetype_format, na_filter=False)
+    residuetypes_df = pd.read_csv(inputfile, sep=r"\s+", names=residuetype_format, na_filter=False)
 
     try:
         residuetype_newline = pd.DataFrame([residuetypes_string.split()], columns=residuetype_format)
@@ -492,7 +492,7 @@ class Parameters:
                 lines = f.readlines()
 
                 for i, line in enumerate(lines):
-                    match = re.search("\[\s(\w+)\s]", line)
+                    match = re.search(r"[\s(\w+)\s]", line)
                     if match:
                         key = match.group(1)
                     line = line.lstrip()
@@ -556,7 +556,7 @@ class Parameters:
                 lines = f.readlines()
 
                 for i, line in enumerate(lines):
-                    match = re.search("\[\s(\w+)\s]", line)
+                    match = re.search(r"[\s(\w+)\s]", line)
                     if match:
                         key = match.group(1)
                     if "AMBER-DYES" in line:
@@ -694,11 +694,11 @@ class Parameters:
                     flag = "impropertype"
 
                 if flag == "atomtype":
-                    match = re.search("(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)", line)
+                    match = re.search(r"(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)", line)
                     if match:
                         atomtype_list.append(match.group(1).strip())
                 if flag == "bondtype":
-                    match = re.search("(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)", line)
+                    match = re.search(r"(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)", line)
                     if match:
                         bondtype_list.append(
                             [
@@ -712,7 +712,7 @@ class Parameters:
                         )
                 if flag == "angletype":
                     match = re.search(
-                        "(\w+\*?)\s?-(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)",
+                        r"(\w+\*?)\s?-(\w+\*?)\s?-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)",
                         line,
                     )
                     if match:
@@ -729,7 +729,7 @@ class Parameters:
                         )
                 if flag == "propertype":
                     match = re.search(
-                        "(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)",
+                        r"(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)",
                         line,
                     )
                     if match:
@@ -748,7 +748,7 @@ class Parameters:
                         )
                 if flag == "impropertype":
                     match = re.search(
-                        "(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)",
+                        r"(\w+\s?\*?)-(\w+\s?\*?)-(\w+\s?\*?)-(\w+\*?)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)",
                         line,
                     )
                     if match:
@@ -921,7 +921,7 @@ class Parameters:
                 it = enumerate(lines)
                 for i, line in it:
                     newlines += line
-                    match = re.search("\[\s(\w+)\s]", line)
+                    match = re.search(r"[\s(\w+)\s]", line)
                     if match:
                         newlines += lines[i + 1]
                         next(it)
@@ -988,7 +988,7 @@ class Molecule:
                     atomtype_ln = i + 1
                 if "[ moleculetype ]" in line:
                     moleculetype_ln = i + 1
-                    moleculetype = re.search("\w{3}", lines[i + 2]).group()
+                    moleculetype = re.search(r"\w{3}", lines[i + 2]).group()
                 if "[ atoms ]" in line:
                     atoms_ln = i + 1
                 if "[ bonds ]" in line:
@@ -1005,7 +1005,7 @@ class Molecule:
         atomtypes_molecule = pd.read_csv(
             filename,
             skiprows=atomtype_ln,
-            sep="\s+",
+            sep=r"\s+",
             nrows=moleculetype_ln - atomtype_ln - 3,
             comment=";",
             names=["name", "bond_type", "mass", "charge", "ptype", "sigma", "epsilon"],
@@ -1014,7 +1014,7 @@ class Molecule:
         atoms = pd.read_csv(
             filename,
             skiprows=atoms_ln,
-            sep="\s+",
+            sep=r"\s+",
             nrows=bonds_ln - atoms_ln - 3,
             comment=";",
             names=["nr", "type", "resi", "res", "atom", "cgnr", "charge", "mass"],
@@ -1023,7 +1023,7 @@ class Molecule:
         bonds = pd.read_csv(
             filename,
             skiprows=bonds_ln,
-            sep="\s+",
+            sep=r"\s+",
             nrows=pairs_ln - bonds_ln - 3,
             comment=";",
             names=["i", "j", "funct", "r", "k"],
@@ -1032,7 +1032,7 @@ class Molecule:
         angles = pd.read_csv(
             filename,
             skiprows=angles_ln,
-            sep="\s+",
+            sep=r"\s+",
             nrows=proper_dihedrals_ln - angles_ln - 3,
             comment=";",
             names=["i", "j", "k", "funct", "theta", "cth"],
@@ -1041,7 +1041,7 @@ class Molecule:
         propers = pd.read_csv(
             filename,
             skiprows=proper_dihedrals_ln,
-            sep="\s+",
+            sep=r"\s+",
             nrows=improper_dihedrals_ln - proper_dihedrals_ln - 4,
             comment=";",
             names=["i", "j", "k", "l", "funct", "phase", "kd", "pn"],
@@ -1050,7 +1050,7 @@ class Molecule:
         impropers = pd.read_csv(
             filename,
             skiprows=improper_dihedrals_ln,
-            sep="\s+",
+            sep=r"\s+",
             comment=";",
             names=["i", "j", "k", "l", "funct", "phase", "kd", "pn"],
             na_filter=False,
